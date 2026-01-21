@@ -1,0 +1,204 @@
+2025-11-18 10:57:20,515 [INFO] SJF scheduler loop started (global queue)
+2025-11-18 10:57:20,516 [INFO] CSP sampler loop started
+2025-11-18 10:57:20,516 [INFO] startup complete | log_dir=/home/ubuntu216/sumin/CCGRID/global_scheduler/SJF_log/SJF-20251118-105720
+2025-11-18 11:02:48,704 [INFO] [SJF] T_est=1103.60s (epochs=20, avg_epoch=55.18s, model=ResNet-18, dataset=CIFAR-100, g=4)
+2025-11-18 11:02:48,705 [INFO] [SUBMIT-SJF] job-01ea3466edcc g=4, model=ResNet-18, dataset=CIFAR-100, epochs=20, T_est=1103.60s, batch=128
+2025-11-18 11:02:48,971 [INFO] [START-SJF] job-01ea3466edcc | SJF started_on=clusterA, g=4, nodes=['node_a', 'node_b', 'node_c', 'node_d'], queued_sec=0.3, T_est=1103.60s
+2025-11-18 11:06:05,597 [INFO] [SJF] T_est=1945.60s (epochs=20, avg_epoch=97.28s, model=ResNet-50, dataset=CIFAR-10, g=2)
+2025-11-18 11:06:05,598 [INFO] [SUBMIT-SJF] job-187dfb783d64 g=2, model=ResNet-50, dataset=CIFAR-10, epochs=20, T_est=1945.60s, batch=128
+2025-11-18 11:06:06,215 [INFO] [START-SJF] job-187dfb783d64 | SJF started_on=clusterB, g=2, nodes=['node_e', 'node_f'], queued_sec=0.6, T_est=1945.60s
+2025-11-18 11:08:54,467 [INFO] [DONE] job-01ea3466edcc | finished_at=2025-11-18 11:08:54, cluster=clusterA, exit=0, jct_sec=365.49650835990906, queued_sec=0.2659895420074463
+2025-11-18 11:11:07,013 [INFO] [SJF] T_est=2868.80s (epochs=20, avg_epoch=143.44s, model=DistilBERT, dataset=SST-2, g=2)
+2025-11-18 11:11:07,014 [INFO] [SUBMIT-SJF] job-a8135144994d g=2, model=DistilBERT, dataset=SST-2, epochs=20, T_est=2868.80s, batch=64
+2025-11-18 11:11:07,572 [INFO] [START-SJF] job-a8135144994d | SJF started_on=clusterA, g=2, nodes=['node_a', 'node_b'], queued_sec=0.6, T_est=2868.80s
+2025-11-18 11:14:55,719 [INFO] [SJF] T_est=1060.00s (epochs=20, avg_epoch=53.00s, model=ResNet-18, dataset=CIFAR-100, g=1)
+2025-11-18 11:14:55,719 [INFO] [SUBMIT-SJF] job-eb2563a157a3 g=1, model=ResNet-18, dataset=CIFAR-100, epochs=20, T_est=1060.00s, batch=32
+2025-11-18 11:14:55,837 [INFO] [START-SJF] job-eb2563a157a3 | SJF started_on=clusterA, g=1, nodes=['node_c'], queued_sec=0.1, T_est=1060.00s
+2025-11-18 11:14:56,254 [INFO] [SJF] T_est=5652.00s (epochs=20, avg_epoch=282.60s, model=DenseNet-121, dataset=TinyImageNet, g=2)
+2025-11-18 11:14:56,254 [INFO] [SUBMIT-SJF] job-3fc15cb88b04 g=2, model=DenseNet-121, dataset=TinyImageNet, epochs=20, T_est=5652.00s, batch=64
+2025-11-18 11:14:56,882 [INFO] [START-SJF] job-3fc15cb88b04 | SJF started_on=clusterB, g=2, nodes=['node_g', 'node_h'], queued_sec=0.6, T_est=5652.00s
+2025-11-18 11:20:39,420 [INFO] [SJF] T_est=1932.00s (epochs=20, avg_epoch=96.60s, model=ResNet-50, dataset=CIFAR-10, g=4)
+2025-11-18 11:20:39,420 [INFO] [SUBMIT-SJF] job-f3c770e48290 g=4, model=ResNet-50, dataset=CIFAR-10, epochs=20, T_est=1932.00s, batch=32
+2025-11-18 11:24:16,314 [INFO] [SJF] T_est=4036.20s (epochs=20, avg_epoch=201.81s, model=EfficientNetV2-S, dataset=MNIST, g=2)
+2025-11-18 11:24:16,315 [INFO] [SUBMIT-SJF] job-52bf0a7eff11 g=2, model=EfficientNetV2-S, dataset=MNIST, epochs=20, T_est=4036.20s, batch=64
+2025-11-18 11:25:42,199 [INFO] [SJF] T_est=4072.20s (epochs=20, avg_epoch=203.61s, model=EfficientNetV2-S, dataset=MNIST, g=1)
+2025-11-18 11:25:42,200 [INFO] [SUBMIT-SJF] job-0732de336201 g=1, model=EfficientNetV2-S, dataset=MNIST, epochs=20, T_est=4072.20s, batch=64
+2025-11-18 11:25:42,576 [INFO] [START-SJF] job-0732de336201 | SJF started_on=clusterA, g=1, nodes=['node_d'], queued_sec=0.4, T_est=4072.20s
+2025-11-18 11:27:15,047 [INFO] [SJF] T_est=6158.40s (epochs=20, avg_epoch=307.92s, model=DenseNet-121, dataset=TinyImageNet, g=4)
+2025-11-18 11:27:15,047 [INFO] [SUBMIT-SJF] job-f3a1e56a114a g=4, model=DenseNet-121, dataset=TinyImageNet, epochs=20, T_est=6158.40s, batch=32
+2025-11-18 11:28:57,048 [INFO] [DONE] job-187dfb783d64 | finished_at=2025-11-18 11:28:57, cluster=clusterB, exit=0, jct_sec=1370.8334755897522, queued_sec=0.6169304847717285
+2025-11-18 11:28:57,825 [INFO] [START-SJF] job-52bf0a7eff11 | SJF started_on=clusterB, g=2, nodes=['node_e', 'node_f'], queued_sec=281.5, T_est=4036.20s
+2025-11-18 11:36:44,746 [INFO] [SJF] T_est=2868.80s (epochs=20, avg_epoch=143.44s, model=DistilBERT, dataset=SST-2, g=2)
+2025-11-18 11:36:44,747 [INFO] [SUBMIT-SJF] job-06ebcb69cd02 g=2, model=DistilBERT, dataset=SST-2, epochs=20, T_est=2868.80s, batch=16
+2025-11-18 11:38:17,638 [INFO] [SJF] T_est=2303.80s (epochs=20, avg_epoch=115.19s, model=DistilBERT, dataset=SST-2, g=1)
+2025-11-18 11:38:17,639 [INFO] [SUBMIT-SJF] job-0ee7f7774fc2 g=1, model=DistilBERT, dataset=SST-2, epochs=20, T_est=2303.80s, batch=16
+2025-11-18 11:39:12,365 [INFO] [SJF] T_est=2303.80s (epochs=20, avg_epoch=115.19s, model=DistilBERT, dataset=SST-2, g=1)
+2025-11-18 11:39:12,366 [INFO] [SUBMIT-SJF] job-563bd37e3f8e g=1, model=DistilBERT, dataset=SST-2, epochs=20, T_est=2303.80s, batch=16
+2025-11-18 11:40:57,729 [INFO] [DONE] job-eb2563a157a3 | finished_at=2025-11-18 11:40:57, cluster=clusterA, exit=0, jct_sec=1561.8923163414001, queued_sec=0.11787152290344238
+2025-11-18 11:40:58,618 [INFO] [START-SJF] job-0ee7f7774fc2 | SJF started_on=clusterA, g=1, nodes=['node_c'], queued_sec=161.0, T_est=2303.80s
+2025-11-18 11:49:57,505 [INFO] [SJF] T_est=4036.20s (epochs=20, avg_epoch=201.81s, model=EfficientNetV2-S, dataset=MNIST, g=2)
+2025-11-18 11:49:57,505 [INFO] [SUBMIT-SJF] job-c0606d7f44a7 g=2, model=EfficientNetV2-S, dataset=MNIST, epochs=20, T_est=4036.20s, batch=64
+2025-11-18 11:56:31,648 [INFO] [SJF] T_est=1103.60s (epochs=20, avg_epoch=55.18s, model=ResNet-18, dataset=CIFAR-100, g=4)
+2025-11-18 11:56:31,649 [INFO] [SUBMIT-SJF] job-3f3debf9942f g=4, model=ResNet-18, dataset=CIFAR-100, epochs=20, T_est=1103.60s, batch=32
+2025-11-18 11:59:28,716 [INFO] [SJF] T_est=5652.00s (epochs=20, avg_epoch=282.60s, model=DenseNet-121, dataset=TinyImageNet, g=2)
+2025-11-18 11:59:28,717 [INFO] [SUBMIT-SJF] job-d10b7502d7ee g=2, model=DenseNet-121, dataset=TinyImageNet, epochs=20, T_est=5652.00s, batch=32
+2025-11-18 12:00:11,368 [INFO] [SJF] T_est=4072.20s (epochs=20, avg_epoch=203.61s, model=EfficientNetV2-S, dataset=MNIST, g=1)
+2025-11-18 12:00:11,369 [INFO] [SUBMIT-SJF] job-b8524d374f6c g=1, model=EfficientNetV2-S, dataset=MNIST, epochs=20, T_est=4072.20s, batch=64
+2025-11-18 12:09:46,254 [INFO] [DONE] job-52bf0a7eff11 | finished_at=2025-11-18 12:09:46, cluster=clusterB, exit=0, jct_sec=2448.4298043251038, queued_sec=281.5099787712097
+2025-11-18 12:09:46,531 [INFO] [START-SJF] job-563bd37e3f8e | SJF started_on=clusterB, g=1, nodes=['node_e'], queued_sec=1834.2, T_est=2303.80s
+2025-11-18 12:09:46,553 [INFO] [START-SJF] job-b8524d374f6c | SJF started_on=clusterB, g=1, nodes=['node_f'], queued_sec=575.2, T_est=4072.20s
+2025-11-18 12:09:56,043 [INFO] [DONE] job-3fc15cb88b04 | finished_at=2025-11-18 12:09:56, cluster=clusterB, exit=0, jct_sec=3299.1614701747894, queued_sec=0.6275334358215332
+2025-11-18 12:09:56,604 [INFO] [START-SJF] job-06ebcb69cd02 | SJF started_on=clusterB, g=2, nodes=['node_g', 'node_h'], queued_sec=1991.9, T_est=2868.80s
+2025-11-18 12:12:28,347 [INFO] [SJF] T_est=71.20s (epochs=20, avg_epoch=3.56s, model=DeepSpeech2, dataset=ARCTIC, g=4)
+2025-11-18 12:12:28,348 [INFO] [SUBMIT-SJF] job-2101717cd0fa g=4, model=DeepSpeech2, dataset=ARCTIC, epochs=20, T_est=71.20s, batch=8
+2025-11-18 12:14:06,709 [INFO] [SJF] T_est=5941.80s (epochs=20, avg_epoch=297.09s, model=DenseNet-121, dataset=TinyImageNet, g=1)
+2025-11-18 12:14:06,710 [INFO] [SUBMIT-SJF] job-b3c00a8f928f g=1, model=DenseNet-121, dataset=TinyImageNet, epochs=20, T_est=5941.80s, batch=32
+2025-11-18 12:14:47,459 [INFO] [DONE] job-a8135144994d | finished_at=2025-11-18 12:14:47, cluster=clusterA, exit=0, jct_sec=3819.8875756263733, queued_sec=0.5579104423522949
+2025-11-18 12:14:47,963 [INFO] [START-SJF] job-c0606d7f44a7 | SJF started_on=clusterA, g=2, nodes=['node_a', 'node_b'], queued_sec=1490.5, T_est=4036.20s
+2025-11-18 12:22:19,129 [INFO] [SJF] T_est=4072.20s (epochs=20, avg_epoch=203.61s, model=EfficientNetV2-S, dataset=MNIST, g=1)
+2025-11-18 12:22:19,130 [INFO] [SUBMIT-SJF] job-0c77c10bad10 g=1, model=EfficientNetV2-S, dataset=MNIST, epochs=20, T_est=4072.20s, batch=64
+2025-11-18 12:27:53,635 [INFO] [DONE] job-0732de336201 | finished_at=2025-11-18 12:27:53, cluster=clusterA, exit=0, jct_sec=3731.0594465732574, queued_sec=0.3755810260772705
+2025-11-18 12:27:53,838 [INFO] [START-SJF] job-0c77c10bad10 | SJF started_on=clusterA, g=1, nodes=['node_d'], queued_sec=334.7, T_est=4072.20s
+2025-11-18 12:28:32,203 [INFO] [SJF] T_est=1060.00s (epochs=20, avg_epoch=53.00s, model=ResNet-18, dataset=CIFAR-100, g=1)
+2025-11-18 12:28:32,204 [INFO] [SUBMIT-SJF] job-e2363ad94688 g=1, model=ResNet-18, dataset=CIFAR-100, epochs=20, T_est=1060.00s, batch=64
+2025-11-18 12:50:09,625 [INFO] [SJF] T_est=1832.80s (epochs=20, avg_epoch=91.64s, model=ResNet-50, dataset=CIFAR-10, g=1)
+2025-11-18 12:50:09,625 [INFO] [SUBMIT-SJF] job-0c345af1b09e g=1, model=ResNet-50, dataset=CIFAR-10, epochs=20, T_est=1832.80s, batch=64
+2025-11-18 12:50:58,608 [INFO] [SJF] T_est=64.00s (epochs=20, avg_epoch=3.20s, model=DeepSpeech2, dataset=ARCTIC, g=1)
+2025-11-18 12:50:58,608 [INFO] [SUBMIT-SJF] job-6e1813991580 g=1, model=DeepSpeech2, dataset=ARCTIC, epochs=20, T_est=64.00s, batch=8
+2025-11-18 12:56:40,942 [INFO] [DONE] job-c0606d7f44a7 | finished_at=2025-11-18 12:56:40, cluster=clusterA, exit=0, jct_sec=2512.9797530174255, queued_sec=1490.4573814868927
+2025-11-18 12:56:41,719 [INFO] [START-SJF] job-6e1813991580 | SJF started_on=clusterA, g=1, nodes=['node_a'], queued_sec=343.1, T_est=64.00s
+2025-11-18 12:56:41,738 [INFO] [START-SJF] job-e2363ad94688 | SJF started_on=clusterA, g=1, nodes=['node_b'], queued_sec=1689.5, T_est=1060.00s
+2025-11-18 13:03:00,120 [INFO] [DONE] job-6e1813991580 | finished_at=2025-11-18 13:03:00, cluster=clusterA, exit=0, jct_sec=378.4017286300659, queued_sec=343.1104619503021
+2025-11-18 13:03:00,172 [INFO] [START-SJF] job-0c345af1b09e | SJF started_on=clusterA, g=1, nodes=['node_a'], queued_sec=770.5, T_est=1832.80s
+2025-11-18 13:03:35,492 [INFO] [SJF] T_est=2303.80s (epochs=20, avg_epoch=115.19s, model=DistilBERT, dataset=SST-2, g=1)
+2025-11-18 13:03:35,493 [INFO] [SUBMIT-SJF] job-6f20132c8955 g=1, model=DistilBERT, dataset=SST-2, epochs=20, T_est=2303.80s, batch=32
+2025-11-18 13:04:47,980 [INFO] [SJF] T_est=62.80s (epochs=20, avg_epoch=3.14s, model=DeepSpeech2, dataset=ARCTIC, g=2)
+2025-11-18 13:04:47,981 [INFO] [SUBMIT-SJF] job-0c5a2fdf98f4 g=2, model=DeepSpeech2, dataset=ARCTIC, epochs=20, T_est=62.80s, batch=8
+2025-11-18 13:07:41,446 [INFO] [SJF] T_est=2868.80s (epochs=20, avg_epoch=143.44s, model=DistilBERT, dataset=SST-2, g=2)
+2025-11-18 13:07:41,447 [INFO] [SUBMIT-SJF] job-245fc1004220 g=2, model=DistilBERT, dataset=SST-2, epochs=20, T_est=2868.80s, batch=32
+2025-11-18 13:12:33,684 [INFO] [SJF] T_est=2868.80s (epochs=20, avg_epoch=143.44s, model=DistilBERT, dataset=SST-2, g=2)
+2025-11-18 13:12:33,684 [INFO] [SUBMIT-SJF] job-071657d4ed7d g=2, model=DistilBERT, dataset=SST-2, epochs=20, T_est=2868.80s, batch=16
+2025-11-18 13:13:02,136 [INFO] [DONE] job-e2363ad94688 | finished_at=2025-11-18 13:13:02, cluster=clusterA, exit=0, jct_sec=980.3986184597015, queued_sec=1689.5341894626617
+2025-11-18 13:13:02,840 [INFO] [START-SJF] job-6f20132c8955 | SJF started_on=clusterA, g=1, nodes=['node_b'], queued_sec=567.3, T_est=2303.80s
+2025-11-18 13:14:05,696 [INFO] [SJF] T_est=62.80s (epochs=20, avg_epoch=3.14s, model=DeepSpeech2, dataset=ARCTIC, g=2)
+2025-11-18 13:14:05,697 [INFO] [SUBMIT-SJF] job-4c71cf6b2bec g=2, model=DeepSpeech2, dataset=ARCTIC, epochs=20, T_est=62.80s, batch=16
+2025-11-18 13:24:02,872 [INFO] [SJF] T_est=62.80s (epochs=20, avg_epoch=3.14s, model=DeepSpeech2, dataset=ARCTIC, g=2)
+2025-11-18 13:24:02,873 [INFO] [SUBMIT-SJF] job-ad7fd28cade2 g=2, model=DeepSpeech2, dataset=ARCTIC, epochs=20, T_est=62.80s, batch=32
+2025-11-18 13:25:04,348 [INFO] [DONE] job-b8524d374f6c | finished_at=2025-11-18 13:25:04, cluster=clusterB, exit=0, jct_sec=4517.795807361603, queued_sec=575.1836540699005
+2025-11-18 13:25:04,639 [INFO] [START-SJF] job-b3c00a8f928f | SJF started_on=clusterB, g=1, nodes=['node_f'], queued_sec=4257.9, T_est=5941.80s
+2025-11-18 13:25:04,962 [INFO] [SJF] T_est=2303.80s (epochs=20, avg_epoch=115.19s, model=DistilBERT, dataset=SST-2, g=1)
+2025-11-18 13:25:04,963 [INFO] [SUBMIT-SJF] job-6f886ad5cb37 g=1, model=DistilBERT, dataset=SST-2, epochs=20, T_est=2303.80s, batch=64
+2025-11-18 13:30:02,640 [INFO] [SJF] T_est=2868.80s (epochs=20, avg_epoch=143.44s, model=DistilBERT, dataset=SST-2, g=2)
+2025-11-18 13:30:02,640 [INFO] [SUBMIT-SJF] job-7745644b5aa7 g=2, model=DistilBERT, dataset=SST-2, epochs=20, T_est=2868.80s, batch=64
+2025-11-18 13:30:46,259 [INFO] [DONE] job-0c77c10bad10 | finished_at=2025-11-18 13:30:46, cluster=clusterA, exit=0, jct_sec=3772.4209883213043, queued_sec=334.70830726623535
+2025-11-18 13:30:47,062 [INFO] [START-SJF] job-6f886ad5cb37 | SJF started_on=clusterA, g=1, nodes=['node_d'], queued_sec=342.1, T_est=2303.80s
+2025-11-18 13:41:16,298 [INFO] [DONE] job-0c345af1b09e | finished_at=2025-11-18 13:41:16, cluster=clusterA, exit=0, jct_sec=2296.1268243789673, queued_sec=770.5461091995239
+2025-11-18 13:49:28,033 [INFO] [DONE] job-0ee7f7774fc2 | finished_at=2025-11-18 13:49:28, cluster=clusterA, exit=0, jct_sec=7709.4146020412445, queued_sec=160.97984218597412
+2025-11-18 13:49:28,331 [INFO] [START-SJF] job-0c5a2fdf98f4 | SJF started_on=clusterA, g=2, nodes=['node_a', 'node_c'], queued_sec=2680.4, T_est=62.80s
+2025-11-18 13:53:12,319 [INFO] [SJF] T_est=64.00s (epochs=20, avg_epoch=3.20s, model=DeepSpeech2, dataset=ARCTIC, g=1)
+2025-11-18 13:53:12,319 [INFO] [SUBMIT-SJF] job-fe3e85c93828 g=1, model=DeepSpeech2, dataset=ARCTIC, epochs=20, T_est=64.00s, batch=32
+2025-11-18 13:53:20,702 [INFO] [SJF] T_est=1060.00s (epochs=20, avg_epoch=53.00s, model=ResNet-18, dataset=CIFAR-100, g=1)
+2025-11-18 13:53:20,703 [INFO] [SUBMIT-SJF] job-3d3ff06e5dbe g=1, model=ResNet-18, dataset=CIFAR-100, epochs=20, T_est=1060.00s, batch=128
+2025-11-18 13:55:47,837 [INFO] [DONE] job-563bd37e3f8e | finished_at=2025-11-18 13:55:47, cluster=clusterB, exit=0, jct_sec=6361.306148290634, queued_sec=1834.1654238700867
+2025-11-18 13:55:48,778 [INFO] [START-SJF] job-fe3e85c93828 | SJF started_on=clusterB, g=1, nodes=['node_e'], queued_sec=156.5, T_est=64.00s
+2025-11-18 13:56:38,555 [INFO] [DONE] job-0c5a2fdf98f4 | finished_at=2025-11-18 13:56:38, cluster=clusterA, exit=0, jct_sec=430.2239956855774, queued_sec=2680.350180864334
+2025-11-18 13:56:38,870 [INFO] [START-SJF] job-4c71cf6b2bec | SJF started_on=clusterA, g=2, nodes=['node_a', 'node_c'], queued_sec=2553.2, T_est=62.80s
+2025-11-18 13:57:56,039 [INFO] [DONE] job-fe3e85c93828 | finished_at=2025-11-18 13:57:56, cluster=clusterB, exit=0, jct_sec=127.26147437095642, queued_sec=156.4588279724121
+2025-11-18 13:57:56,980 [INFO] [START-SJF] job-3d3ff06e5dbe | SJF started_on=clusterB, g=1, nodes=['node_e'], queued_sec=276.3, T_est=1060.00s
+2025-11-18 13:59:09,299 [INFO] [DONE] job-6f886ad5cb37 | finished_at=2025-11-18 13:59:09, cluster=clusterA, exit=0, jct_sec=1702.2374167442322, queued_sec=342.09918904304504
+2025-11-18 14:00:46,210 [INFO] [DONE] job-4c71cf6b2bec | finished_at=2025-11-18 14:00:46, cluster=clusterA, exit=0, jct_sec=247.33951592445374, queued_sec=2553.1734580993652
+2025-11-18 14:00:47,203 [INFO] [START-SJF] job-ad7fd28cade2 | SJF started_on=clusterA, g=2, nodes=['node_a', 'node_c'], queued_sec=2204.3, T_est=62.80s
+2025-11-18 14:01:30,300 [INFO] [SJF] T_est=71.20s (epochs=20, avg_epoch=3.56s, model=DeepSpeech2, dataset=ARCTIC, g=4)
+2025-11-18 14:01:30,302 [INFO] [SUBMIT-SJF] job-15203d032dd4 g=4, model=DeepSpeech2, dataset=ARCTIC, epochs=20, T_est=71.20s, batch=16
+2025-11-18 14:03:22,415 [INFO] [DONE] job-ad7fd28cade2 | finished_at=2025-11-18 14:03:22, cluster=clusterA, exit=0, jct_sec=155.21152019500732, queued_sec=2204.3304159641266
+2025-11-18 14:03:23,409 [INFO] [START-SJF] job-245fc1004220 | SJF started_on=clusterA, g=2, nodes=['node_a', 'node_c'], queued_sec=3342.0, T_est=2868.80s
+2025-11-18 14:06:38,003 [INFO] [DONE] job-6f20132c8955 | finished_at=2025-11-18 14:06:38, cluster=clusterA, exit=0, jct_sec=3215.163162946701, queued_sec=567.3475902080536
+2025-11-18 14:06:38,668 [INFO] [START-SJF] job-071657d4ed7d | SJF started_on=clusterA, g=2, nodes=['node_b', 'node_d'], queued_sec=3245.0, T_est=2868.80s
+2025-11-18 14:15:11,052 [INFO] [DONE] job-3d3ff06e5dbe | finished_at=2025-11-18 14:15:11, cluster=clusterB, exit=0, jct_sec=1034.0720164775848, queued_sec=276.2777166366577
+2025-11-18 14:19:08,926 [INFO] [SJF] T_est=2868.80s (epochs=20, avg_epoch=143.44s, model=DistilBERT, dataset=SST-2, g=2)
+2025-11-18 14:19:08,927 [INFO] [SUBMIT-SJF] job-6a05e9dfd13f g=2, model=DistilBERT, dataset=SST-2, epochs=20, T_est=2868.80s, batch=16
+2025-11-18 14:28:12,944 [INFO] [SJF] T_est=5941.80s (epochs=20, avg_epoch=297.09s, model=DenseNet-121, dataset=TinyImageNet, g=1)
+2025-11-18 14:28:12,945 [INFO] [SUBMIT-SJF] job-136c31e1d30e g=1, model=DenseNet-121, dataset=TinyImageNet, epochs=20, T_est=5941.80s, batch=16
+2025-11-18 14:28:13,101 [INFO] [START-SJF] job-136c31e1d30e | SJF started_on=clusterB, g=1, nodes=['node_e'], queued_sec=0.2, T_est=5941.80s
+2025-11-18 14:35:03,969 [INFO] [SJF] T_est=2303.80s (epochs=20, avg_epoch=115.19s, model=DistilBERT, dataset=SST-2, g=1)
+2025-11-18 14:35:03,969 [INFO] [SUBMIT-SJF] job-eaa88324d95e g=1, model=DistilBERT, dataset=SST-2, epochs=20, T_est=2303.80s, batch=32
+2025-11-18 14:40:06,487 [INFO] [SJF] T_est=64.00s (epochs=20, avg_epoch=3.20s, model=DeepSpeech2, dataset=ARCTIC, g=1)
+2025-11-18 14:40:06,488 [INFO] [SUBMIT-SJF] job-28ade0ae2633 g=1, model=DeepSpeech2, dataset=ARCTIC, epochs=20, T_est=64.00s, batch=16
+2025-11-18 14:40:51,238 [INFO] [SJF] T_est=4036.20s (epochs=20, avg_epoch=201.81s, model=EfficientNetV2-S, dataset=MNIST, g=2)
+2025-11-18 14:40:51,238 [INFO] [SUBMIT-SJF] job-2fbf4c67eda2 g=2, model=EfficientNetV2-S, dataset=MNIST, epochs=20, T_est=4036.20s, batch=64
+2025-11-18 14:41:45,048 [INFO] [SJF] T_est=5941.80s (epochs=20, avg_epoch=297.09s, model=DenseNet-121, dataset=TinyImageNet, g=1)
+2025-11-18 14:41:45,049 [INFO] [SUBMIT-SJF] job-474d89386a82 g=1, model=DenseNet-121, dataset=TinyImageNet, epochs=20, T_est=5941.80s, batch=16
+2025-11-18 14:42:17,412 [INFO] [SJF] T_est=6158.40s (epochs=20, avg_epoch=307.92s, model=DenseNet-121, dataset=TinyImageNet, g=4)
+2025-11-18 14:42:17,413 [INFO] [SUBMIT-SJF] job-35c86c0e9ad6 g=4, model=DenseNet-121, dataset=TinyImageNet, epochs=20, T_est=6158.40s, batch=64
+2025-11-18 14:50:29,421 [INFO] [SJF] T_est=1036.00s (epochs=20, avg_epoch=51.80s, model=ResNet-18, dataset=CIFAR-100, g=2)
+2025-11-18 14:50:29,421 [INFO] [SUBMIT-SJF] job-5f0db625988e g=2, model=ResNet-18, dataset=CIFAR-100, epochs=20, T_est=1036.00s, batch=64
+2025-11-18 14:50:38,662 [INFO] [SJF] T_est=4072.20s (epochs=20, avg_epoch=203.61s, model=EfficientNetV2-S, dataset=MNIST, g=1)
+2025-11-18 14:50:38,662 [INFO] [SUBMIT-SJF] job-fa6c5adf5667 g=1, model=EfficientNetV2-S, dataset=MNIST, epochs=20, T_est=4072.20s, batch=64
+2025-11-18 14:55:15,155 [INFO] [SJF] T_est=71.20s (epochs=20, avg_epoch=3.56s, model=DeepSpeech2, dataset=ARCTIC, g=4)
+2025-11-18 14:55:15,156 [INFO] [SUBMIT-SJF] job-1366d4b074d0 g=4, model=DeepSpeech2, dataset=ARCTIC, epochs=20, T_est=71.20s, batch=32
+2025-11-18 14:55:20,134 [INFO] [SJF] T_est=2868.80s (epochs=20, avg_epoch=143.44s, model=DistilBERT, dataset=SST-2, g=2)
+2025-11-18 14:55:20,135 [INFO] [SUBMIT-SJF] job-4257a1fef862 g=2, model=DistilBERT, dataset=SST-2, epochs=20, T_est=2868.80s, batch=64
+2025-11-18 14:55:27,079 [INFO] [SJF] T_est=64.00s (epochs=20, avg_epoch=3.20s, model=DeepSpeech2, dataset=ARCTIC, g=1)
+2025-11-18 14:55:27,080 [INFO] [SUBMIT-SJF] job-4ef8c027ca1a g=1, model=DeepSpeech2, dataset=ARCTIC, epochs=20, T_est=64.00s, batch=32
+2025-11-18 15:02:51,683 [INFO] [SJF] T_est=2868.80s (epochs=20, avg_epoch=143.44s, model=DistilBERT, dataset=SST-2, g=2)
+2025-11-18 15:02:51,684 [INFO] [SUBMIT-SJF] job-c12115814952 g=2, model=DistilBERT, dataset=SST-2, epochs=20, T_est=2868.80s, batch=32
+2025-11-18 15:03:52,599 [INFO] [DONE] job-06ebcb69cd02 | finished_at=2025-11-18 15:03:52, cluster=clusterB, exit=0, jct_sec=10435.995532512665, queued_sec=1991.8567774295807
+2025-11-18 15:03:53,519 [INFO] [START-SJF] job-28ade0ae2633 | SJF started_on=clusterB, g=1, nodes=['node_g'], queued_sec=1427.0, T_est=64.00s
+2025-11-18 15:03:53,543 [INFO] [START-SJF] job-4ef8c027ca1a | SJF started_on=clusterB, g=1, nodes=['node_h'], queued_sec=506.5, T_est=64.00s
+2025-11-18 15:05:59,003 [INFO] [DONE] job-4ef8c027ca1a | finished_at=2025-11-18 15:05:59, cluster=clusterB, exit=0, jct_sec=125.4594943523407, queued_sec=506.4635829925537
+2025-11-18 15:05:59,709 [INFO] [START-SJF] job-eaa88324d95e | SJF started_on=clusterB, g=1, nodes=['node_h'], queued_sec=1855.7, T_est=2303.80s
+2025-11-18 15:06:36,454 [INFO] [DONE] job-28ade0ae2633 | finished_at=2025-11-18 15:06:36, cluster=clusterB, exit=0, jct_sec=162.93576955795288, queued_sec=1427.0305342674255
+2025-11-18 15:06:36,779 [INFO] [START-SJF] job-fa6c5adf5667 | SJF started_on=clusterB, g=1, nodes=['node_g'], queued_sec=958.1, T_est=4072.20s
+2025-11-18 15:18:52,873 [INFO] [SJF] T_est=1945.60s (epochs=20, avg_epoch=97.28s, model=ResNet-50, dataset=CIFAR-10, g=2)
+2025-11-18 15:18:52,874 [INFO] [SUBMIT-SJF] job-b627e3675ad8 g=2, model=ResNet-50, dataset=CIFAR-10, epochs=20, T_est=1945.60s, batch=128
+2025-11-18 15:20:43,991 [INFO] [SJF] T_est=2303.80s (epochs=20, avg_epoch=115.19s, model=DistilBERT, dataset=SST-2, g=1)
+2025-11-18 15:20:43,992 [INFO] [SUBMIT-SJF] job-fdf1c56ab505 g=1, model=DistilBERT, dataset=SST-2, epochs=20, T_est=2303.80s, batch=64
+2025-11-18 15:27:15,188 [INFO] [SJF] T_est=5941.80s (epochs=20, avg_epoch=297.09s, model=DenseNet-121, dataset=TinyImageNet, g=1)
+2025-11-18 15:27:15,189 [INFO] [SUBMIT-SJF] job-6e8c71d2af9d g=1, model=DenseNet-121, dataset=TinyImageNet, epochs=20, T_est=5941.80s, batch=64
+2025-11-18 15:28:01,148 [INFO] [SJF] T_est=2303.80s (epochs=20, avg_epoch=115.19s, model=DistilBERT, dataset=SST-2, g=1)
+2025-11-18 15:28:01,149 [INFO] [SUBMIT-SJF] job-a177680f16c1 g=1, model=DistilBERT, dataset=SST-2, epochs=20, T_est=2303.80s, batch=32
+2025-11-18 15:32:30,771 [INFO] [DONE] job-b3c00a8f928f | finished_at=2025-11-18 15:32:30, cluster=clusterB, exit=0, jct_sec=7646.131769180298, queued_sec=4257.9295246601105
+2025-11-18 15:32:31,581 [INFO] [START-SJF] job-fdf1c56ab505 | SJF started_on=clusterB, g=1, nodes=['node_f'], queued_sec=707.6, T_est=2303.80s
+2025-11-18 15:58:56,862 [INFO] [DONE] job-eaa88324d95e | finished_at=2025-11-18 15:58:56, cluster=clusterB, exit=0, jct_sec=3177.1537873744965, queued_sec=1855.7391822338104
+2025-11-18 15:58:57,399 [INFO] [START-SJF] job-a177680f16c1 | SJF started_on=clusterB, g=1, nodes=['node_h'], queued_sec=1856.2, T_est=2303.80s
+2025-11-18 16:05:51,565 [INFO] [DONE] job-245fc1004220 | finished_at=2025-11-18 16:05:51, cluster=clusterA, exit=0, jct_sec=7348.15607047081, queued_sec=3341.9617104530334
+2025-11-18 16:05:51,915 [INFO] [START-SJF] job-5f0db625988e | SJF started_on=clusterA, g=2, nodes=['node_a', 'node_c'], queued_sec=4522.5, T_est=1036.00s
+2025-11-18 16:08:30,397 [INFO] [DONE] job-fdf1c56ab505 | finished_at=2025-11-18 16:08:30, cluster=clusterB, exit=0, jct_sec=2158.817005634308, queued_sec=707.5888695716858
+2025-11-18 16:08:31,117 [INFO] [START-SJF] job-474d89386a82 | SJF started_on=clusterB, g=1, nodes=['node_f'], queued_sec=5206.1, T_est=5941.80s
+2025-11-18 16:19:38,028 [INFO] [DONE] job-5f0db625988e | finished_at=2025-11-18 16:19:38, cluster=clusterA, exit=0, jct_sec=826.113386631012, queued_sec=4522.493859052658
+2025-11-18 16:19:38,863 [INFO] [START-SJF] job-b627e3675ad8 | SJF started_on=clusterA, g=2, nodes=['node_a', 'node_c'], queued_sec=3646.0, T_est=1945.60s
+2025-11-18 16:20:06,114 [INFO] [DONE] job-fa6c5adf5667 | finished_at=2025-11-18 16:20:06, cluster=clusterB, exit=0, jct_sec=4409.335628032684, queued_sec=958.1165766716003
+2025-11-18 16:20:06,921 [INFO] [START-SJF] job-6e8c71d2af9d | SJF started_on=clusterB, g=1, nodes=['node_g'], queued_sec=3171.7, T_est=5941.80s
+2025-11-18 16:39:48,883 [INFO] [DONE] job-b627e3675ad8 | finished_at=2025-11-18 16:39:48, cluster=clusterA, exit=0, jct_sec=1210.0202281475067, queued_sec=3645.98935008049
+2025-11-18 16:39:49,245 [INFO] [START-SJF] job-7745644b5aa7 | SJF started_on=clusterA, g=2, nodes=['node_a', 'node_c'], queued_sec=11386.6, T_est=2868.80s
+2025-11-18 16:49:26,919 [INFO] [DONE] job-a177680f16c1 | finished_at=2025-11-18 16:49:26, cluster=clusterB, exit=0, jct_sec=3029.52041554451, queued_sec=1856.2494277954102
+2025-11-18 17:47:00,484 [INFO] [DONE] job-7745644b5aa7 | finished_at=2025-11-18 17:47:00, cluster=clusterA, exit=0, jct_sec=4031.239612340927, queued_sec=11386.60446691513
+2025-11-18 17:47:00,771 [INFO] [START-SJF] job-6a05e9dfd13f | SJF started_on=clusterA, g=2, nodes=['node_a', 'node_c'], queued_sec=12471.8, T_est=2868.80s
+2025-11-18 17:50:12,747 [INFO] [DONE] job-136c31e1d30e | finished_at=2025-11-18 17:50:12, cluster=clusterB, exit=0, jct_sec=12119.646691083908, queued_sec=0.1559436321258545
+2025-11-18 17:50:13,042 [INFO] [START-SJF] job-4257a1fef862 | SJF started_on=clusterB, g=2, nodes=['node_e', 'node_h'], queued_sec=10492.9, T_est=2868.80s
+2025-11-18 18:06:16,139 [INFO] [DONE] job-6e8c71d2af9d | finished_at=2025-11-18 18:06:16, cluster=clusterB, exit=0, jct_sec=6369.217751741409, queued_sec=3171.732489347458
+2025-11-18 18:13:50,261 [INFO] [DONE] job-071657d4ed7d | finished_at=2025-11-18 18:13:50, cluster=clusterA, exit=0, jct_sec=14831.59298992157, queued_sec=3244.9840228557587
+2025-11-18 18:13:50,665 [INFO] [START-SJF] job-c12115814952 | SJF started_on=clusterA, g=2, nodes=['node_b', 'node_d'], queued_sec=11459.0, T_est=2868.80s
+2025-11-18 18:51:04,322 [INFO] [DONE] job-4257a1fef862 | finished_at=2025-11-18 18:51:04, cluster=clusterB, exit=0, jct_sec=3651.280773639679, queued_sec=10492.906877279282
+2025-11-18 18:51:10,147 [ERROR] scheduler loop error: HTTPConnectionPool(host='127.0.0.1', port=8000): Read timed out. (read timeout=5)
+2025-11-18 18:51:11,208 [INFO] [START-SJF] job-2fbf4c67eda2 | SJF started_on=clusterB, g=2, nodes=['node_e', 'node_g'], queued_sec=15020.0, T_est=4036.20s
+2025-11-18 19:27:23,699 [INFO] [DONE] job-474d89386a82 | finished_at=2025-11-18 19:27:23, cluster=clusterB, exit=0, jct_sec=11932.582247495651, queued_sec=5206.068001031876
+2025-11-18 19:27:24,686 [INFO] [START-SJF] job-d10b7502d7ee | SJF started_on=clusterB, g=2, nodes=['node_f', 'node_h'], queued_sec=26876.0, T_est=5652.00s
+2025-11-18 19:34:55,538 [INFO] [DONE] job-2fbf4c67eda2 | finished_at=2025-11-18 19:34:55, cluster=clusterB, exit=0, jct_sec=2624.3301055431366, queued_sec=15019.969656705856
+2025-11-18 20:14:17,564 [INFO] [DONE] job-c12115814952 | finished_at=2025-11-18 20:14:17, cluster=clusterA, exit=0, jct_sec=7226.898450613022, queued_sec=11458.981771945953
+2025-11-18 20:41:12,746 [INFO] [DONE] job-d10b7502d7ee | finished_at=2025-11-18 20:41:12, cluster=clusterB, exit=0, jct_sec=4428.059923410416, queued_sec=26875.96967959404
+2025-11-18 20:41:13,736 [INFO] [START-SJF] job-2101717cd0fa | SJF started_on=clusterB, g=4, nodes=['node_e', 'node_f', 'node_g', 'node_h'], queued_sec=30525.4, T_est=71.20s
+2025-11-18 20:46:11,068 [INFO] [DONE] job-2101717cd0fa | finished_at=2025-11-18 20:46:11, cluster=clusterB, exit=0, jct_sec=297.33217692375183, queued_sec=30525.388078451157
+2025-11-18 20:46:11,146 [INFO] [START-SJF] job-15203d032dd4 | SJF started_on=clusterB, g=4, nodes=['node_e', 'node_f', 'node_g', 'node_h'], queued_sec=24280.8, T_est=71.20s
+2025-11-18 20:50:21,842 [INFO] [DONE] job-15203d032dd4 | finished_at=2025-11-18 20:50:21, cluster=clusterB, exit=0, jct_sec=250.69602060317993, queued_sec=24280.84555530548
+2025-11-18 20:50:22,607 [INFO] [START-SJF] job-1366d4b074d0 | SJF started_on=clusterB, g=4, nodes=['node_e', 'node_f', 'node_g', 'node_h'], queued_sec=21307.5, T_est=71.20s
+2025-11-18 20:54:39,412 [INFO] [DONE] job-1366d4b074d0 | finished_at=2025-11-18 20:54:39, cluster=clusterB, exit=0, jct_sec=256.80508399009705, queued_sec=21307.450920581818
+2025-11-18 20:54:39,984 [INFO] [START-SJF] job-3f3debf9942f | SJF started_on=clusterB, g=4, nodes=['node_e', 'node_f', 'node_g', 'node_h'], queued_sec=32288.3, T_est=1103.60s
+2025-11-18 21:07:53,465 [INFO] [DONE] job-3f3debf9942f | finished_at=2025-11-18 21:07:53, cluster=clusterB, exit=0, jct_sec=793.4820787906647, queued_sec=32288.334550380707
+2025-11-18 21:07:54,040 [INFO] [START-SJF] job-f3c770e48290 | SJF started_on=clusterB, g=4, nodes=['node_e', 'node_f', 'node_g', 'node_h'], queued_sec=35234.6, T_est=1932.00s
+2025-11-18 21:31:09,724 [INFO] [DONE] job-f3c770e48290 | finished_at=2025-11-18 21:31:09, cluster=clusterB, exit=0, jct_sec=1395.683390378952, queued_sec=35234.62006211281
+2025-11-18 21:31:11,701 [INFO] [START-SJF] job-f3a1e56a114a | SJF started_on=clusterB, g=4, nodes=['node_e', 'node_f', 'node_g', 'node_h'], queued_sec=36236.7, T_est=6158.40s
+2025-11-18 22:04:27,683 [INFO] [DONE] job-6a05e9dfd13f | finished_at=2025-11-18 22:04:27, cluster=clusterA, exit=0, jct_sec=15446.912626028061, queued_sec=12471.844101190567
+2025-11-18 22:04:28,010 [INFO] [START-SJF] job-35c86c0e9ad6 | SJF started_on=clusterA, g=4, nodes=['node_a', 'node_b', 'node_c', 'node_d'], queued_sec=26530.6, T_est=6158.40s
+2025-11-18 22:12:26,937 [INFO] [DONE] job-f3a1e56a114a | finished_at=2025-11-18 22:12:26, cluster=clusterB, exit=0, jct_sec=2475.236813545227, queued_sec=36236.65326881409
+2025-11-18 22:52:06,795 [INFO] shutdown signal

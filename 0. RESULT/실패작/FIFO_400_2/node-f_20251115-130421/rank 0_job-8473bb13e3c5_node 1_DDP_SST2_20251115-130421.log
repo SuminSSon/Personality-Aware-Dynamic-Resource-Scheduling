@@ -1,0 +1,44 @@
+Current CUDA device index: 0
+Current CUDA device name: NVIDIA RTX A5000
+Master address: 163.180.160.60, port: 29599
+2025-11-15 13:04:42,650 DDP_Script [Rank 0] [INFO] Node rank: 0, world size: 1
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+2025-11-15 13:04:42,657 DDP_Script [Rank 0] [INFO] Process group initialized: 163.180.160.60:29599
+2025-11-15 13:04:42,657 DDP_Script [Rank 0] [INFO] Rank 0/1 initialized
+2025-11-15 13:04:42,657 DDP_Script [Rank 0] [INFO] Rank 0 downloading tokenizer: distilbert-base-uncased
+2025-11-15 13:04:43,866 DDP_Script [Rank 0] [INFO] Rank 0 downloading dataset: glue/sst2
+2025-11-15 13:04:49,838 DDP_Script [Rank 0] [INFO] Tokenizing datasets...
+Map:   0%|          | 0/1821 [00:00<?, ? examples/s]Map:   0%|          | 0/1821 [00:00<?, ? examples/s]Map:   0%|          | 0/1821 [00:00<?, ? examples/s]
+[rank0]: Traceback (most recent call last):
+[rank0]:   File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/site-packages/datasets/arrow_dataset.py", line 3712, in _map_single
+[rank0]:     writer.write_batch(batch, try_original_type=try_original_type)
+[rank0]:   File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/site-packages/datasets/arrow_writer.py", line 701, in write_batch
+[rank0]:     self.write_table(pa_table, writer_batch_size)
+[rank0]:   File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/site-packages/datasets/arrow_writer.py", line 719, in write_table
+[rank0]:     self.pa_writer.write_table(pa_table, writer_batch_size)
+[rank0]:   File "pyarrow/ipc.pxi", line 562, in pyarrow.lib._CRecordBatchWriter.write_table
+[rank0]:   File "pyarrow/error.pxi", line 89, in pyarrow.lib.check_status
+[rank0]:   File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/site-packages/fsspec/implementations/local.py", line 469, in write
+[rank0]:     return self.f.write(*args, **kwargs)
+[rank0]: OSError: [Errno 28] No space left on device
+
+[rank0]: During handling of the above exception, another exception occurred:
+
+[rank0]: Traceback (most recent call last):
+[rank0]:   File "/nas2/data/dlwmznzl1/CCGRID/TrainingCode/DDP_SST2_DistilBert.py", line 616, in <module>
+[rank0]:     main()
+[rank0]:   File "/nas2/data/dlwmznzl1/CCGRID/TrainingCode/DDP_SST2_DistilBert.py", line 180, in main
+[rank0]:     tokenized_datasets = raw_datasets.map(preprocess_function, batched=True)
+[rank0]:   File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/site-packages/datasets/dataset_dict.py", line 953, in map
+[rank0]:     dataset_dict[split] = dataset.map(
+[rank0]:   File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/site-packages/datasets/arrow_dataset.py", line 562, in wrapper
+[rank0]:     out: Union["Dataset", "DatasetDict"] = func(self, *args, **kwargs)
+[rank0]:   File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/site-packages/datasets/arrow_dataset.py", line 3341, in map
+[rank0]:     for rank, done, content in Dataset._map_single(**unprocessed_kwargs):
+[rank0]:   File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/site-packages/datasets/arrow_dataset.py", line 3724, in _map_single
+[rank0]:     writer.finalize()
+[rank0]:   File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/site-packages/datasets/arrow_writer.py", line 736, in finalize
+[rank0]:     self.stream.close()
+[rank0]:   File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/site-packages/fsspec/implementations/local.py", line 487, in close
+[rank0]:     return self.f.close()
+[rank0]: OSError: [Errno 28] No space left on device

@@ -1,0 +1,41 @@
+/data/breath12/anaconda3/envs/Dist1/lib/python3.9/site-packages/torch/cuda/__init__.py:63: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+Current CUDA device index: 0
+Current CUDA device name: NVIDIA RTX A5000
+Master address: 163.180.160.61, port: 29519
+2025-11-15 18:47:29,133 DDP_Script [Rank 1] [INFO] Node rank: 1, world size: 2
+[Gloo] Rank 1 is connected to 1 peer ranks. Expected number of connected peer ranks is : 1
+2025-11-15 18:47:29,144 DDP_Script [Rank 1] [INFO] Process group initialized: 163.180.160.61:29519
+2025-11-15 18:47:29,144 DDP_Script [Rank 1] [INFO] Rank 1/2 initialized
+2025-11-15 18:47:30,170 DDP_Script [Rank 1] [INFO] Rank 1 loading tokenizer from cache: distilbert-base-uncased
+[rank1]: Traceback (most recent call last):
+[rank1]:   File "/data/breath12/CCGRID/TrainingCode/DDP_SST2_DistilBert.py", line 616, in <module>
+[rank1]:     main()
+[rank1]:   File "/data/breath12/CCGRID/TrainingCode/DDP_SST2_DistilBert.py", line 162, in main
+[rank1]:     tokenizer = AutoTokenizer.from_pretrained(args.model_name)
+[rank1]:   File "/data/breath12/anaconda3/envs/Dist1/lib/python3.9/site-packages/transformers/models/auto/tokenization_auto.py", line 1073, in from_pretrained
+[rank1]:     tokenizer_config = get_tokenizer_config(pretrained_model_name_or_path, **kwargs)
+[rank1]:   File "/data/breath12/anaconda3/envs/Dist1/lib/python3.9/site-packages/transformers/models/auto/tokenization_auto.py", line 905, in get_tokenizer_config
+[rank1]:     resolved_config_file = cached_file(
+[rank1]:   File "/data/breath12/anaconda3/envs/Dist1/lib/python3.9/site-packages/transformers/utils/hub.py", line 322, in cached_file
+[rank1]:     file = cached_files(path_or_repo_id=path_or_repo_id, filenames=[filename], **kwargs)
+[rank1]:   File "/data/breath12/anaconda3/envs/Dist1/lib/python3.9/site-packages/transformers/utils/hub.py", line 567, in cached_files
+[rank1]:     raise e
+[rank1]:   File "/data/breath12/anaconda3/envs/Dist1/lib/python3.9/site-packages/transformers/utils/hub.py", line 479, in cached_files
+[rank1]:     hf_hub_download(
+[rank1]:   File "/data/breath12/anaconda3/envs/Dist1/lib/python3.9/site-packages/huggingface_hub/utils/_validators.py", line 114, in _inner_fn
+[rank1]:     return fn(*args, **kwargs)
+[rank1]:   File "/data/breath12/anaconda3/envs/Dist1/lib/python3.9/site-packages/huggingface_hub/file_download.py", line 1007, in hf_hub_download
+[rank1]:     return _hf_hub_download_to_cache_dir(
+[rank1]:   File "/data/breath12/anaconda3/envs/Dist1/lib/python3.9/site-packages/huggingface_hub/file_download.py", line 1124, in _hf_hub_download_to_cache_dir
+[rank1]:     os.makedirs(os.path.dirname(blob_path), exist_ok=True)
+[rank1]:   File "/data/breath12/anaconda3/envs/Dist1/lib/python3.9/os.py", line 215, in makedirs
+[rank1]:     makedirs(head, exist_ok=exist_ok)
+[rank1]:   File "/data/breath12/anaconda3/envs/Dist1/lib/python3.9/os.py", line 215, in makedirs
+[rank1]:     makedirs(head, exist_ok=exist_ok)
+[rank1]:   File "/data/breath12/anaconda3/envs/Dist1/lib/python3.9/os.py", line 215, in makedirs
+[rank1]:     makedirs(head, exist_ok=exist_ok)
+[rank1]:   [Previous line repeated 1 more time]
+[rank1]:   File "/data/breath12/anaconda3/envs/Dist1/lib/python3.9/os.py", line 225, in makedirs
+[rank1]:     mkdir(name, mode)
+[rank1]: OSError: [Errno 28] No space left on device: '/home/breath12/.cache'

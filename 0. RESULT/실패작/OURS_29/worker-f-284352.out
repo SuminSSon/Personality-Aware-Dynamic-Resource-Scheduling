@@ -1,0 +1,479 @@
+2025-12-31 15:01:34,380 [INFO] (WorkerAgent) Worker Agent Starting. Managing GPU 0 on Port 8302
+2025-12-31 15:01:34,380 [INFO] (WorkerAgent) Telemetry thread started for GPU 0 -> http://163.180.117.216:8082
+INFO:     Started server process [852889]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8302 (Press CTRL+C to quit)
+2025-12-31 15:04:42,269 [INFO] (WorkerAgent) [8302] [job-170335782f06] Launch Request received.
+2025-12-31 15:04:42,298 [INFO] (WorkerAgent) [8302] [job-170335782f06] Launched attempt 1 with STOP_FLAG_PATH=/tmp/job-170335782f06-attempt-1.flag, pid=853115
+INFO:     163.180.117.216:58336 - "POST /launch_task HTTP/1.1" 200 OK
+2025-12-31 15:04:50,429 [INFO] (WorkerAgent) [8302] [job-170335782f06 OUT] Current CUDA device index: 0
+2025-12-31 15:04:50,429 [INFO] (WorkerAgent) [8302] [job-170335782f06 OUT] Current CUDA device name: NVIDIA RTX A5000
+2025-12-31 15:04:50,430 [INFO] (WorkerAgent) [8302] [job-170335782f06 OUT] Master address: 163.180.160.62, port: 29501
+2025-12-31 15:04:50,987 [INFO] (WorkerAgent) [8302] [job-170335782f06 OUT] [Gloo] Rank 1 is connected to 1 peer ranks. Expected number of connected peer ranks is : 1
+2025-12-31 16:41:21,085 [INFO] (WorkerAgent) [8302] [job-e729e33238db] Launch Request received.
+2025-12-31 16:41:21,730 [INFO] (WorkerAgent) [8302] [job-e729e33238db] Launched attempt 1 with STOP_FLAG_PATH=/tmp/job-e729e33238db-attempt-1.flag, pid=936469
+INFO:     163.180.117.216:35710 - "POST /launch_task HTTP/1.1" 200 OK
+2025-12-31 16:41:21,955 [ERROR] (WorkerAgent) [8302] [job-170335782f06 ERR] 2025-12-31 15:04:50,429 DDP_Script [Rank 1] [INFO] Node rank: 1, world size: 2
+2025-12-31 16:41:21,956 [ERROR] (WorkerAgent) [8302] [job-170335782f06 ERR] 2025-12-31 15:04:50,988 DDP_Script [Rank 1] [INFO] Process group initialized: 163.180.160.62:29501
+2025-12-31 16:41:21,956 [ERROR] (WorkerAgent) [8302] [job-170335782f06 ERR] 2025-12-31 15:04:50,988 DDP_Script [Rank 1] [INFO] Rank 1/2 initialized
+2025-12-31 16:41:21,956 [ERROR] (WorkerAgent) [8302] [job-170335782f06 ERR] 2025-12-31 15:04:51,753 DDP_Script [Rank 1] [INFO] Rank 1 loading tokenizer from cache: distilbert-base-uncased
+2025-12-31 16:41:21,956 [ERROR] (WorkerAgent) [8302] [job-170335782f06 ERR] 2025-12-31 15:04:56,369 DDP_Script [Rank 1] [INFO] Rank 1 loading dataset from cache: glue/sst2
+2025-12-31 16:41:21,956 [ERROR] (WorkerAgent) [8302] [job-170335782f06 ERR] 2025-12-31 15:05:01,207 DDP_Script [Rank 1] [INFO] Tokenizing datasets...
+2025-12-31 16:41:21,956 [ERROR] (WorkerAgent) [8302] [job-170335782f06 ERR] 2025-12-31 15:05:01,233 DDP_Script [Rank 1] [INFO] SST-2 Dataset and Tokenizer loaded.
+2025-12-31 16:41:21,956 [ERROR] (WorkerAgent) [8302] [job-170335782f06 ERR] 2025-12-31 15:05:01,234 DDP_Script [Rank 1] [INFO] Rank 1 loading model from cache: distilbert-base-uncased
+2025-12-31 16:41:21,956 [ERROR] (WorkerAgent) [8302] [job-170335782f06 ERR] Some weights of DistilBertForSequenceClassification were not initialized from the model checkpoint at distilbert-base-uncased and are newly initialized: ['classifier.bias', 'classifier.weight', 'pre_classifier.bias', 'pre_classifier.weight']
+2025-12-31 16:41:21,956 [ERROR] (WorkerAgent) [8302] [job-170335782f06 ERR] You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2025-12-31 16:41:21,956 [ERROR] (WorkerAgent) [8302] [job-170335782f06 ERR] 2025-12-31 15:05:02,201 DDP_Script [Rank 1] [INFO] Model (DistilBert), DDP, optimizer (AdamW) initialized
+2025-12-31 16:41:21,956 [ERROR] (WorkerAgent) [8302] [job-170335782f06 ERR] 2025-12-31 15:05:02,232 DDP_Script [Rank 1] [INFO] Modules initialized
+2025-12-31 16:41:21,956 [ERROR] (WorkerAgent) [8302] [job-170335782f06 ERR] 2025-12-31 15:05:02,233 DDP_Script [Rank 1] [INFO] Starting training from scratch (epoch 1).
+2025-12-31 16:41:21,956 [ERROR] (WorkerAgent) [8302] [job-170335782f06 ERR] 2025-12-31 15:05:02,234 DDP_Script [Rank 1] [INFO] epoch 1 시작
+2025-12-31 16:41:21,956 [ERROR] (WorkerAgent) [8302] [job-170335782f06 ERR] 2025-12-31 15:05:02,284 DDP_Script [Rank 1] [INFO] DataLoader created with batch_size=32, num_workers=4
+2025-12-31 16:41:21,956 [ERROR] (WorkerAgent) [8302] [job-170335782f06 ERR] 2025-12-31 15:05:02,287 DDP_Script [Rank 1] [INFO] local_steps=1053, global_steps=1053
+2025-12-31 16:41:21,956 [ERROR] (WorkerAgent) [8302] [job-170335782f06 ERR] 2025-12-31 15:09:29,523 DDP_Script [Rank 1] [INFO] epoch 1 train step time: 267.24 seconds
+2025-12-31 16:41:21,956 [ERROR] (WorkerAgent) [8302] [job-170335782f06 ERR] 2025-12-31 15:09:29,527 DDP_Script [Rank 1] [INFO] epoch 1 끝 (local_steps=1053, global_steps=1053)
+2025-12-31 16:41:21,956 [ERROR] (WorkerAgent) [8302] [job-170335782f06 ERR] 2025-12-31 15:09:30,053 DDP_Script [Rank 1] [INFO] val acc 50.92%
+2025-12-31 16:41:21,956 [ERROR] (WorkerAgent) [8302] [job-170335782f06 ERR] 2025-12-31 15:09:30,071 DDP_Script [Rank 1] [INFO] local_alloc: {'shard_pct': 0.5, 'batch_size': 32, 'lr': 0.0010390825688073395, 'num_workers': 6}
+2025-12-31 16:41:21,956 [ERROR] (WorkerAgent) [8302] [job-170335782f06 ERR] 2025-12-31 15:09:32,632 DDP_Script [Rank 1] [INFO] epoch 2 시작
+2025-12-31 16:41:21,956 [ERROR] (WorkerAgent) [8302] [job-170335782f06 ERR] 2025-12-31 15:09:32,655 DDP_Script [Rank 1] [INFO] DataLoader created with batch_size=32, num_workers=6
+2025-12-31 16:41:21,957 [ERROR] (WorkerAgent) [8302] [job-170335782f06 ERR] 2025-12-31 15:09:32,676 DDP_Script [Rank 1] [INFO] local_steps=1053, global_steps=1053
+2025-12-31 16:41:21,957 [ERROR] (WorkerAgent) [8302] [job-170335782f06 ERR] 2025-12-31 15:14:01,542 DDP_Script [Rank 1] [INFO] epoch 2 train step time: 268.86 seconds
+2025-12-31 16:41:21,957 [ERROR] (WorkerAgent) [8302] [job-170335782f06 ERR] 2025-12-31 15:14:01,545 DDP_Script [Rank 1] [INFO] epoch 2 끝 (local_steps=1053, global_steps=1053)
+2025-12-31 16:41:21,957 [ERROR] (WorkerAgent) [8302] [job-170335782f06 ERR] 2025-12-31 15:14:01,988 DDP_Script [Rank 1] [INFO] val acc 50.92%
+2025-12-31 16:41:21,957 [ERROR] (WorkerAgent) [8302] [job-170335782f06 ERR] 2025-12-31 15:14:02,000 DDP_Script [Rank 1] [INFO] local_alloc: {'shard_pct': 0.5, 'batch_size': 32, 'lr': 0.0010390825688073395, 'num_workers': 5}
+2025-12-31 16:41:21,957 [ERROR] (WorkerAgent) [8302] [job-170335782f06 ERR] 2025-12-31 15:14:04,561 DDP_Script [Rank 1] [INFO] epoch 3 시작
+2025-12-31 16:41:21,957 [ERROR] (WorkerAgent) [8302] [job-170335782f06 ERR] 2025-12-31 15:14:04,583 DDP_Script [Rank 1] [INFO] DataLoader created with batch_size=32, num_workers=5
+2025-12-31 16:41:21,957 [ERROR] (WorkerAgent) [8302] [job-170335782f06 ERR] 2025-12-31 15:14:04,593 DDP_Script [Rank 1] [INFO] local_steps=1053, global_steps=1053
+2025-12-31 16:41:21,957 [ERROR] (WorkerAgent) [8302] [job-170335782f06 ERR] 2025-12-31 15:18:43,107 DDP_Script [Rank 1] [INFO] epoch 3 train step time: 278.51 seconds
+2025-12-31 16:41:21,957 [ERROR] (WorkerAgent) [8302] [job-170335782f06 ERR] 2025-12-31 15:18:43,112 DDP_Script [Rank 1] [INFO] epoch 3 끝 (local_steps=1053, global_steps=1053)
+2025-12-31 16:41:21,957 [ERROR] (WorkerAgent) [8302] [job-170335782f06 ERR] 2025-12-31 15:18:43,544 DDP_Script [Rank 1] [INFO] val acc 50.92%
+2025-12-31 16:41:21,957 [ERROR] (WorkerAgent) [8302] [job-170335782f06 ERR] 2025-12-31 15:18:43,557 DDP_Script [Rank 1] [INFO] local_alloc: {'shard_pct': 0.5, 'batch_size': 32, 'lr': 0.0010390825688073395, 'num_workers': 5}
+2025-12-31 16:41:21,957 [ERROR] (WorkerAgent) [8302] [job-170335782f06 ERR] 2025-12-31 15:18:46,117 DDP_Script [Rank 1] [INFO] epoch 4 시작
+2025-12-31 16:41:21,957 [ERROR] (WorkerAgent) [8302] [job-170335782f06 ERR] 2025-12-31 15:18:46,140 DDP_Script [Rank 1] [INFO] DataLoader created with batch_size=32, num_workers=5
+2025-12-31 16:41:21,957 [ERROR] (WorkerAgent) [8302] [job-170335782f06 ERR] 2025-12-31 15:18:46,142 DDP_Script [Rank 1] [INFO] local_steps=1053, global_steps=1053
+2025-12-31 16:41:21,957 [ERROR] (WorkerAgent) [8302] [job-170335782f06 ERR] 2025-12-31 15:23:27,704 DDP_Script [Rank 1] [INFO] epoch 4 train step time: 281.56 seconds
+2025-12-31 16:41:21,957 [ERROR] (WorkerAgent) [8302] [job-170335782f06 ERR] 2025-12-31 15:23:27,706 DDP_Script [Rank 1] [INFO] epoch 4 끝 (local_steps=1053, global_steps=1053)
+2025-12-31 16:41:21,957 [ERROR] (WorkerAgent) [8302] [job-170335782f06 ERR] 2025-12-31 15:23:28,150 DDP_Script [Rank 1] [INFO] val acc 50.92%
+2025-12-31 16:41:21,957 [ERROR] (WorkerAgent) [8302] [job-170335782f06 ERR] 2025-12-31 15:23:28,169 DDP_Script [Rank 1] [INFO] local_alloc: {'shard_pct': 0.5, 'batch_size': 32, 'lr': 0.0010390825688073395, 'num_workers': 6}
+2025-12-31 16:41:21,957 [ERROR] (WorkerAgent) [8302] [job-170335782f06 ERR] 2025-12-31 15:23:30,805 DDP_Script [Rank 1] [INFO] epoch 5 시작
+2025-12-31 16:41:21,957 [ERROR] (WorkerAgent) [8302] [job-170335782f06 ERR] 2025-12-31 15:23:30,826 DDP_Script [Rank 1] [INFO] DataLoader created with batch_size=32, num_workers=6
+2025-12-31 16:41:21,958 [ERROR] (WorkerAgent) [8302] [job-170335782f06 ERR] 2025-12-31 15:23:30,828 DDP_Script [Rank 1] [INFO] local_steps=1053, global_steps=1053
+2025-12-31 16:41:21,958 [ERROR] (WorkerAgent) [8302] [job-170335782f06 ERR] 2025-12-31 15:28:13,852 DDP_Script [Rank 1] [INFO] epoch 5 train step time: 283.02 seconds
+2025-12-31 16:41:21,958 [ERROR] (WorkerAgent) [8302] [job-170335782f06 ERR] 2025-12-31 15:28:13,855 DDP_Script [Rank 1] [INFO] epoch 5 끝 (local_steps=1053, global_steps=1053)
+2025-12-31 16:41:21,958 [ERROR] (WorkerAgent) [8302] [job-170335782f06 ERR] 2025-12-31 15:28:14,285 DDP_Script [Rank 1] [INFO] val acc 50.92%
+2025-12-31 16:41:21,958 [ERROR] (WorkerAgent) [8302] [job-170335782f06 ERR] 2025-12-31 15:28:14,305 DDP_Script [Rank 1] [INFO] local_alloc: {'shard_pct': 0.5, 'batch_size': 32, 'lr': 0.0010390825688073395, 'num_workers': 6}
+2025-12-31 16:41:21,958 [ERROR] (WorkerAgent) [8302] [job-170335782f06 ERR] 2025-12-31 15:28:17,004 DDP_Script [Rank 1] [INFO] epoch 6 시작
+2025-12-31 16:41:21,958 [ERROR] (WorkerAgent) [8302] [job-170335782f06 ERR] 2025-12-31 15:28:17,024 DDP_Script [Rank 1] [INFO] DataLoader created with batch_size=32, num_workers=6
+2025-12-31 16:41:21,958 [ERROR] (WorkerAgent) [8302] [job-170335782f06 ERR] 2025-12-31 15:28:17,029 DDP_Script [Rank 1] [INFO] local_steps=1053, global_steps=1053
+2025-12-31 16:41:21,958 [ERROR] (WorkerAgent) [8302] [job-170335782f06 ERR] 2025-12-31 15:32:54,657 DDP_Script [Rank 1] [INFO] epoch 6 train step time: 277.63 seconds
+2025-12-31 16:41:21,958 [ERROR] (WorkerAgent) [8302] [job-170335782f06 ERR] 2025-12-31 15:32:54,660 DDP_Script [Rank 1] [INFO] epoch 6 끝 (local_steps=1053, global_steps=1053)
+2025-12-31 16:41:21,958 [ERROR] (WorkerAgent) [8302] [job-170335782f06 ERR] 2025-12-31 15:32:55,103 DDP_Script [Rank 1] [INFO] val acc 50.92%
+2025-12-31 16:41:21,958 [ERROR] (WorkerAgent) [8302] [job-170335782f06 ERR] 2025-12-31 15:32:55,122 DDP_Script [Rank 1] [INFO] local_alloc: {'shard_pct': 0.5, 'batch_size': 32, 'lr': 0.0010390825688073395, 'num_workers': 5}
+2025-12-31 16:41:21,958 [ERROR] (WorkerAgent) [8302] [job-170335782f06 ERR] 2025-12-31 15:32:58,115 DDP_Script [Rank 1] [INFO] epoch 7 시작
+2025-12-31 16:41:21,958 [ERROR] (WorkerAgent) [8302] [job-170335782f06 ERR] 2025-12-31 15:32:58,136 DDP_Script [Rank 1] [INFO] DataLoader created with batch_size=32, num_workers=5
+2025-12-31 16:41:21,958 [ERROR] (WorkerAgent) [8302] [job-170335782f06 ERR] 2025-12-31 15:32:58,157 DDP_Script [Rank 1] [INFO] local_steps=1053, global_steps=1053
+2025-12-31 16:41:21,958 [ERROR] (WorkerAgent) [8302] [job-170335782f06 ERR] 2025-12-31 15:37:41,643 DDP_Script [Rank 1] [INFO] epoch 7 train step time: 283.49 seconds
+2025-12-31 16:41:21,958 [ERROR] (WorkerAgent) [8302] [job-170335782f06 ERR] 2025-12-31 15:37:41,646 DDP_Script [Rank 1] [INFO] epoch 7 끝 (local_steps=1053, global_steps=1053)
+2025-12-31 16:41:21,958 [ERROR] (WorkerAgent) [8302] [job-170335782f06 ERR] 2025-12-31 15:37:42,070 DDP_Script [Rank 1] [INFO] val acc 50.92%
+2025-12-31 16:41:21,958 [ERROR] (WorkerAgent) [8302] [job-170335782f06 ERR] 2025-12-31 15:37:42,088 DDP_Script [Rank 1] [INFO] local_alloc: {'shard_pct': 0.5, 'batch_size': 32, 'lr': 0.0010390825688073395, 'num_workers': 6}
+2025-12-31 16:41:21,958 [ERROR] (WorkerAgent) [8302] [job-170335782f06 ERR] 2025-12-31 15:37:44,765 DDP_Script [Rank 1] [INFO] epoch 8 시작
+2025-12-31 16:41:21,958 [ERROR] (WorkerAgent) [8302] [job-170335782f06 ERR] 2025-12-31 15:37:44,785 DDP_Script [Rank 1] [INFO] DataLoader created with batch_size=32, num_workers=6
+2025-12-31 16:41:21,958 [ERROR] (WorkerAgent) [8302] [job-170335782f06 ERR] 2025-12-31 15:37:44,794 DDP_Script [Rank 1] [INFO] local_steps=1053, global_steps=1053
+2025-12-31 16:41:21,958 [ERROR] (WorkerAgent) [8302] [job-170335782f06 ERR] 2025-12-31 15:42:24,256 DDP_Script [Rank 1] [INFO] epoch 8 train step time: 279.46 seconds
+2025-12-31 16:41:21,958 [ERROR] (WorkerAgent) [8302] [job-170335782f06 ERR] 2025-12-31 15:42:24,259 DDP_Script [Rank 1] [INFO] epoch 8 끝 (local_steps=1053, global_steps=1053)
+2025-12-31 16:41:21,959 [ERROR] (WorkerAgent) [8302] [job-170335782f06 ERR] 2025-12-31 15:42:24,705 DDP_Script [Rank 1] [INFO] val acc 50.92%
+2025-12-31 16:41:21,959 [ERROR] (WorkerAgent) [8302] [job-170335782f06 ERR] 2025-12-31 15:42:24,724 DDP_Script [Rank 1] [INFO] local_alloc: {'shard_pct': 0.5, 'batch_size': 32, 'lr': 0.0010390825688073395, 'num_workers': 7}
+2025-12-31 16:41:21,959 [ERROR] (WorkerAgent) [8302] [job-170335782f06 ERR] 2025-12-31 15:42:28,520 DDP_Script [Rank 1] [INFO] epoch 9 시작
+2025-12-31 16:41:21,959 [ERROR] (WorkerAgent) [8302] [job-170335782f06 ERR] 2025-12-31 15:42:28,541 DDP_Script [Rank 1] [INFO] DataLoader created with batch_size=32, num_workers=7
+2025-12-31 16:41:21,959 [ERROR] (WorkerAgent) [8302] [job-170335782f06 ERR] 2025-12-31 15:42:28,543 DDP_Script [Rank 1] [INFO] local_steps=1053, global_steps=1053
+2025-12-31 16:41:21,959 [ERROR] (WorkerAgent) [8302] [job-170335782f06 ERR] 2025-12-31 15:47:11,739 DDP_Script [Rank 1] [INFO] epoch 9 train step time: 283.20 seconds
+2025-12-31 16:41:21,959 [ERROR] (WorkerAgent) [8302] [job-170335782f06 ERR] 2025-12-31 15:47:11,741 DDP_Script [Rank 1] [INFO] epoch 9 끝 (local_steps=1053, global_steps=1053)
+2025-12-31 16:41:21,959 [ERROR] (WorkerAgent) [8302] [job-170335782f06 ERR] 2025-12-31 15:47:12,196 DDP_Script [Rank 1] [INFO] val acc 50.92%
+2025-12-31 16:41:21,959 [ERROR] (WorkerAgent) [8302] [job-170335782f06 ERR] 2025-12-31 15:47:12,215 DDP_Script [Rank 1] [INFO] local_alloc: {'shard_pct': 0.5, 'batch_size': 32, 'lr': 0.0010390825688073395, 'num_workers': 5}
+2025-12-31 16:41:21,959 [ERROR] (WorkerAgent) [8302] [job-170335782f06 ERR] 2025-12-31 15:47:15,125 DDP_Script [Rank 1] [INFO] epoch 10 시작
+2025-12-31 16:41:21,959 [ERROR] (WorkerAgent) [8302] [job-170335782f06 ERR] 2025-12-31 15:47:15,147 DDP_Script [Rank 1] [INFO] DataLoader created with batch_size=32, num_workers=5
+2025-12-31 16:41:21,959 [ERROR] (WorkerAgent) [8302] [job-170335782f06 ERR] 2025-12-31 15:47:15,149 DDP_Script [Rank 1] [INFO] local_steps=1053, global_steps=1053
+2025-12-31 16:41:21,959 [ERROR] (WorkerAgent) [8302] [job-170335782f06 ERR] 2025-12-31 15:51:58,193 DDP_Script [Rank 1] [INFO] epoch 10 train step time: 283.04 seconds
+2025-12-31 16:41:21,959 [ERROR] (WorkerAgent) [8302] [job-170335782f06 ERR] 2025-12-31 15:51:58,199 DDP_Script [Rank 1] [INFO] epoch 10 끝 (local_steps=1053, global_steps=1053)
+2025-12-31 16:41:21,959 [ERROR] (WorkerAgent) [8302] [job-170335782f06 ERR] 2025-12-31 15:51:58,642 DDP_Script [Rank 1] [INFO] val acc 50.92%
+2025-12-31 16:41:21,959 [ERROR] (WorkerAgent) [8302] [job-170335782f06 ERR] 2025-12-31 15:51:58,661 DDP_Script [Rank 1] [INFO] local_alloc: {'shard_pct': 0.5, 'batch_size': 32, 'lr': 0.0010390825688073395, 'num_workers': 6}
+2025-12-31 16:41:21,959 [ERROR] (WorkerAgent) [8302] [job-170335782f06 ERR] 2025-12-31 15:52:01,264 DDP_Script [Rank 1] [INFO] epoch 11 시작
+2025-12-31 16:41:21,959 [ERROR] (WorkerAgent) [8302] [job-170335782f06 ERR] 2025-12-31 15:52:01,285 DDP_Script [Rank 1] [INFO] DataLoader created with batch_size=32, num_workers=6
+2025-12-31 16:41:21,959 [ERROR] (WorkerAgent) [8302] [job-170335782f06 ERR] 2025-12-31 15:52:01,289 DDP_Script [Rank 1] [INFO] local_steps=1053, global_steps=1053
+2025-12-31 16:41:21,959 [ERROR] (WorkerAgent) [8302] [job-170335782f06 ERR] 2025-12-31 15:56:44,740 DDP_Script [Rank 1] [INFO] epoch 11 train step time: 283.45 seconds
+2025-12-31 16:41:21,959 [ERROR] (WorkerAgent) [8302] [job-170335782f06 ERR] 2025-12-31 15:56:44,761 DDP_Script [Rank 1] [INFO] epoch 11 끝 (local_steps=1053, global_steps=1053)
+2025-12-31 16:41:21,959 [ERROR] (WorkerAgent) [8302] [job-170335782f06 ERR] 2025-12-31 15:56:45,189 DDP_Script [Rank 1] [INFO] val acc 50.92%
+2025-12-31 16:41:21,960 [ERROR] (WorkerAgent) [8302] [job-170335782f06 ERR] 2025-12-31 15:56:45,210 DDP_Script [Rank 1] [INFO] local_alloc: {'shard_pct': 0.5, 'batch_size': 32, 'lr': 0.0010390825688073395, 'num_workers': 6}
+2025-12-31 16:41:21,960 [ERROR] (WorkerAgent) [8302] [job-170335782f06 ERR] 2025-12-31 15:56:47,769 DDP_Script [Rank 1] [INFO] epoch 12 시작
+2025-12-31 16:41:21,960 [ERROR] (WorkerAgent) [8302] [job-170335782f06 ERR] 2025-12-31 15:56:47,790 DDP_Script [Rank 1] [INFO] DataLoader created with batch_size=32, num_workers=6
+2025-12-31 16:41:21,960 [ERROR] (WorkerAgent) [8302] [job-170335782f06 ERR] 2025-12-31 15:56:47,809 DDP_Script [Rank 1] [INFO] local_steps=1053, global_steps=1053
+2025-12-31 16:41:21,960 [ERROR] (WorkerAgent) [8302] [job-170335782f06 ERR] 2025-12-31 16:01:30,561 DDP_Script [Rank 1] [INFO] epoch 12 train step time: 282.75 seconds
+2025-12-31 16:41:21,960 [ERROR] (WorkerAgent) [8302] [job-170335782f06 ERR] 2025-12-31 16:01:30,569 DDP_Script [Rank 1] [INFO] epoch 12 끝 (local_steps=1053, global_steps=1053)
+2025-12-31 16:41:21,960 [ERROR] (WorkerAgent) [8302] [job-170335782f06 ERR] 2025-12-31 16:01:31,021 DDP_Script [Rank 1] [INFO] val acc 50.92%
+2025-12-31 16:41:21,960 [ERROR] (WorkerAgent) [8302] [job-170335782f06 ERR] 2025-12-31 16:01:31,035 DDP_Script [Rank 1] [INFO] local_alloc: {'shard_pct': 0.5, 'batch_size': 32, 'lr': 0.0010390825688073395, 'num_workers': 7}
+2025-12-31 16:41:21,960 [ERROR] (WorkerAgent) [8302] [job-170335782f06 ERR] 2025-12-31 16:01:35,764 DDP_Script [Rank 1] [INFO] epoch 13 시작
+2025-12-31 16:41:21,960 [ERROR] (WorkerAgent) [8302] [job-170335782f06 ERR] 2025-12-31 16:01:35,790 DDP_Script [Rank 1] [INFO] DataLoader created with batch_size=32, num_workers=7
+2025-12-31 16:41:21,960 [ERROR] (WorkerAgent) [8302] [job-170335782f06 ERR] 2025-12-31 16:01:35,792 DDP_Script [Rank 1] [INFO] local_steps=1053, global_steps=1053
+2025-12-31 16:41:21,960 [ERROR] (WorkerAgent) [8302] [job-170335782f06 ERR] 2025-12-31 16:06:15,411 DDP_Script [Rank 1] [INFO] epoch 13 train step time: 279.62 seconds
+2025-12-31 16:41:21,960 [ERROR] (WorkerAgent) [8302] [job-170335782f06 ERR] 2025-12-31 16:06:15,417 DDP_Script [Rank 1] [INFO] epoch 13 끝 (local_steps=1053, global_steps=1053)
+2025-12-31 16:41:21,960 [ERROR] (WorkerAgent) [8302] [job-170335782f06 ERR] 2025-12-31 16:06:15,906 DDP_Script [Rank 1] [INFO] val acc 50.92%
+2025-12-31 16:41:21,960 [ERROR] (WorkerAgent) [8302] [job-170335782f06 ERR] 2025-12-31 16:06:15,925 DDP_Script [Rank 1] [INFO] local_alloc: {'shard_pct': 0.5, 'batch_size': 32, 'lr': 0.0010390825688073395, 'num_workers': 6}
+2025-12-31 16:41:21,960 [ERROR] (WorkerAgent) [8302] [job-170335782f06 ERR] 2025-12-31 16:06:19,011 DDP_Script [Rank 1] [INFO] epoch 14 시작
+2025-12-31 16:41:21,960 [ERROR] (WorkerAgent) [8302] [job-170335782f06 ERR] 2025-12-31 16:06:19,032 DDP_Script [Rank 1] [INFO] DataLoader created with batch_size=32, num_workers=6
+2025-12-31 16:41:21,960 [ERROR] (WorkerAgent) [8302] [job-170335782f06 ERR] 2025-12-31 16:06:19,034 DDP_Script [Rank 1] [INFO] local_steps=1053, global_steps=1053
+2025-12-31 16:41:21,960 [ERROR] (WorkerAgent) [8302] [job-170335782f06 ERR] 2025-12-31 16:10:58,613 DDP_Script [Rank 1] [INFO] epoch 14 train step time: 279.58 seconds
+2025-12-31 16:41:21,960 [ERROR] (WorkerAgent) [8302] [job-170335782f06 ERR] 2025-12-31 16:10:58,615 DDP_Script [Rank 1] [INFO] epoch 14 끝 (local_steps=1053, global_steps=1053)
+2025-12-31 16:41:21,960 [ERROR] (WorkerAgent) [8302] [job-170335782f06 ERR] 2025-12-31 16:10:59,091 DDP_Script [Rank 1] [INFO] val acc 50.92%
+2025-12-31 16:41:21,960 [ERROR] (WorkerAgent) [8302] [job-170335782f06 ERR] 2025-12-31 16:10:59,105 DDP_Script [Rank 1] [INFO] local_alloc: {'shard_pct': 0.5, 'batch_size': 32, 'lr': 0.0010390825688073395, 'num_workers': 6}
+2025-12-31 16:41:21,960 [ERROR] (WorkerAgent) [8302] [job-170335782f06 ERR] 2025-12-31 16:11:01,558 DDP_Script [Rank 1] [INFO] epoch 15 시작
+2025-12-31 16:41:21,961 [ERROR] (WorkerAgent) [8302] [job-170335782f06 ERR] 2025-12-31 16:11:01,588 DDP_Script [Rank 1] [INFO] DataLoader created with batch_size=32, num_workers=6
+2025-12-31 16:41:21,961 [ERROR] (WorkerAgent) [8302] [job-170335782f06 ERR] 2025-12-31 16:11:01,589 DDP_Script [Rank 1] [INFO] local_steps=1053, global_steps=1053
+2025-12-31 16:41:21,961 [ERROR] (WorkerAgent) [8302] [job-170335782f06 ERR] 2025-12-31 16:15:48,475 DDP_Script [Rank 1] [INFO] epoch 15 train step time: 286.89 seconds
+2025-12-31 16:41:21,961 [ERROR] (WorkerAgent) [8302] [job-170335782f06 ERR] 2025-12-31 16:15:48,478 DDP_Script [Rank 1] [INFO] epoch 15 끝 (local_steps=1053, global_steps=1053)
+2025-12-31 16:41:21,961 [ERROR] (WorkerAgent) [8302] [job-170335782f06 ERR] 2025-12-31 16:15:48,950 DDP_Script [Rank 1] [INFO] val acc 50.92%
+2025-12-31 16:41:21,961 [ERROR] (WorkerAgent) [8302] [job-170335782f06 ERR] 2025-12-31 16:15:48,962 DDP_Script [Rank 1] [INFO] local_alloc: {'shard_pct': 0.5, 'batch_size': 32, 'lr': 0.0010390825688073395, 'num_workers': 5}
+2025-12-31 16:41:21,961 [ERROR] (WorkerAgent) [8302] [job-170335782f06 ERR] 2025-12-31 16:15:51,727 DDP_Script [Rank 1] [INFO] epoch 16 시작
+2025-12-31 16:41:21,961 [ERROR] (WorkerAgent) [8302] [job-170335782f06 ERR] 2025-12-31 16:15:51,762 DDP_Script [Rank 1] [INFO] DataLoader created with batch_size=32, num_workers=5
+2025-12-31 16:41:21,961 [ERROR] (WorkerAgent) [8302] [job-170335782f06 ERR] 2025-12-31 16:15:51,765 DDP_Script [Rank 1] [INFO] local_steps=1053, global_steps=1053
+2025-12-31 16:41:21,961 [ERROR] (WorkerAgent) [8302] [job-170335782f06 ERR] 2025-12-31 16:21:02,215 DDP_Script [Rank 1] [INFO] epoch 16 train step time: 310.45 seconds
+2025-12-31 16:41:21,961 [ERROR] (WorkerAgent) [8302] [job-170335782f06 ERR] 2025-12-31 16:21:02,217 DDP_Script [Rank 1] [INFO] epoch 16 끝 (local_steps=1053, global_steps=1053)
+2025-12-31 16:41:21,961 [ERROR] (WorkerAgent) [8302] [job-170335782f06 ERR] 2025-12-31 16:21:02,679 DDP_Script [Rank 1] [INFO] val acc 50.92%
+2025-12-31 16:41:21,961 [ERROR] (WorkerAgent) [8302] [job-170335782f06 ERR] 2025-12-31 16:21:02,699 DDP_Script [Rank 1] [INFO] local_alloc: {'shard_pct': 0.5, 'batch_size': 32, 'lr': 0.0010390825688073395, 'num_workers': 6}
+2025-12-31 16:41:21,961 [ERROR] (WorkerAgent) [8302] [job-170335782f06 ERR] 2025-12-31 16:21:05,513 DDP_Script [Rank 1] [INFO] epoch 17 시작
+2025-12-31 16:41:21,961 [ERROR] (WorkerAgent) [8302] [job-170335782f06 ERR] 2025-12-31 16:21:05,549 DDP_Script [Rank 1] [INFO] DataLoader created with batch_size=32, num_workers=6
+2025-12-31 16:41:21,961 [ERROR] (WorkerAgent) [8302] [job-170335782f06 ERR] 2025-12-31 16:21:05,550 DDP_Script [Rank 1] [INFO] local_steps=1053, global_steps=1053
+2025-12-31 16:41:21,961 [ERROR] (WorkerAgent) [8302] [job-170335782f06 ERR] 2025-12-31 16:26:16,919 DDP_Script [Rank 1] [INFO] epoch 17 train step time: 311.37 seconds
+2025-12-31 16:41:21,961 [ERROR] (WorkerAgent) [8302] [job-170335782f06 ERR] 2025-12-31 16:26:16,921 DDP_Script [Rank 1] [INFO] epoch 17 끝 (local_steps=1053, global_steps=1053)
+2025-12-31 16:41:21,961 [ERROR] (WorkerAgent) [8302] [job-170335782f06 ERR] 2025-12-31 16:26:17,363 DDP_Script [Rank 1] [INFO] val acc 50.92%
+2025-12-31 16:41:21,961 [ERROR] (WorkerAgent) [8302] [job-170335782f06 ERR] 2025-12-31 16:26:17,383 DDP_Script [Rank 1] [INFO] local_alloc: {'shard_pct': 0.5, 'batch_size': 32, 'lr': 0.0010390825688073395, 'num_workers': 6}
+2025-12-31 16:41:21,961 [ERROR] (WorkerAgent) [8302] [job-170335782f06 ERR] 2025-12-31 16:26:20,626 DDP_Script [Rank 1] [INFO] epoch 18 시작
+2025-12-31 16:41:21,961 [ERROR] (WorkerAgent) [8302] [job-170335782f06 ERR] 2025-12-31 16:26:20,659 DDP_Script [Rank 1] [INFO] DataLoader created with batch_size=32, num_workers=6
+2025-12-31 16:41:21,961 [ERROR] (WorkerAgent) [8302] [job-170335782f06 ERR] 2025-12-31 16:26:20,661 DDP_Script [Rank 1] [INFO] local_steps=1053, global_steps=1053
+2025-12-31 16:41:21,962 [ERROR] (WorkerAgent) [8302] [job-170335782f06 ERR] 2025-12-31 16:31:23,462 DDP_Script [Rank 1] [INFO] epoch 18 train step time: 302.80 seconds
+2025-12-31 16:41:21,962 [ERROR] (WorkerAgent) [8302] [job-170335782f06 ERR] 2025-12-31 16:31:23,488 DDP_Script [Rank 1] [INFO] epoch 18 끝 (local_steps=1053, global_steps=1053)
+2025-12-31 16:41:21,962 [ERROR] (WorkerAgent) [8302] [job-170335782f06 ERR] 2025-12-31 16:31:23,973 DDP_Script [Rank 1] [INFO] val acc 50.92%
+2025-12-31 16:41:21,962 [ERROR] (WorkerAgent) [8302] [job-170335782f06 ERR] 2025-12-31 16:31:23,993 DDP_Script [Rank 1] [INFO] local_alloc: {'shard_pct': 0.5, 'batch_size': 32, 'lr': 0.0010390825688073395, 'num_workers': 6}
+2025-12-31 16:41:21,962 [ERROR] (WorkerAgent) [8302] [job-170335782f06 ERR] 2025-12-31 16:31:27,750 DDP_Script [Rank 1] [INFO] epoch 19 시작
+2025-12-31 16:41:21,962 [ERROR] (WorkerAgent) [8302] [job-170335782f06 ERR] 2025-12-31 16:31:27,771 DDP_Script [Rank 1] [INFO] DataLoader created with batch_size=32, num_workers=6
+2025-12-31 16:41:21,962 [ERROR] (WorkerAgent) [8302] [job-170335782f06 ERR] 2025-12-31 16:31:27,779 DDP_Script [Rank 1] [INFO] local_steps=1053, global_steps=1053
+2025-12-31 16:41:21,962 [ERROR] (WorkerAgent) [8302] [job-170335782f06 ERR] 2025-12-31 16:36:20,189 DDP_Script [Rank 1] [INFO] epoch 19 train step time: 292.41 seconds
+2025-12-31 16:41:21,962 [ERROR] (WorkerAgent) [8302] [job-170335782f06 ERR] 2025-12-31 16:36:20,191 DDP_Script [Rank 1] [INFO] epoch 19 끝 (local_steps=1053, global_steps=1053)
+2025-12-31 16:41:21,962 [ERROR] (WorkerAgent) [8302] [job-170335782f06 ERR] 2025-12-31 16:36:20,655 DDP_Script [Rank 1] [INFO] val acc 50.92%
+2025-12-31 16:41:21,962 [ERROR] (WorkerAgent) [8302] [job-170335782f06 ERR] 2025-12-31 16:36:20,712 DDP_Script [Rank 1] [INFO] local_alloc: {'shard_pct': 0.5, 'batch_size': 32, 'lr': 0.0010390825688073395, 'num_workers': 6}
+2025-12-31 16:41:21,962 [ERROR] (WorkerAgent) [8302] [job-170335782f06 ERR] 2025-12-31 16:36:24,177 DDP_Script [Rank 1] [INFO] epoch 20 시작
+2025-12-31 16:41:21,962 [ERROR] (WorkerAgent) [8302] [job-170335782f06 ERR] 2025-12-31 16:36:24,213 DDP_Script [Rank 1] [INFO] DataLoader created with batch_size=32, num_workers=6
+2025-12-31 16:41:21,962 [ERROR] (WorkerAgent) [8302] [job-170335782f06 ERR] 2025-12-31 16:36:24,215 DDP_Script [Rank 1] [INFO] local_steps=1053, global_steps=1053
+2025-12-31 16:41:21,962 [ERROR] (WorkerAgent) [8302] [job-170335782f06 ERR] 2025-12-31 16:41:13,550 DDP_Script [Rank 1] [INFO] epoch 20 train step time: 289.33 seconds
+2025-12-31 16:41:21,962 [ERROR] (WorkerAgent) [8302] [job-170335782f06 ERR] 2025-12-31 16:41:13,552 DDP_Script [Rank 1] [INFO] epoch 20 끝 (local_steps=1053, global_steps=1053)
+2025-12-31 16:41:21,962 [ERROR] (WorkerAgent) [8302] [job-170335782f06 ERR] 2025-12-31 16:41:13,987 DDP_Script [Rank 1] [INFO] val acc 50.92%
+2025-12-31 16:41:21,962 [ERROR] (WorkerAgent) [8302] [job-170335782f06 ERR] 2025-12-31 16:41:14,004 DDP_Script [Rank 1] [INFO] local_alloc: {'shard_pct': 0.5, 'batch_size': 32, 'lr': 0.0010390825688073395, 'num_workers': 6}
+2025-12-31 16:41:21,962 [ERROR] (WorkerAgent) [8302] [job-170335782f06 ERR] 2025-12-31 16:41:18,546 DDP_Script [Rank 1] [INFO] Training loop finished.
+2025-12-31 16:41:22,138 [INFO] (WorkerAgent) [8302] [job-170335782f06] Process finished. Return Code: 0
+2025-12-31 16:41:43,608 [INFO] (WorkerAgent) [8302] [job-e729e33238db OUT] Current CUDA device index: 0
+2025-12-31 16:41:43,608 [INFO] (WorkerAgent) [8302] [job-e729e33238db OUT] Current CUDA device name: NVIDIA RTX A5000
+2025-12-31 16:41:43,608 [INFO] (WorkerAgent) [8302] [job-e729e33238db OUT] Master address: 163.180.160.62, port: 29513
+2025-12-31 16:41:43,615 [INFO] (WorkerAgent) [8302] [job-e729e33238db OUT] [Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+2025-12-31 18:02:49,451 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 16:41:43,608 DDP_Script [Rank 0] [INFO] Node rank: 0, world size: 1
+2025-12-31 18:02:49,452 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 16:41:43,615 DDP_Script [Rank 0] [INFO] Process group initialized: 163.180.160.62:29513
+2025-12-31 18:02:49,452 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 16:41:43,615 DDP_Script [Rank 0] [INFO] Rank 0/1 initialized
+2025-12-31 18:02:49,452 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 16:41:43,615 DDP_Script [Rank 0] [INFO] Rank 0 downloading tokenizer: distilbert-base-uncased
+2025-12-31 18:02:49,452 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 16:41:44,356 DDP_Script [Rank 0] [INFO] Rank 0 downloading dataset: glue/sst2
+2025-12-31 18:02:49,452 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 16:41:48,916 DDP_Script [Rank 0] [INFO] Tokenizing datasets...
+2025-12-31 18:02:49,452 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 16:41:48,958 DDP_Script [Rank 0] [INFO] SST-2 Dataset and Tokenizer loaded.
+2025-12-31 18:02:49,452 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 16:41:48,958 DDP_Script [Rank 0] [INFO] Rank 0 downloading model: distilbert-base-uncased
+2025-12-31 18:02:49,452 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] Some weights of DistilBertForSequenceClassification were not initialized from the model checkpoint at distilbert-base-uncased and are newly initialized: ['classifier.bias', 'classifier.weight', 'pre_classifier.bias', 'pre_classifier.weight']
+2025-12-31 18:02:49,452 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2025-12-31 18:02:49,452 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 16:41:50,139 DDP_Script [Rank 0] [INFO] Model (DistilBert), DDP, optimizer (AdamW) initialized
+2025-12-31 18:02:49,452 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 16:41:50,175 DDP_Script [Rank 0] [INFO] Modules initialized
+2025-12-31 18:02:49,452 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 16:41:50,177 DDP_Script [Rank 0] [INFO] Checkpoint directory created: ./checkpoints/job-e729e33238db
+2025-12-31 18:02:49,452 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 16:41:50,177 DDP_Script [Rank 0] [INFO] Starting training from scratch (epoch 1).
+2025-12-31 18:02:49,452 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 16:41:50,178 DDP_Script [Rank 0] [INFO] epoch 1 시작
+2025-12-31 18:02:49,453 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 16:41:50,212 DDP_Script [Rank 0] [INFO] DataLoader created with batch_size=32, num_workers=4
+2025-12-31 18:02:49,453 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 16:41:50,214 DDP_Script [Rank 0] [INFO] 모든 노드 중 max_steps = 2105
+2025-12-31 18:02:49,453 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 16:41:50,214 DDP_Script [Rank 0] [INFO] local_steps=2105, global_steps=2105
+2025-12-31 18:02:49,453 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 16:46:03,548 DDP_Script [Rank 0] [INFO] epoch 1 train step time: 253.33 seconds
+2025-12-31 18:02:49,453 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 16:46:03,549 DDP_Script [Rank 0] [INFO] epoch 1 끝 (local_steps=2105, global_steps=2105)
+2025-12-31 18:02:49,453 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 16:46:03,792 httpx [INFO] HTTP Request: POST http://163.180.117.216:8000/report_job_metrics "HTTP/1.1 200 OK"
+2025-12-31 18:02:49,453 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 16:46:03,824 httpx [INFO] HTTP Request: POST http://163.180.117.216:8000/report_progress "HTTP/1.1 200 OK"
+2025-12-31 18:02:49,453 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 16:46:04,407 DDP_Script [Rank 0] [INFO] val acc 50.92%
+2025-12-31 18:02:49,453 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 16:46:05,313 DDP_Script [Rank 0] [INFO] CKF x_filt vector: [array([0.00398173]), array([-0.02626599]), array([0.00268821]), array([-0.01128476]), array([0.02123434]), array([0.00677632]), array([0.01383539]), array([-0.00552088])]
+2025-12-31 18:02:49,453 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 16:46:05,313 DDP_Script [Rank 0] [INFO] allocation results: [{'shard_pct': 0.5, 'batch_size': 32, 'lr': 0.0010390825688073395, 'num_workers': 4}]
+2025-12-31 18:02:49,453 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 16:46:05,314 DDP_Script [Rank 0] [INFO] local_alloc: {'shard_pct': 1.0, 'batch_size': 32, 'lr': 0.0010390825688073395, 'num_workers': 4}
+2025-12-31 18:02:49,453 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 16:46:05,317 DDP_Script [Rank 0] [INFO] Saving checkpoint to ./checkpoints/job-e729e33238db/latest_checkpoint.pth ...
+2025-12-31 18:02:49,453 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 16:46:08,235 DDP_Script [Rank 0] [INFO] Successfully reported epoch 1/20 (Acc: 50.92%) to global server.
+2025-12-31 18:02:49,453 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 16:46:08,236 DDP_Script [Rank 0] [INFO] epoch 2 시작
+2025-12-31 18:02:49,453 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 16:46:08,288 DDP_Script [Rank 0] [INFO] DataLoader created with batch_size=32, num_workers=4
+2025-12-31 18:02:49,453 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 16:46:08,289 DDP_Script [Rank 0] [INFO] 모든 노드 중 max_steps = 2105
+2025-12-31 18:02:49,453 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 16:46:08,289 DDP_Script [Rank 0] [INFO] local_steps=2105, global_steps=2105
+2025-12-31 18:02:49,453 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 16:50:20,867 DDP_Script [Rank 0] [INFO] epoch 2 train step time: 252.58 seconds
+2025-12-31 18:02:49,454 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 16:50:20,868 DDP_Script [Rank 0] [INFO] epoch 2 끝 (local_steps=2105, global_steps=2105)
+2025-12-31 18:02:49,454 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 16:50:20,901 httpx [INFO] HTTP Request: POST http://163.180.117.216:8000/report_job_metrics "HTTP/1.1 200 OK"
+2025-12-31 18:02:49,454 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 16:50:20,933 httpx [INFO] HTTP Request: POST http://163.180.117.216:8000/report_progress "HTTP/1.1 200 OK"
+2025-12-31 18:02:49,454 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 16:50:21,528 DDP_Script [Rank 0] [INFO] val acc 50.92%
+2025-12-31 18:02:49,454 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 16:50:21,543 DDP_Script [Rank 0] [INFO] CKF x_filt vector: [array([0.00097605]), array([-0.01100183]), array([-0.00401589]), array([-0.0092622]), array([0.00957974]), array([0.0042224]), array([0.00738483]), array([-0.00315804])]
+2025-12-31 18:02:49,454 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 16:50:21,543 DDP_Script [Rank 0] [INFO] allocation results: [{'shard_pct': 0.5, 'batch_size': 32, 'lr': 0.0010390825688073395, 'num_workers': 4}]
+2025-12-31 18:02:49,454 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 16:50:21,544 DDP_Script [Rank 0] [INFO] local_alloc: {'shard_pct': 1.0, 'batch_size': 32, 'lr': 0.0010390825688073395, 'num_workers': 4}
+2025-12-31 18:02:49,454 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 16:50:21,554 DDP_Script [Rank 0] [INFO] Saving checkpoint to ./checkpoints/job-e729e33238db/latest_checkpoint.pth ...
+2025-12-31 18:02:49,454 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 16:50:26,126 DDP_Script [Rank 0] [INFO] Successfully reported epoch 2/20 (Acc: 50.92%) to global server.
+2025-12-31 18:02:49,454 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 16:50:26,129 DDP_Script [Rank 0] [INFO] epoch 3 시작
+2025-12-31 18:02:49,454 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 16:50:26,154 DDP_Script [Rank 0] [INFO] DataLoader created with batch_size=32, num_workers=4
+2025-12-31 18:02:49,454 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 16:50:26,155 DDP_Script [Rank 0] [INFO] 모든 노드 중 max_steps = 2105
+2025-12-31 18:02:49,454 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 16:50:26,155 DDP_Script [Rank 0] [INFO] local_steps=2105, global_steps=2105
+2025-12-31 18:02:49,454 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 16:54:42,109 DDP_Script [Rank 0] [INFO] epoch 3 train step time: 255.95 seconds
+2025-12-31 18:02:49,454 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 16:54:42,111 DDP_Script [Rank 0] [INFO] epoch 3 끝 (local_steps=2105, global_steps=2105)
+2025-12-31 18:02:49,454 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 16:54:42,159 httpx [INFO] HTTP Request: POST http://163.180.117.216:8000/report_job_metrics "HTTP/1.1 200 OK"
+2025-12-31 18:02:49,454 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 16:54:42,190 httpx [INFO] HTTP Request: POST http://163.180.117.216:8000/report_progress "HTTP/1.1 200 OK"
+2025-12-31 18:02:49,454 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 16:54:42,756 DDP_Script [Rank 0] [INFO] val acc 50.92%
+2025-12-31 18:02:49,454 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 16:54:42,767 DDP_Script [Rank 0] [INFO] CKF x_filt vector: [array([0.00492613]), array([-0.02904736]), array([-0.00137061]), array([-0.00605009]), array([-0.00202748]), array([0.01255828]), array([0.01084971]), array([-0.0188778])]
+2025-12-31 18:02:49,455 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 16:54:42,767 DDP_Script [Rank 0] [INFO] allocation results: [{'shard_pct': 0.5, 'batch_size': 32, 'lr': 0.0010390825688073395, 'num_workers': 4}]
+2025-12-31 18:02:49,455 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 16:54:42,767 DDP_Script [Rank 0] [INFO] local_alloc: {'shard_pct': 1.0, 'batch_size': 32, 'lr': 0.0010390825688073395, 'num_workers': 4}
+2025-12-31 18:02:49,455 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 16:54:42,788 DDP_Script [Rank 0] [INFO] Saving checkpoint to ./checkpoints/job-e729e33238db/latest_checkpoint.pth ...
+2025-12-31 18:02:49,455 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 16:54:45,899 DDP_Script [Rank 0] [INFO] Successfully reported epoch 3/20 (Acc: 50.92%) to global server.
+2025-12-31 18:02:49,455 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 16:54:45,901 DDP_Script [Rank 0] [INFO] epoch 4 시작
+2025-12-31 18:02:49,455 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 16:54:45,935 DDP_Script [Rank 0] [INFO] DataLoader created with batch_size=32, num_workers=4
+2025-12-31 18:02:49,455 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 16:54:45,936 DDP_Script [Rank 0] [INFO] 모든 노드 중 max_steps = 2105
+2025-12-31 18:02:49,455 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 16:54:45,936 DDP_Script [Rank 0] [INFO] local_steps=2105, global_steps=2105
+2025-12-31 18:02:49,455 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 16:58:56,713 DDP_Script [Rank 0] [INFO] epoch 4 train step time: 250.78 seconds
+2025-12-31 18:02:49,455 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 16:58:56,714 DDP_Script [Rank 0] [INFO] epoch 4 끝 (local_steps=2105, global_steps=2105)
+2025-12-31 18:02:49,455 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 16:58:56,745 httpx [INFO] HTTP Request: POST http://163.180.117.216:8000/report_job_metrics "HTTP/1.1 200 OK"
+2025-12-31 18:02:49,455 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 16:58:56,776 httpx [INFO] HTTP Request: POST http://163.180.117.216:8000/report_progress "HTTP/1.1 200 OK"
+2025-12-31 18:02:49,455 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 16:58:57,410 DDP_Script [Rank 0] [INFO] val acc 50.92%
+2025-12-31 18:02:49,455 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 16:58:57,425 DDP_Script [Rank 0] [INFO] CKF x_filt vector: [array([-0.01587257]), array([-0.01496738]), array([-0.00952916]), array([0.00143695]), array([-0.00671633]), array([0.00607053]), array([0.00017906]), array([-0.01726996])]
+2025-12-31 18:02:49,455 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 16:58:57,425 DDP_Script [Rank 0] [INFO] allocation results: [{'shard_pct': 0.5, 'batch_size': 32, 'lr': 0.0010390825688073395, 'num_workers': 4}]
+2025-12-31 18:02:49,455 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 16:58:57,426 DDP_Script [Rank 0] [INFO] local_alloc: {'shard_pct': 1.0, 'batch_size': 32, 'lr': 0.0010390825688073395, 'num_workers': 4}
+2025-12-31 18:02:49,455 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 16:58:57,458 DDP_Script [Rank 0] [INFO] Saving checkpoint to ./checkpoints/job-e729e33238db/latest_checkpoint.pth ...
+2025-12-31 18:02:49,455 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 16:59:00,072 DDP_Script [Rank 0] [INFO] Successfully reported epoch 4/20 (Acc: 50.92%) to global server.
+2025-12-31 18:02:49,455 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 16:59:00,074 DDP_Script [Rank 0] [INFO] epoch 5 시작
+2025-12-31 18:02:49,456 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 16:59:00,107 DDP_Script [Rank 0] [INFO] DataLoader created with batch_size=32, num_workers=4
+2025-12-31 18:02:49,456 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 16:59:00,109 DDP_Script [Rank 0] [INFO] 모든 노드 중 max_steps = 2105
+2025-12-31 18:02:49,456 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 16:59:00,109 DDP_Script [Rank 0] [INFO] local_steps=2105, global_steps=2105
+2025-12-31 18:02:49,456 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:02:54,377 DDP_Script [Rank 0] [INFO] epoch 5 train step time: 234.27 seconds
+2025-12-31 18:02:49,456 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:02:54,379 DDP_Script [Rank 0] [INFO] epoch 5 끝 (local_steps=2105, global_steps=2105)
+2025-12-31 18:02:49,456 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:02:54,441 httpx [INFO] HTTP Request: POST http://163.180.117.216:8000/report_job_metrics "HTTP/1.1 200 OK"
+2025-12-31 18:02:49,456 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:02:54,477 httpx [INFO] HTTP Request: POST http://163.180.117.216:8000/report_progress "HTTP/1.1 200 OK"
+2025-12-31 18:02:49,456 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:02:55,191 DDP_Script [Rank 0] [INFO] val acc 50.92%
+2025-12-31 18:02:49,456 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:02:55,199 DDP_Script [Rank 0] [INFO] CKF x_filt vector: [array([-0.02254488]), array([-0.00514989]), array([0.00345665]), array([-0.01167193]), array([-0.01217232]), array([-0.00923806]), array([0.02339428]), array([0.00475489])]
+2025-12-31 18:02:49,456 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:02:55,199 DDP_Script [Rank 0] [INFO] allocation results: [{'shard_pct': 0.5, 'batch_size': 32, 'lr': 0.0010390825688073395, 'num_workers': 4}]
+2025-12-31 18:02:49,456 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:02:55,200 DDP_Script [Rank 0] [INFO] local_alloc: {'shard_pct': 1.0, 'batch_size': 32, 'lr': 0.0010390825688073395, 'num_workers': 4}
+2025-12-31 18:02:49,456 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:02:55,362 DDP_Script [Rank 0] [INFO] Saving checkpoint to ./checkpoints/job-e729e33238db/latest_checkpoint.pth ...
+2025-12-31 18:02:49,456 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:02:58,468 DDP_Script [Rank 0] [INFO] Successfully reported epoch 5/20 (Acc: 50.92%) to global server.
+2025-12-31 18:02:49,456 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:02:58,470 DDP_Script [Rank 0] [INFO] epoch 6 시작
+2025-12-31 18:02:49,456 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:02:58,494 DDP_Script [Rank 0] [INFO] DataLoader created with batch_size=32, num_workers=4
+2025-12-31 18:02:49,456 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:02:58,495 DDP_Script [Rank 0] [INFO] 모든 노드 중 max_steps = 2105
+2025-12-31 18:02:49,456 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:02:58,495 DDP_Script [Rank 0] [INFO] local_steps=2105, global_steps=2105
+2025-12-31 18:02:49,456 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:06:51,533 DDP_Script [Rank 0] [INFO] epoch 6 train step time: 233.04 seconds
+2025-12-31 18:02:49,457 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:06:51,535 DDP_Script [Rank 0] [INFO] epoch 6 끝 (local_steps=2105, global_steps=2105)
+2025-12-31 18:02:49,457 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:06:51,579 httpx [INFO] HTTP Request: POST http://163.180.117.216:8000/report_job_metrics "HTTP/1.1 200 OK"
+2025-12-31 18:02:49,457 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:06:51,608 httpx [INFO] HTTP Request: POST http://163.180.117.216:8000/report_progress "HTTP/1.1 200 OK"
+2025-12-31 18:02:49,457 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:06:52,318 DDP_Script [Rank 0] [INFO] val acc 50.92%
+2025-12-31 18:02:49,457 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:06:52,327 DDP_Script [Rank 0] [INFO] CKF x_filt vector: [array([0.00988664]), array([-0.01817831]), array([0.01044128]), array([-0.01013251]), array([0.00041222]), array([-0.02052593]), array([-0.00582429]), array([0.01046743])]
+2025-12-31 18:02:49,457 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:06:52,327 DDP_Script [Rank 0] [INFO] allocation results: [{'shard_pct': 0.5, 'batch_size': 32, 'lr': 0.0010390825688073395, 'num_workers': 4}]
+2025-12-31 18:02:49,457 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:06:52,327 DDP_Script [Rank 0] [INFO] local_alloc: {'shard_pct': 1.0, 'batch_size': 32, 'lr': 0.0010390825688073395, 'num_workers': 4}
+2025-12-31 18:02:49,457 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:06:52,341 DDP_Script [Rank 0] [INFO] Saving checkpoint to ./checkpoints/job-e729e33238db/latest_checkpoint.pth ...
+2025-12-31 18:02:49,457 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:06:54,383 DDP_Script [Rank 0] [INFO] Successfully reported epoch 6/20 (Acc: 50.92%) to global server.
+2025-12-31 18:02:49,457 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:06:54,385 DDP_Script [Rank 0] [INFO] epoch 7 시작
+2025-12-31 18:02:49,457 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:06:54,416 DDP_Script [Rank 0] [INFO] DataLoader created with batch_size=32, num_workers=4
+2025-12-31 18:02:49,457 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:06:54,418 DDP_Script [Rank 0] [INFO] 모든 노드 중 max_steps = 2105
+2025-12-31 18:02:49,457 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:06:54,418 DDP_Script [Rank 0] [INFO] local_steps=2105, global_steps=2105
+2025-12-31 18:02:49,457 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:10:49,805 DDP_Script [Rank 0] [INFO] epoch 7 train step time: 235.39 seconds
+2025-12-31 18:02:49,457 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:10:49,806 DDP_Script [Rank 0] [INFO] epoch 7 끝 (local_steps=2105, global_steps=2105)
+2025-12-31 18:02:49,457 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:10:49,838 httpx [INFO] HTTP Request: POST http://163.180.117.216:8000/report_job_metrics "HTTP/1.1 200 OK"
+2025-12-31 18:02:49,457 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:10:49,868 httpx [INFO] HTTP Request: POST http://163.180.117.216:8000/report_progress "HTTP/1.1 200 OK"
+2025-12-31 18:02:49,457 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:10:50,430 DDP_Script [Rank 0] [INFO] val acc 50.92%
+2025-12-31 18:02:49,457 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:10:50,438 DDP_Script [Rank 0] [INFO] CKF x_filt vector: [array([-0.00284222]), array([-0.01023107]), array([-0.00863666]), array([-0.02763647]), array([-0.01352105]), array([-0.00550294]), array([-0.00070561]), array([-0.01483479])]
+2025-12-31 18:02:49,458 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:10:50,438 DDP_Script [Rank 0] [INFO] allocation results: [{'shard_pct': 0.5, 'batch_size': 32, 'lr': 0.0010390825688073395, 'num_workers': 4}]
+2025-12-31 18:02:49,458 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:10:50,438 DDP_Script [Rank 0] [INFO] local_alloc: {'shard_pct': 1.0, 'batch_size': 32, 'lr': 0.0010390825688073395, 'num_workers': 4}
+2025-12-31 18:02:49,458 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:10:50,440 DDP_Script [Rank 0] [INFO] Saving checkpoint to ./checkpoints/job-e729e33238db/latest_checkpoint.pth ...
+2025-12-31 18:02:49,458 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:10:53,241 DDP_Script [Rank 0] [INFO] Successfully reported epoch 7/20 (Acc: 50.92%) to global server.
+2025-12-31 18:02:49,458 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:10:53,242 DDP_Script [Rank 0] [INFO] epoch 8 시작
+2025-12-31 18:02:49,458 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:10:53,269 DDP_Script [Rank 0] [INFO] DataLoader created with batch_size=32, num_workers=4
+2025-12-31 18:02:49,458 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:10:53,270 DDP_Script [Rank 0] [INFO] 모든 노드 중 max_steps = 2105
+2025-12-31 18:02:49,458 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:10:53,270 DDP_Script [Rank 0] [INFO] local_steps=2105, global_steps=2105
+2025-12-31 18:02:49,458 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:14:48,501 DDP_Script [Rank 0] [INFO] epoch 8 train step time: 235.23 seconds
+2025-12-31 18:02:49,458 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:14:48,502 DDP_Script [Rank 0] [INFO] epoch 8 끝 (local_steps=2105, global_steps=2105)
+2025-12-31 18:02:49,458 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:14:48,533 httpx [INFO] HTTP Request: POST http://163.180.117.216:8000/report_job_metrics "HTTP/1.1 200 OK"
+2025-12-31 18:02:49,458 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:14:48,565 httpx [INFO] HTTP Request: POST http://163.180.117.216:8000/report_progress "HTTP/1.1 200 OK"
+2025-12-31 18:02:49,458 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:14:49,163 DDP_Script [Rank 0] [INFO] val acc 50.92%
+2025-12-31 18:02:49,458 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:14:49,174 DDP_Script [Rank 0] [INFO] CKF x_filt vector: [array([-0.00947502]), array([0.0235559]), array([-0.00019044]), array([-0.02285452]), array([0.00213848]), array([0.00504075]), array([0.00326787]), array([-0.03316861])]
+2025-12-31 18:02:49,458 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:14:49,174 DDP_Script [Rank 0] [INFO] allocation results: [{'shard_pct': 0.5, 'batch_size': 32, 'lr': 0.0010390825688073395, 'num_workers': 4}]
+2025-12-31 18:02:49,458 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:14:49,175 DDP_Script [Rank 0] [INFO] local_alloc: {'shard_pct': 1.0, 'batch_size': 32, 'lr': 0.0010390825688073395, 'num_workers': 4}
+2025-12-31 18:02:49,458 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:14:49,560 DDP_Script [Rank 0] [INFO] Saving checkpoint to ./checkpoints/job-e729e33238db/latest_checkpoint.pth ...
+2025-12-31 18:02:49,458 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:14:53,151 DDP_Script [Rank 0] [INFO] Successfully reported epoch 8/20 (Acc: 50.92%) to global server.
+2025-12-31 18:02:49,458 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:14:53,153 DDP_Script [Rank 0] [INFO] epoch 9 시작
+2025-12-31 18:02:49,459 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:14:53,181 DDP_Script [Rank 0] [INFO] DataLoader created with batch_size=32, num_workers=4
+2025-12-31 18:02:49,459 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:14:53,183 DDP_Script [Rank 0] [INFO] 모든 노드 중 max_steps = 2105
+2025-12-31 18:02:49,459 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:14:53,183 DDP_Script [Rank 0] [INFO] local_steps=2105, global_steps=2105
+2025-12-31 18:02:49,459 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:18:48,196 DDP_Script [Rank 0] [INFO] epoch 9 train step time: 235.01 seconds
+2025-12-31 18:02:49,459 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:18:48,198 DDP_Script [Rank 0] [INFO] epoch 9 끝 (local_steps=2105, global_steps=2105)
+2025-12-31 18:02:49,459 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:18:48,242 httpx [INFO] HTTP Request: POST http://163.180.117.216:8000/report_job_metrics "HTTP/1.1 200 OK"
+2025-12-31 18:02:49,459 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:18:48,273 httpx [INFO] HTTP Request: POST http://163.180.117.216:8000/report_progress "HTTP/1.1 200 OK"
+2025-12-31 18:02:49,459 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:18:48,808 DDP_Script [Rank 0] [INFO] val acc 50.92%
+2025-12-31 18:02:49,459 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:18:48,814 DDP_Script [Rank 0] [INFO] CKF x_filt vector: [array([-0.00752348]), array([0.00612052]), array([0.00489787]), array([0.00294082]), array([-0.0037035]), array([-6.72336531e-05]), array([-0.02134521]), array([0.00269308])]
+2025-12-31 18:02:49,459 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:18:48,814 DDP_Script [Rank 0] [INFO] allocation results: [{'shard_pct': 0.5, 'batch_size': 32, 'lr': 0.0010390825688073395, 'num_workers': 4}]
+2025-12-31 18:02:49,459 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:18:48,815 DDP_Script [Rank 0] [INFO] local_alloc: {'shard_pct': 1.0, 'batch_size': 32, 'lr': 0.0010390825688073395, 'num_workers': 4}
+2025-12-31 18:02:49,459 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:18:48,816 DDP_Script [Rank 0] [INFO] Saving checkpoint to ./checkpoints/job-e729e33238db/latest_checkpoint.pth ...
+2025-12-31 18:02:49,459 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:18:53,122 DDP_Script [Rank 0] [INFO] Successfully reported epoch 9/20 (Acc: 50.92%) to global server.
+2025-12-31 18:02:49,459 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:18:53,124 DDP_Script [Rank 0] [INFO] epoch 10 시작
+2025-12-31 18:02:49,459 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:18:53,156 DDP_Script [Rank 0] [INFO] DataLoader created with batch_size=32, num_workers=4
+2025-12-31 18:02:49,459 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:18:53,158 DDP_Script [Rank 0] [INFO] 모든 노드 중 max_steps = 2105
+2025-12-31 18:02:49,459 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:18:53,158 DDP_Script [Rank 0] [INFO] local_steps=2105, global_steps=2105
+2025-12-31 18:02:49,460 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:22:49,921 DDP_Script [Rank 0] [INFO] epoch 10 train step time: 236.76 seconds
+2025-12-31 18:02:49,460 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:22:49,924 DDP_Script [Rank 0] [INFO] epoch 10 끝 (local_steps=2105, global_steps=2105)
+2025-12-31 18:02:49,460 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:22:49,969 httpx [INFO] HTTP Request: POST http://163.180.117.216:8000/report_job_metrics "HTTP/1.1 200 OK"
+2025-12-31 18:02:49,460 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:22:49,998 httpx [INFO] HTTP Request: POST http://163.180.117.216:8000/report_progress "HTTP/1.1 200 OK"
+2025-12-31 18:02:49,460 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:22:50,546 DDP_Script [Rank 0] [INFO] val acc 50.92%
+2025-12-31 18:02:49,460 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:22:50,558 DDP_Script [Rank 0] [INFO] CKF x_filt vector: [array([0.01350733]), array([-0.01374912]), array([-0.01146941]), array([0.01945742]), array([-0.00614335]), array([0.0072195]), array([-6.87416857e-05]), array([0.00468144])]
+2025-12-31 18:02:49,460 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:22:50,558 DDP_Script [Rank 0] [INFO] allocation results: [{'shard_pct': 0.5, 'batch_size': 32, 'lr': 0.0010390825688073395, 'num_workers': 4}]
+2025-12-31 18:02:49,460 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:22:50,559 DDP_Script [Rank 0] [INFO] local_alloc: {'shard_pct': 1.0, 'batch_size': 32, 'lr': 0.0010390825688073395, 'num_workers': 4}
+2025-12-31 18:02:49,460 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:22:50,588 DDP_Script [Rank 0] [INFO] Saving checkpoint to ./checkpoints/job-e729e33238db/latest_checkpoint.pth ...
+2025-12-31 18:02:49,460 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:22:54,085 DDP_Script [Rank 0] [INFO] Successfully reported epoch 10/20 (Acc: 50.92%) to global server.
+2025-12-31 18:02:49,460 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:22:54,086 DDP_Script [Rank 0] [INFO] epoch 11 시작
+2025-12-31 18:02:49,460 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:22:54,117 DDP_Script [Rank 0] [INFO] DataLoader created with batch_size=32, num_workers=4
+2025-12-31 18:02:49,460 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:22:54,119 DDP_Script [Rank 0] [INFO] 모든 노드 중 max_steps = 2105
+2025-12-31 18:02:49,460 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:22:54,119 DDP_Script [Rank 0] [INFO] local_steps=2105, global_steps=2105
+2025-12-31 18:02:49,460 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:26:51,544 DDP_Script [Rank 0] [INFO] epoch 11 train step time: 237.42 seconds
+2025-12-31 18:02:49,460 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:26:51,545 DDP_Script [Rank 0] [INFO] epoch 11 끝 (local_steps=2105, global_steps=2105)
+2025-12-31 18:02:49,460 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:26:51,578 httpx [INFO] HTTP Request: POST http://163.180.117.216:8000/report_job_metrics "HTTP/1.1 200 OK"
+2025-12-31 18:02:49,460 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:26:51,611 httpx [INFO] HTTP Request: POST http://163.180.117.216:8000/report_progress "HTTP/1.1 200 OK"
+2025-12-31 18:02:49,460 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:26:52,196 DDP_Script [Rank 0] [INFO] val acc 50.92%
+2025-12-31 18:02:49,461 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:26:52,204 DDP_Script [Rank 0] [INFO] CKF x_filt vector: [array([-0.00171401]), array([0.00895202]), array([0.01270543]), array([-0.00198471]), array([-0.01477298]), array([0.01798544]), array([0.01667051]), array([-0.01483308])]
+2025-12-31 18:02:49,461 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:26:52,204 DDP_Script [Rank 0] [INFO] allocation results: [{'shard_pct': 0.5, 'batch_size': 32, 'lr': 0.0010390825688073395, 'num_workers': 4}]
+2025-12-31 18:02:49,461 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:26:52,205 DDP_Script [Rank 0] [INFO] local_alloc: {'shard_pct': 1.0, 'batch_size': 32, 'lr': 0.0010390825688073395, 'num_workers': 4}
+2025-12-31 18:02:49,461 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:26:52,226 DDP_Script [Rank 0] [INFO] Saving checkpoint to ./checkpoints/job-e729e33238db/latest_checkpoint.pth ...
+2025-12-31 18:02:49,461 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:26:55,058 DDP_Script [Rank 0] [INFO] Successfully reported epoch 11/20 (Acc: 50.92%) to global server.
+2025-12-31 18:02:49,461 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:26:55,060 DDP_Script [Rank 0] [INFO] epoch 12 시작
+2025-12-31 18:02:49,461 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:26:55,105 DDP_Script [Rank 0] [INFO] DataLoader created with batch_size=32, num_workers=4
+2025-12-31 18:02:49,461 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:26:55,106 DDP_Script [Rank 0] [INFO] 모든 노드 중 max_steps = 2105
+2025-12-31 18:02:49,461 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:26:55,106 DDP_Script [Rank 0] [INFO] local_steps=2105, global_steps=2105
+2025-12-31 18:02:49,461 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:30:50,330 DDP_Script [Rank 0] [INFO] epoch 12 train step time: 235.22 seconds
+2025-12-31 18:02:49,461 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:30:50,332 DDP_Script [Rank 0] [INFO] epoch 12 끝 (local_steps=2105, global_steps=2105)
+2025-12-31 18:02:49,461 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:30:50,377 httpx [INFO] HTTP Request: POST http://163.180.117.216:8000/report_job_metrics "HTTP/1.1 200 OK"
+2025-12-31 18:02:49,461 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:30:50,408 httpx [INFO] HTTP Request: POST http://163.180.117.216:8000/report_progress "HTTP/1.1 200 OK"
+2025-12-31 18:02:49,461 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:30:50,988 DDP_Script [Rank 0] [INFO] val acc 50.92%
+2025-12-31 18:02:49,461 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:30:51,005 DDP_Script [Rank 0] [INFO] CKF x_filt vector: [array([0.00274299]), array([0.00445873]), array([0.00144998]), array([0.00119915]), array([-0.02204257]), array([0.02134589]), array([0.02265833]), array([-0.01431557])]
+2025-12-31 18:02:49,461 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:30:51,006 DDP_Script [Rank 0] [INFO] allocation results: [{'shard_pct': 0.5, 'batch_size': 32, 'lr': 0.0010390825688073395, 'num_workers': 4}]
+2025-12-31 18:02:49,461 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:30:51,007 DDP_Script [Rank 0] [INFO] local_alloc: {'shard_pct': 1.0, 'batch_size': 32, 'lr': 0.0010390825688073395, 'num_workers': 4}
+2025-12-31 18:02:49,461 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:30:51,010 DDP_Script [Rank 0] [INFO] Saving checkpoint to ./checkpoints/job-e729e33238db/latest_checkpoint.pth ...
+2025-12-31 18:02:49,461 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:30:54,510 DDP_Script [Rank 0] [INFO] Successfully reported epoch 12/20 (Acc: 50.92%) to global server.
+2025-12-31 18:02:49,462 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:30:54,512 DDP_Script [Rank 0] [INFO] epoch 13 시작
+2025-12-31 18:02:49,462 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:30:54,539 DDP_Script [Rank 0] [INFO] DataLoader created with batch_size=32, num_workers=4
+2025-12-31 18:02:49,462 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:30:54,541 DDP_Script [Rank 0] [INFO] 모든 노드 중 max_steps = 2105
+2025-12-31 18:02:49,462 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:30:54,541 DDP_Script [Rank 0] [INFO] local_steps=2105, global_steps=2105
+2025-12-31 18:02:49,462 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:34:47,655 DDP_Script [Rank 0] [INFO] epoch 13 train step time: 233.11 seconds
+2025-12-31 18:02:49,462 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:34:47,656 DDP_Script [Rank 0] [INFO] epoch 13 끝 (local_steps=2105, global_steps=2105)
+2025-12-31 18:02:49,462 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:34:47,690 httpx [INFO] HTTP Request: POST http://163.180.117.216:8000/report_job_metrics "HTTP/1.1 200 OK"
+2025-12-31 18:02:49,462 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:34:47,722 httpx [INFO] HTTP Request: POST http://163.180.117.216:8000/report_progress "HTTP/1.1 200 OK"
+2025-12-31 18:02:49,462 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:34:48,406 DDP_Script [Rank 0] [INFO] val acc 50.92%
+2025-12-31 18:02:49,462 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:34:48,417 DDP_Script [Rank 0] [INFO] CKF x_filt vector: [array([-0.00538027]), array([0.00308935]), array([0.01970344]), array([0.01995182]), array([0.00294101]), array([0.01275325]), array([-0.00012813]), array([5.51208578e-05])]
+2025-12-31 18:02:49,462 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:34:48,417 DDP_Script [Rank 0] [INFO] allocation results: [{'shard_pct': 0.5, 'batch_size': 32, 'lr': 0.0010390825688073395, 'num_workers': 4}]
+2025-12-31 18:02:49,462 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:34:48,418 DDP_Script [Rank 0] [INFO] local_alloc: {'shard_pct': 1.0, 'batch_size': 32, 'lr': 0.0010390825688073395, 'num_workers': 4}
+2025-12-31 18:02:49,462 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:34:48,456 DDP_Script [Rank 0] [INFO] Saving checkpoint to ./checkpoints/job-e729e33238db/latest_checkpoint.pth ...
+2025-12-31 18:02:49,462 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:34:51,103 DDP_Script [Rank 0] [INFO] Successfully reported epoch 13/20 (Acc: 50.92%) to global server.
+2025-12-31 18:02:49,462 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:34:51,104 DDP_Script [Rank 0] [INFO] epoch 14 시작
+2025-12-31 18:02:49,462 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:34:51,134 DDP_Script [Rank 0] [INFO] DataLoader created with batch_size=32, num_workers=4
+2025-12-31 18:02:49,462 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:34:51,136 DDP_Script [Rank 0] [INFO] 모든 노드 중 max_steps = 2105
+2025-12-31 18:02:49,462 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:34:51,136 DDP_Script [Rank 0] [INFO] local_steps=2105, global_steps=2105
+2025-12-31 18:02:49,462 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:38:47,593 DDP_Script [Rank 0] [INFO] epoch 14 train step time: 236.46 seconds
+2025-12-31 18:02:49,463 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:38:47,594 DDP_Script [Rank 0] [INFO] epoch 14 끝 (local_steps=2105, global_steps=2105)
+2025-12-31 18:02:49,463 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:38:47,633 httpx [INFO] HTTP Request: POST http://163.180.117.216:8000/report_job_metrics "HTTP/1.1 200 OK"
+2025-12-31 18:02:49,463 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:38:47,664 httpx [INFO] HTTP Request: POST http://163.180.117.216:8000/report_progress "HTTP/1.1 200 OK"
+2025-12-31 18:02:49,463 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:38:48,316 DDP_Script [Rank 0] [INFO] val acc 50.92%
+2025-12-31 18:02:49,463 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:38:48,331 DDP_Script [Rank 0] [INFO] CKF x_filt vector: [array([-0.03117932]), array([0.00109891]), array([0.00478383]), array([0.03665367]), array([0.02363303]), array([0.02479802]), array([-0.00599617]), array([0.03106961])]
+2025-12-31 18:02:49,463 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:38:48,331 DDP_Script [Rank 0] [INFO] allocation results: [{'shard_pct': 0.5, 'batch_size': 32, 'lr': 0.0010390825688073395, 'num_workers': 4}]
+2025-12-31 18:02:49,463 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:38:48,333 DDP_Script [Rank 0] [INFO] local_alloc: {'shard_pct': 1.0, 'batch_size': 32, 'lr': 0.0010390825688073395, 'num_workers': 4}
+2025-12-31 18:02:49,463 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:38:48,343 DDP_Script [Rank 0] [INFO] Saving checkpoint to ./checkpoints/job-e729e33238db/latest_checkpoint.pth ...
+2025-12-31 18:02:49,463 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:38:51,083 DDP_Script [Rank 0] [INFO] Successfully reported epoch 14/20 (Acc: 50.92%) to global server.
+2025-12-31 18:02:49,463 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:38:51,085 DDP_Script [Rank 0] [INFO] epoch 15 시작
+2025-12-31 18:02:49,463 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:38:51,123 DDP_Script [Rank 0] [INFO] DataLoader created with batch_size=32, num_workers=4
+2025-12-31 18:02:49,463 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:38:51,125 DDP_Script [Rank 0] [INFO] 모든 노드 중 max_steps = 2105
+2025-12-31 18:02:49,463 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:38:51,125 DDP_Script [Rank 0] [INFO] local_steps=2105, global_steps=2105
+2025-12-31 18:02:49,463 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:42:50,270 DDP_Script [Rank 0] [INFO] epoch 15 train step time: 239.15 seconds
+2025-12-31 18:02:49,463 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:42:50,271 DDP_Script [Rank 0] [INFO] epoch 15 끝 (local_steps=2105, global_steps=2105)
+2025-12-31 18:02:49,463 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:42:50,304 httpx [INFO] HTTP Request: POST http://163.180.117.216:8000/report_job_metrics "HTTP/1.1 200 OK"
+2025-12-31 18:02:49,463 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:42:50,339 httpx [INFO] HTTP Request: POST http://163.180.117.216:8000/report_progress "HTTP/1.1 200 OK"
+2025-12-31 18:02:49,463 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:42:50,993 DDP_Script [Rank 0] [INFO] val acc 50.92%
+2025-12-31 18:02:49,463 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:42:51,002 DDP_Script [Rank 0] [INFO] CKF x_filt vector: [array([0.00277258]), array([0.00923054]), array([0.01413263]), array([0.02104231]), array([-0.00284965]), array([0.01546555]), array([-0.00461797]), array([-0.028255])]
+2025-12-31 18:02:49,463 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:42:51,002 DDP_Script [Rank 0] [INFO] allocation results: [{'shard_pct': 0.5, 'batch_size': 32, 'lr': 0.0010390825688073395, 'num_workers': 4}]
+2025-12-31 18:02:49,463 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:42:51,003 DDP_Script [Rank 0] [INFO] local_alloc: {'shard_pct': 1.0, 'batch_size': 32, 'lr': 0.0010390825688073395, 'num_workers': 4}
+2025-12-31 18:02:49,463 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:42:51,022 DDP_Script [Rank 0] [INFO] Saving checkpoint to ./checkpoints/job-e729e33238db/latest_checkpoint.pth ...
+2025-12-31 18:02:49,463 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:42:53,776 DDP_Script [Rank 0] [INFO] Successfully reported epoch 15/20 (Acc: 50.92%) to global server.
+2025-12-31 18:02:49,463 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:42:53,777 DDP_Script [Rank 0] [INFO] epoch 16 시작
+2025-12-31 18:02:49,463 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:42:53,803 DDP_Script [Rank 0] [INFO] DataLoader created with batch_size=32, num_workers=4
+2025-12-31 18:02:49,464 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:42:53,805 DDP_Script [Rank 0] [INFO] 모든 노드 중 max_steps = 2105
+2025-12-31 18:02:49,464 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:42:53,805 DDP_Script [Rank 0] [INFO] local_steps=2105, global_steps=2105
+2025-12-31 18:02:49,464 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:46:51,720 DDP_Script [Rank 0] [INFO] epoch 16 train step time: 237.91 seconds
+2025-12-31 18:02:49,464 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:46:51,722 DDP_Script [Rank 0] [INFO] epoch 16 끝 (local_steps=2105, global_steps=2105)
+2025-12-31 18:02:49,464 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:46:51,767 httpx [INFO] HTTP Request: POST http://163.180.117.216:8000/report_job_metrics "HTTP/1.1 200 OK"
+2025-12-31 18:02:49,464 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:46:52,010 httpx [INFO] HTTP Request: POST http://163.180.117.216:8000/report_progress "HTTP/1.1 200 OK"
+2025-12-31 18:02:49,464 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:46:52,607 DDP_Script [Rank 0] [INFO] val acc 50.92%
+2025-12-31 18:02:49,464 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:46:52,616 DDP_Script [Rank 0] [INFO] CKF x_filt vector: [array([0.00074197]), array([0.0100414]), array([0.01759511]), array([0.01705377]), array([-0.01587995]), array([0.00220063]), array([-0.00665417]), array([-0.00990502])]
+2025-12-31 18:02:49,464 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:46:52,616 DDP_Script [Rank 0] [INFO] allocation results: [{'shard_pct': 0.5, 'batch_size': 32, 'lr': 0.0010390825688073395, 'num_workers': 4}]
+2025-12-31 18:02:49,464 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:46:52,617 DDP_Script [Rank 0] [INFO] local_alloc: {'shard_pct': 1.0, 'batch_size': 32, 'lr': 0.0010390825688073395, 'num_workers': 4}
+2025-12-31 18:02:49,464 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:46:52,626 DDP_Script [Rank 0] [INFO] Saving checkpoint to ./checkpoints/job-e729e33238db/latest_checkpoint.pth ...
+2025-12-31 18:02:49,464 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:46:55,255 DDP_Script [Rank 0] [INFO] Successfully reported epoch 16/20 (Acc: 50.92%) to global server.
+2025-12-31 18:02:49,464 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:46:55,257 DDP_Script [Rank 0] [INFO] epoch 17 시작
+2025-12-31 18:02:49,464 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:46:55,288 DDP_Script [Rank 0] [INFO] DataLoader created with batch_size=32, num_workers=4
+2025-12-31 18:02:49,464 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:46:55,289 DDP_Script [Rank 0] [INFO] 모든 노드 중 max_steps = 2105
+2025-12-31 18:02:49,464 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:46:55,289 DDP_Script [Rank 0] [INFO] local_steps=2105, global_steps=2105
+2025-12-31 18:02:49,464 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:50:49,490 DDP_Script [Rank 0] [INFO] epoch 17 train step time: 234.20 seconds
+2025-12-31 18:02:49,464 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:50:49,492 DDP_Script [Rank 0] [INFO] epoch 17 끝 (local_steps=2105, global_steps=2105)
+2025-12-31 18:02:49,464 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:50:49,536 httpx [INFO] HTTP Request: POST http://163.180.117.216:8000/report_job_metrics "HTTP/1.1 200 OK"
+2025-12-31 18:02:49,464 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:50:49,567 httpx [INFO] HTTP Request: POST http://163.180.117.216:8000/report_progress "HTTP/1.1 200 OK"
+2025-12-31 18:02:49,464 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:50:50,204 DDP_Script [Rank 0] [INFO] val acc 50.92%
+2025-12-31 18:02:49,464 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:50:50,219 DDP_Script [Rank 0] [INFO] CKF x_filt vector: [array([0.02912658]), array([0.00031818]), array([-0.01061416]), array([-0.01568355]), array([-0.00242033]), array([0.00460281]), array([-0.01154967]), array([0.00728466])]
+2025-12-31 18:02:49,464 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:50:50,219 DDP_Script [Rank 0] [INFO] allocation results: [{'shard_pct': 0.5, 'batch_size': 32, 'lr': 0.0010390825688073395, 'num_workers': 4}]
+2025-12-31 18:02:49,464 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:50:50,220 DDP_Script [Rank 0] [INFO] local_alloc: {'shard_pct': 1.0, 'batch_size': 32, 'lr': 0.0010390825688073395, 'num_workers': 4}
+2025-12-31 18:02:49,464 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:50:50,222 DDP_Script [Rank 0] [INFO] Saving checkpoint to ./checkpoints/job-e729e33238db/latest_checkpoint.pth ...
+2025-12-31 18:02:49,464 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:50:52,902 DDP_Script [Rank 0] [INFO] Successfully reported epoch 17/20 (Acc: 50.92%) to global server.
+2025-12-31 18:02:49,464 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:50:52,903 DDP_Script [Rank 0] [INFO] epoch 18 시작
+2025-12-31 18:02:49,464 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:50:52,934 DDP_Script [Rank 0] [INFO] DataLoader created with batch_size=32, num_workers=4
+2025-12-31 18:02:49,464 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:50:52,936 DDP_Script [Rank 0] [INFO] 모든 노드 중 max_steps = 2105
+2025-12-31 18:02:49,465 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:50:52,936 DDP_Script [Rank 0] [INFO] local_steps=2105, global_steps=2105
+2025-12-31 18:02:49,465 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:54:47,512 DDP_Script [Rank 0] [INFO] epoch 18 train step time: 234.58 seconds
+2025-12-31 18:02:49,465 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:54:47,513 DDP_Script [Rank 0] [INFO] epoch 18 끝 (local_steps=2105, global_steps=2105)
+2025-12-31 18:02:49,465 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:54:47,558 httpx [INFO] HTTP Request: POST http://163.180.117.216:8000/report_job_metrics "HTTP/1.1 200 OK"
+2025-12-31 18:02:49,465 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:54:47,587 httpx [INFO] HTTP Request: POST http://163.180.117.216:8000/report_progress "HTTP/1.1 200 OK"
+2025-12-31 18:02:49,465 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:54:48,165 DDP_Script [Rank 0] [INFO] val acc 50.92%
+2025-12-31 18:02:49,465 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:54:48,174 DDP_Script [Rank 0] [INFO] CKF x_filt vector: [array([-0.0154642]), array([0.01379835]), array([-0.01025744]), array([0.01084477]), array([-0.04482653]), array([0.00903364]), array([-0.01040621]), array([0.00503445])]
+2025-12-31 18:02:49,465 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:54:48,174 DDP_Script [Rank 0] [INFO] allocation results: [{'shard_pct': 0.5, 'batch_size': 32, 'lr': 0.0010390825688073395, 'num_workers': 4}]
+2025-12-31 18:02:49,465 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:54:48,175 DDP_Script [Rank 0] [INFO] local_alloc: {'shard_pct': 1.0, 'batch_size': 32, 'lr': 0.0010390825688073395, 'num_workers': 4}
+2025-12-31 18:02:49,465 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:54:48,177 DDP_Script [Rank 0] [INFO] Saving checkpoint to ./checkpoints/job-e729e33238db/latest_checkpoint.pth ...
+2025-12-31 18:02:49,465 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:54:51,021 DDP_Script [Rank 0] [INFO] Successfully reported epoch 18/20 (Acc: 50.92%) to global server.
+2025-12-31 18:02:49,465 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:54:51,022 DDP_Script [Rank 0] [INFO] epoch 19 시작
+2025-12-31 18:02:49,465 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:54:51,062 DDP_Script [Rank 0] [INFO] DataLoader created with batch_size=32, num_workers=4
+2025-12-31 18:02:49,465 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:54:51,065 DDP_Script [Rank 0] [INFO] 모든 노드 중 max_steps = 2105
+2025-12-31 18:02:49,465 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:54:51,065 DDP_Script [Rank 0] [INFO] local_steps=2105, global_steps=2105
+2025-12-31 18:02:49,465 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:58:45,909 DDP_Script [Rank 0] [INFO] epoch 19 train step time: 234.84 seconds
+2025-12-31 18:02:49,465 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:58:45,911 DDP_Script [Rank 0] [INFO] epoch 19 끝 (local_steps=2105, global_steps=2105)
+2025-12-31 18:02:49,465 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:58:45,958 httpx [INFO] HTTP Request: POST http://163.180.117.216:8000/report_job_metrics "HTTP/1.1 200 OK"
+2025-12-31 18:02:49,465 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:58:45,989 httpx [INFO] HTTP Request: POST http://163.180.117.216:8000/report_progress "HTTP/1.1 200 OK"
+2025-12-31 18:02:49,465 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:58:46,551 DDP_Script [Rank 0] [INFO] val acc 50.92%
+2025-12-31 18:02:49,465 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:58:46,563 DDP_Script [Rank 0] [INFO] CKF x_filt vector: [array([-0.03495688]), array([0.03966269]), array([0.01389483]), array([-0.00361972]), array([-0.003331]), array([-0.02091212]), array([0.01551547]), array([-0.00395611])]
+2025-12-31 18:02:49,465 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:58:46,563 DDP_Script [Rank 0] [INFO] allocation results: [{'shard_pct': 0.5, 'batch_size': 32, 'lr': 0.0010390825688073395, 'num_workers': 4}]
+2025-12-31 18:02:49,465 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:58:46,563 DDP_Script [Rank 0] [INFO] local_alloc: {'shard_pct': 1.0, 'batch_size': 32, 'lr': 0.0010390825688073395, 'num_workers': 4}
+2025-12-31 18:02:49,465 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:58:46,570 DDP_Script [Rank 0] [INFO] Saving checkpoint to ./checkpoints/job-e729e33238db/latest_checkpoint.pth ...
+2025-12-31 18:02:49,465 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:58:49,344 DDP_Script [Rank 0] [INFO] Successfully reported epoch 19/20 (Acc: 50.92%) to global server.
+2025-12-31 18:02:49,465 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:58:49,345 DDP_Script [Rank 0] [INFO] epoch 20 시작
+2025-12-31 18:02:49,465 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:58:49,363 DDP_Script [Rank 0] [INFO] DataLoader created with batch_size=32, num_workers=4
+2025-12-31 18:02:49,465 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:58:49,364 DDP_Script [Rank 0] [INFO] 모든 노드 중 max_steps = 2105
+2025-12-31 18:02:49,466 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 17:58:49,364 DDP_Script [Rank 0] [INFO] local_steps=2105, global_steps=2105
+2025-12-31 18:02:49,466 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 18:02:43,957 DDP_Script [Rank 0] [INFO] epoch 20 train step time: 234.59 seconds
+2025-12-31 18:02:49,466 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 18:02:43,958 DDP_Script [Rank 0] [INFO] epoch 20 끝 (local_steps=2105, global_steps=2105)
+2025-12-31 18:02:49,466 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 18:02:43,989 httpx [INFO] HTTP Request: POST http://163.180.117.216:8000/report_job_metrics "HTTP/1.1 200 OK"
+2025-12-31 18:02:49,466 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 18:02:44,020 httpx [INFO] HTTP Request: POST http://163.180.117.216:8000/report_progress "HTTP/1.1 200 OK"
+2025-12-31 18:02:49,466 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 18:02:44,628 DDP_Script [Rank 0] [INFO] val acc 50.92%
+2025-12-31 18:02:49,466 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 18:02:44,642 DDP_Script [Rank 0] [INFO] CKF x_filt vector: [array([-0.02139745]), array([0.02746223]), array([0.01558666]), array([-0.01985163]), array([-0.00728716]), array([0.00177707]), array([-0.00596791]), array([0.00366713])]
+2025-12-31 18:02:49,466 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 18:02:44,643 DDP_Script [Rank 0] [INFO] allocation results: [{'shard_pct': 0.5, 'batch_size': 32, 'lr': 0.0010390825688073395, 'num_workers': 4}]
+2025-12-31 18:02:49,466 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 18:02:44,643 DDP_Script [Rank 0] [INFO] local_alloc: {'shard_pct': 1.0, 'batch_size': 32, 'lr': 0.0010390825688073395, 'num_workers': 4}
+2025-12-31 18:02:49,466 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 18:02:44,645 DDP_Script [Rank 0] [INFO] Saving checkpoint to ./checkpoints/job-e729e33238db/latest_checkpoint.pth ...
+2025-12-31 18:02:49,466 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 18:02:47,357 DDP_Script [Rank 0] [INFO] Successfully reported epoch 20/20 (Acc: 50.92%) to global server.
+2025-12-31 18:02:49,466 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 18:02:47,358 DDP_Script [Rank 0] [INFO] Training completed successfully.
+2025-12-31 18:02:49,466 [ERROR] (WorkerAgent) [8302] [job-e729e33238db ERR] 2025-12-31 18:02:47,359 DDP_Script [Rank 0] [INFO] Training loop finished.
+2025-12-31 18:02:49,626 [INFO] (WorkerAgent) [8302] [job-e729e33238db] Process finished. Return Code: 0
+2025-12-31 18:02:50,139 [INFO] (WorkerAgent) [8302] [job-a23253b8e165] Launch Request received.
+2025-12-31 18:02:50,170 [INFO] (WorkerAgent) [8302] [job-a23253b8e165] Launched attempt 1 with STOP_FLAG_PATH=/tmp/job-a23253b8e165-attempt-1.flag, pid=946054
+INFO:     163.180.117.216:47360 - "POST /launch_task HTTP/1.1" 200 OK
+2025-12-31 18:02:55,711 [INFO] (WorkerAgent) [8302] [job-a23253b8e165 OUT] Current CUDA device index: 0
+2025-12-31 18:02:55,711 [INFO] (WorkerAgent) [8302] [job-a23253b8e165 OUT] Current CUDA device name: NVIDIA RTX A5000
+2025-12-31 18:02:55,711 [INFO] (WorkerAgent) [8302] [job-a23253b8e165 OUT] Master address: 163.180.160.62, port: 29521
+2025-12-31 18:02:55,717 [INFO] (WorkerAgent) [8302] [job-a23253b8e165 OUT] [Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0

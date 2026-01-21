@@ -1,0 +1,60 @@
+ts,event,job_id,queue_len,note
+2025-12-31 00:05:43,enqueue,job-b76aae1d7cb3,1,kind=HOME cluster=clusterA
+2025-12-31 00:05:43,queue_dequeued_by_hol,job-b76aae1d7cb3,-1,cluster=clusterA g=2 kind=HOME
+2025-12-31 00:05:46,enqueue,job-115ce5bfd528,1,kind=HOME cluster=clusterB
+2025-12-31 00:05:46,queue_dequeued_by_hol,job-115ce5bfd528,-1,cluster=clusterA g=2 kind=HOME
+2025-12-31 00:11:31,enqueue,job-cbdb9facc5cb,1,kind=HOME cluster=clusterB
+2025-12-31 00:11:31,queue_dequeued_by_hol,job-cbdb9facc5cb,-1,cluster=clusterB g=4 kind=HOME
+2025-12-31 00:15:09,enqueue,job-bc0e7f2319fe,1,kind=HOME cluster=clusterA
+2025-12-31 00:16:36,enqueue,job-7fc3454b48d7,2,kind=HOME cluster=clusterA
+2025-12-31 00:18:10,enqueue,job-456dbf260449,3,kind=HOME cluster=clusterA
+2025-12-31 00:24:12,queue_dequeued_by_hol,job-bc0e7f2319fe,-1,cluster=clusterB g=1 kind=HOME
+2025-12-31 00:27:41,enqueue,job-2e97bb2c6462,1,kind=HOME cluster=clusterB
+2025-12-31 00:29:16,enqueue,job-ff781756cbeb,1,kind=HOME cluster=clusterB
+2025-12-31 00:30:11,enqueue,job-a990840eb515,2,kind=HOME cluster=clusterB
+2025-12-31 00:40:57,enqueue,job-6c7cec60044e,2,kind=HOME cluster=clusterA
+2025-12-31 00:47:33,enqueue,job-dc4a0841af78,3,kind=HOME cluster=clusterA
+2025-12-31 00:50:32,enqueue,job-66b78da22eae,3,kind=HOME cluster=clusterA
+2025-12-31 00:51:15,enqueue,job-b82d8f1b07ed,4,kind=HOME cluster=clusterA
+2025-12-31 01:03:34,enqueue,job-dc727053b70d,4,kind=HOME cluster=clusterA
+2025-12-31 01:05:14,enqueue,job-b226bd45b16f,5,kind=HOME cluster=clusterA
+2025-12-31 01:13:28,enqueue,job-0e113b82c30a,6,kind=HOME cluster=clusterA
+2025-12-31 01:19:43,enqueue,job-debb8e21148c,6,kind=HOME cluster=clusterA
+2025-12-31 01:30:19,queue_dequeued_by_hol,job-456dbf260449,-1,cluster=clusterB g=4 kind=HOME
+2025-12-31 01:41:22,enqueue,job-3034f25ce5e7,5,kind=HOME cluster=clusterA
+2025-12-31 01:42:12,enqueue,job-dd428780ff18,6,kind=HOME cluster=clusterA
+2025-12-31 01:42:13,queue_dequeued_by_hol,job-ff781756cbeb,-1,cluster=clusterB g=4 kind=HOME
+2025-12-31 01:54:50,enqueue,job-03021a8dbf80,7,kind=HOME cluster=clusterA
+2025-12-31 01:56:03,enqueue,job-e23b240d9e5a,8,kind=HOME cluster=clusterA
+2025-12-31 01:58:58,enqueue,job-fbb607d83ee7,9,kind=HOME cluster=clusterA
+2025-12-31 02:03:52,enqueue,job-d7d7f7aa1c6c,10,kind=HOME cluster=clusterA
+2025-12-31 02:05:26,enqueue,job-26e8f07ddc1d,11,kind=HOME cluster=clusterA
+2025-12-31 02:15:24,enqueue,job-f6d76a854ef8,10,kind=HOME cluster=clusterA
+2025-12-31 02:16:27,enqueue,job-9c91e26071e2,11,kind=HOME cluster=clusterA
+2025-12-31 02:21:25,enqueue,job-d9c82c36ccd3,12,kind=HOME cluster=clusterA
+2025-12-31 02:22:36,queue_dequeued_by_hol,job-6c7cec60044e,-1,cluster=clusterB g=1 kind=HOME
+2025-12-31 02:22:37,queue_dequeued_by_hol,job-dc4a0841af78,-1,cluster=clusterB g=1 kind=HOME
+2025-12-31 02:22:51,queue_dequeued_by_hol,job-b82d8f1b07ed,-1,cluster=clusterB g=1 kind=HOME
+2025-12-31 02:44:36,enqueue,job-d3ac51b17443,10,kind=HOME cluster=clusterA
+2025-12-31 02:44:46,enqueue,job-c5d5cd869b5b,11,kind=HOME cluster=clusterA
+2025-12-31 02:52:57,enqueue,job-051eb134eaf3,11,kind=HOME cluster=clusterA
+2025-12-31 03:10:36,enqueue,job-153265cb6089,11,kind=HOME cluster=clusterA
+2025-12-31 03:19:42,enqueue,job-706c53d2371f,10,kind=HOME cluster=clusterA
+2025-12-31 03:26:35,enqueue,job-972943cd9836,11,kind=HOME cluster=clusterA
+2025-12-31 03:31:40,enqueue,job-fd9951e4f216,12,kind=HOME cluster=clusterA
+2025-12-31 03:32:26,enqueue,job-9d929ec2b84b,13,kind=HOME cluster=clusterA
+2025-12-31 03:33:21,enqueue,job-3cb3ed8f167a,14,kind=HOME cluster=clusterA
+2025-12-31 03:33:55,enqueue,job-0b6fee6a9b1d,14,kind=HOME cluster=clusterA
+2025-12-31 03:42:09,enqueue,job-fcb7c0422aff,13,kind=HOME cluster=clusterA
+2025-12-31 03:42:19,enqueue,job-2c5d1444913f,14,kind=HOME cluster=clusterA
+2025-12-31 03:46:57,enqueue,job-61cf39415d3d,15,kind=HOME cluster=clusterA
+2025-12-31 03:47:03,enqueue,job-0701a3dfd0dd,16,kind=HOME cluster=clusterA
+2025-12-31 03:47:11,enqueue,job-fbd8f9396287,17,kind=HOME cluster=clusterA
+2025-12-31 03:54:37,enqueue,job-012680967ad8,18,kind=HOME cluster=clusterA
+2025-12-31 04:10:40,enqueue,job-a4df549929eb,15,kind=HOME cluster=clusterA
+2025-12-31 04:12:34,enqueue,job-077148666349,16,kind=HOME cluster=clusterA
+2025-12-31 04:19:08,enqueue,job-c3ae4695453f,17,kind=HOME cluster=clusterA
+2025-12-31 04:19:56,enqueue,job-a08c2b54bedb,18,kind=HOME cluster=clusterA
+2025-12-31 04:26:48,enqueue,job-79408178af31,19,kind=HOME cluster=clusterA
+2025-12-31 04:29:48,enqueue,job-dff706b13b56,20,kind=HOME cluster=clusterA
+2025-12-31 04:29:53,enqueue,job-f242fbbda60b,21,kind=HOME cluster=clusterA

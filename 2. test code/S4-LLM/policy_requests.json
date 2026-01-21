@@ -1,0 +1,402 @@
+[
+  {
+    "id": 1,
+    "request": "Please finish as fast as possible.",
+    "lambda": { "time": 0.80, "cost": 0.10, "energy": 0.10 }
+  },
+  {
+    "id": 2,
+    "request": "Throughput is the top priority.",
+    "lambda": { "time": 0.85, "cost": 0.10, "energy": 0.05 }
+  },
+  {
+    "id": 3,
+    "request": "The completion time is extremely urgent.",
+    "lambda": { "time": 0.90, "cost": 0.05, "energy": 0.05 }
+  },
+  {
+    "id": 4,
+    "request": "Please process this job as quickly as possible.",
+    "lambda": { "time": 0.75, "cost": 0.15, "energy": 0.10 }
+  },
+  {
+    "id": 5,
+    "request": "Run with maximum performance and minimal delay.",
+    "lambda": { "time": 0.88, "cost": 0.07, "energy": 0.05 }
+  },
+  {
+    "id": 6,
+    "request": "I need the experimental results as soon as possible.",
+    "lambda": { "time": 0.82, "cost": 0.10, "energy": 0.08 }
+  },
+  {
+    "id": 7,
+    "request": "Execution speed is the most important factor.",
+    "lambda": { "time": 0.85, "cost": 0.08, "energy": 0.07 }
+  },
+  {
+    "id": 8,
+    "request": "I would like the job to finish as soon as reasonably possible.",
+    "lambda": { "time": 0.78, "cost": 0.14, "energy": 0.08 }
+  },
+  {
+    "id": 9,
+    "request": "Reducing job completion time matters the most.",
+    "lambda": { "time": 0.80, "cost": 0.12, "energy": 0.08 }
+  },
+  {
+    "id": 10,
+    "request": "I can tolerate slightly higher cost if it finishes quickly.",
+    "lambda": { "time": 0.70, "cost": 0.20, "energy": 0.10 }
+  },
+  {
+    "id": 11,
+    "request": "It should be fast, but too expensive is not acceptable.",
+    "lambda": { "time": 0.60, "cost": 0.25, "energy": 0.15 }
+  },
+  {
+    "id": 12,
+    "request": "Please consider both speed and monetary cost.",
+    "lambda": { "time": 0.50, "cost": 0.35, "energy": 0.15 }
+  },
+  {
+    "id": 13,
+    "request": "Completion time matters, but cost reduction is also necessary.",
+    "lambda": { "time": 0.55, "cost": 0.30, "energy": 0.15 }
+  },
+  {
+    "id": 14,
+    "request": "Moderate speed and moderate cost are preferred.",
+    "lambda": { "time": 0.45, "cost": 0.40, "energy": 0.15 }
+  },
+  {
+    "id": 15,
+    "request": "As long as it is not too slow, please control the cost.",
+    "lambda": { "time": 0.40, "cost": 0.45, "energy": 0.15 }
+  },
+  {
+    "id": 16,
+    "request": "Speed is important, but cost efficiency is even more critical.",
+    "lambda": { "time": 0.35, "cost": 0.50, "energy": 0.15 }
+  },
+  {
+    "id": 17,
+    "request": "I need a balance between completion time and monetary cost.",
+    "lambda": { "time": 0.45, "cost": 0.40, "energy": 0.15 }
+  },
+  {
+    "id": 18,
+    "request": "Please avoid excessive cost while keeping reasonable speed.",
+    "lambda": { "time": 0.50, "cost": 0.35, "energy": 0.15 }
+  },
+  {
+    "id": 19,
+    "request": "I dislike very high costs; average speed is enough.",
+    "lambda": { "time": 0.40, "cost": 0.45, "energy": 0.15 }
+  },
+  {
+    "id": 20,
+    "request": "Speed is important, but please enforce a strict cost limit.",
+    "lambda": { "time": 0.55, "cost": 0.35, "energy": 0.10 }
+  },
+  {
+    "id": 21,
+    "request": "Minimizing monetary cost is the highest priority.",
+    "lambda": { "time": 0.10, "cost": 0.80, "energy": 0.10 }
+  },
+  {
+    "id": 22,
+    "request": "Run it cheaply even if it takes a long time.",
+    "lambda": { "time": 0.10, "cost": 0.75, "energy": 0.15 }
+  },
+  {
+    "id": 23,
+    "request": "Slow execution is acceptable if the cost is minimized.",
+    "lambda": { "time": 0.15, "cost": 0.70, "energy": 0.15 }
+  },
+  {
+    "id": 24,
+    "request": "Use the lowest-cost configuration available.",
+    "lambda": { "time": 0.05, "cost": 0.85, "energy": 0.10 }
+  },
+  {
+    "id": 25,
+    "request": "Cost reduction is the main objective.",
+    "lambda": { "time": 0.10, "cost": 0.80, "energy": 0.10 }
+  },
+  {
+    "id": 26,
+    "request": "I want to minimize spending as much as possible.",
+    "lambda": { "time": 0.15, "cost": 0.75, "energy": 0.10 }
+  },
+  {
+    "id": 27,
+    "request": "If possible, run it cheaply; execution time is not critical.",
+    "lambda": { "time": 0.15, "cost": 0.70, "energy": 0.15 }
+  },
+  {
+    "id": 28,
+    "request": "This is a long-running experiment, so cost matters more.",
+    "lambda": { "time": 0.20, "cost": 0.65, "energy": 0.15 }
+  },
+  {
+    "id": 29,
+    "request": "Please optimize for cost-effectiveness.",
+    "lambda": { "time": 0.25, "cost": 0.60, "energy": 0.15 }
+  },
+  {
+    "id": 30,
+    "request": "Monetary cost is much more important than speed.",
+    "lambda": { "time": 0.15, "cost": 0.70, "energy": 0.15 }
+  },
+  {
+    "id": 31,
+    "request": "Please minimize power consumption.",
+    "lambda": { "time": 0.10, "cost": 0.10, "energy": 0.80 }
+  },
+  {
+    "id": 32,
+    "request": "I need an energy-saving mode.",
+    "lambda": { "time": 0.15, "cost": 0.10, "energy": 0.75 }
+  },
+  {
+    "id": 33,
+    "request": "Reducing heat and noise is the top priority.",
+    "lambda": { "time": 0.10, "cost": 0.20, "energy": 0.70 }
+  },
+  {
+    "id": 34,
+    "request": "Focus on energy efficiency during execution.",
+    "lambda": { "time": 0.15, "cost": 0.15, "energy": 0.70 }
+  },
+  {
+    "id": 35,
+    "request": "We are under strict power limits; low energy use is crucial.",
+    "lambda": { "time": 0.20, "cost": 0.10, "energy": 0.70 }
+  },
+  {
+    "id": 36,
+    "request": "Reducing energy consumption is the main goal.",
+    "lambda": { "time": 0.12, "cost": 0.18, "energy": 0.70 }
+  },
+  {
+    "id": 37,
+    "request": "Due to thermal constraints, prioritize low-power execution.",
+    "lambda": { "time": 0.15, "cost": 0.15, "energy": 0.70 }
+  },
+  {
+    "id": 38,
+    "request": "Power stability is more important than speed.",
+    "lambda": { "time": 0.20, "cost": 0.15, "energy": 0.65 }
+  },
+  {
+    "id": 39,
+    "request": "I also want to reduce electricity costs.",
+    "lambda": { "time": 0.20, "cost": 0.20, "energy": 0.60 }
+  },
+  {
+    "id": 40,
+    "request": "Reduce power consumption while also considering cost.",
+    "lambda": { "time": 0.25, "cost": 0.20, "energy": 0.55 }
+  },
+  {
+    "id": 41,
+    "request": "Balance speed, monetary cost, and energy consumption.",
+    "lambda": { "time": 0.33, "cost": 0.33, "energy": 0.34 }
+  },
+  {
+    "id": 42,
+    "request": "All three factors can be kept at an average level.",
+    "lambda": { "time": 0.34, "cost": 0.33, "energy": 0.33 }
+  },
+  {
+    "id": 43,
+    "request": "Overall balance is more important than any single metric.",
+    "lambda": { "time": 0.35, "cost": 0.30, "energy": 0.35 }
+  },
+  {
+    "id": 44,
+    "request": "I prefer balanced behavior over extreme optimization.",
+    "lambda": { "time": 0.33, "cost": 0.34, "energy": 0.33 }
+  },
+  {
+    "id": 45,
+    "request": "A generally reasonable configuration is sufficient.",
+    "lambda": { "time": 0.34, "cost": 0.33, "energy": 0.33 }
+  },
+  {
+    "id": 46,
+    "request": "Treat performance, cost, and energy with equal importance.",
+    "lambda": { "time": 0.33, "cost": 0.33, "energy": 0.34 }
+  },
+  {
+    "id": 47,
+    "request": "No specific preference; I want an overall balanced mode.",
+    "lambda": { "time": 0.34, "cost": 0.33, "energy": 0.33 }
+  },
+  {
+    "id": 48,
+    "request": "Use a typical configuration suitable for general workloads.",
+    "lambda": { "time": 0.35, "cost": 0.30, "energy": 0.35 }
+  },
+  {
+    "id": 49,
+    "request": "I care about the harmony of all three metrics.",
+    "lambda": { "time": 0.33, "cost": 0.33, "energy": 0.34 }
+  },
+  {
+    "id": 50,
+    "request": "Give similar weights to speed, cost, and energy.",
+    "lambda": { "time": 0.34, "cost": 0.33, "energy": 0.33 }
+  },
+  {
+    "id": 51,
+    "request": "Make it somewhat fast without making it too expensive.",
+    "lambda": { "time": 0.55, "cost": 0.25, "energy": 0.20 }
+  },
+  {
+    "id": 52,
+    "request": "I want higher speed while still saving some energy.",
+    "lambda": { "time": 0.55, "cost": 0.20, "energy": 0.25 }
+  },
+  {
+    "id": 53,
+    "request": "Slightly better-than-average speed is fine, even at modest cost.",
+    "lambda": { "time": 0.60, "cost": 0.25, "energy": 0.15 }
+  },
+  {
+    "id": 54,
+    "request": "Speed is important, but I do not want very high power usage.",
+    "lambda": { "time": 0.60, "cost": 0.15, "energy": 0.25 }
+  },
+  {
+    "id": 55,
+    "request": "Time is a bit more important, but cost savings also matter.",
+    "lambda": { "time": 0.50, "cost": 0.35, "energy": 0.15 }
+  },
+  {
+    "id": 56,
+    "request": "Both completion time and energy consumption are important.",
+    "lambda": { "time": 0.45, "cost": 0.15, "energy": 0.40 }
+  },
+  {
+    "id": 57,
+    "request": "I want it slightly faster while keeping good cost efficiency.",
+    "lambda": { "time": 0.50, "cost": 0.40, "energy": 0.10 }
+  },
+  {
+    "id": 58,
+    "request": "Please consider both reasonable speed and lower power usage.",
+    "lambda": { "time": 0.40, "cost": 0.20, "energy": 0.40 }
+  },
+  {
+    "id": 59,
+    "request": "Avoid very slow execution while also controlling cost and energy.",
+    "lambda": { "time": 0.45, "cost": 0.30, "energy": 0.25 }
+  },
+  {
+    "id": 60,
+    "request": "Increase speed somewhat and reduce energy usage to some extent.",
+    "lambda": { "time": 0.50, "cost": 0.20, "energy": 0.30 }
+  },
+  {
+    "id": 61,
+    "request": "Please reduce both power consumption and monetary cost.",
+    "lambda": { "time": 0.20, "cost": 0.45, "energy": 0.35 }
+  },
+  {
+    "id": 62,
+    "request": "This setting should be both low-cost and low-power.",
+    "lambda": { "time": 0.15, "cost": 0.55, "energy": 0.30 }
+  },
+  {
+    "id": 63,
+    "request": "We must save both energy and budget.",
+    "lambda": { "time": 0.20, "cost": 0.50, "energy": 0.30 }
+  },
+  {
+    "id": 64,
+    "request": "Optimize for energy savings and cost reduction simultaneously.",
+    "lambda": { "time": 0.15, "cost": 0.45, "energy": 0.40 }
+  },
+  {
+    "id": 65,
+    "request": "Energy and cost are more important than speed.",
+    "lambda": { "time": 0.20, "cost": 0.45, "energy": 0.35 }
+  },
+  {
+    "id": 66,
+    "request": "I need both lower cost and better thermal behavior.",
+    "lambda": { "time": 0.25, "cost": 0.40, "energy": 0.35 }
+  },
+  {
+    "id": 67,
+    "request": "Strengthen the energy constraint while still considering cost.",
+    "lambda": { "time": 0.25, "cost": 0.30, "energy": 0.45 }
+  },
+  {
+    "id": 68,
+    "request": "Use a low-budget, low-power configuration.",
+    "lambda": { "time": 0.20, "cost": 0.50, "energy": 0.30 }
+  },
+  {
+    "id": 69,
+    "request": "For environmental reasons, keep both energy and cost low.",
+    "lambda": { "time": 0.20, "cost": 0.45, "energy": 0.35 }
+  },
+  {
+    "id": 70,
+    "request": "I want both good cost-effectiveness and low power usage.",
+    "lambda": { "time": 0.25, "cost": 0.40, "energy": 0.35 }
+  },
+  {
+    "id": 71,
+    "request": "Make it a bit faster while keeping good cost efficiency.",
+    "lambda": { "time": 0.55, "cost": 0.35, "energy": 0.10 }
+  },
+  {
+    "id": 72,
+    "request": "Run it lightly and quickly without large cost increases.",
+    "lambda": { "time": 0.60, "cost": 0.30, "energy": 0.10 }
+  },
+  {
+    "id": 73,
+    "request": "I want to maintain some performance while considering power.",
+    "lambda": { "time": 0.45, "cost": 0.20, "energy": 0.35 }
+  },
+  {
+    "id": 74,
+    "request": "Trade off speed and cost to keep both above average.",
+    "lambda": { "time": 0.50, "cost": 0.40, "energy": 0.10 }
+  },
+  {
+    "id": 75,
+    "request": "Focus on speed and cost; energy is less important.",
+    "lambda": { "time": 0.55, "cost": 0.35, "energy": 0.10 }
+  },
+  {
+    "id": 76,
+    "request": "You may take more time if it helps reduce the cost.",
+    "lambda": { "time": 0.45, "cost": 0.45, "energy": 0.10 }
+  },
+  {
+    "id": 77,
+    "request": "Emphasize both completion time and energy usage.",
+    "lambda": { "time": 0.50, "cost": 0.15, "energy": 0.35 }
+  },
+  {
+    "id": 78,
+    "request": "Energy is more important than cost, but speed still matters.",
+    "lambda": { "time": 0.35, "cost": 0.20, "energy": 0.45 }
+  },
+  {
+    "id": 79,
+    "request": "Give higher weight to speed and energy; cost is secondary.",
+    "lambda": { "time": 0.50, "cost": 0.20, "energy": 0.30 }
+  },
+  {
+    "id": 80,
+    "request": "Use a slightly faster and slightly more resource-saving mode overall.",
+    "lambda": { "time": 0.45, "cost": 0.30, "energy": 0.25 }
+  }
+]

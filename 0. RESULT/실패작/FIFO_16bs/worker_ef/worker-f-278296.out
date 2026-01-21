@@ -1,0 +1,308 @@
+2025-12-03 15:04:13,691 [INFO] (WorkerAgent) <node-f> Starting Worker Agent on 0.0.0.0:8006, assigned GPU: 0
+INFO:     Started server process [3803465]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8006 (Press CTRL+C to quit)
+2025-12-03 15:12:26,103 [INFO] (WorkerAgent) [job-3d19505feb14] Received task request: Rank 1/2 (Target GPU: 0)
+2025-12-03 15:12:26,104 [INFO] (WorkerAgent) [job-3d19505feb14] Executing command: python /nas2/data/dlwmznzl1/CCGRID/TrainingCode/DDP_CIFAR10_Resnet50.py --nproc_per_node 1 --nnodes 2 --node_rank 1 --master_addr 163.180.160.62 --master_port 29503 --epochs 20 --checkpoint_dir ./checkpoints/job-3d19505feb14 --job_id job-3d19505feb14 --global_server_addr http://163.180.117.216:8000
+2025-12-03 15:12:26,104 [INFO] (WorkerAgent) [job-3d19505feb14] Setting CUDA_VISIBLE_DEVICES=0
+2025-12-03 15:12:26,113 [INFO] (WorkerAgent) [job-3d19505feb14] Task started successfully (PID: 3803922).
+2025-12-03 15:12:26,113 [INFO] (WorkerAgent) === Node-e Worker Agent Started ===
+INFO:     163.180.117.216:59182 - "POST /run_task HTTP/1.1" 200 OK
+2025-12-03 15:18:16,507 [WARNING] (WorkerAgent) [Telemetry] Send failed: HTTPConnectionPool(host='163.180.117.216', port=8082): Read timed out. (read timeout=1.0)
+2025-12-03 15:42:14,650 [WARNING] (WorkerAgent) [Telemetry] Send failed: HTTPConnectionPool(host='163.180.117.216', port=8082): Read timed out. (read timeout=1.0)
+2025-12-03 15:53:26,545 [INFO] (WorkerAgent) Job job-3d19505feb14 terminated (Exit Code: 0). Cleaning up.
+2025-12-03 15:59:03,996 [WARNING] (WorkerAgent) [Telemetry] Send failed: HTTPConnectionPool(host='163.180.117.216', port=8082): Read timed out. (read timeout=1.0)
+2025-12-03 16:14:49,833 [WARNING] (WorkerAgent) [Telemetry] Send failed: HTTPConnectionPool(host='163.180.117.216', port=8082): Read timed out. (read timeout=1.0)
+2025-12-03 16:19:14,035 [WARNING] (WorkerAgent) [Telemetry] Send failed: HTTPConnectionPool(host='163.180.117.216', port=8082): Max retries exceeded with url: /v1/telemetry (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x7fed7d2897f0>, 'Connection to 163.180.117.216 timed out. (connect timeout=1.0)'))
+2025-12-03 16:33:27,104 [WARNING] (WorkerAgent) [Telemetry] Send failed: HTTPConnectionPool(host='163.180.117.216', port=8082): Read timed out. (read timeout=1.0)
+2025-12-03 16:37:23,098 [WARNING] (WorkerAgent) [Telemetry] Send failed: HTTPConnectionPool(host='163.180.117.216', port=8082): Read timed out. (read timeout=1.0)
+2025-12-03 16:49:02,650 [WARNING] (WorkerAgent) [Telemetry] Send failed: HTTPConnectionPool(host='163.180.117.216', port=8082): Read timed out. (read timeout=1.0)
+2025-12-03 16:57:22,787 [WARNING] (WorkerAgent) [Telemetry] Send failed: HTTPConnectionPool(host='163.180.117.216', port=8082): Max retries exceeded with url: /v1/telemetry (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x7fed7c219280>, 'Connection to 163.180.117.216 timed out. (connect timeout=1.0)'))
+2025-12-03 17:04:10,979 [INFO] (WorkerAgent) [job-ad02c3e9c1bf] Received task request: Rank 1/4 (Target GPU: 0)
+2025-12-03 17:04:10,980 [INFO] (WorkerAgent) [job-ad02c3e9c1bf] Executing command: python /nas2/data/dlwmznzl1/CCGRID/TrainingCode/DDP_CIFAR10_Resnet50.py --nproc_per_node 1 --nnodes 4 --node_rank 1 --master_addr 163.180.160.62 --master_port 29511 --epochs 20 --checkpoint_dir ./checkpoints/job-ad02c3e9c1bf --job_id job-ad02c3e9c1bf --global_server_addr http://163.180.117.216:8000
+2025-12-03 17:04:10,981 [INFO] (WorkerAgent) [job-ad02c3e9c1bf] Setting CUDA_VISIBLE_DEVICES=0
+2025-12-03 17:04:10,999 [INFO] (WorkerAgent) [job-ad02c3e9c1bf] Task started successfully (PID: 3823527).
+2025-12-03 17:04:10,999 [INFO] (WorkerAgent) === Node-e Worker Agent Started ===
+INFO:     163.180.117.216:48602 - "POST /run_task HTTP/1.1" 200 OK
+2025-12-03 17:33:37,397 [WARNING] (WorkerAgent) [Telemetry] Send failed: HTTPConnectionPool(host='163.180.117.216', port=8082): Read timed out. (read timeout=1.0)
+2025-12-03 17:38:41,061 [INFO] (WorkerAgent) [job-718bff77f61f] Received task request: Rank 1/2 (Target GPU: 0)
+2025-12-03 17:38:41,061 [INFO] (WorkerAgent) [job-718bff77f61f] Executing command: python /nas2/data/dlwmznzl1/CCGRID/TrainingCode/DDP_MNIST_EfficientNetV2.py --nproc_per_node 1 --nnodes 2 --node_rank 1 --master_addr 163.180.160.62 --master_port 29513 --epochs 20 --checkpoint_dir ./checkpoints/job-718bff77f61f --job_id job-718bff77f61f --global_server_addr http://163.180.117.216:8000
+2025-12-03 17:38:41,062 [INFO] (WorkerAgent) [job-718bff77f61f] Setting CUDA_VISIBLE_DEVICES=0
+2025-12-03 17:38:41,070 [INFO] (WorkerAgent) [job-718bff77f61f] Task started successfully (PID: 3832261).
+2025-12-03 17:38:41,071 [INFO] (WorkerAgent) === Node-e Worker Agent Started ===
+INFO:     163.180.117.216:41118 - "POST /run_task HTTP/1.1" 200 OK
+2025-12-03 17:38:42,012 [INFO] (WorkerAgent) Job job-ad02c3e9c1bf terminated (Exit Code: 0). Cleaning up.
+2025-12-03 18:04:38,144 [WARNING] (WorkerAgent) [Telemetry] Send failed: HTTPConnectionPool(host='163.180.117.216', port=8082): Read timed out. (read timeout=1.0)
+2025-12-03 18:30:24,866 [INFO] (WorkerAgent) Job job-718bff77f61f terminated (Exit Code: 0). Cleaning up.
+2025-12-03 18:52:10,544 [WARNING] (WorkerAgent) [Telemetry] Send failed: HTTPConnectionPool(host='163.180.117.216', port=8082): Max retries exceeded with url: /v1/telemetry (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x7fed7d2612e0>, 'Connection to 163.180.117.216 timed out. (connect timeout=1.0)'))
+2025-12-03 19:04:48,028 [INFO] (WorkerAgent) [job-f90b4168ecd9] Received task request: Rank 1/4 (Target GPU: 0)
+2025-12-03 19:04:48,029 [INFO] (WorkerAgent) [job-f90b4168ecd9] Executing command: python /nas2/data/dlwmznzl1/CCGRID/TrainingCode/DDP_TinyImageNet_Densenet121.py --nproc_per_node 1 --nnodes 4 --node_rank 1 --master_addr 163.180.160.62 --master_port 29517 --epochs 20 --checkpoint_dir ./checkpoints/job-f90b4168ecd9 --job_id job-f90b4168ecd9 --global_server_addr http://163.180.117.216:8000
+2025-12-03 19:04:48,029 [INFO] (WorkerAgent) [job-f90b4168ecd9] Setting CUDA_VISIBLE_DEVICES=0
+2025-12-03 19:04:48,038 [INFO] (WorkerAgent) [job-f90b4168ecd9] Task started successfully (PID: 3839178).
+2025-12-03 19:04:48,038 [INFO] (WorkerAgent) === Node-e Worker Agent Started ===
+INFO:     163.180.117.216:55852 - "POST /run_task HTTP/1.1" 200 OK
+2025-12-03 19:07:36,331 [WARNING] (WorkerAgent) [Telemetry] Send failed: HTTPConnectionPool(host='163.180.117.216', port=8082): Read timed out. (read timeout=1.0)
+2025-12-03 19:23:18,169 [WARNING] (WorkerAgent) [Telemetry] Send failed: HTTPConnectionPool(host='163.180.117.216', port=8082): Read timed out. (read timeout=1.0)
+2025-12-03 19:29:01,853 [WARNING] (WorkerAgent) [Telemetry] Send failed: HTTPConnectionPool(host='163.180.117.216', port=8082): Max retries exceeded with url: /v1/telemetry (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x7fed7d289850>, 'Connection to 163.180.117.216 timed out. (connect timeout=1.0)'))
+2025-12-03 19:29:12,886 [WARNING] (WorkerAgent) [Telemetry] Send failed: HTTPConnectionPool(host='163.180.117.216', port=8082): Max retries exceeded with url: /v1/telemetry (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x7fed7d2894f0>, 'Connection to 163.180.117.216 timed out. (connect timeout=1.0)'))
+2025-12-03 19:29:54,382 [WARNING] (WorkerAgent) [Telemetry] Send failed: HTTPConnectionPool(host='163.180.117.216', port=8082): Max retries exceeded with url: /v1/telemetry (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x7fed7d282190>, 'Connection to 163.180.117.216 timed out. (connect timeout=1.0)'))
+2025-12-03 19:38:51,504 [WARNING] (WorkerAgent) [Telemetry] Send failed: HTTPConnectionPool(host='163.180.117.216', port=8082): Max retries exceeded with url: /v1/telemetry (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x7fed7d261bb0>, 'Connection to 163.180.117.216 timed out. (connect timeout=1.0)'))
+2025-12-03 19:43:29,041 [WARNING] (WorkerAgent) [Telemetry] Send failed: HTTPConnectionPool(host='163.180.117.216', port=8082): Read timed out. (read timeout=1.0)
+2025-12-03 19:45:38,729 [INFO] (WorkerAgent) [job-546609e6313b] Received task request: Rank 1/2 (Target GPU: 0)
+2025-12-03 19:45:38,730 [INFO] (WorkerAgent) [job-546609e6313b] Executing command: python /nas2/data/dlwmznzl1/CCGRID/TrainingCode/DDP_MNIST_EfficientNetV2.py --nproc_per_node 1 --nnodes 2 --node_rank 1 --master_addr 163.180.160.62 --master_port 29525 --epochs 20 --checkpoint_dir ./checkpoints/job-546609e6313b --job_id job-546609e6313b --global_server_addr http://163.180.117.216:8000
+2025-12-03 19:45:38,730 [INFO] (WorkerAgent) [job-546609e6313b] Setting CUDA_VISIBLE_DEVICES=0
+2025-12-03 19:45:38,738 [INFO] (WorkerAgent) [job-546609e6313b] Task started successfully (PID: 3846263).
+2025-12-03 19:45:38,738 [INFO] (WorkerAgent) === Node-e Worker Agent Started ===
+INFO:     163.180.117.216:38436 - "POST /run_task HTTP/1.1" 200 OK
+2025-12-03 19:45:39,111 [INFO] (WorkerAgent) Job job-f90b4168ecd9 terminated (Exit Code: 0). Cleaning up.
+2025-12-03 19:50:44,584 [WARNING] (WorkerAgent) [Telemetry] Send failed: HTTPConnectionPool(host='163.180.117.216', port=8082): Max retries exceeded with url: /v1/telemetry (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x7fed7c219070>, 'Connection to 163.180.117.216 timed out. (connect timeout=1.0)'))
+2025-12-03 20:00:09,177 [WARNING] (WorkerAgent) [Telemetry] Send failed: HTTPConnectionPool(host='163.180.117.216', port=8082): Read timed out. (read timeout=1.0)
+2025-12-03 20:31:57,827 [WARNING] (WorkerAgent) [Telemetry] Send failed: HTTPConnectionPool(host='163.180.117.216', port=8082): Read timed out. (read timeout=1.0)
+2025-12-03 20:37:26,984 [INFO] (WorkerAgent) Job job-546609e6313b terminated (Exit Code: 0). Cleaning up.
+2025-12-03 20:37:31,798 [INFO] (WorkerAgent) [job-b1cac1e427cf] Received task request: Rank 1/4 (Target GPU: 0)
+2025-12-03 20:37:31,798 [INFO] (WorkerAgent) [job-b1cac1e427cf] Executing command: python /nas2/data/dlwmznzl1/CCGRID/TrainingCode/DDP_CIFAR100_Resnet18.py --nproc_per_node 1 --nnodes 4 --node_rank 1 --master_addr 163.180.160.62 --master_port 29527 --epochs 20 --checkpoint_dir ./checkpoints/job-b1cac1e427cf --job_id job-b1cac1e427cf --global_server_addr http://163.180.117.216:8000
+2025-12-03 20:37:31,798 [INFO] (WorkerAgent) [job-b1cac1e427cf] Setting CUDA_VISIBLE_DEVICES=0
+2025-12-03 20:37:31,806 [INFO] (WorkerAgent) [job-b1cac1e427cf] Task started successfully (PID: 3850266).
+2025-12-03 20:37:31,807 [INFO] (WorkerAgent) === Node-e Worker Agent Started ===
+INFO:     163.180.117.216:54290 - "POST /run_task HTTP/1.1" 200 OK
+2025-12-03 20:49:37,600 [INFO] (WorkerAgent) Job job-b1cac1e427cf terminated (Exit Code: 0). Cleaning up.
+2025-12-03 20:49:37,872 [INFO] (WorkerAgent) [job-ab2147b274cb] Received task request: Rank 1/4 (Target GPU: 0)
+2025-12-03 20:49:37,872 [INFO] (WorkerAgent) [job-ab2147b274cb] Executing command: python /nas2/data/dlwmznzl1/CCGRID/TrainingCode/DDP_TinyImageNet_Densenet121.py --nproc_per_node 1 --nnodes 4 --node_rank 1 --master_addr 163.180.160.62 --master_port 29529 --epochs 20 --checkpoint_dir ./checkpoints/job-ab2147b274cb --job_id job-ab2147b274cb --global_server_addr http://163.180.117.216:8000
+2025-12-03 20:49:37,873 [INFO] (WorkerAgent) [job-ab2147b274cb] Setting CUDA_VISIBLE_DEVICES=0
+2025-12-03 20:49:37,881 [INFO] (WorkerAgent) [job-ab2147b274cb] Task started successfully (PID: 3854394).
+2025-12-03 20:49:37,881 [INFO] (WorkerAgent) === Node-e Worker Agent Started ===
+INFO:     163.180.117.216:45962 - "POST /run_task HTTP/1.1" 200 OK
+2025-12-03 20:55:27,097 [WARNING] (WorkerAgent) [Telemetry] Send failed: HTTPConnectionPool(host='163.180.117.216', port=8082): Max retries exceeded with url: /v1/telemetry (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x7fed7d282910>, 'Connection to 163.180.117.216 timed out. (connect timeout=1.0)'))
+2025-12-03 21:10:52,934 [WARNING] (WorkerAgent) [Telemetry] Send failed: HTTPConnectionPool(host='163.180.117.216', port=8082): Max retries exceeded with url: /v1/telemetry (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x7fed7d282250>, 'Connection to 163.180.117.216 timed out. (connect timeout=1.0)'))
+2025-12-03 21:11:34,534 [WARNING] (WorkerAgent) [Telemetry] Send failed: HTTPConnectionPool(host='163.180.117.216', port=8082): Max retries exceeded with url: /v1/telemetry (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x7fed7d289040>, 'Connection to 163.180.117.216 timed out. (connect timeout=1.0)'))
+2025-12-03 21:11:45,629 [WARNING] (WorkerAgent) [Telemetry] Send failed: HTTPConnectionPool(host='163.180.117.216', port=8082): Max retries exceeded with url: /v1/telemetry (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x7fed7d289af0>, 'Connection to 163.180.117.216 timed out. (connect timeout=1.0)'))
+2025-12-03 21:12:17,009 [WARNING] (WorkerAgent) [Telemetry] Send failed: HTTPConnectionPool(host='163.180.117.216', port=8082): Max retries exceeded with url: /v1/telemetry (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x7fed7d282520>, 'Connection to 163.180.117.216 timed out. (connect timeout=1.0)'))
+2025-12-03 21:29:59,755 [INFO] (WorkerAgent) Job job-ab2147b274cb terminated (Exit Code: 0). Cleaning up.
+2025-12-03 21:48:15,318 [WARNING] (WorkerAgent) [Telemetry] Send failed: HTTPConnectionPool(host='163.180.117.216', port=8082): Max retries exceeded with url: /v1/telemetry (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x7fed7d261a00>, 'Connection to 163.180.117.216 timed out. (connect timeout=1.0)'))
+2025-12-03 21:48:26,366 [WARNING] (WorkerAgent) [Telemetry] Send failed: HTTPConnectionPool(host='163.180.117.216', port=8082): Max retries exceeded with url: /v1/telemetry (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x7fed7c219580>, 'Connection to 163.180.117.216 timed out. (connect timeout=1.0)'))
+2025-12-03 21:59:10,532 [WARNING] (WorkerAgent) [Telemetry] Send failed: HTTPConnectionPool(host='163.180.117.216', port=8082): Read timed out. (read timeout=1.0)
+2025-12-03 22:16:25,275 [WARNING] (WorkerAgent) [Telemetry] Send failed: HTTPConnectionPool(host='163.180.117.216', port=8082): Read timed out. (read timeout=1.0)
+2025-12-03 22:32:54,930 [WARNING] (WorkerAgent) [Telemetry] Send failed: HTTPConnectionPool(host='163.180.117.216', port=8082): Max retries exceeded with url: /v1/telemetry (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x7fed7d261d30>, 'Connection to 163.180.117.216 timed out. (connect timeout=1.0)'))
+2025-12-03 22:55:59,427 [INFO] (WorkerAgent) [job-7f1735354784] Received task request: Rank 1/4 (Target GPU: 0)
+2025-12-03 22:55:59,428 [INFO] (WorkerAgent) [job-7f1735354784] Executing command: python /nas2/data/dlwmznzl1/CCGRID/TrainingCode/DDP_CMU_ARCTIC_DeepSpeech2.py --nproc_per_node 1 --nnodes 4 --node_rank 1 --master_addr 163.180.160.62 --master_port 29533 --epochs 20 --checkpoint_dir ./checkpoints/job-7f1735354784 --job_id job-7f1735354784 --global_server_addr http://163.180.117.216:8000
+2025-12-03 22:55:59,428 [INFO] (WorkerAgent) [job-7f1735354784] Setting CUDA_VISIBLE_DEVICES=0
+2025-12-03 22:55:59,436 [INFO] (WorkerAgent) [job-7f1735354784] Task started successfully (PID: 3864368).
+2025-12-03 22:55:59,436 [INFO] (WorkerAgent) === Node-e Worker Agent Started ===
+INFO:     163.180.117.216:56228 - "POST /run_task HTTP/1.1" 200 OK
+2025-12-03 22:56:27,169 [WARNING] (WorkerAgent) [Telemetry] Send failed: HTTPConnectionPool(host='163.180.117.216', port=8082): Max retries exceeded with url: /v1/telemetry (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x7fed7d2827c0>, 'Connection to 163.180.117.216 timed out. (connect timeout=1.0)'))
+2025-12-03 22:59:09,534 [INFO] (WorkerAgent) [job-e487d1403ac6] Received task request: Rank 1/4 (Target GPU: 0)
+2025-12-03 22:59:09,534 [INFO] (WorkerAgent) [job-e487d1403ac6] Executing command: python /nas2/data/dlwmznzl1/CCGRID/TrainingCode/DDP_TinyImageNet_Densenet121.py --nproc_per_node 1 --nnodes 4 --node_rank 1 --master_addr 163.180.160.62 --master_port 29535 --epochs 20 --checkpoint_dir ./checkpoints/job-e487d1403ac6 --job_id job-e487d1403ac6 --global_server_addr http://163.180.117.216:8000
+2025-12-03 22:59:09,535 [INFO] (WorkerAgent) [job-e487d1403ac6] Setting CUDA_VISIBLE_DEVICES=0
+2025-12-03 22:59:09,542 [INFO] (WorkerAgent) [job-e487d1403ac6] Task started successfully (PID: 3867778).
+2025-12-03 22:59:09,543 [INFO] (WorkerAgent) === Node-e Worker Agent Started ===
+INFO:     163.180.117.216:55636 - "POST /run_task HTTP/1.1" 200 OK
+2025-12-03 22:59:15,078 [INFO] (WorkerAgent) Job job-7f1735354784 terminated (Exit Code: 0). Cleaning up.
+2025-12-03 23:39:22,211 [INFO] (WorkerAgent) Job job-e487d1403ac6 terminated (Exit Code: 0). Cleaning up.
+2025-12-03 23:39:22,436 [INFO] (WorkerAgent) [job-fb70532da7ec] Received task request: Rank 0/1 (Target GPU: 0)
+2025-12-03 23:39:22,436 [INFO] (WorkerAgent) [job-fb70532da7ec] Executing command: python /nas2/data/dlwmznzl1/CCGRID/TrainingCode/DDP_CIFAR100_Resnet18.py --nproc_per_node 1 --nnodes 1 --node_rank 0 --master_addr 163.180.160.62 --master_port 29539 --epochs 20 --checkpoint_dir ./checkpoints/job-fb70532da7ec --job_id job-fb70532da7ec --global_server_addr http://163.180.117.216:8000
+2025-12-03 23:39:22,437 [INFO] (WorkerAgent) [job-fb70532da7ec] Setting CUDA_VISIBLE_DEVICES=0
+2025-12-03 23:39:22,445 [INFO] (WorkerAgent) [job-fb70532da7ec] Task started successfully (PID: 3874817).
+2025-12-03 23:39:22,446 [INFO] (WorkerAgent) === Node-e Worker Agent Started ===
+INFO:     163.180.117.216:59070 - "POST /run_task HTTP/1.1" 200 OK
+2025-12-04 00:01:28,331 [INFO] (WorkerAgent) Job job-fb70532da7ec terminated (Exit Code: 0). Cleaning up.
+2025-12-04 00:01:28,468 [INFO] (WorkerAgent) [job-fb70532da7ec] Completion reported to http://163.180.117.216:8000/report_job_completed
+2025-12-04 00:29:06,529 [INFO] (WorkerAgent) [job-5cebe71d082d] Received task request: Rank 0/2 (Target GPU: 0)
+2025-12-04 00:29:06,530 [INFO] (WorkerAgent) [job-5cebe71d082d] Executing command: python /nas2/data/dlwmznzl1/CCGRID/TrainingCode/DDP_CMU_ARCTIC_DeepSpeech2.py --nproc_per_node 1 --nnodes 2 --node_rank 0 --master_addr 163.180.160.62 --master_port 29547 --epochs 20 --checkpoint_dir ./checkpoints/job-5cebe71d082d --job_id job-5cebe71d082d --global_server_addr http://163.180.117.216:8000
+2025-12-04 00:29:06,530 [INFO] (WorkerAgent) [job-5cebe71d082d] Setting CUDA_VISIBLE_DEVICES=0
+2025-12-04 00:29:06,540 [INFO] (WorkerAgent) [job-5cebe71d082d] Task started successfully (PID: 3882180).
+2025-12-04 00:29:06,540 [INFO] (WorkerAgent) === Node-e Worker Agent Started ===
+INFO:     163.180.117.216:60640 - "POST /run_task HTTP/1.1" 200 OK
+2025-12-04 00:34:25,381 [INFO] (WorkerAgent) Job job-5cebe71d082d terminated (Exit Code: 0). Cleaning up.
+2025-12-04 00:34:25,461 [INFO] (WorkerAgent) [job-5cebe71d082d] Completion reported to http://163.180.117.216:8000/report_job_completed
+2025-12-04 00:34:26,431 [INFO] (WorkerAgent) [job-8f9c296f2395] Received task request: Rank 0/2 (Target GPU: 0)
+2025-12-04 00:34:26,431 [INFO] (WorkerAgent) [job-8f9c296f2395] Executing command: python /nas2/data/dlwmznzl1/CCGRID/TrainingCode/DDP_SST2_DistilBert.py --nproc_per_node 1 --nnodes 2 --node_rank 0 --master_addr 163.180.160.62 --master_port 29549 --epochs 20 --checkpoint_dir ./checkpoints/job-8f9c296f2395 --job_id job-8f9c296f2395 --global_server_addr http://163.180.117.216:8000
+2025-12-04 00:34:26,431 [INFO] (WorkerAgent) [job-8f9c296f2395] Setting CUDA_VISIBLE_DEVICES=0
+2025-12-04 00:34:26,440 [INFO] (WorkerAgent) [job-8f9c296f2395] Task started successfully (PID: 3884337).
+2025-12-04 00:34:26,441 [INFO] (WorkerAgent) === Node-e Worker Agent Started ===
+INFO:     163.180.117.216:53206 - "POST /run_task HTTP/1.1" 200 OK
+2025-12-04 00:42:23,956 [WARNING] (WorkerAgent) [Telemetry] Send failed: HTTPConnectionPool(host='163.180.117.216', port=8082): Read timed out. (read timeout=1.0)
+2025-12-04 01:29:17,473 [WARNING] (WorkerAgent) [Telemetry] Send failed: HTTPConnectionPool(host='163.180.117.216', port=8082): Read timed out. (read timeout=1.0)
+2025-12-04 02:20:46,392 [INFO] (WorkerAgent) Job job-8f9c296f2395 terminated (Exit Code: 0). Cleaning up.
+2025-12-04 02:20:46,532 [INFO] (WorkerAgent) [job-8f9c296f2395] Completion reported to http://163.180.117.216:8000/report_job_completed
+2025-12-04 02:20:47,015 [INFO] (WorkerAgent) [job-8bb3b0c1a00a] Received task request: Rank 0/1 (Target GPU: 0)
+2025-12-04 02:20:47,015 [INFO] (WorkerAgent) [job-8bb3b0c1a00a] Executing command: python /nas2/data/dlwmznzl1/CCGRID/TrainingCode/DDP_CMU_ARCTIC_DeepSpeech2.py --nproc_per_node 1 --nnodes 1 --node_rank 0 --master_addr 163.180.160.62 --master_port 29561 --epochs 20 --checkpoint_dir ./checkpoints/job-8bb3b0c1a00a --job_id job-8bb3b0c1a00a --global_server_addr http://163.180.117.216:8000
+2025-12-04 02:20:47,016 [INFO] (WorkerAgent) [job-8bb3b0c1a00a] Setting CUDA_VISIBLE_DEVICES=0
+2025-12-04 02:20:47,025 [INFO] (WorkerAgent) [job-8bb3b0c1a00a] Task started successfully (PID: 3898038).
+2025-12-04 02:20:47,025 [INFO] (WorkerAgent) === Node-e Worker Agent Started ===
+INFO:     163.180.117.216:47478 - "POST /run_task HTTP/1.1" 200 OK
+2025-12-04 02:25:31,803 [INFO] (WorkerAgent) Job job-8bb3b0c1a00a terminated (Exit Code: 0). Cleaning up.
+2025-12-04 02:25:32,017 [INFO] (WorkerAgent) [job-8bb3b0c1a00a] Completion reported to http://163.180.117.216:8000/report_job_completed
+2025-12-04 02:32:17,285 [WARNING] (WorkerAgent) [Telemetry] Send failed: HTTPConnectionPool(host='163.180.117.216', port=8082): Read timed out. (read timeout=1.0)
+2025-12-04 03:19:01,511 [WARNING] (WorkerAgent) [Telemetry] Send failed: HTTPConnectionPool(host='163.180.117.216', port=8082): Read timed out. (read timeout=1.0)
+2025-12-04 03:59:12,100 [INFO] (WorkerAgent) [job-7e8d4a716b67] Received task request: Rank 1/4 (Target GPU: 0)
+2025-12-04 03:59:12,100 [INFO] (WorkerAgent) [job-7e8d4a716b67] Executing command: python /nas2/data/dlwmznzl1/CCGRID/TrainingCode/DDP_CMU_ARCTIC_DeepSpeech2.py --nproc_per_node 1 --nnodes 4 --node_rank 1 --master_addr 163.180.160.62 --master_port 29565 --epochs 20 --checkpoint_dir ./checkpoints/job-7e8d4a716b67 --job_id job-7e8d4a716b67 --global_server_addr http://163.180.117.216:8000
+2025-12-04 03:59:12,100 [INFO] (WorkerAgent) [job-7e8d4a716b67] Setting CUDA_VISIBLE_DEVICES=0
+2025-12-04 03:59:12,109 [INFO] (WorkerAgent) [job-7e8d4a716b67] Task started successfully (PID: 3906446).
+2025-12-04 03:59:12,109 [INFO] (WorkerAgent) === Node-e Worker Agent Started ===
+INFO:     163.180.117.216:34876 - "POST /run_task HTTP/1.1" 200 OK
+2025-12-04 04:02:22,820 [INFO] (WorkerAgent) Job job-7e8d4a716b67 terminated (Exit Code: 0). Cleaning up.
+2025-12-04 04:02:22,823 [INFO] (WorkerAgent) [job-c70b78a0005d] Received task request: Rank 1/2 (Target GPU: 0)
+2025-12-04 04:02:22,824 [INFO] (WorkerAgent) [job-c70b78a0005d] Executing command: python /nas2/data/dlwmznzl1/CCGRID/TrainingCode/DDP_SST2_DistilBert.py --nproc_per_node 1 --nnodes 2 --node_rank 1 --master_addr 163.180.160.62 --master_port 29567 --epochs 20 --checkpoint_dir ./checkpoints/job-c70b78a0005d --job_id job-c70b78a0005d --global_server_addr http://163.180.117.216:8000
+2025-12-04 04:02:22,824 [INFO] (WorkerAgent) [job-c70b78a0005d] Setting CUDA_VISIBLE_DEVICES=0
+2025-12-04 04:02:22,832 [INFO] (WorkerAgent) [job-c70b78a0005d] Task started successfully (PID: 3909845).
+2025-12-04 04:02:22,832 [INFO] (WorkerAgent) === Node-e Worker Agent Started ===
+INFO:     163.180.117.216:58138 - "POST /run_task HTTP/1.1" 200 OK
+2025-12-04 04:06:11,590 [WARNING] (WorkerAgent) [Telemetry] Send failed: HTTPConnectionPool(host='163.180.117.216', port=8082): Read timed out. (read timeout=1.0)
+2025-12-04 05:26:17,425 [INFO] (WorkerAgent) [job-a2b88de4143a] Received task request: Rank 1/4 (Target GPU: 0)
+2025-12-04 05:26:17,425 [INFO] (WorkerAgent) [job-a2b88de4143a] Executing command: python /nas2/data/dlwmznzl1/CCGRID/TrainingCode/DDP_TinyImageNet_Densenet121.py --nproc_per_node 1 --nnodes 4 --node_rank 1 --master_addr 163.180.160.62 --master_port 29569 --epochs 20 --checkpoint_dir ./checkpoints/job-a2b88de4143a --job_id job-a2b88de4143a --global_server_addr http://163.180.117.216:8000
+2025-12-04 05:26:17,425 [INFO] (WorkerAgent) [job-a2b88de4143a] Setting CUDA_VISIBLE_DEVICES=0
+2025-12-04 05:26:17,433 [INFO] (WorkerAgent) [job-a2b88de4143a] Task started successfully (PID: 3915490).
+2025-12-04 05:26:17,434 [INFO] (WorkerAgent) === Node-e Worker Agent Started ===
+INFO:     163.180.117.216:39558 - "POST /run_task HTTP/1.1" 200 OK
+2025-12-04 05:26:17,576 [INFO] (WorkerAgent) Job job-c70b78a0005d terminated (Exit Code: 0). Cleaning up.
+2025-12-04 05:41:05,964 [WARNING] (WorkerAgent) [Telemetry] Send failed: HTTPConnectionPool(host='163.180.117.216', port=8082): Read timed out. (read timeout=1.0)
+2025-12-04 05:56:45,419 [WARNING] (WorkerAgent) [Telemetry] Send failed: HTTPConnectionPool(host='163.180.117.216', port=8082): Read timed out. (read timeout=1.0)
+2025-12-04 06:06:34,552 [INFO] (WorkerAgent) [job-fcf1d3998b30] Received task request: Rank 1/2 (Target GPU: 0)
+2025-12-04 06:06:34,552 [INFO] (WorkerAgent) [job-fcf1d3998b30] Executing command: python /nas2/data/dlwmznzl1/CCGRID/TrainingCode/DDP_MNIST_EfficientNetV2.py --nproc_per_node 1 --nnodes 2 --node_rank 1 --master_addr 163.180.160.62 --master_port 29575 --epochs 20 --checkpoint_dir ./checkpoints/job-fcf1d3998b30 --job_id job-fcf1d3998b30 --global_server_addr http://163.180.117.216:8000
+2025-12-04 06:06:34,553 [INFO] (WorkerAgent) [job-fcf1d3998b30] Setting CUDA_VISIBLE_DEVICES=0
+2025-12-04 06:06:34,561 [INFO] (WorkerAgent) [job-fcf1d3998b30] Task started successfully (PID: 3922509).
+2025-12-04 06:06:34,561 [INFO] (WorkerAgent) === Node-e Worker Agent Started ===
+INFO:     163.180.117.216:39580 - "POST /run_task HTTP/1.1" 200 OK
+2025-12-04 06:06:34,753 [INFO] (WorkerAgent) Job job-a2b88de4143a terminated (Exit Code: 0). Cleaning up.
+2025-12-04 06:57:52,527 [INFO] (WorkerAgent) Job job-fcf1d3998b30 terminated (Exit Code: 0). Cleaning up.
+2025-12-04 06:57:52,568 [INFO] (WorkerAgent) [job-1e3d31f0dd1c] Received task request: Rank 1/4 (Target GPU: 0)
+2025-12-04 06:57:52,568 [INFO] (WorkerAgent) [job-1e3d31f0dd1c] Executing command: python /nas2/data/dlwmznzl1/CCGRID/TrainingCode/DDP_TinyImageNet_Densenet121.py --nproc_per_node 1 --nnodes 4 --node_rank 1 --master_addr 163.180.160.62 --master_port 29577 --epochs 20 --checkpoint_dir ./checkpoints/job-1e3d31f0dd1c --job_id job-1e3d31f0dd1c --global_server_addr http://163.180.117.216:8000
+2025-12-04 06:57:52,568 [INFO] (WorkerAgent) [job-1e3d31f0dd1c] Setting CUDA_VISIBLE_DEVICES=0
+2025-12-04 06:57:52,576 [INFO] (WorkerAgent) [job-1e3d31f0dd1c] Task started successfully (PID: 3926975).
+2025-12-04 06:57:52,577 [INFO] (WorkerAgent) === Node-e Worker Agent Started ===
+INFO:     163.180.117.216:58840 - "POST /run_task HTTP/1.1" 200 OK
+2025-12-04 07:37:59,668 [INFO] (WorkerAgent) Job job-1e3d31f0dd1c terminated (Exit Code: 0). Cleaning up.
+2025-12-04 07:38:00,212 [INFO] (WorkerAgent) [job-9e84949b7241] Received task request: Rank 1/4 (Target GPU: 0)
+2025-12-04 07:38:00,212 [INFO] (WorkerAgent) [job-9e84949b7241] Executing command: python /nas2/data/dlwmznzl1/CCGRID/TrainingCode/DDP_TinyImageNet_Densenet121.py --nproc_per_node 1 --nnodes 4 --node_rank 1 --master_addr 163.180.160.62 --master_port 29579 --epochs 20 --checkpoint_dir ./checkpoints/job-9e84949b7241 --job_id job-9e84949b7241 --global_server_addr http://163.180.117.216:8000
+2025-12-04 07:38:00,212 [INFO] (WorkerAgent) [job-9e84949b7241] Setting CUDA_VISIBLE_DEVICES=0
+2025-12-04 07:38:00,220 [INFO] (WorkerAgent) [job-9e84949b7241] Task started successfully (PID: 3933953).
+2025-12-04 07:38:00,221 [INFO] (WorkerAgent) === Node-e Worker Agent Started ===
+INFO:     163.180.117.216:44594 - "POST /run_task HTTP/1.1" 200 OK
+2025-12-04 07:44:43,917 [WARNING] (WorkerAgent) [Telemetry] Send failed: HTTPConnectionPool(host='163.180.117.216', port=8082): Read timed out. (read timeout=1.0)
+2025-12-04 08:02:40,656 [WARNING] (WorkerAgent) [Telemetry] Send failed: HTTPConnectionPool(host='163.180.117.216', port=8082): Read timed out. (read timeout=1.0)
+2025-12-04 08:18:06,814 [INFO] (WorkerAgent) Job job-9e84949b7241 terminated (Exit Code: 0). Cleaning up.
+2025-12-04 08:22:24,839 [WARNING] (WorkerAgent) [Telemetry] Send failed: HTTPConnectionPool(host='163.180.117.216', port=8082): Read timed out. (read timeout=1.0)
+2025-12-04 08:37:56,359 [WARNING] (WorkerAgent) [Telemetry] Send failed: HTTPConnectionPool(host='163.180.117.216', port=8082): Read timed out. (read timeout=1.0)
+2025-12-04 08:53:37,358 [WARNING] (WorkerAgent) [Telemetry] Send failed: HTTPConnectionPool(host='163.180.117.216', port=8082): Read timed out. (read timeout=1.0)
+2025-12-04 09:09:18,012 [WARNING] (WorkerAgent) [Telemetry] Send failed: HTTPConnectionPool(host='163.180.117.216', port=8082): Read timed out. (read timeout=1.0)
+2025-12-04 09:25:03,901 [WARNING] (WorkerAgent) [Telemetry] Send failed: HTTPConnectionPool(host='163.180.117.216', port=8082): Read timed out. (read timeout=1.0)
+2025-12-04 09:40:45,748 [WARNING] (WorkerAgent) [Telemetry] Send failed: HTTPConnectionPool(host='163.180.117.216', port=8082): Read timed out. (read timeout=1.0)
+2025-12-04 09:44:22,273 [INFO] (WorkerAgent) [job-798e774eadcb] Received task request: Rank 1/4 (Target GPU: 0)
+2025-12-04 09:44:22,273 [INFO] (WorkerAgent) [job-798e774eadcb] Executing command: python /nas2/data/dlwmznzl1/CCGRID/TrainingCode/DDP_CMU_ARCTIC_DeepSpeech2.py --nproc_per_node 1 --nnodes 4 --node_rank 1 --master_addr 163.180.160.62 --master_port 29585 --epochs 20 --checkpoint_dir ./checkpoints/job-798e774eadcb --job_id job-798e774eadcb --global_server_addr http://163.180.117.216:8000
+2025-12-04 09:44:22,274 [INFO] (WorkerAgent) [job-798e774eadcb] Setting CUDA_VISIBLE_DEVICES=0
+2025-12-04 09:44:22,282 [INFO] (WorkerAgent) [job-798e774eadcb] Task started successfully (PID: 3945000).
+2025-12-04 09:44:22,282 [INFO] (WorkerAgent) === Node-e Worker Agent Started ===
+INFO:     163.180.117.216:51194 - "POST /run_task HTTP/1.1" 200 OK
+2025-12-04 09:47:32,146 [INFO] (WorkerAgent) Job job-798e774eadcb terminated (Exit Code: 0). Cleaning up.
+2025-12-04 09:47:32,902 [INFO] (WorkerAgent) [job-abbd77c77b8f] Received task request: Rank 1/2 (Target GPU: 0)
+2025-12-04 09:47:32,902 [INFO] (WorkerAgent) [job-abbd77c77b8f] Executing command: python /nas2/data/dlwmznzl1/CCGRID/TrainingCode/DDP_SST2_DistilBert.py --nproc_per_node 1 --nnodes 2 --node_rank 1 --master_addr 163.180.160.62 --master_port 29587 --epochs 20 --checkpoint_dir ./checkpoints/job-abbd77c77b8f --job_id job-abbd77c77b8f --global_server_addr http://163.180.117.216:8000
+2025-12-04 09:47:32,903 [INFO] (WorkerAgent) [job-abbd77c77b8f] Setting CUDA_VISIBLE_DEVICES=0
+2025-12-04 09:47:32,911 [INFO] (WorkerAgent) [job-abbd77c77b8f] Task started successfully (PID: 3948415).
+2025-12-04 09:47:32,911 [INFO] (WorkerAgent) === Node-e Worker Agent Started ===
+INFO:     163.180.117.216:51540 - "POST /run_task HTTP/1.1" 200 OK
+2025-12-04 09:56:24,879 [WARNING] (WorkerAgent) [Telemetry] Send failed: HTTPConnectionPool(host='163.180.117.216', port=8082): Read timed out. (read timeout=1.0)
+2025-12-04 10:12:13,376 [WARNING] (WorkerAgent) [Telemetry] Send failed: HTTPConnectionPool(host='163.180.117.216', port=8082): Read timed out. (read timeout=1.0)
+2025-12-04 10:29:39,697 [WARNING] (WorkerAgent) [Telemetry] Send failed: HTTPConnectionPool(host='163.180.117.216', port=8082): Read timed out. (read timeout=1.0)
+2025-12-04 10:45:20,706 [WARNING] (WorkerAgent) [Telemetry] Send failed: HTTPConnectionPool(host='163.180.117.216', port=8082): Read timed out. (read timeout=1.0)
+2025-12-04 11:01:21,481 [WARNING] (WorkerAgent) [Telemetry] Send failed: HTTPConnectionPool(host='163.180.117.216', port=8082): Read timed out. (read timeout=1.0)
+2025-12-04 11:12:21,904 [INFO] (WorkerAgent) Job job-abbd77c77b8f terminated (Exit Code: 0). Cleaning up.
+2025-12-04 11:12:22,543 [INFO] (WorkerAgent) [job-6066c72291cd] Received task request: Rank 1/2 (Target GPU: 0)
+2025-12-04 11:12:22,543 [INFO] (WorkerAgent) [job-6066c72291cd] Executing command: python /nas2/data/dlwmznzl1/CCGRID/TrainingCode/DDP_CIFAR10_Resnet50.py --nproc_per_node 1 --nnodes 2 --node_rank 1 --master_addr 163.180.160.62 --master_port 29593 --epochs 20 --checkpoint_dir ./checkpoints/job-6066c72291cd --job_id job-6066c72291cd --global_server_addr http://163.180.117.216:8000
+2025-12-04 11:12:22,543 [INFO] (WorkerAgent) [job-6066c72291cd] Setting CUDA_VISIBLE_DEVICES=0
+2025-12-04 11:12:22,550 [INFO] (WorkerAgent) [job-6066c72291cd] Task started successfully (PID: 3960272).
+2025-12-04 11:12:22,551 [INFO] (WorkerAgent) === Node-e Worker Agent Started ===
+INFO:     163.180.117.216:58726 - "POST /run_task HTTP/1.1" 200 OK
+2025-12-04 11:17:11,192 [WARNING] (WorkerAgent) [Telemetry] Send failed: HTTPConnectionPool(host='163.180.117.216', port=8082): Read timed out. (read timeout=1.0)
+2025-12-04 11:33:07,254 [WARNING] (WorkerAgent) [Telemetry] Send failed: HTTPConnectionPool(host='163.180.117.216', port=8082): Read timed out. (read timeout=1.0)
+2025-12-04 11:44:28,639 [INFO] (WorkerAgent) Job job-6066c72291cd terminated (Exit Code: 0). Cleaning up.
+2025-12-04 11:49:32,803 [WARNING] (WorkerAgent) [Telemetry] Send failed: HTTPConnectionPool(host='163.180.117.216', port=8082): Read timed out. (read timeout=1.0)
+2025-12-04 12:03:07,431 [INFO] (WorkerAgent) [job-cd67ae474946] Received task request: Rank 1/4 (Target GPU: 0)
+2025-12-04 12:03:07,431 [INFO] (WorkerAgent) [job-cd67ae474946] Executing command: python /nas2/data/dlwmznzl1/CCGRID/TrainingCode/DDP_TinyImageNet_Densenet121.py --nproc_per_node 1 --nnodes 4 --node_rank 1 --master_addr 163.180.160.62 --master_port 29597 --epochs 20 --checkpoint_dir ./checkpoints/job-cd67ae474946 --job_id job-cd67ae474946 --global_server_addr http://163.180.117.216:8000
+2025-12-04 12:03:07,432 [INFO] (WorkerAgent) [job-cd67ae474946] Setting CUDA_VISIBLE_DEVICES=0
+2025-12-04 12:03:07,439 [INFO] (WorkerAgent) [job-cd67ae474946] Task started successfully (PID: 3965457).
+2025-12-04 12:03:07,440 [INFO] (WorkerAgent) === Node-e Worker Agent Started ===
+INFO:     163.180.117.216:42288 - "POST /run_task HTTP/1.1" 200 OK
+2025-12-04 12:05:16,852 [WARNING] (WorkerAgent) [Telemetry] Send failed: HTTPConnectionPool(host='163.180.117.216', port=8082): Read timed out. (read timeout=1.0)
+2025-12-04 12:21:01,356 [WARNING] (WorkerAgent) [Telemetry] Send failed: HTTPConnectionPool(host='163.180.117.216', port=8082): Read timed out. (read timeout=1.0)
+2025-12-04 12:36:41,206 [WARNING] (WorkerAgent) [Telemetry] Send failed: HTTPConnectionPool(host='163.180.117.216', port=8082): Read timed out. (read timeout=1.0)
+2025-12-04 12:43:01,894 [INFO] (WorkerAgent) Job job-cd67ae474946 terminated (Exit Code: 0). Cleaning up.
+2025-12-04 12:52:23,676 [WARNING] (WorkerAgent) [Telemetry] Send failed: HTTPConnectionPool(host='163.180.117.216', port=8082): Read timed out. (read timeout=1.0)
+2025-12-04 14:36:21,072 [WARNING] (WorkerAgent) [Telemetry] Send failed: HTTPConnectionPool(host='163.180.117.216', port=8082): Max retries exceeded with url: /v1/telemetry (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x7fed7c219c40>, 'Connection to 163.180.117.216 timed out. (connect timeout=1.0)'))
+2025-12-04 14:46:45,468 [WARNING] (WorkerAgent) [Telemetry] Send failed: HTTPConnectionPool(host='163.180.117.216', port=8082): Max retries exceeded with url: /v1/telemetry (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x7fed7d2611f0>, 'Connection to 163.180.117.216 timed out. (connect timeout=1.0)'))
+WARNING:  Invalid HTTP request received.
+2025-12-04 17:58:07,273 [WARNING] (WorkerAgent) [Telemetry] Send failed: HTTPConnectionPool(host='163.180.117.216', port=8082): Max retries exceeded with url: /v1/telemetry (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x7fed7d282190>, 'Connection to 163.180.117.216 timed out. (connect timeout=1.0)'))
+2025-12-04 17:58:33,688 [WARNING] (WorkerAgent) [Telemetry] Send failed: HTTPConnectionPool(host='163.180.117.216', port=8082): Max retries exceeded with url: /v1/telemetry (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x7fed7d282970>, 'Connection to 163.180.117.216 timed out. (connect timeout=1.0)'))
+2025-12-04 19:19:53,872 [WARNING] (WorkerAgent) [Telemetry] Send failed: HTTPConnectionPool(host='163.180.117.216', port=8082): Max retries exceeded with url: /v1/telemetry (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x7fed7d289970>, 'Connection to 163.180.117.216 timed out. (connect timeout=1.0)'))
+2025-12-04 19:20:09,921 [WARNING] (WorkerAgent) [Telemetry] Send failed: HTTPConnectionPool(host='163.180.117.216', port=8082): Max retries exceeded with url: /v1/telemetry (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x7fed7d289490>, 'Connection to 163.180.117.216 timed out. (connect timeout=1.0)'))
+2025-12-04 20:16:07,084 [WARNING] (WorkerAgent) [Telemetry] Send failed: HTTPConnectionPool(host='163.180.117.216', port=8082): Read timed out. (read timeout=1.0)
+2025-12-04 20:17:34,488 [WARNING] (WorkerAgent) [Telemetry] Send failed: HTTPConnectionPool(host='163.180.117.216', port=8082): Max retries exceeded with url: /v1/telemetry (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x7fed7d261460>, 'Connection to 163.180.117.216 timed out. (connect timeout=1.0)'))
+2025-12-04 20:34:04,508 [WARNING] (WorkerAgent) [Telemetry] Send failed: HTTPConnectionPool(host='163.180.117.216', port=8082): Max retries exceeded with url: /v1/telemetry (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x7fed7c219940>, 'Connection to 163.180.117.216 timed out. (connect timeout=1.0)'))
+2025-12-04 20:56:35,732 [WARNING] (WorkerAgent) [Telemetry] Send failed: HTTPConnectionPool(host='163.180.117.216', port=8082): Max retries exceeded with url: /v1/telemetry (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7fed7c219070>: Failed to establish a new connection: [Errno 111] Connection refused'))
+2025-12-04 20:56:40,743 [WARNING] (WorkerAgent) [Telemetry] Send failed: HTTPConnectionPool(host='163.180.117.216', port=8082): Max retries exceeded with url: /v1/telemetry (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7fed7c219760>: Failed to establish a new connection: [Errno 111] Connection refused'))
+2025-12-04 20:56:45,753 [WARNING] (WorkerAgent) [Telemetry] Send failed: HTTPConnectionPool(host='163.180.117.216', port=8082): Max retries exceeded with url: /v1/telemetry (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7fed7d2615e0>: Failed to establish a new connection: [Errno 111] Connection refused'))
+2025-12-04 20:56:50,763 [WARNING] (WorkerAgent) [Telemetry] Send failed: HTTPConnectionPool(host='163.180.117.216', port=8082): Max retries exceeded with url: /v1/telemetry (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7fed7d261520>: Failed to establish a new connection: [Errno 111] Connection refused'))
+2025-12-04 20:56:55,773 [WARNING] (WorkerAgent) [Telemetry] Send failed: HTTPConnectionPool(host='163.180.117.216', port=8082): Max retries exceeded with url: /v1/telemetry (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7fed7d2824c0>: Failed to establish a new connection: [Errno 111] Connection refused'))
+2025-12-04 20:57:00,784 [WARNING] (WorkerAgent) [Telemetry] Send failed: HTTPConnectionPool(host='163.180.117.216', port=8082): Max retries exceeded with url: /v1/telemetry (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7fed7d289b20>: Failed to establish a new connection: [Errno 111] Connection refused'))
+2025-12-04 20:57:05,793 [WARNING] (WorkerAgent) [Telemetry] Send failed: HTTPConnectionPool(host='163.180.117.216', port=8082): Max retries exceeded with url: /v1/telemetry (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7fed7c218580>: Failed to establish a new connection: [Errno 111] Connection refused'))
+2025-12-04 20:57:10,803 [WARNING] (WorkerAgent) [Telemetry] Send failed: HTTPConnectionPool(host='163.180.117.216', port=8082): Max retries exceeded with url: /v1/telemetry (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7fed7d2898e0>: Failed to establish a new connection: [Errno 111] Connection refused'))
+2025-12-04 20:57:15,813 [WARNING] (WorkerAgent) [Telemetry] Send failed: HTTPConnectionPool(host='163.180.117.216', port=8082): Max retries exceeded with url: /v1/telemetry (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7fed7d282df0>: Failed to establish a new connection: [Errno 111] Connection refused'))
+2025-12-04 20:57:20,820 [WARNING] (WorkerAgent) [Telemetry] Send failed: HTTPConnectionPool(host='163.180.117.216', port=8082): Max retries exceeded with url: /v1/telemetry (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7fed7d2613a0>: Failed to establish a new connection: [Errno 111] Connection refused'))
+2025-12-04 20:57:25,830 [WARNING] (WorkerAgent) [Telemetry] Send failed: HTTPConnectionPool(host='163.180.117.216', port=8082): Max retries exceeded with url: /v1/telemetry (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7fed7d261af0>: Failed to establish a new connection: [Errno 111] Connection refused'))
+2025-12-04 20:57:30,839 [WARNING] (WorkerAgent) [Telemetry] Send failed: HTTPConnectionPool(host='163.180.117.216', port=8082): Max retries exceeded with url: /v1/telemetry (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7fed7c219be0>: Failed to establish a new connection: [Errno 111] Connection refused'))
+2025-12-04 20:57:35,848 [WARNING] (WorkerAgent) [Telemetry] Send failed: HTTPConnectionPool(host='163.180.117.216', port=8082): Max retries exceeded with url: /v1/telemetry (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7fed7c218550>: Failed to establish a new connection: [Errno 111] Connection refused'))
+2025-12-04 20:57:40,858 [WARNING] (WorkerAgent) [Telemetry] Send failed: HTTPConnectionPool(host='163.180.117.216', port=8082): Max retries exceeded with url: /v1/telemetry (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7fed7d261190>: Failed to establish a new connection: [Errno 111] Connection refused'))
+2025-12-04 20:57:45,867 [WARNING] (WorkerAgent) [Telemetry] Send failed: HTTPConnectionPool(host='163.180.117.216', port=8082): Max retries exceeded with url: /v1/telemetry (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7fed7d261520>: Failed to establish a new connection: [Errno 111] Connection refused'))
+2025-12-04 20:57:50,877 [WARNING] (WorkerAgent) [Telemetry] Send failed: HTTPConnectionPool(host='163.180.117.216', port=8082): Max retries exceeded with url: /v1/telemetry (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7fed7d2824c0>: Failed to establish a new connection: [Errno 111] Connection refused'))
+2025-12-04 20:57:55,886 [WARNING] (WorkerAgent) [Telemetry] Send failed: HTTPConnectionPool(host='163.180.117.216', port=8082): Max retries exceeded with url: /v1/telemetry (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7fed7d289e50>: Failed to establish a new connection: [Errno 111] Connection refused'))
+2025-12-04 20:58:00,895 [WARNING] (WorkerAgent) [Telemetry] Send failed: HTTPConnectionPool(host='163.180.117.216', port=8082): Max retries exceeded with url: /v1/telemetry (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7fed7c218760>: Failed to establish a new connection: [Errno 111] Connection refused'))
+2025-12-04 20:58:05,905 [WARNING] (WorkerAgent) [Telemetry] Send failed: HTTPConnectionPool(host='163.180.117.216', port=8082): Max retries exceeded with url: /v1/telemetry (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7fed7d289a00>: Failed to establish a new connection: [Errno 111] Connection refused'))
+2025-12-04 20:58:10,914 [WARNING] (WorkerAgent) [Telemetry] Send failed: HTTPConnectionPool(host='163.180.117.216', port=8082): Max retries exceeded with url: /v1/telemetry (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7fed7d282640>: Failed to establish a new connection: [Errno 111] Connection refused'))
+2025-12-04 20:58:15,923 [WARNING] (WorkerAgent) [Telemetry] Send failed: HTTPConnectionPool(host='163.180.117.216', port=8082): Max retries exceeded with url: /v1/telemetry (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7fed7d2825b0>: Failed to establish a new connection: [Errno 111] Connection refused'))
+2025-12-04 20:58:20,933 [WARNING] (WorkerAgent) [Telemetry] Send failed: HTTPConnectionPool(host='163.180.117.216', port=8082): Max retries exceeded with url: /v1/telemetry (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7fed7d2615e0>: Failed to establish a new connection: [Errno 111] Connection refused'))
+2025-12-04 20:58:25,942 [WARNING] (WorkerAgent) [Telemetry] Send failed: HTTPConnectionPool(host='163.180.117.216', port=8082): Max retries exceeded with url: /v1/telemetry (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7fed7c2193a0>: Failed to establish a new connection: [Errno 111] Connection refused'))
+2025-12-04 20:58:30,952 [WARNING] (WorkerAgent) [Telemetry] Send failed: HTTPConnectionPool(host='163.180.117.216', port=8082): Max retries exceeded with url: /v1/telemetry (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7fed7c218f70>: Failed to establish a new connection: [Errno 111] Connection refused'))
+2025-12-04 20:58:35,962 [WARNING] (WorkerAgent) [Telemetry] Send failed: HTTPConnectionPool(host='163.180.117.216', port=8082): Max retries exceeded with url: /v1/telemetry (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7fed7d261d30>: Failed to establish a new connection: [Errno 111] Connection refused'))
+2025-12-04 20:58:40,972 [WARNING] (WorkerAgent) [Telemetry] Send failed: HTTPConnectionPool(host='163.180.117.216', port=8082): Max retries exceeded with url: /v1/telemetry (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7fed7d261a30>: Failed to establish a new connection: [Errno 111] Connection refused'))
+2025-12-04 20:58:45,983 [WARNING] (WorkerAgent) [Telemetry] Send failed: HTTPConnectionPool(host='163.180.117.216', port=8082): Max retries exceeded with url: /v1/telemetry (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7fed7d2827f0>: Failed to establish a new connection: [Errno 111] Connection refused'))
+2025-12-04 20:58:50,993 [WARNING] (WorkerAgent) [Telemetry] Send failed: HTTPConnectionPool(host='163.180.117.216', port=8082): Max retries exceeded with url: /v1/telemetry (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7fed7c218c70>: Failed to establish a new connection: [Errno 111] Connection refused'))
+2025-12-04 20:58:56,003 [WARNING] (WorkerAgent) [Telemetry] Send failed: HTTPConnectionPool(host='163.180.117.216', port=8082): Max retries exceeded with url: /v1/telemetry (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7fed7d2890a0>: Failed to establish a new connection: [Errno 111] Connection refused'))
+2025-12-04 20:59:01,015 [WARNING] (WorkerAgent) [Telemetry] Send failed: HTTPConnectionPool(host='163.180.117.216', port=8082): Max retries exceeded with url: /v1/telemetry (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7fed7d289190>: Failed to establish a new connection: [Errno 111] Connection refused'))
+2025-12-04 20:59:06,025 [WARNING] (WorkerAgent) [Telemetry] Send failed: HTTPConnectionPool(host='163.180.117.216', port=8082): Max retries exceeded with url: /v1/telemetry (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7fed7c218250>: Failed to establish a new connection: [Errno 111] Connection refused'))
+2025-12-04 20:59:11,037 [WARNING] (WorkerAgent) [Telemetry] Send failed: HTTPConnectionPool(host='163.180.117.216', port=8082): Max retries exceeded with url: /v1/telemetry (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7fed7d282d00>: Failed to establish a new connection: [Errno 111] Connection refused'))
+2025-12-04 20:59:16,047 [WARNING] (WorkerAgent) [Telemetry] Send failed: HTTPConnectionPool(host='163.180.117.216', port=8082): Max retries exceeded with url: /v1/telemetry (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7fed7d261f70>: Failed to establish a new connection: [Errno 111] Connection refused'))
+2025-12-04 20:59:21,057 [WARNING] (WorkerAgent) [Telemetry] Send failed: HTTPConnectionPool(host='163.180.117.216', port=8082): Max retries exceeded with url: /v1/telemetry (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7fed7c219400>: Failed to establish a new connection: [Errno 111] Connection refused'))
+2025-12-04 20:59:26,068 [WARNING] (WorkerAgent) [Telemetry] Send failed: HTTPConnectionPool(host='163.180.117.216', port=8082): Max retries exceeded with url: /v1/telemetry (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7fed7c22aa00>: Failed to establish a new connection: [Errno 111] Connection refused'))
+2025-12-04 20:59:31,080 [WARNING] (WorkerAgent) [Telemetry] Send failed: HTTPConnectionPool(host='163.180.117.216', port=8082): Max retries exceeded with url: /v1/telemetry (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7fed7d261460>: Failed to establish a new connection: [Errno 111] Connection refused'))
+2025-12-04 20:59:36,090 [WARNING] (WorkerAgent) [Telemetry] Send failed: HTTPConnectionPool(host='163.180.117.216', port=8082): Max retries exceeded with url: /v1/telemetry (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7fed7c218d90>: Failed to establish a new connection: [Errno 111] Connection refused'))
+2025-12-04 20:59:41,102 [WARNING] (WorkerAgent) [Telemetry] Send failed: HTTPConnectionPool(host='163.180.117.216', port=8082): Max retries exceeded with url: /v1/telemetry (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7fed7d282df0>: Failed to establish a new connection: [Errno 111] Connection refused'))
+2025-12-04 20:59:46,109 [WARNING] (WorkerAgent) [Telemetry] Send failed: HTTPConnectionPool(host='163.180.117.216', port=8082): Max retries exceeded with url: /v1/telemetry (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7fed7d289e50>: Failed to establish a new connection: [Errno 111] Connection refused'))
+2025-12-04 20:59:51,120 [WARNING] (WorkerAgent) [Telemetry] Send failed: HTTPConnectionPool(host='163.180.117.216', port=8082): Max retries exceeded with url: /v1/telemetry (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7fed7c22a6d0>: Failed to establish a new connection: [Errno 111] Connection refused'))
+2025-12-04 20:59:56,131 [WARNING] (WorkerAgent) [Telemetry] Send failed: HTTPConnectionPool(host='163.180.117.216', port=8082): Max retries exceeded with url: /v1/telemetry (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7fed7d289520>: Failed to establish a new connection: [Errno 111] Connection refused'))
+2025-12-04 21:00:01,143 [WARNING] (WorkerAgent) [Telemetry] Send failed: HTTPConnectionPool(host='163.180.117.216', port=8082): Max retries exceeded with url: /v1/telemetry (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7fed7d261250>: Failed to establish a new connection: [Errno 111] Connection refused'))
+2025-12-04 21:00:06,153 [WARNING] (WorkerAgent) [Telemetry] Send failed: HTTPConnectionPool(host='163.180.117.216', port=8082): Max retries exceeded with url: /v1/telemetry (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7fed7d282b50>: Failed to establish a new connection: [Errno 111] Connection refused'))
+2025-12-04 21:00:11,165 [WARNING] (WorkerAgent) [Telemetry] Send failed: HTTPConnectionPool(host='163.180.117.216', port=8082): Max retries exceeded with url: /v1/telemetry (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7fed7d2829a0>: Failed to establish a new connection: [Errno 111] Connection refused'))
+2025-12-04 21:00:16,176 [WARNING] (WorkerAgent) [Telemetry] Send failed: HTTPConnectionPool(host='163.180.117.216', port=8082): Max retries exceeded with url: /v1/telemetry (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7fed7c22a610>: Failed to establish a new connection: [Errno 111] Connection refused'))
+2025-12-04 21:00:21,186 [WARNING] (WorkerAgent) [Telemetry] Send failed: HTTPConnectionPool(host='163.180.117.216', port=8082): Max retries exceeded with url: /v1/telemetry (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7fed7c218160>: Failed to establish a new connection: [Errno 111] Connection refused'))
+2025-12-04 21:00:26,197 [WARNING] (WorkerAgent) [Telemetry] Send failed: HTTPConnectionPool(host='163.180.117.216', port=8082): Max retries exceeded with url: /v1/telemetry (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7fed7d261970>: Failed to establish a new connection: [Errno 111] Connection refused'))
+2025-12-04 21:00:31,206 [WARNING] (WorkerAgent) [Telemetry] Send failed: HTTPConnectionPool(host='163.180.117.216', port=8082): Max retries exceeded with url: /v1/telemetry (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7fed7d282a60>: Failed to establish a new connection: [Errno 111] Connection refused'))
+2025-12-04 21:00:36,216 [WARNING] (WorkerAgent) [Telemetry] Send failed: HTTPConnectionPool(host='163.180.117.216', port=8082): Max retries exceeded with url: /v1/telemetry (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7fed7d282e50>: Failed to establish a new connection: [Errno 111] Connection refused'))
+2025-12-04 21:00:41,225 [WARNING] (WorkerAgent) [Telemetry] Send failed: HTTPConnectionPool(host='163.180.117.216', port=8082): Max retries exceeded with url: /v1/telemetry (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7fed7c22a250>: Failed to establish a new connection: [Errno 111] Connection refused'))
+2025-12-04 21:00:46,234 [WARNING] (WorkerAgent) [Telemetry] Send failed: HTTPConnectionPool(host='163.180.117.216', port=8082): Max retries exceeded with url: /v1/telemetry (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7fed7d289130>: Failed to establish a new connection: [Errno 111] Connection refused'))
+2025-12-04 21:00:51,244 [WARNING] (WorkerAgent) [Telemetry] Send failed: HTTPConnectionPool(host='163.180.117.216', port=8082): Max retries exceeded with url: /v1/telemetry (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7fed7c218280>: Failed to establish a new connection: [Errno 111] Connection refused'))
+2025-12-04 21:00:56,253 [WARNING] (WorkerAgent) [Telemetry] Send failed: HTTPConnectionPool(host='163.180.117.216', port=8082): Max retries exceeded with url: /v1/telemetry (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7fed7c22af40>: Failed to establish a new connection: [Errno 111] Connection refused'))
+2025-12-04 21:01:01,262 [WARNING] (WorkerAgent) [Telemetry] Send failed: HTTPConnectionPool(host='163.180.117.216', port=8082): Max retries exceeded with url: /v1/telemetry (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7fed7c22a9a0>: Failed to establish a new connection: [Errno 111] Connection refused'))
+2025-12-04 21:01:06,272 [WARNING] (WorkerAgent) [Telemetry] Send failed: HTTPConnectionPool(host='163.180.117.216', port=8082): Max retries exceeded with url: /v1/telemetry (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7fed7d2826a0>: Failed to establish a new connection: [Errno 111] Connection refused'))
+2025-12-04 21:01:11,281 [WARNING] (WorkerAgent) [Telemetry] Send failed: HTTPConnectionPool(host='163.180.117.216', port=8082): Max retries exceeded with url: /v1/telemetry (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7fed7d261d30>: Failed to establish a new connection: [Errno 111] Connection refused'))
+2025-12-04 21:01:16,290 [WARNING] (WorkerAgent) [Telemetry] Send failed: HTTPConnectionPool(host='163.180.117.216', port=8082): Max retries exceeded with url: /v1/telemetry (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7fed7c218310>: Failed to establish a new connection: [Errno 111] Connection refused'))
+2025-12-04 21:01:21,301 [WARNING] (WorkerAgent) [Telemetry] Send failed: HTTPConnectionPool(host='163.180.117.216', port=8082): Max retries exceeded with url: /v1/telemetry (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7fed7d2611f0>: Failed to establish a new connection: [Errno 111] Connection refused'))
+2025-12-04 21:01:26,310 [WARNING] (WorkerAgent) [Telemetry] Send failed: HTTPConnectionPool(host='163.180.117.216', port=8082): Max retries exceeded with url: /v1/telemetry (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7fed7d261550>: Failed to establish a new connection: [Errno 111] Connection refused'))
+2025-12-04 21:01:31,320 [WARNING] (WorkerAgent) [Telemetry] Send failed: HTTPConnectionPool(host='163.180.117.216', port=8082): Max retries exceeded with url: /v1/telemetry (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7fed7d282ac0>: Failed to establish a new connection: [Errno 111] Connection refused'))
+2025-12-04 21:01:36,329 [WARNING] (WorkerAgent) [Telemetry] Send failed: HTTPConnectionPool(host='163.180.117.216', port=8082): Max retries exceeded with url: /v1/telemetry (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7fed7c22aa30>: Failed to establish a new connection: [Errno 111] Connection refused'))
+2025-12-04 21:01:41,339 [WARNING] (WorkerAgent) [Telemetry] Send failed: HTTPConnectionPool(host='163.180.117.216', port=8082): Max retries exceeded with url: /v1/telemetry (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7fed7c22ac10>: Failed to establish a new connection: [Errno 111] Connection refused'))
+2025-12-04 21:01:46,348 [WARNING] (WorkerAgent) [Telemetry] Send failed: HTTPConnectionPool(host='163.180.117.216', port=8082): Max retries exceeded with url: /v1/telemetry (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7fed7c219e80>: Failed to establish a new connection: [Errno 111] Connection refused'))
+2025-12-04 21:01:51,359 [WARNING] (WorkerAgent) [Telemetry] Send failed: HTTPConnectionPool(host='163.180.117.216', port=8082): Max retries exceeded with url: /v1/telemetry (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7fed7d2899d0>: Failed to establish a new connection: [Errno 111] Connection refused'))
+2025-12-04 21:01:56,369 [WARNING] (WorkerAgent) [Telemetry] Send failed: HTTPConnectionPool(host='163.180.117.216', port=8082): Max retries exceeded with url: /v1/telemetry (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7fed7c22a9a0>: Failed to establish a new connection: [Errno 111] Connection refused'))
+2025-12-04 21:02:01,378 [WARNING] (WorkerAgent) [Telemetry] Send failed: HTTPConnectionPool(host='163.180.117.216', port=8082): Max retries exceeded with url: /v1/telemetry (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7fed7d282d90>: Failed to establish a new connection: [Errno 111] Connection refused'))
+2025-12-04 21:02:06,387 [WARNING] (WorkerAgent) [Telemetry] Send failed: HTTPConnectionPool(host='163.180.117.216', port=8082): Max retries exceeded with url: /v1/telemetry (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7fed7d282460>: Failed to establish a new connection: [Errno 111] Connection refused'))
+2025-12-04 21:02:11,397 [WARNING] (WorkerAgent) [Telemetry] Send failed: HTTPConnectionPool(host='163.180.117.216', port=8082): Max retries exceeded with url: /v1/telemetry (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7fed7c218b80>: Failed to establish a new connection: [Errno 111] Connection refused'))

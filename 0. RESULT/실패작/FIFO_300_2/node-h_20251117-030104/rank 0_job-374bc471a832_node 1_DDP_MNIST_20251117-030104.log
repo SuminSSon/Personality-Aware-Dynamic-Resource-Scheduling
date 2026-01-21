@@ -1,0 +1,79 @@
+Current CUDA device index: 0
+Current CUDA device name: NVIDIA RTX A5000
+Master address: 163.180.160.61, port: 29583
+2025-11-17 03:01:11,997 DDP_Script [Rank 0] [INFO] Node rank: 0, world size: 1
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+2025-11-17 03:01:12,003 DDP_Script [Rank 0] [INFO] Process group initialized: 163.180.160.61:29583
+2025-11-17 03:01:12,003 DDP_Script [Rank 0] [INFO] Rank 0/1 initialized
+/data/breath12/anaconda3/envs/Dist2/lib/python3.9/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+/data/breath12/anaconda3/envs/Dist2/lib/python3.9/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=None`.
+  warnings.warn(msg)
+2025-11-17 03:01:12,502 DDP_Script [Rank 0] [INFO] Model, DDP, criterion, optimizer initialized
+2025-11-17 03:01:12,536 DDP_Script [Rank 0] [INFO] Modules initialized
+2025-11-17 03:01:12,539 DDP_Script [Rank 0] [INFO] Checkpoint directory created: ./checkpoints/job-374bc471a832
+2025-11-17 03:01:12,539 DDP_Script [Rank 0] [INFO] Starting training from scratch (epoch 1).
+2025-11-17 03:01:12,539 DDP_Script [Rank 0] [INFO] epoch 1 시작
+2025-11-17 03:01:12,556 DDP_Script [Rank 0] [INFO] DataLoader created with batch_size=256, num_workers=4
+2025-11-17 03:01:12,562 DDP_Script [Rank 0] [INFO] 모든 노드 중 max_steps = 235
+2025-11-17 03:01:12,562 DDP_Script [Rank 0] [INFO] local_steps=235, global_steps=235
+[rank0]: Traceback (most recent call last):
+[rank0]:   File "/data/breath12/CCGRID/TrainingCode/DDP_MNIST_EfficientNetV2.py", line 510, in <module>
+[rank0]:     main()
+[rank0]:   File "/data/breath12/CCGRID/TrainingCode/DDP_MNIST_EfficientNetV2.py", line 305, in main
+[rank0]:     outputs = model(inputs)
+[rank0]:   File "/data/breath12/anaconda3/envs/Dist2/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+[rank0]:     return self._call_impl(*args, **kwargs)
+[rank0]:   File "/data/breath12/anaconda3/envs/Dist2/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+[rank0]:     return forward_call(*args, **kwargs)
+[rank0]:   File "/data/breath12/anaconda3/envs/Dist2/lib/python3.9/site-packages/torch/nn/parallel/distributed.py", line 1648, in forward
+[rank0]:     else self._run_ddp_forward(*inputs, **kwargs)
+[rank0]:   File "/data/breath12/anaconda3/envs/Dist2/lib/python3.9/site-packages/torch/nn/parallel/distributed.py", line 1474, in _run_ddp_forward
+[rank0]:     return self.module(*inputs, **kwargs)  # type: ignore[index]
+[rank0]:   File "/data/breath12/anaconda3/envs/Dist2/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+[rank0]:     return self._call_impl(*args, **kwargs)
+[rank0]:   File "/data/breath12/anaconda3/envs/Dist2/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+[rank0]:     return forward_call(*args, **kwargs)
+[rank0]:   File "/data/breath12/anaconda3/envs/Dist2/lib/python3.9/site-packages/torchvision/models/efficientnet.py", line 344, in forward
+[rank0]:     return self._forward_impl(x)
+[rank0]:   File "/data/breath12/anaconda3/envs/Dist2/lib/python3.9/site-packages/torchvision/models/efficientnet.py", line 334, in _forward_impl
+[rank0]:     x = self.features(x)
+[rank0]:   File "/data/breath12/anaconda3/envs/Dist2/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+[rank0]:     return self._call_impl(*args, **kwargs)
+[rank0]:   File "/data/breath12/anaconda3/envs/Dist2/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+[rank0]:     return forward_call(*args, **kwargs)
+[rank0]:   File "/data/breath12/anaconda3/envs/Dist2/lib/python3.9/site-packages/torch/nn/modules/container.py", line 244, in forward
+[rank0]:     input = module(input)
+[rank0]:   File "/data/breath12/anaconda3/envs/Dist2/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+[rank0]:     return self._call_impl(*args, **kwargs)
+[rank0]:   File "/data/breath12/anaconda3/envs/Dist2/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+[rank0]:     return forward_call(*args, **kwargs)
+[rank0]:   File "/data/breath12/anaconda3/envs/Dist2/lib/python3.9/site-packages/torch/nn/modules/container.py", line 244, in forward
+[rank0]:     input = module(input)
+[rank0]:   File "/data/breath12/anaconda3/envs/Dist2/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+[rank0]:     return self._call_impl(*args, **kwargs)
+[rank0]:   File "/data/breath12/anaconda3/envs/Dist2/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+[rank0]:     return forward_call(*args, **kwargs)
+[rank0]:   File "/data/breath12/anaconda3/envs/Dist2/lib/python3.9/site-packages/torchvision/models/efficientnet.py", line 165, in forward
+[rank0]:     result = self.block(input)
+[rank0]:   File "/data/breath12/anaconda3/envs/Dist2/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+[rank0]:     return self._call_impl(*args, **kwargs)
+[rank0]:   File "/data/breath12/anaconda3/envs/Dist2/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+[rank0]:     return forward_call(*args, **kwargs)
+[rank0]:   File "/data/breath12/anaconda3/envs/Dist2/lib/python3.9/site-packages/torch/nn/modules/container.py", line 244, in forward
+[rank0]:     input = module(input)
+[rank0]:   File "/data/breath12/anaconda3/envs/Dist2/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+[rank0]:     return self._call_impl(*args, **kwargs)
+[rank0]:   File "/data/breath12/anaconda3/envs/Dist2/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+[rank0]:     return forward_call(*args, **kwargs)
+[rank0]:   File "/data/breath12/anaconda3/envs/Dist2/lib/python3.9/site-packages/torch/nn/modules/container.py", line 244, in forward
+[rank0]:     input = module(input)
+[rank0]:   File "/data/breath12/anaconda3/envs/Dist2/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+[rank0]:     return self._call_impl(*args, **kwargs)
+[rank0]:   File "/data/breath12/anaconda3/envs/Dist2/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+[rank0]:     return forward_call(*args, **kwargs)
+[rank0]:   File "/data/breath12/anaconda3/envs/Dist2/lib/python3.9/site-packages/torch/nn/modules/batchnorm.py", line 193, in forward
+[rank0]:     return F.batch_norm(
+[rank0]:   File "/data/breath12/anaconda3/envs/Dist2/lib/python3.9/site-packages/torch/nn/functional.py", line 2817, in batch_norm
+[rank0]:     return torch.batch_norm(
+[rank0]: torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 32.00 MiB. GPU 0 has a total capacity of 23.68 GiB of which 17.25 MiB is free. Including non-PyTorch memory, this process has 23.65 GiB memory in use. Of the allocated memory 23.35 GiB is allocated by PyTorch, and 52.26 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)

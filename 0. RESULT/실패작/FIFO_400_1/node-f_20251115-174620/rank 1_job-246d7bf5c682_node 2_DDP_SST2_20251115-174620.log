@@ -1,0 +1,2378 @@
+Current CUDA device index: 0
+Current CUDA device name: NVIDIA RTX A5000
+Master address: 163.180.160.61, port: 29505
+2025-11-15 17:46:32,102 DDP_Script [Rank 1] [INFO] Node rank: 1, world size: 2
+[Gloo] Rank 1 is connected to 1 peer ranks. Expected number of connected peer ranks is : 1
+2025-11-15 17:46:32,115 DDP_Script [Rank 1] [INFO] Process group initialized: 163.180.160.61:29505
+2025-11-15 17:46:32,115 DDP_Script [Rank 1] [INFO] Rank 1/2 initialized
+2025-11-15 17:46:33,157 DDP_Script [Rank 1] [INFO] Rank 1 loading tokenizer from cache: distilbert-base-uncased
+2025-11-15 17:46:38,255 DDP_Script [Rank 1] [INFO] Rank 1 loading dataset from cache: glue/sst2
+2025-11-15 17:46:42,797 DDP_Script [Rank 1] [INFO] Tokenizing datasets...
+2025-11-15 17:46:42,825 DDP_Script [Rank 1] [INFO] SST-2 Dataset and Tokenizer loaded.
+2025-11-15 17:46:42,825 DDP_Script [Rank 1] [INFO] Rank 1 loading model from cache: distilbert-base-uncased
+Some weights of DistilBertForSequenceClassification were not initialized from the model checkpoint at distilbert-base-uncased and are newly initialized: ['classifier.bias', 'classifier.weight', 'pre_classifier.bias', 'pre_classifier.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2025-11-15 17:46:43,813 DDP_Script [Rank 1] [INFO] Model (DistilBert), DDP, optimizer (AdamW) initialized
+2025-11-15 17:46:43,840 DDP_Script [Rank 1] [INFO] Modules initialized
+2025-11-15 17:46:43,840 DDP_Script [Rank 1] [INFO] Starting training from scratch (epoch 1).
+2025-11-15 17:46:43,841 DDP_Script [Rank 1] [INFO] epoch 1 시작
+2025-11-15 17:46:43,868 DDP_Script [Rank 1] [INFO] DataLoader created with batch_size=64, num_workers=4
+2025-11-15 17:46:43,883 DDP_Script [Rank 1] [INFO] local_steps=527, global_steps=527
+Traceback (most recent call last):
+Traceback (most recent call last):
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 300, in _run_finalizers
+    finalizer()
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 224, in __call__
+    res = self._callback(*self._args, **self._kwargs)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 300, in _run_finalizers
+    finalizer()
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 133, in _remove_temp_dir
+    rmtree(tempdir)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 224, in __call__
+    res = self._callback(*self._args, **self._kwargs)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 734, in rmtree
+    _rmtree_safe_fd(fd, path, onerror)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 133, in _remove_temp_dir
+    rmtree(tempdir)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 690, in _rmtree_safe_fd
+    onerror(os.unlink, fullname, sys.exc_info())
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 734, in rmtree
+    _rmtree_safe_fd(fd, path, onerror)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 688, in _rmtree_safe_fd
+    os.unlink(entry.name, dir_fd=topfd)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 690, in _rmtree_safe_fd
+    onerror(os.unlink, fullname, sys.exc_info())
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 688, in _rmtree_safe_fd
+    os.unlink(entry.name, dir_fd=topfd)
+OSError: [Errno 16] Device or resource busy: '.nfs0000000001cc035a00003703'
+OSError: [Errno 16] Device or resource busy: '.nfs000000002c12969600003706'
+Traceback (most recent call last):
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 300, in _run_finalizers
+    finalizer()
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 224, in __call__
+    res = self._callback(*self._args, **self._kwargs)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 133, in _remove_temp_dir
+    rmtree(tempdir)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 734, in rmtree
+    _rmtree_safe_fd(fd, path, onerror)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 690, in _rmtree_safe_fd
+    onerror(os.unlink, fullname, sys.exc_info())
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 688, in _rmtree_safe_fd
+    os.unlink(entry.name, dir_fd=topfd)
+OSError: [Errno 16] Device or resource busy: '.nfs000000002c12969500003702'
+Traceback (most recent call last):
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 300, in _run_finalizers
+    finalizer()
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 224, in __call__
+    res = self._callback(*self._args, **self._kwargs)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 133, in _remove_temp_dir
+    rmtree(tempdir)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 734, in rmtree
+    _rmtree_safe_fd(fd, path, onerror)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 690, in _rmtree_safe_fd
+    onerror(os.unlink, fullname, sys.exc_info())
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 688, in _rmtree_safe_fd
+    os.unlink(entry.name, dir_fd=topfd)
+OSError: [Errno 16] Device or resource busy: '.nfs0000000001ba80b000003707'
+2025-11-15 17:49:26,806 DDP_Script [Rank 1] [INFO] epoch 1 train step time: 162.92 seconds
+2025-11-15 17:49:26,808 DDP_Script [Rank 1] [INFO] epoch 1 끝 (local_steps=527, global_steps=527)
+Traceback (most recent call last):
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 300, in _run_finalizers
+    finalizer()
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 224, in __call__
+    res = self._callback(*self._args, **self._kwargs)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 133, in _remove_temp_dir
+    rmtree(tempdir)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 734, in rmtree
+    _rmtree_safe_fd(fd, path, onerror)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 690, in _rmtree_safe_fd
+    onerror(os.unlink, fullname, sys.exc_info())
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 688, in _rmtree_safe_fd
+    os.unlink(entry.name, dir_fd=topfd)
+OSError: [Errno 16] Device or resource busy: '.nfs000000002c1296a70000370f'
+Traceback (most recent call last):
+Traceback (most recent call last):
+Traceback (most recent call last):
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 300, in _run_finalizers
+    finalizer()
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 224, in __call__
+    res = self._callback(*self._args, **self._kwargs)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 133, in _remove_temp_dir
+    rmtree(tempdir)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 300, in _run_finalizers
+    finalizer()
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 734, in rmtree
+    _rmtree_safe_fd(fd, path, onerror)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 224, in __call__
+    res = self._callback(*self._args, **self._kwargs)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 690, in _rmtree_safe_fd
+    onerror(os.unlink, fullname, sys.exc_info())
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 133, in _remove_temp_dir
+    rmtree(tempdir)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 688, in _rmtree_safe_fd
+    os.unlink(entry.name, dir_fd=topfd)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 300, in _run_finalizers
+    finalizer()
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 734, in rmtree
+    _rmtree_safe_fd(fd, path, onerror)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 224, in __call__
+    res = self._callback(*self._args, **self._kwargs)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 690, in _rmtree_safe_fd
+    onerror(os.unlink, fullname, sys.exc_info())
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 133, in _remove_temp_dir
+    rmtree(tempdir)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 688, in _rmtree_safe_fd
+    os.unlink(entry.name, dir_fd=topfd)
+OSError: [Errno 16] Device or resource busy: '.nfs000000002c1296a80000370c'
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 734, in rmtree
+    _rmtree_safe_fd(fd, path, onerror)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 690, in _rmtree_safe_fd
+    onerror(os.unlink, fullname, sys.exc_info())
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 688, in _rmtree_safe_fd
+    os.unlink(entry.name, dir_fd=topfd)
+OSError: [Errno 16] Device or resource busy: '.nfs000000002c1296a50000370e'
+OSError: [Errno 16] Device or resource busy: '.nfs000000002c1296aa0000370d'
+2025-11-15 17:49:27,185 DDP_Script [Rank 1] [INFO] val acc 90.94%
+2025-11-15 17:49:29,174 DDP_Script [Rank 1] [INFO] epoch 2 시작
+2025-11-15 17:49:29,193 DDP_Script [Rank 1] [INFO] DataLoader created with batch_size=64, num_workers=4
+2025-11-15 17:49:29,203 DDP_Script [Rank 1] [INFO] local_steps=527, global_steps=527
+Traceback (most recent call last):
+Traceback (most recent call last):
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 300, in _run_finalizers
+    finalizer()
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 224, in __call__
+    res = self._callback(*self._args, **self._kwargs)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 133, in _remove_temp_dir
+    rmtree(tempdir)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 734, in rmtree
+    _rmtree_safe_fd(fd, path, onerror)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 690, in _rmtree_safe_fd
+    onerror(os.unlink, fullname, sys.exc_info())
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 300, in _run_finalizers
+    finalizer()
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 688, in _rmtree_safe_fd
+    os.unlink(entry.name, dir_fd=topfd)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 224, in __call__
+    res = self._callback(*self._args, **self._kwargs)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 133, in _remove_temp_dir
+    rmtree(tempdir)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 734, in rmtree
+    _rmtree_safe_fd(fd, path, onerror)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 690, in _rmtree_safe_fd
+    onerror(os.unlink, fullname, sys.exc_info())
+OSError: [Errno 16] Device or resource busy: '.nfs000000002c1296b00000371a'
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 688, in _rmtree_safe_fd
+    os.unlink(entry.name, dir_fd=topfd)
+OSError: [Errno 16] Device or resource busy: '.nfs000000002c1296af0000371d'
+Traceback (most recent call last):
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 300, in _run_finalizers
+    finalizer()
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 224, in __call__
+    res = self._callback(*self._args, **self._kwargs)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 133, in _remove_temp_dir
+    rmtree(tempdir)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 734, in rmtree
+    _rmtree_safe_fd(fd, path, onerror)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 690, in _rmtree_safe_fd
+    onerror(os.unlink, fullname, sys.exc_info())
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 688, in _rmtree_safe_fd
+    os.unlink(entry.name, dir_fd=topfd)
+OSError: [Errno 16] Device or resource busy: '.nfs000000002c1296b10000371e'
+Traceback (most recent call last):
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 300, in _run_finalizers
+    finalizer()
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 224, in __call__
+    res = self._callback(*self._args, **self._kwargs)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 133, in _remove_temp_dir
+    rmtree(tempdir)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 734, in rmtree
+    _rmtree_safe_fd(fd, path, onerror)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 690, in _rmtree_safe_fd
+    onerror(os.unlink, fullname, sys.exc_info())
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 688, in _rmtree_safe_fd
+    os.unlink(entry.name, dir_fd=topfd)
+OSError: [Errno 16] Device or resource busy: '.nfs000000002c1296b20000371b'
+2025-11-15 17:52:10,325 DDP_Script [Rank 1] [INFO] epoch 2 train step time: 161.12 seconds
+2025-11-15 17:52:10,330 DDP_Script [Rank 1] [INFO] epoch 2 끝 (local_steps=527, global_steps=527)
+Traceback (most recent call last):
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 300, in _run_finalizers
+    finalizer()
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 224, in __call__
+    res = self._callback(*self._args, **self._kwargs)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 133, in _remove_temp_dir
+    rmtree(tempdir)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 734, in rmtree
+    _rmtree_safe_fd(fd, path, onerror)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 690, in _rmtree_safe_fd
+    onerror(os.unlink, fullname, sys.exc_info())
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 688, in _rmtree_safe_fd
+    os.unlink(entry.name, dir_fd=topfd)
+OSError: [Errno 16] Device or resource busy: '.nfs000000002c1296b400003727'
+Traceback (most recent call last):
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 300, in _run_finalizers
+    finalizer()
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 224, in __call__
+    res = self._callback(*self._args, **self._kwargs)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 133, in _remove_temp_dir
+    rmtree(tempdir)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 734, in rmtree
+    _rmtree_safe_fd(fd, path, onerror)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 690, in _rmtree_safe_fd
+    onerror(os.unlink, fullname, sys.exc_info())
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 688, in _rmtree_safe_fd
+    os.unlink(entry.name, dir_fd=topfd)
+OSError: [Errno 16] Device or resource busy: '.nfs000000002c1296ba00003729'
+Traceback (most recent call last):
+Traceback (most recent call last):
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 300, in _run_finalizers
+    finalizer()
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 300, in _run_finalizers
+    finalizer()
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 224, in __call__
+    res = self._callback(*self._args, **self._kwargs)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 224, in __call__
+    res = self._callback(*self._args, **self._kwargs)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 133, in _remove_temp_dir
+    rmtree(tempdir)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 133, in _remove_temp_dir
+    rmtree(tempdir)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 734, in rmtree
+    _rmtree_safe_fd(fd, path, onerror)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 734, in rmtree
+    _rmtree_safe_fd(fd, path, onerror)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 690, in _rmtree_safe_fd
+    onerror(os.unlink, fullname, sys.exc_info())
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 690, in _rmtree_safe_fd
+    onerror(os.unlink, fullname, sys.exc_info())
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 688, in _rmtree_safe_fd
+    os.unlink(entry.name, dir_fd=topfd)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 688, in _rmtree_safe_fd
+    os.unlink(entry.name, dir_fd=topfd)
+OSError: [Errno 16] Device or resource busy: '.nfs000000002c1296b800003728'
+OSError: [Errno 16] Device or resource busy: '.nfs000000002c1296b700003726'
+2025-11-15 17:52:10,687 DDP_Script [Rank 1] [INFO] val acc 91.06%
+2025-11-15 17:52:12,919 DDP_Script [Rank 1] [INFO] epoch 3 시작
+2025-11-15 17:52:12,941 DDP_Script [Rank 1] [INFO] DataLoader created with batch_size=64, num_workers=4
+2025-11-15 17:52:12,947 DDP_Script [Rank 1] [INFO] local_steps=527, global_steps=527
+Traceback (most recent call last):
+Traceback (most recent call last):
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 300, in _run_finalizers
+    finalizer()
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 224, in __call__
+    res = self._callback(*self._args, **self._kwargs)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 133, in _remove_temp_dir
+    rmtree(tempdir)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 300, in _run_finalizers
+    finalizer()
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 734, in rmtree
+    _rmtree_safe_fd(fd, path, onerror)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 224, in __call__
+    res = self._callback(*self._args, **self._kwargs)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 690, in _rmtree_safe_fd
+    onerror(os.unlink, fullname, sys.exc_info())
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 133, in _remove_temp_dir
+    rmtree(tempdir)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 688, in _rmtree_safe_fd
+    os.unlink(entry.name, dir_fd=topfd)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 734, in rmtree
+    _rmtree_safe_fd(fd, path, onerror)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 690, in _rmtree_safe_fd
+    onerror(os.unlink, fullname, sys.exc_info())
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 688, in _rmtree_safe_fd
+    os.unlink(entry.name, dir_fd=topfd)
+OSError: [Errno 16] Device or resource busy: '.nfs000000002c1296be0000373b'
+OSError: [Errno 16] Device or resource busy: '.nfs000000002c1296c00000373f'
+Traceback (most recent call last):
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 300, in _run_finalizers
+    finalizer()
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 224, in __call__
+    res = self._callback(*self._args, **self._kwargs)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 133, in _remove_temp_dir
+    rmtree(tempdir)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 734, in rmtree
+    _rmtree_safe_fd(fd, path, onerror)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 690, in _rmtree_safe_fd
+    onerror(os.unlink, fullname, sys.exc_info())
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 688, in _rmtree_safe_fd
+    os.unlink(entry.name, dir_fd=topfd)
+OSError: [Errno 16] Device or resource busy: '.nfs000000002c1296bf0000373a'
+Traceback (most recent call last):
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 300, in _run_finalizers
+    finalizer()
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 224, in __call__
+    res = self._callback(*self._args, **self._kwargs)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 133, in _remove_temp_dir
+    rmtree(tempdir)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 734, in rmtree
+    _rmtree_safe_fd(fd, path, onerror)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 690, in _rmtree_safe_fd
+    onerror(os.unlink, fullname, sys.exc_info())
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 688, in _rmtree_safe_fd
+    os.unlink(entry.name, dir_fd=topfd)
+OSError: [Errno 16] Device or resource busy: '.nfs000000002c1296c20000373d'
+2025-11-15 17:54:49,491 DDP_Script [Rank 1] [INFO] epoch 3 train step time: 156.54 seconds
+2025-11-15 17:54:49,494 DDP_Script [Rank 1] [INFO] epoch 3 끝 (local_steps=527, global_steps=527)
+Traceback (most recent call last):
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 300, in _run_finalizers
+    finalizer()
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 224, in __call__
+    res = self._callback(*self._args, **self._kwargs)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 133, in _remove_temp_dir
+    rmtree(tempdir)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 734, in rmtree
+    _rmtree_safe_fd(fd, path, onerror)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 690, in _rmtree_safe_fd
+    onerror(os.unlink, fullname, sys.exc_info())
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 688, in _rmtree_safe_fd
+    os.unlink(entry.name, dir_fd=topfd)
+OSError: [Errno 16] Device or resource busy: '.nfs000000002c1296ca00003748'
+Traceback (most recent call last):
+Traceback (most recent call last):
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 300, in _run_finalizers
+    finalizer()
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 224, in __call__
+    res = self._callback(*self._args, **self._kwargs)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 133, in _remove_temp_dir
+    rmtree(tempdir)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 734, in rmtree
+    _rmtree_safe_fd(fd, path, onerror)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 690, in _rmtree_safe_fd
+    onerror(os.unlink, fullname, sys.exc_info())
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 688, in _rmtree_safe_fd
+    os.unlink(entry.name, dir_fd=topfd)
+Traceback (most recent call last):
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 300, in _run_finalizers
+    finalizer()
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 224, in __call__
+    res = self._callback(*self._args, **self._kwargs)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 133, in _remove_temp_dir
+    rmtree(tempdir)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 734, in rmtree
+    _rmtree_safe_fd(fd, path, onerror)
+OSError: [Errno 16] Device or resource busy: '.nfs000000002c1296c900003746'
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 690, in _rmtree_safe_fd
+    onerror(os.unlink, fullname, sys.exc_info())
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 688, in _rmtree_safe_fd
+    os.unlink(entry.name, dir_fd=topfd)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 300, in _run_finalizers
+    finalizer()
+OSError: [Errno 16] Device or resource busy: '.nfs000000002c1296c700003749'
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 224, in __call__
+    res = self._callback(*self._args, **self._kwargs)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 133, in _remove_temp_dir
+    rmtree(tempdir)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 734, in rmtree
+    _rmtree_safe_fd(fd, path, onerror)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 690, in _rmtree_safe_fd
+    onerror(os.unlink, fullname, sys.exc_info())
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 688, in _rmtree_safe_fd
+    os.unlink(entry.name, dir_fd=topfd)
+OSError: [Errno 16] Device or resource busy: '.nfs000000002c1296c600003747'
+2025-11-15 17:54:49,855 DDP_Script [Rank 1] [INFO] val acc 89.68%
+2025-11-15 17:54:51,893 DDP_Script [Rank 1] [INFO] epoch 4 시작
+2025-11-15 17:54:51,916 DDP_Script [Rank 1] [INFO] DataLoader created with batch_size=64, num_workers=4
+2025-11-15 17:54:51,918 DDP_Script [Rank 1] [INFO] local_steps=527, global_steps=527
+Traceback (most recent call last):
+Traceback (most recent call last):
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 300, in _run_finalizers
+    finalizer()
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 224, in __call__
+    res = self._callback(*self._args, **self._kwargs)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 133, in _remove_temp_dir
+    rmtree(tempdir)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 734, in rmtree
+    _rmtree_safe_fd(fd, path, onerror)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 690, in _rmtree_safe_fd
+    onerror(os.unlink, fullname, sys.exc_info())
+Traceback (most recent call last):
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 688, in _rmtree_safe_fd
+    os.unlink(entry.name, dir_fd=topfd)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 300, in _run_finalizers
+    finalizer()
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 224, in __call__
+    res = self._callback(*self._args, **self._kwargs)
+OSError: [Errno 16] Device or resource busy: '.nfs000000002c1296cc0000375f'
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 133, in _remove_temp_dir
+    rmtree(tempdir)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 734, in rmtree
+    _rmtree_safe_fd(fd, path, onerror)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 690, in _rmtree_safe_fd
+    onerror(os.unlink, fullname, sys.exc_info())
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 688, in _rmtree_safe_fd
+    os.unlink(entry.name, dir_fd=topfd)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 300, in _run_finalizers
+    finalizer()
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 224, in __call__
+    res = self._callback(*self._args, **self._kwargs)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 133, in _remove_temp_dir
+    rmtree(tempdir)
+OSError: [Errno 16] Device or resource busy: '.nfs000000002c1296d000003761'
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 734, in rmtree
+    _rmtree_safe_fd(fd, path, onerror)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 690, in _rmtree_safe_fd
+    onerror(os.unlink, fullname, sys.exc_info())
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 688, in _rmtree_safe_fd
+    os.unlink(entry.name, dir_fd=topfd)
+OSError: [Errno 16] Device or resource busy: '.nfs000000002c1296d20000375e'
+Traceback (most recent call last):
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 300, in _run_finalizers
+    finalizer()
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 224, in __call__
+    res = self._callback(*self._args, **self._kwargs)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 133, in _remove_temp_dir
+    rmtree(tempdir)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 734, in rmtree
+    _rmtree_safe_fd(fd, path, onerror)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 690, in _rmtree_safe_fd
+    onerror(os.unlink, fullname, sys.exc_info())
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 688, in _rmtree_safe_fd
+    os.unlink(entry.name, dir_fd=topfd)
+OSError: [Errno 16] Device or resource busy: '.nfs000000002c1296d10000375a'
+2025-11-15 17:57:28,297 DDP_Script [Rank 1] [INFO] epoch 4 train step time: 156.38 seconds
+2025-11-15 17:57:28,299 DDP_Script [Rank 1] [INFO] epoch 4 끝 (local_steps=527, global_steps=527)
+Traceback (most recent call last):
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 300, in _run_finalizers
+    finalizer()
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 224, in __call__
+    res = self._callback(*self._args, **self._kwargs)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 133, in _remove_temp_dir
+    rmtree(tempdir)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 734, in rmtree
+    _rmtree_safe_fd(fd, path, onerror)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 690, in _rmtree_safe_fd
+    onerror(os.unlink, fullname, sys.exc_info())
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 688, in _rmtree_safe_fd
+    os.unlink(entry.name, dir_fd=topfd)
+OSError: [Errno 16] Device or resource busy: '.nfs000000002c1296d800003764'
+Traceback (most recent call last):
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 300, in _run_finalizers
+    finalizer()
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 224, in __call__
+    res = self._callback(*self._args, **self._kwargs)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 133, in _remove_temp_dir
+    rmtree(tempdir)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 734, in rmtree
+    _rmtree_safe_fd(fd, path, onerror)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 690, in _rmtree_safe_fd
+    onerror(os.unlink, fullname, sys.exc_info())
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 688, in _rmtree_safe_fd
+    os.unlink(entry.name, dir_fd=topfd)
+OSError: [Errno 16] Device or resource busy: '.nfs000000002c1296d900003763'
+Traceback (most recent call last):
+Traceback (most recent call last):
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 300, in _run_finalizers
+    finalizer()
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 224, in __call__
+    res = self._callback(*self._args, **self._kwargs)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 133, in _remove_temp_dir
+    rmtree(tempdir)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 734, in rmtree
+    _rmtree_safe_fd(fd, path, onerror)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 690, in _rmtree_safe_fd
+    onerror(os.unlink, fullname, sys.exc_info())
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 688, in _rmtree_safe_fd
+    os.unlink(entry.name, dir_fd=topfd)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 300, in _run_finalizers
+    finalizer()
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 224, in __call__
+    res = self._callback(*self._args, **self._kwargs)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 133, in _remove_temp_dir
+    rmtree(tempdir)
+OSError: [Errno 16] Device or resource busy: '.nfs000000002c1296da00003765'
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 734, in rmtree
+    _rmtree_safe_fd(fd, path, onerror)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 690, in _rmtree_safe_fd
+    onerror(os.unlink, fullname, sys.exc_info())
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 688, in _rmtree_safe_fd
+    os.unlink(entry.name, dir_fd=topfd)
+OSError: [Errno 16] Device or resource busy: '.nfs000000002c1296d400003762'
+2025-11-15 17:57:28,639 DDP_Script [Rank 1] [INFO] val acc 89.79%
+2025-11-15 17:57:30,692 DDP_Script [Rank 1] [INFO] epoch 5 시작
+2025-11-15 17:57:30,708 DDP_Script [Rank 1] [INFO] DataLoader created with batch_size=64, num_workers=4
+2025-11-15 17:57:30,710 DDP_Script [Rank 1] [INFO] local_steps=527, global_steps=527
+Traceback (most recent call last):
+Traceback (most recent call last):
+Traceback (most recent call last):
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 300, in _run_finalizers
+    finalizer()
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 224, in __call__
+    res = self._callback(*self._args, **self._kwargs)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 133, in _remove_temp_dir
+    rmtree(tempdir)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 734, in rmtree
+    _rmtree_safe_fd(fd, path, onerror)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 690, in _rmtree_safe_fd
+    onerror(os.unlink, fullname, sys.exc_info())
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 300, in _run_finalizers
+    finalizer()
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 688, in _rmtree_safe_fd
+    os.unlink(entry.name, dir_fd=topfd)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 224, in __call__
+    res = self._callback(*self._args, **self._kwargs)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 133, in _remove_temp_dir
+    rmtree(tempdir)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 734, in rmtree
+    _rmtree_safe_fd(fd, path, onerror)
+OSError: [Errno 16] Device or resource busy: '.nfs000000002c1296e10000377e'
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 690, in _rmtree_safe_fd
+    onerror(os.unlink, fullname, sys.exc_info())
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 688, in _rmtree_safe_fd
+    os.unlink(entry.name, dir_fd=topfd)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 300, in _run_finalizers
+    finalizer()
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 224, in __call__
+    res = self._callback(*self._args, **self._kwargs)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 133, in _remove_temp_dir
+    rmtree(tempdir)
+OSError: [Errno 16] Device or resource busy: '.nfs000000002c1296df0000377c'
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 734, in rmtree
+    _rmtree_safe_fd(fd, path, onerror)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 690, in _rmtree_safe_fd
+    onerror(os.unlink, fullname, sys.exc_info())
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 688, in _rmtree_safe_fd
+    os.unlink(entry.name, dir_fd=topfd)
+OSError: [Errno 16] Device or resource busy: '.nfs000000002c1296e20000377a'
+Traceback (most recent call last):
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 300, in _run_finalizers
+    finalizer()
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 224, in __call__
+    res = self._callback(*self._args, **self._kwargs)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 133, in _remove_temp_dir
+    rmtree(tempdir)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 734, in rmtree
+    _rmtree_safe_fd(fd, path, onerror)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 690, in _rmtree_safe_fd
+    onerror(os.unlink, fullname, sys.exc_info())
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 688, in _rmtree_safe_fd
+    os.unlink(entry.name, dir_fd=topfd)
+OSError: [Errno 16] Device or resource busy: '.nfs000000002c1296e00000377b'
+2025-11-15 18:00:06,833 DDP_Script [Rank 1] [INFO] epoch 5 train step time: 156.12 seconds
+2025-11-15 18:00:06,838 DDP_Script [Rank 1] [INFO] epoch 5 끝 (local_steps=527, global_steps=527)
+Traceback (most recent call last):
+Traceback (most recent call last):
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 300, in _run_finalizers
+    finalizer()
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 224, in __call__
+    res = self._callback(*self._args, **self._kwargs)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 133, in _remove_temp_dir
+    rmtree(tempdir)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 734, in rmtree
+    _rmtree_safe_fd(fd, path, onerror)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 300, in _run_finalizers
+    finalizer()
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 690, in _rmtree_safe_fd
+    onerror(os.unlink, fullname, sys.exc_info())
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 224, in __call__
+    res = self._callback(*self._args, **self._kwargs)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 688, in _rmtree_safe_fd
+    os.unlink(entry.name, dir_fd=topfd)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 133, in _remove_temp_dir
+    rmtree(tempdir)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 734, in rmtree
+    _rmtree_safe_fd(fd, path, onerror)
+OSError: [Errno 16] Device or resource busy: '.nfs000000002c1296ea00003789'
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 690, in _rmtree_safe_fd
+    onerror(os.unlink, fullname, sys.exc_info())
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 688, in _rmtree_safe_fd
+    os.unlink(entry.name, dir_fd=topfd)
+OSError: [Errno 16] Device or resource busy: '.nfs000000002c1296e800003787'
+Traceback (most recent call last):
+Traceback (most recent call last):
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 300, in _run_finalizers
+    finalizer()
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 224, in __call__
+    res = self._callback(*self._args, **self._kwargs)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 133, in _remove_temp_dir
+    rmtree(tempdir)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 734, in rmtree
+    _rmtree_safe_fd(fd, path, onerror)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 690, in _rmtree_safe_fd
+    onerror(os.unlink, fullname, sys.exc_info())
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 688, in _rmtree_safe_fd
+    os.unlink(entry.name, dir_fd=topfd)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 300, in _run_finalizers
+    finalizer()
+OSError: [Errno 16] Device or resource busy: '.nfs000000002c1296e900003788'
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 224, in __call__
+    res = self._callback(*self._args, **self._kwargs)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 133, in _remove_temp_dir
+    rmtree(tempdir)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 734, in rmtree
+    _rmtree_safe_fd(fd, path, onerror)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 690, in _rmtree_safe_fd
+    onerror(os.unlink, fullname, sys.exc_info())
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 688, in _rmtree_safe_fd
+    os.unlink(entry.name, dir_fd=topfd)
+OSError: [Errno 16] Device or resource busy: '.nfs000000002c1296e700003786'
+2025-11-15 18:00:07,234 DDP_Script [Rank 1] [INFO] val acc 90.14%
+2025-11-15 18:00:09,328 DDP_Script [Rank 1] [INFO] epoch 6 시작
+2025-11-15 18:00:09,351 DDP_Script [Rank 1] [INFO] DataLoader created with batch_size=64, num_workers=4
+2025-11-15 18:00:09,353 DDP_Script [Rank 1] [INFO] local_steps=527, global_steps=527
+Traceback (most recent call last):
+Traceback (most recent call last):
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 300, in _run_finalizers
+    finalizer()
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 300, in _run_finalizers
+    finalizer()
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 224, in __call__
+    res = self._callback(*self._args, **self._kwargs)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 224, in __call__
+    res = self._callback(*self._args, **self._kwargs)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 133, in _remove_temp_dir
+    rmtree(tempdir)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 133, in _remove_temp_dir
+    rmtree(tempdir)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 734, in rmtree
+    _rmtree_safe_fd(fd, path, onerror)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 734, in rmtree
+    _rmtree_safe_fd(fd, path, onerror)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 690, in _rmtree_safe_fd
+    onerror(os.unlink, fullname, sys.exc_info())
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 690, in _rmtree_safe_fd
+    onerror(os.unlink, fullname, sys.exc_info())
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 688, in _rmtree_safe_fd
+    os.unlink(entry.name, dir_fd=topfd)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 688, in _rmtree_safe_fd
+    os.unlink(entry.name, dir_fd=topfd)
+OSError: [Errno 16] Device or resource busy: '.nfs000000002c1296ec00003794'
+OSError: [Errno 16] Device or resource busy: '.nfs000000002c1296f000003795'
+Traceback (most recent call last):
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 300, in _run_finalizers
+    finalizer()
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 224, in __call__
+    res = self._callback(*self._args, **self._kwargs)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 133, in _remove_temp_dir
+    rmtree(tempdir)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 734, in rmtree
+    _rmtree_safe_fd(fd, path, onerror)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 690, in _rmtree_safe_fd
+    onerror(os.unlink, fullname, sys.exc_info())
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 688, in _rmtree_safe_fd
+    os.unlink(entry.name, dir_fd=topfd)
+OSError: [Errno 16] Device or resource busy: '.nfs000000002c1296f200003793'
+Traceback (most recent call last):
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 300, in _run_finalizers
+    finalizer()
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 224, in __call__
+    res = self._callback(*self._args, **self._kwargs)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 133, in _remove_temp_dir
+    rmtree(tempdir)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 734, in rmtree
+    _rmtree_safe_fd(fd, path, onerror)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 690, in _rmtree_safe_fd
+    onerror(os.unlink, fullname, sys.exc_info())
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 688, in _rmtree_safe_fd
+    os.unlink(entry.name, dir_fd=topfd)
+OSError: [Errno 16] Device or resource busy: '.nfs000000002c1296ee00003792'
+2025-11-15 18:02:45,285 DDP_Script [Rank 1] [INFO] epoch 6 train step time: 155.93 seconds
+2025-11-15 18:02:45,287 DDP_Script [Rank 1] [INFO] epoch 6 끝 (local_steps=527, global_steps=527)
+Traceback (most recent call last):
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 300, in _run_finalizers
+    finalizer()
+Traceback (most recent call last):
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 224, in __call__
+    res = self._callback(*self._args, **self._kwargs)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 133, in _remove_temp_dir
+    rmtree(tempdir)
+Traceback (most recent call last):
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 734, in rmtree
+    _rmtree_safe_fd(fd, path, onerror)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 690, in _rmtree_safe_fd
+    onerror(os.unlink, fullname, sys.exc_info())
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 688, in _rmtree_safe_fd
+    os.unlink(entry.name, dir_fd=topfd)
+OSError: [Errno 16] Device or resource busy: '.nfs000000002c2082940000379a'
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 300, in _run_finalizers
+    finalizer()
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 224, in __call__
+    res = self._callback(*self._args, **self._kwargs)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 300, in _run_finalizers
+    finalizer()
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 133, in _remove_temp_dir
+    rmtree(tempdir)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 224, in __call__
+    res = self._callback(*self._args, **self._kwargs)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 734, in rmtree
+    _rmtree_safe_fd(fd, path, onerror)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 133, in _remove_temp_dir
+    rmtree(tempdir)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 690, in _rmtree_safe_fd
+    onerror(os.unlink, fullname, sys.exc_info())
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 734, in rmtree
+    _rmtree_safe_fd(fd, path, onerror)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 688, in _rmtree_safe_fd
+    os.unlink(entry.name, dir_fd=topfd)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 690, in _rmtree_safe_fd
+    onerror(os.unlink, fullname, sys.exc_info())
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 688, in _rmtree_safe_fd
+    os.unlink(entry.name, dir_fd=topfd)
+OSError: [Errno 16] Device or resource busy: '.nfs000000002c2082950000379b'
+OSError: [Errno 16] Device or resource busy: '.nfs000000002c20828f0000379c'
+Traceback (most recent call last):
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 300, in _run_finalizers
+    finalizer()
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 224, in __call__
+    res = self._callback(*self._args, **self._kwargs)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 133, in _remove_temp_dir
+    rmtree(tempdir)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 734, in rmtree
+    _rmtree_safe_fd(fd, path, onerror)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 690, in _rmtree_safe_fd
+    onerror(os.unlink, fullname, sys.exc_info())
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 688, in _rmtree_safe_fd
+    os.unlink(entry.name, dir_fd=topfd)
+OSError: [Errno 16] Device or resource busy: '.nfs000000002c2082910000379d'
+2025-11-15 18:02:45,684 DDP_Script [Rank 1] [INFO] val acc 90.37%
+2025-11-15 18:02:47,940 DDP_Script [Rank 1] [INFO] epoch 7 시작
+2025-11-15 18:02:47,963 DDP_Script [Rank 1] [INFO] DataLoader created with batch_size=64, num_workers=4
+2025-11-15 18:02:47,965 DDP_Script [Rank 1] [INFO] local_steps=527, global_steps=527
+Traceback (most recent call last):
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 300, in _run_finalizers
+    finalizer()
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 224, in __call__
+    res = self._callback(*self._args, **self._kwargs)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 133, in _remove_temp_dir
+    rmtree(tempdir)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 734, in rmtree
+    _rmtree_safe_fd(fd, path, onerror)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 690, in _rmtree_safe_fd
+    onerror(os.unlink, fullname, sys.exc_info())
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 688, in _rmtree_safe_fd
+    os.unlink(entry.name, dir_fd=topfd)
+OSError: [Errno 16] Device or resource busy: '.nfs000000002c20829d000037aa'
+Traceback (most recent call last):
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 300, in _run_finalizers
+    finalizer()
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 224, in __call__
+    res = self._callback(*self._args, **self._kwargs)
+Traceback (most recent call last):
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 133, in _remove_temp_dir
+    rmtree(tempdir)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 734, in rmtree
+    _rmtree_safe_fd(fd, path, onerror)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 690, in _rmtree_safe_fd
+    onerror(os.unlink, fullname, sys.exc_info())
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 688, in _rmtree_safe_fd
+    os.unlink(entry.name, dir_fd=topfd)
+OSError: [Errno 16] Device or resource busy: '.nfs000000002c208298000037b0'
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 300, in _run_finalizers
+    finalizer()
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 224, in __call__
+    res = self._callback(*self._args, **self._kwargs)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 133, in _remove_temp_dir
+    rmtree(tempdir)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 734, in rmtree
+    _rmtree_safe_fd(fd, path, onerror)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 690, in _rmtree_safe_fd
+    onerror(os.unlink, fullname, sys.exc_info())
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 688, in _rmtree_safe_fd
+    os.unlink(entry.name, dir_fd=topfd)
+OSError: [Errno 16] Device or resource busy: '.nfs000000002c20829b000037af'
+Traceback (most recent call last):
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 300, in _run_finalizers
+    finalizer()
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 224, in __call__
+    res = self._callback(*self._args, **self._kwargs)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 133, in _remove_temp_dir
+    rmtree(tempdir)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 734, in rmtree
+    _rmtree_safe_fd(fd, path, onerror)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 690, in _rmtree_safe_fd
+    onerror(os.unlink, fullname, sys.exc_info())
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 688, in _rmtree_safe_fd
+    os.unlink(entry.name, dir_fd=topfd)
+OSError: [Errno 16] Device or resource busy: '.nfs000000002c20829c000037ab'
+2025-11-15 18:05:23,921 DDP_Script [Rank 1] [INFO] epoch 7 train step time: 155.96 seconds
+2025-11-15 18:05:23,925 DDP_Script [Rank 1] [INFO] epoch 7 끝 (local_steps=527, global_steps=527)
+Traceback (most recent call last):
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 300, in _run_finalizers
+    finalizer()
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 224, in __call__
+    res = self._callback(*self._args, **self._kwargs)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 133, in _remove_temp_dir
+    rmtree(tempdir)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 734, in rmtree
+    _rmtree_safe_fd(fd, path, onerror)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 690, in _rmtree_safe_fd
+    onerror(os.unlink, fullname, sys.exc_info())
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 688, in _rmtree_safe_fd
+    os.unlink(entry.name, dir_fd=topfd)
+OSError: [Errno 16] Device or resource busy: '.nfs000000002c2082a3000037b2'
+Traceback (most recent call last):
+Traceback (most recent call last):
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 300, in _run_finalizers
+    finalizer()
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 224, in __call__
+    res = self._callback(*self._args, **self._kwargs)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 133, in _remove_temp_dir
+    rmtree(tempdir)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 734, in rmtree
+    _rmtree_safe_fd(fd, path, onerror)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 690, in _rmtree_safe_fd
+    onerror(os.unlink, fullname, sys.exc_info())
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 688, in _rmtree_safe_fd
+    os.unlink(entry.name, dir_fd=topfd)
+OSError: [Errno 16] Device or resource busy: '.nfs000000002c2082a1000037b3'
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 300, in _run_finalizers
+    finalizer()
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 224, in __call__
+    res = self._callback(*self._args, **self._kwargs)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 133, in _remove_temp_dir
+    rmtree(tempdir)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 734, in rmtree
+    _rmtree_safe_fd(fd, path, onerror)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 690, in _rmtree_safe_fd
+    onerror(os.unlink, fullname, sys.exc_info())
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 688, in _rmtree_safe_fd
+    os.unlink(entry.name, dir_fd=topfd)
+OSError: [Errno 16] Device or resource busy: '.nfs000000002c2082a5000037b5'
+Traceback (most recent call last):
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 300, in _run_finalizers
+    finalizer()
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 224, in __call__
+    res = self._callback(*self._args, **self._kwargs)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 133, in _remove_temp_dir
+    rmtree(tempdir)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 734, in rmtree
+    _rmtree_safe_fd(fd, path, onerror)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 690, in _rmtree_safe_fd
+    onerror(os.unlink, fullname, sys.exc_info())
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 688, in _rmtree_safe_fd
+    os.unlink(entry.name, dir_fd=topfd)
+OSError: [Errno 16] Device or resource busy: '.nfs000000002c2082a2000037b4'
+2025-11-15 18:05:24,282 DDP_Script [Rank 1] [INFO] val acc 90.37%
+2025-11-15 18:05:26,407 DDP_Script [Rank 1] [INFO] epoch 8 시작
+2025-11-15 18:05:26,427 DDP_Script [Rank 1] [INFO] DataLoader created with batch_size=64, num_workers=4
+2025-11-15 18:05:26,429 DDP_Script [Rank 1] [INFO] local_steps=527, global_steps=527
+Traceback (most recent call last):
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 300, in _run_finalizers
+    finalizer()
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 224, in __call__
+    res = self._callback(*self._args, **self._kwargs)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 133, in _remove_temp_dir
+    rmtree(tempdir)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 734, in rmtree
+    _rmtree_safe_fd(fd, path, onerror)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 690, in _rmtree_safe_fd
+    onerror(os.unlink, fullname, sys.exc_info())
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 688, in _rmtree_safe_fd
+    os.unlink(entry.name, dir_fd=topfd)
+OSError: [Errno 16] Device or resource busy: '.nfs000000002c2082ac000037ca'
+Traceback (most recent call last):
+Traceback (most recent call last):
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 300, in _run_finalizers
+    finalizer()
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 224, in __call__
+    res = self._callback(*self._args, **self._kwargs)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 133, in _remove_temp_dir
+    rmtree(tempdir)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 734, in rmtree
+    _rmtree_safe_fd(fd, path, onerror)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 690, in _rmtree_safe_fd
+    onerror(os.unlink, fullname, sys.exc_info())
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 688, in _rmtree_safe_fd
+    os.unlink(entry.name, dir_fd=topfd)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 300, in _run_finalizers
+    finalizer()
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 224, in __call__
+    res = self._callback(*self._args, **self._kwargs)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 133, in _remove_temp_dir
+    rmtree(tempdir)
+OSError: [Errno 16] Device or resource busy: '.nfs000000002c2082ab000037cb'
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 734, in rmtree
+    _rmtree_safe_fd(fd, path, onerror)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 690, in _rmtree_safe_fd
+    onerror(os.unlink, fullname, sys.exc_info())
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 688, in _rmtree_safe_fd
+    os.unlink(entry.name, dir_fd=topfd)
+OSError: [Errno 16] Device or resource busy: '.nfs000000002c2082aa000037cd'
+Traceback (most recent call last):
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 300, in _run_finalizers
+    finalizer()
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 224, in __call__
+    res = self._callback(*self._args, **self._kwargs)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 133, in _remove_temp_dir
+    rmtree(tempdir)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 734, in rmtree
+    _rmtree_safe_fd(fd, path, onerror)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 690, in _rmtree_safe_fd
+    onerror(os.unlink, fullname, sys.exc_info())
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 688, in _rmtree_safe_fd
+    os.unlink(entry.name, dir_fd=topfd)
+OSError: [Errno 16] Device or resource busy: '.nfs000000002c2082ad000037cc'
+2025-11-15 18:08:02,461 DDP_Script [Rank 1] [INFO] epoch 8 train step time: 156.03 seconds
+2025-11-15 18:08:02,466 DDP_Script [Rank 1] [INFO] epoch 8 끝 (local_steps=527, global_steps=527)
+Traceback (most recent call last):
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 300, in _run_finalizers
+    finalizer()
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 224, in __call__
+    res = self._callback(*self._args, **self._kwargs)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 133, in _remove_temp_dir
+    rmtree(tempdir)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 734, in rmtree
+    _rmtree_safe_fd(fd, path, onerror)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 690, in _rmtree_safe_fd
+    onerror(os.unlink, fullname, sys.exc_info())
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 688, in _rmtree_safe_fd
+    os.unlink(entry.name, dir_fd=topfd)
+OSError: [Errno 16] Device or resource busy: '.nfs000000002c2082b3000037d6'
+Traceback (most recent call last):
+Traceback (most recent call last):
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 300, in _run_finalizers
+    finalizer()
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 224, in __call__
+    res = self._callback(*self._args, **self._kwargs)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 300, in _run_finalizers
+    finalizer()
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 133, in _remove_temp_dir
+    rmtree(tempdir)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 224, in __call__
+    res = self._callback(*self._args, **self._kwargs)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 734, in rmtree
+    _rmtree_safe_fd(fd, path, onerror)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 133, in _remove_temp_dir
+    rmtree(tempdir)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 690, in _rmtree_safe_fd
+    onerror(os.unlink, fullname, sys.exc_info())
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 734, in rmtree
+    _rmtree_safe_fd(fd, path, onerror)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 688, in _rmtree_safe_fd
+    os.unlink(entry.name, dir_fd=topfd)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 690, in _rmtree_safe_fd
+    onerror(os.unlink, fullname, sys.exc_info())
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 688, in _rmtree_safe_fd
+    os.unlink(entry.name, dir_fd=topfd)
+OSError: [Errno 16] Device or resource busy: '.nfs000000002c2082b4000037d7'
+OSError: [Errno 16] Device or resource busy: '.nfs000000002c2082b5000037d9'
+Traceback (most recent call last):
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 300, in _run_finalizers
+    finalizer()
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 224, in __call__
+    res = self._callback(*self._args, **self._kwargs)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 133, in _remove_temp_dir
+    rmtree(tempdir)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 734, in rmtree
+    _rmtree_safe_fd(fd, path, onerror)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 690, in _rmtree_safe_fd
+    onerror(os.unlink, fullname, sys.exc_info())
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 688, in _rmtree_safe_fd
+    os.unlink(entry.name, dir_fd=topfd)
+OSError: [Errno 16] Device or resource busy: '.nfs000000002c2082b2000037d8'
+2025-11-15 18:08:02,809 DDP_Script [Rank 1] [INFO] val acc 89.11%
+2025-11-15 18:08:04,476 DDP_Script [Rank 1] [INFO] epoch 9 시작
+2025-11-15 18:08:04,497 DDP_Script [Rank 1] [INFO] DataLoader created with batch_size=64, num_workers=4
+2025-11-15 18:08:04,499 DDP_Script [Rank 1] [INFO] local_steps=527, global_steps=527
+Traceback (most recent call last):
+Traceback (most recent call last):
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 300, in _run_finalizers
+    finalizer()
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 300, in _run_finalizers
+    finalizer()
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 224, in __call__
+    res = self._callback(*self._args, **self._kwargs)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 224, in __call__
+    res = self._callback(*self._args, **self._kwargs)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 133, in _remove_temp_dir
+    rmtree(tempdir)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 133, in _remove_temp_dir
+    rmtree(tempdir)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 734, in rmtree
+    _rmtree_safe_fd(fd, path, onerror)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 734, in rmtree
+    _rmtree_safe_fd(fd, path, onerror)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 690, in _rmtree_safe_fd
+    onerror(os.unlink, fullname, sys.exc_info())
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 690, in _rmtree_safe_fd
+    onerror(os.unlink, fullname, sys.exc_info())
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 688, in _rmtree_safe_fd
+    os.unlink(entry.name, dir_fd=topfd)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 688, in _rmtree_safe_fd
+    os.unlink(entry.name, dir_fd=topfd)
+OSError: [Errno 16] Device or resource busy: '.nfs000000002c2082b9000037ec'
+OSError: [Errno 16] Device or resource busy: '.nfs000000002c2082ba000037ea'
+Traceback (most recent call last):
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 300, in _run_finalizers
+    finalizer()
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 224, in __call__
+    res = self._callback(*self._args, **self._kwargs)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 133, in _remove_temp_dir
+    rmtree(tempdir)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 734, in rmtree
+    _rmtree_safe_fd(fd, path, onerror)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 690, in _rmtree_safe_fd
+    onerror(os.unlink, fullname, sys.exc_info())
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 688, in _rmtree_safe_fd
+    os.unlink(entry.name, dir_fd=topfd)
+OSError: [Errno 16] Device or resource busy: '.nfs000000002c2082bc000037eb'
+Traceback (most recent call last):
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 300, in _run_finalizers
+    finalizer()
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 224, in __call__
+    res = self._callback(*self._args, **self._kwargs)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 133, in _remove_temp_dir
+    rmtree(tempdir)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 734, in rmtree
+    _rmtree_safe_fd(fd, path, onerror)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 690, in _rmtree_safe_fd
+    onerror(os.unlink, fullname, sys.exc_info())
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 688, in _rmtree_safe_fd
+    os.unlink(entry.name, dir_fd=topfd)
+OSError: [Errno 16] Device or resource busy: '.nfs000000002c2082bb000037ed'
+2025-11-15 18:10:40,321 DDP_Script [Rank 1] [INFO] epoch 9 train step time: 155.82 seconds
+2025-11-15 18:10:40,323 DDP_Script [Rank 1] [INFO] epoch 9 끝 (local_steps=527, global_steps=527)
+Traceback (most recent call last):
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 300, in _run_finalizers
+    finalizer()
+Traceback (most recent call last):
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 224, in __call__
+    res = self._callback(*self._args, **self._kwargs)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 133, in _remove_temp_dir
+    rmtree(tempdir)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 734, in rmtree
+    _rmtree_safe_fd(fd, path, onerror)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 690, in _rmtree_safe_fd
+    onerror(os.unlink, fullname, sys.exc_info())
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 688, in _rmtree_safe_fd
+    os.unlink(entry.name, dir_fd=topfd)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 300, in _run_finalizers
+    finalizer()
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 224, in __call__
+    res = self._callback(*self._args, **self._kwargs)
+OSError: [Errno 16] Device or resource busy: '.nfs000000002c2082c3000037f6'
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 133, in _remove_temp_dir
+    rmtree(tempdir)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 734, in rmtree
+    _rmtree_safe_fd(fd, path, onerror)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 690, in _rmtree_safe_fd
+    onerror(os.unlink, fullname, sys.exc_info())
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 688, in _rmtree_safe_fd
+    os.unlink(entry.name, dir_fd=topfd)
+OSError: [Errno 16] Device or resource busy: '.nfs000000002c2082c4000037f7'
+Traceback (most recent call last):
+Traceback (most recent call last):
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 300, in _run_finalizers
+    finalizer()
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 224, in __call__
+    res = self._callback(*self._args, **self._kwargs)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 133, in _remove_temp_dir
+    rmtree(tempdir)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 734, in rmtree
+    _rmtree_safe_fd(fd, path, onerror)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 690, in _rmtree_safe_fd
+    onerror(os.unlink, fullname, sys.exc_info())
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 688, in _rmtree_safe_fd
+    os.unlink(entry.name, dir_fd=topfd)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 300, in _run_finalizers
+    finalizer()
+OSError: [Errno 16] Device or resource busy: '.nfs000000002c2082c2000037f9'
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 224, in __call__
+    res = self._callback(*self._args, **self._kwargs)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 133, in _remove_temp_dir
+    rmtree(tempdir)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 734, in rmtree
+    _rmtree_safe_fd(fd, path, onerror)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 690, in _rmtree_safe_fd
+    onerror(os.unlink, fullname, sys.exc_info())
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 688, in _rmtree_safe_fd
+    os.unlink(entry.name, dir_fd=topfd)
+OSError: [Errno 16] Device or resource busy: '.nfs000000002c2082c5000037f8'
+2025-11-15 18:10:40,668 DDP_Script [Rank 1] [INFO] val acc 88.99%
+2025-11-15 18:10:42,799 DDP_Script [Rank 1] [INFO] epoch 10 시작
+2025-11-15 18:10:42,812 DDP_Script [Rank 1] [INFO] DataLoader created with batch_size=64, num_workers=4
+2025-11-15 18:10:42,815 DDP_Script [Rank 1] [INFO] local_steps=527, global_steps=527
+Traceback (most recent call last):
+Traceback (most recent call last):
+Traceback (most recent call last):
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 300, in _run_finalizers
+    finalizer()
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 224, in __call__
+    res = self._callback(*self._args, **self._kwargs)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 300, in _run_finalizers
+    finalizer()
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 133, in _remove_temp_dir
+    rmtree(tempdir)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 224, in __call__
+    res = self._callback(*self._args, **self._kwargs)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 734, in rmtree
+    _rmtree_safe_fd(fd, path, onerror)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 133, in _remove_temp_dir
+    rmtree(tempdir)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 690, in _rmtree_safe_fd
+    onerror(os.unlink, fullname, sys.exc_info())
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 300, in _run_finalizers
+    finalizer()
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 734, in rmtree
+    _rmtree_safe_fd(fd, path, onerror)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 688, in _rmtree_safe_fd
+    os.unlink(entry.name, dir_fd=topfd)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 224, in __call__
+    res = self._callback(*self._args, **self._kwargs)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 690, in _rmtree_safe_fd
+    onerror(os.unlink, fullname, sys.exc_info())
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 133, in _remove_temp_dir
+    rmtree(tempdir)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 688, in _rmtree_safe_fd
+    os.unlink(entry.name, dir_fd=topfd)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 734, in rmtree
+    _rmtree_safe_fd(fd, path, onerror)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 690, in _rmtree_safe_fd
+    onerror(os.unlink, fullname, sys.exc_info())
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 688, in _rmtree_safe_fd
+    os.unlink(entry.name, dir_fd=topfd)
+OSError: [Errno 16] Device or resource busy: '.nfs000000002c21000e0000380c'
+OSError: [Errno 16] Device or resource busy: '.nfs000000002c21000f0000380a'
+OSError: [Errno 16] Device or resource busy: '.nfs000000002c2100100000380b'
+Traceback (most recent call last):
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 300, in _run_finalizers
+    finalizer()
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 224, in __call__
+    res = self._callback(*self._args, **self._kwargs)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 133, in _remove_temp_dir
+    rmtree(tempdir)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 734, in rmtree
+    _rmtree_safe_fd(fd, path, onerror)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 690, in _rmtree_safe_fd
+    onerror(os.unlink, fullname, sys.exc_info())
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 688, in _rmtree_safe_fd
+    os.unlink(entry.name, dir_fd=topfd)
+OSError: [Errno 16] Device or resource busy: '.nfs000000002c21000c0000380d'
+2025-11-15 18:13:18,096 DDP_Script [Rank 1] [INFO] epoch 10 train step time: 155.28 seconds
+2025-11-15 18:13:18,099 DDP_Script [Rank 1] [INFO] epoch 10 끝 (local_steps=527, global_steps=527)
+Traceback (most recent call last):
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 300, in _run_finalizers
+    finalizer()
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 224, in __call__
+    res = self._callback(*self._args, **self._kwargs)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 133, in _remove_temp_dir
+    rmtree(tempdir)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 734, in rmtree
+    _rmtree_safe_fd(fd, path, onerror)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 690, in _rmtree_safe_fd
+    onerror(os.unlink, fullname, sys.exc_info())
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 688, in _rmtree_safe_fd
+    os.unlink(entry.name, dir_fd=topfd)
+OSError: [Errno 16] Device or resource busy: '.nfs000000002c21002500003817'
+Traceback (most recent call last):
+Traceback (most recent call last):
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 300, in _run_finalizers
+    finalizer()
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 224, in __call__
+    res = self._callback(*self._args, **self._kwargs)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 133, in _remove_temp_dir
+    rmtree(tempdir)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 734, in rmtree
+    _rmtree_safe_fd(fd, path, onerror)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 690, in _rmtree_safe_fd
+    onerror(os.unlink, fullname, sys.exc_info())
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 688, in _rmtree_safe_fd
+    os.unlink(entry.name, dir_fd=topfd)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 300, in _run_finalizers
+    finalizer()
+OSError: [Errno 16] Device or resource busy: '.nfs000000002c21002300003816'
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 224, in __call__
+    res = self._callback(*self._args, **self._kwargs)
+Traceback (most recent call last):
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 133, in _remove_temp_dir
+    rmtree(tempdir)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 734, in rmtree
+    _rmtree_safe_fd(fd, path, onerror)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 690, in _rmtree_safe_fd
+    onerror(os.unlink, fullname, sys.exc_info())
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 688, in _rmtree_safe_fd
+    os.unlink(entry.name, dir_fd=topfd)
+OSError: [Errno 16] Device or resource busy: '.nfs000000002c21002200003818'
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 300, in _run_finalizers
+    finalizer()
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 224, in __call__
+    res = self._callback(*self._args, **self._kwargs)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 133, in _remove_temp_dir
+    rmtree(tempdir)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 734, in rmtree
+    _rmtree_safe_fd(fd, path, onerror)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 690, in _rmtree_safe_fd
+    onerror(os.unlink, fullname, sys.exc_info())
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 688, in _rmtree_safe_fd
+    os.unlink(entry.name, dir_fd=topfd)
+OSError: [Errno 16] Device or resource busy: '.nfs000000002c21002600003819'
+2025-11-15 18:13:18,450 DDP_Script [Rank 1] [INFO] val acc 90.25%
+2025-11-15 18:13:20,669 DDP_Script [Rank 1] [INFO] epoch 11 시작
+2025-11-15 18:13:20,699 DDP_Script [Rank 1] [INFO] DataLoader created with batch_size=64, num_workers=4
+2025-11-15 18:13:20,702 DDP_Script [Rank 1] [INFO] local_steps=527, global_steps=527
+Traceback (most recent call last):
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 300, in _run_finalizers
+    finalizer()
+Traceback (most recent call last):
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 224, in __call__
+    res = self._callback(*self._args, **self._kwargs)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 133, in _remove_temp_dir
+    rmtree(tempdir)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 734, in rmtree
+    _rmtree_safe_fd(fd, path, onerror)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 690, in _rmtree_safe_fd
+    onerror(os.unlink, fullname, sys.exc_info())
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 688, in _rmtree_safe_fd
+    os.unlink(entry.name, dir_fd=topfd)
+Traceback (most recent call last):
+OSError: [Errno 16] Device or resource busy: '.nfs000000002c21002e0000382f'
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 300, in _run_finalizers
+    finalizer()
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 224, in __call__
+    res = self._callback(*self._args, **self._kwargs)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 133, in _remove_temp_dir
+    rmtree(tempdir)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 734, in rmtree
+    _rmtree_safe_fd(fd, path, onerror)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 690, in _rmtree_safe_fd
+    onerror(os.unlink, fullname, sys.exc_info())
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 688, in _rmtree_safe_fd
+    os.unlink(entry.name, dir_fd=topfd)
+OSError: [Errno 16] Device or resource busy: '.nfs000000002c21002c00003831'
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 300, in _run_finalizers
+    finalizer()
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 224, in __call__
+    res = self._callback(*self._args, **self._kwargs)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 133, in _remove_temp_dir
+    rmtree(tempdir)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 734, in rmtree
+    _rmtree_safe_fd(fd, path, onerror)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 690, in _rmtree_safe_fd
+    onerror(os.unlink, fullname, sys.exc_info())
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 688, in _rmtree_safe_fd
+    os.unlink(entry.name, dir_fd=topfd)
+OSError: [Errno 16] Device or resource busy: '.nfs000000002c21002b00003830'
+Traceback (most recent call last):
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 300, in _run_finalizers
+    finalizer()
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 224, in __call__
+    res = self._callback(*self._args, **self._kwargs)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 133, in _remove_temp_dir
+    rmtree(tempdir)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 734, in rmtree
+    _rmtree_safe_fd(fd, path, onerror)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 690, in _rmtree_safe_fd
+    onerror(os.unlink, fullname, sys.exc_info())
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 688, in _rmtree_safe_fd
+    os.unlink(entry.name, dir_fd=topfd)
+OSError: [Errno 16] Device or resource busy: '.nfs000000002c21002a0000382e'
+2025-11-15 18:15:56,785 DDP_Script [Rank 1] [INFO] epoch 11 train step time: 156.08 seconds
+2025-11-15 18:15:56,788 DDP_Script [Rank 1] [INFO] epoch 11 끝 (local_steps=527, global_steps=527)
+Traceback (most recent call last):
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 300, in _run_finalizers
+    finalizer()
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 224, in __call__
+    res = self._callback(*self._args, **self._kwargs)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 133, in _remove_temp_dir
+    rmtree(tempdir)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 734, in rmtree
+    _rmtree_safe_fd(fd, path, onerror)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 690, in _rmtree_safe_fd
+    onerror(os.unlink, fullname, sys.exc_info())
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 688, in _rmtree_safe_fd
+    os.unlink(entry.name, dir_fd=topfd)
+OSError: [Errno 16] Device or resource busy: '.nfs000000002c21003100003839'
+Traceback (most recent call last):
+Traceback (most recent call last):
+Traceback (most recent call last):
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 300, in _run_finalizers
+    finalizer()
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 224, in __call__
+    res = self._callback(*self._args, **self._kwargs)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 133, in _remove_temp_dir
+    rmtree(tempdir)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 734, in rmtree
+    _rmtree_safe_fd(fd, path, onerror)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 690, in _rmtree_safe_fd
+    onerror(os.unlink, fullname, sys.exc_info())
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 688, in _rmtree_safe_fd
+    os.unlink(entry.name, dir_fd=topfd)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 300, in _run_finalizers
+    finalizer()
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 300, in _run_finalizers
+    finalizer()
+OSError: [Errno 16] Device or resource busy: '.nfs000000002c21003400003837'
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 224, in __call__
+    res = self._callback(*self._args, **self._kwargs)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 224, in __call__
+    res = self._callback(*self._args, **self._kwargs)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 133, in _remove_temp_dir
+    rmtree(tempdir)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 133, in _remove_temp_dir
+    rmtree(tempdir)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 734, in rmtree
+    _rmtree_safe_fd(fd, path, onerror)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 734, in rmtree
+    _rmtree_safe_fd(fd, path, onerror)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 690, in _rmtree_safe_fd
+    onerror(os.unlink, fullname, sys.exc_info())
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 690, in _rmtree_safe_fd
+    onerror(os.unlink, fullname, sys.exc_info())
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 688, in _rmtree_safe_fd
+    os.unlink(entry.name, dir_fd=topfd)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 688, in _rmtree_safe_fd
+    os.unlink(entry.name, dir_fd=topfd)
+OSError: [Errno 16] Device or resource busy: '.nfs000000002c21003200003838'
+OSError: [Errno 16] Device or resource busy: '.nfs000000002c21003600003836'
+2025-11-15 18:15:57,160 DDP_Script [Rank 1] [INFO] val acc 90.37%
+2025-11-15 18:15:59,295 DDP_Script [Rank 1] [INFO] epoch 12 시작
+2025-11-15 18:15:59,309 DDP_Script [Rank 1] [INFO] DataLoader created with batch_size=64, num_workers=4
+2025-11-15 18:15:59,311 DDP_Script [Rank 1] [INFO] local_steps=527, global_steps=527
+Traceback (most recent call last):
+Traceback (most recent call last):
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 300, in _run_finalizers
+    finalizer()
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 224, in __call__
+    res = self._callback(*self._args, **self._kwargs)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 133, in _remove_temp_dir
+    rmtree(tempdir)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 734, in rmtree
+    _rmtree_safe_fd(fd, path, onerror)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 690, in _rmtree_safe_fd
+    onerror(os.unlink, fullname, sys.exc_info())
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 688, in _rmtree_safe_fd
+    os.unlink(entry.name, dir_fd=topfd)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 300, in _run_finalizers
+    finalizer()
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 224, in __call__
+    res = self._callback(*self._args, **self._kwargs)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 133, in _remove_temp_dir
+    rmtree(tempdir)
+OSError: [Errno 16] Device or resource busy: '.nfs000000002c2100380000384c'
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 734, in rmtree
+    _rmtree_safe_fd(fd, path, onerror)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 690, in _rmtree_safe_fd
+    onerror(os.unlink, fullname, sys.exc_info())
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 688, in _rmtree_safe_fd
+    os.unlink(entry.name, dir_fd=topfd)
+OSError: [Errno 16] Device or resource busy: '.nfs000000002c21003d0000384d'
+Traceback (most recent call last):
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 300, in _run_finalizers
+    finalizer()
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 224, in __call__
+    res = self._callback(*self._args, **self._kwargs)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 133, in _remove_temp_dir
+    rmtree(tempdir)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 734, in rmtree
+    _rmtree_safe_fd(fd, path, onerror)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 690, in _rmtree_safe_fd
+    onerror(os.unlink, fullname, sys.exc_info())
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 688, in _rmtree_safe_fd
+    os.unlink(entry.name, dir_fd=topfd)
+OSError: [Errno 16] Device or resource busy: '.nfs000000002c21003c0000384a'
+Traceback (most recent call last):
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 300, in _run_finalizers
+    finalizer()
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 224, in __call__
+    res = self._callback(*self._args, **self._kwargs)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 133, in _remove_temp_dir
+    rmtree(tempdir)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 734, in rmtree
+    _rmtree_safe_fd(fd, path, onerror)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 690, in _rmtree_safe_fd
+    onerror(os.unlink, fullname, sys.exc_info())
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 688, in _rmtree_safe_fd
+    os.unlink(entry.name, dir_fd=topfd)
+OSError: [Errno 16] Device or resource busy: '.nfs000000002c21003e0000384f'
+2025-11-15 18:18:34,502 DDP_Script [Rank 1] [INFO] epoch 12 train step time: 155.19 seconds
+2025-11-15 18:18:34,504 DDP_Script [Rank 1] [INFO] epoch 12 끝 (local_steps=527, global_steps=527)
+Traceback (most recent call last):
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 300, in _run_finalizers
+    finalizer()
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 224, in __call__
+    res = self._callback(*self._args, **self._kwargs)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 133, in _remove_temp_dir
+    rmtree(tempdir)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 734, in rmtree
+    _rmtree_safe_fd(fd, path, onerror)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 690, in _rmtree_safe_fd
+    onerror(os.unlink, fullname, sys.exc_info())
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 688, in _rmtree_safe_fd
+    os.unlink(entry.name, dir_fd=topfd)
+OSError: [Errno 16] Device or resource busy: '.nfs000000002c21004600003855'
+Traceback (most recent call last):
+Traceback (most recent call last):
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 300, in _run_finalizers
+    finalizer()
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 224, in __call__
+    res = self._callback(*self._args, **self._kwargs)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 133, in _remove_temp_dir
+    rmtree(tempdir)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 734, in rmtree
+    _rmtree_safe_fd(fd, path, onerror)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 690, in _rmtree_safe_fd
+    onerror(os.unlink, fullname, sys.exc_info())
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 688, in _rmtree_safe_fd
+    os.unlink(entry.name, dir_fd=topfd)
+Traceback (most recent call last):
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 300, in _run_finalizers
+    finalizer()
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 224, in __call__
+    res = self._callback(*self._args, **self._kwargs)
+OSError: [Errno 16] Device or resource busy: '.nfs000000002c21004500003854'
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 133, in _remove_temp_dir
+    rmtree(tempdir)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 734, in rmtree
+    _rmtree_safe_fd(fd, path, onerror)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 690, in _rmtree_safe_fd
+    onerror(os.unlink, fullname, sys.exc_info())
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 688, in _rmtree_safe_fd
+    os.unlink(entry.name, dir_fd=topfd)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 300, in _run_finalizers
+    finalizer()
+OSError: [Errno 16] Device or resource busy: '.nfs000000002c21004300003852'
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 224, in __call__
+    res = self._callback(*self._args, **self._kwargs)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 133, in _remove_temp_dir
+    rmtree(tempdir)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 734, in rmtree
+    _rmtree_safe_fd(fd, path, onerror)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 690, in _rmtree_safe_fd
+    onerror(os.unlink, fullname, sys.exc_info())
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 688, in _rmtree_safe_fd
+    os.unlink(entry.name, dir_fd=topfd)
+OSError: [Errno 16] Device or resource busy: '.nfs000000002c21004400003853'
+2025-11-15 18:18:34,849 DDP_Script [Rank 1] [INFO] val acc 90.25%
+2025-11-15 18:18:37,108 DDP_Script [Rank 1] [INFO] epoch 13 시작
+2025-11-15 18:18:37,129 DDP_Script [Rank 1] [INFO] DataLoader created with batch_size=64, num_workers=4
+2025-11-15 18:18:37,131 DDP_Script [Rank 1] [INFO] local_steps=527, global_steps=527
+Traceback (most recent call last):
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 300, in _run_finalizers
+    finalizer()
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 224, in __call__
+    res = self._callback(*self._args, **self._kwargs)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 133, in _remove_temp_dir
+    rmtree(tempdir)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 734, in rmtree
+    _rmtree_safe_fd(fd, path, onerror)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 690, in _rmtree_safe_fd
+    onerror(os.unlink, fullname, sys.exc_info())
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 688, in _rmtree_safe_fd
+    os.unlink(entry.name, dir_fd=topfd)
+OSError: [Errno 16] Device or resource busy: '.nfs000000002c21004e0000386a'
+Traceback (most recent call last):
+Traceback (most recent call last):
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 300, in _run_finalizers
+    finalizer()
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 224, in __call__
+    res = self._callback(*self._args, **self._kwargs)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 133, in _remove_temp_dir
+    rmtree(tempdir)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 734, in rmtree
+    _rmtree_safe_fd(fd, path, onerror)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 300, in _run_finalizers
+    finalizer()
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 690, in _rmtree_safe_fd
+    onerror(os.unlink, fullname, sys.exc_info())
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 224, in __call__
+    res = self._callback(*self._args, **self._kwargs)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 688, in _rmtree_safe_fd
+    os.unlink(entry.name, dir_fd=topfd)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 133, in _remove_temp_dir
+    rmtree(tempdir)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 734, in rmtree
+    _rmtree_safe_fd(fd, path, onerror)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 690, in _rmtree_safe_fd
+    onerror(os.unlink, fullname, sys.exc_info())
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 688, in _rmtree_safe_fd
+    os.unlink(entry.name, dir_fd=topfd)
+OSError: [Errno 16] Device or resource busy: '.nfs000000002c21004d0000386b'
+OSError: [Errno 16] Device or resource busy: '.nfs000000002c21004c0000386d'
+Traceback (most recent call last):
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 300, in _run_finalizers
+    finalizer()
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 224, in __call__
+    res = self._callback(*self._args, **self._kwargs)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 133, in _remove_temp_dir
+    rmtree(tempdir)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 734, in rmtree
+    _rmtree_safe_fd(fd, path, onerror)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 690, in _rmtree_safe_fd
+    onerror(os.unlink, fullname, sys.exc_info())
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 688, in _rmtree_safe_fd
+    os.unlink(entry.name, dir_fd=topfd)
+OSError: [Errno 16] Device or resource busy: '.nfs000000002c2100480000386c'
+2025-11-15 18:21:12,905 DDP_Script [Rank 1] [INFO] epoch 13 train step time: 155.77 seconds
+2025-11-15 18:21:12,913 DDP_Script [Rank 1] [INFO] epoch 13 끝 (local_steps=527, global_steps=527)
+Traceback (most recent call last):
+Traceback (most recent call last):
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 300, in _run_finalizers
+    finalizer()
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 224, in __call__
+    res = self._callback(*self._args, **self._kwargs)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 133, in _remove_temp_dir
+    rmtree(tempdir)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 734, in rmtree
+    _rmtree_safe_fd(fd, path, onerror)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 690, in _rmtree_safe_fd
+    onerror(os.unlink, fullname, sys.exc_info())
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 688, in _rmtree_safe_fd
+    os.unlink(entry.name, dir_fd=topfd)
+OSError: [Errno 16] Device or resource busy: '.nfs000000002c21005500003877'
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 300, in _run_finalizers
+    finalizer()
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 224, in __call__
+    res = self._callback(*self._args, **self._kwargs)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 133, in _remove_temp_dir
+    rmtree(tempdir)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 734, in rmtree
+    _rmtree_safe_fd(fd, path, onerror)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 690, in _rmtree_safe_fd
+    onerror(os.unlink, fullname, sys.exc_info())
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 688, in _rmtree_safe_fd
+    os.unlink(entry.name, dir_fd=topfd)
+OSError: [Errno 16] Device or resource busy: '.nfs000000002c21005200003876'
+Traceback (most recent call last):
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 300, in _run_finalizers
+    finalizer()
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 224, in __call__
+    res = self._callback(*self._args, **self._kwargs)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 133, in _remove_temp_dir
+    rmtree(tempdir)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 734, in rmtree
+    _rmtree_safe_fd(fd, path, onerror)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 690, in _rmtree_safe_fd
+    onerror(os.unlink, fullname, sys.exc_info())
+Traceback (most recent call last):
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 688, in _rmtree_safe_fd
+    os.unlink(entry.name, dir_fd=topfd)
+OSError: [Errno 16] Device or resource busy: '.nfs000000002c21005300003878'
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 300, in _run_finalizers
+    finalizer()
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 224, in __call__
+    res = self._callback(*self._args, **self._kwargs)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 133, in _remove_temp_dir
+    rmtree(tempdir)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 734, in rmtree
+    _rmtree_safe_fd(fd, path, onerror)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 690, in _rmtree_safe_fd
+    onerror(os.unlink, fullname, sys.exc_info())
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 688, in _rmtree_safe_fd
+    os.unlink(entry.name, dir_fd=topfd)
+OSError: [Errno 16] Device or resource busy: '.nfs000000002c21005600003879'
+2025-11-15 18:21:13,285 DDP_Script [Rank 1] [INFO] val acc 90.37%
+2025-11-15 18:21:15,514 DDP_Script [Rank 1] [INFO] epoch 14 시작
+2025-11-15 18:21:15,534 DDP_Script [Rank 1] [INFO] DataLoader created with batch_size=64, num_workers=4
+2025-11-15 18:21:15,535 DDP_Script [Rank 1] [INFO] local_steps=527, global_steps=527
+Traceback (most recent call last):
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 300, in _run_finalizers
+    finalizer()
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 224, in __call__
+    res = self._callback(*self._args, **self._kwargs)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 133, in _remove_temp_dir
+    rmtree(tempdir)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 734, in rmtree
+    _rmtree_safe_fd(fd, path, onerror)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 690, in _rmtree_safe_fd
+    onerror(os.unlink, fullname, sys.exc_info())
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 688, in _rmtree_safe_fd
+    os.unlink(entry.name, dir_fd=topfd)
+OSError: [Errno 16] Device or resource busy: '.nfs000000002c21005a00003889'
+Traceback (most recent call last):
+Traceback (most recent call last):
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 300, in _run_finalizers
+    finalizer()
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 224, in __call__
+    res = self._callback(*self._args, **self._kwargs)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 133, in _remove_temp_dir
+    rmtree(tempdir)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 734, in rmtree
+    _rmtree_safe_fd(fd, path, onerror)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 300, in _run_finalizers
+    finalizer()
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 690, in _rmtree_safe_fd
+    onerror(os.unlink, fullname, sys.exc_info())
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 224, in __call__
+    res = self._callback(*self._args, **self._kwargs)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 688, in _rmtree_safe_fd
+    os.unlink(entry.name, dir_fd=topfd)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 133, in _remove_temp_dir
+    rmtree(tempdir)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 734, in rmtree
+    _rmtree_safe_fd(fd, path, onerror)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 690, in _rmtree_safe_fd
+    onerror(os.unlink, fullname, sys.exc_info())
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 688, in _rmtree_safe_fd
+    os.unlink(entry.name, dir_fd=topfd)
+OSError: [Errno 16] Device or resource busy: '.nfs000000002c2100590000388d'
+OSError: [Errno 16] Device or resource busy: '.nfs000000002c21005e0000388e'
+Traceback (most recent call last):
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 300, in _run_finalizers
+    finalizer()
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 224, in __call__
+    res = self._callback(*self._args, **self._kwargs)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 133, in _remove_temp_dir
+    rmtree(tempdir)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 734, in rmtree
+    _rmtree_safe_fd(fd, path, onerror)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 690, in _rmtree_safe_fd
+    onerror(os.unlink, fullname, sys.exc_info())
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 688, in _rmtree_safe_fd
+    os.unlink(entry.name, dir_fd=topfd)
+OSError: [Errno 16] Device or resource busy: '.nfs000000002c21005d0000388b'
+2025-11-15 18:23:51,646 DDP_Script [Rank 1] [INFO] epoch 14 train step time: 156.11 seconds
+2025-11-15 18:23:51,648 DDP_Script [Rank 1] [INFO] epoch 14 끝 (local_steps=527, global_steps=527)
+Traceback (most recent call last):
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 300, in _run_finalizers
+    finalizer()
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 224, in __call__
+    res = self._callback(*self._args, **self._kwargs)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 133, in _remove_temp_dir
+    rmtree(tempdir)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 734, in rmtree
+    _rmtree_safe_fd(fd, path, onerror)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 690, in _rmtree_safe_fd
+    onerror(os.unlink, fullname, sys.exc_info())
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 688, in _rmtree_safe_fd
+    os.unlink(entry.name, dir_fd=topfd)
+OSError: [Errno 16] Device or resource busy: '.nfs000000002c21006000003891'
+Traceback (most recent call last):
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 300, in _run_finalizers
+    finalizer()
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 224, in __call__
+    res = self._callback(*self._args, **self._kwargs)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 133, in _remove_temp_dir
+    rmtree(tempdir)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 734, in rmtree
+    _rmtree_safe_fd(fd, path, onerror)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 690, in _rmtree_safe_fd
+    onerror(os.unlink, fullname, sys.exc_info())
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 688, in _rmtree_safe_fd
+    os.unlink(entry.name, dir_fd=topfd)
+OSError: [Errno 16] Device or resource busy: '.nfs000000002c21006500003893'
+Traceback (most recent call last):
+Traceback (most recent call last):
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 300, in _run_finalizers
+    finalizer()
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 224, in __call__
+    res = self._callback(*self._args, **self._kwargs)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 300, in _run_finalizers
+    finalizer()
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 133, in _remove_temp_dir
+    rmtree(tempdir)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 224, in __call__
+    res = self._callback(*self._args, **self._kwargs)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 734, in rmtree
+    _rmtree_safe_fd(fd, path, onerror)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 133, in _remove_temp_dir
+    rmtree(tempdir)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 690, in _rmtree_safe_fd
+    onerror(os.unlink, fullname, sys.exc_info())
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 734, in rmtree
+    _rmtree_safe_fd(fd, path, onerror)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 688, in _rmtree_safe_fd
+    os.unlink(entry.name, dir_fd=topfd)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 690, in _rmtree_safe_fd
+    onerror(os.unlink, fullname, sys.exc_info())
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 688, in _rmtree_safe_fd
+    os.unlink(entry.name, dir_fd=topfd)
+OSError: [Errno 16] Device or resource busy: '.nfs000000002c21006200003892'
+OSError: [Errno 16] Device or resource busy: '.nfs000000002c21006600003895'
+2025-11-15 18:23:52,009 DDP_Script [Rank 1] [INFO] val acc 89.68%
+2025-11-15 18:23:54,154 DDP_Script [Rank 1] [INFO] epoch 15 시작
+2025-11-15 18:23:54,176 DDP_Script [Rank 1] [INFO] DataLoader created with batch_size=64, num_workers=4
+2025-11-15 18:23:54,178 DDP_Script [Rank 1] [INFO] local_steps=527, global_steps=527
+Traceback (most recent call last):
+Traceback (most recent call last):
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 300, in _run_finalizers
+    finalizer()
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 224, in __call__
+    res = self._callback(*self._args, **self._kwargs)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 133, in _remove_temp_dir
+    rmtree(tempdir)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 734, in rmtree
+    _rmtree_safe_fd(fd, path, onerror)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 690, in _rmtree_safe_fd
+    onerror(os.unlink, fullname, sys.exc_info())
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 688, in _rmtree_safe_fd
+    os.unlink(entry.name, dir_fd=topfd)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 300, in _run_finalizers
+    finalizer()
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 224, in __call__
+    res = self._callback(*self._args, **self._kwargs)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 133, in _remove_temp_dir
+    rmtree(tempdir)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 734, in rmtree
+    _rmtree_safe_fd(fd, path, onerror)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 690, in _rmtree_safe_fd
+    onerror(os.unlink, fullname, sys.exc_info())
+OSError: [Errno 16] Device or resource busy: '.nfs000000002c21006e000038a9'
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 688, in _rmtree_safe_fd
+    os.unlink(entry.name, dir_fd=topfd)
+OSError: [Errno 16] Device or resource busy: '.nfs000000002c21006d000038ae'
+Traceback (most recent call last):
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 300, in _run_finalizers
+    finalizer()
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 224, in __call__
+    res = self._callback(*self._args, **self._kwargs)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 133, in _remove_temp_dir
+    rmtree(tempdir)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 734, in rmtree
+    _rmtree_safe_fd(fd, path, onerror)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 690, in _rmtree_safe_fd
+    onerror(os.unlink, fullname, sys.exc_info())
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 688, in _rmtree_safe_fd
+    os.unlink(entry.name, dir_fd=topfd)
+OSError: [Errno 16] Device or resource busy: '.nfs000000002c21006c000038ad'
+Traceback (most recent call last):
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 300, in _run_finalizers
+    finalizer()
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 224, in __call__
+    res = self._callback(*self._args, **self._kwargs)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 133, in _remove_temp_dir
+    rmtree(tempdir)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 734, in rmtree
+    _rmtree_safe_fd(fd, path, onerror)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 690, in _rmtree_safe_fd
+    onerror(os.unlink, fullname, sys.exc_info())
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 688, in _rmtree_safe_fd
+    os.unlink(entry.name, dir_fd=topfd)
+OSError: [Errno 16] Device or resource busy: '.nfs000000002c210068000038b0'
+2025-11-15 18:26:29,305 DDP_Script [Rank 1] [INFO] epoch 15 train step time: 155.13 seconds
+2025-11-15 18:26:29,309 DDP_Script [Rank 1] [INFO] epoch 15 끝 (local_steps=527, global_steps=527)
+Traceback (most recent call last):
+Traceback (most recent call last):
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 300, in _run_finalizers
+    finalizer()
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 224, in __call__
+    res = self._callback(*self._args, **self._kwargs)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 133, in _remove_temp_dir
+    rmtree(tempdir)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 300, in _run_finalizers
+    finalizer()
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 734, in rmtree
+    _rmtree_safe_fd(fd, path, onerror)
+Traceback (most recent call last):
+Traceback (most recent call last):
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 224, in __call__
+    res = self._callback(*self._args, **self._kwargs)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 690, in _rmtree_safe_fd
+    onerror(os.unlink, fullname, sys.exc_info())
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 133, in _remove_temp_dir
+    rmtree(tempdir)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 688, in _rmtree_safe_fd
+    os.unlink(entry.name, dir_fd=topfd)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 734, in rmtree
+    _rmtree_safe_fd(fd, path, onerror)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 690, in _rmtree_safe_fd
+    onerror(os.unlink, fullname, sys.exc_info())
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 688, in _rmtree_safe_fd
+    os.unlink(entry.name, dir_fd=topfd)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 300, in _run_finalizers
+    finalizer()
+OSError: [Errno 16] Device or resource busy: '.nfs000000002c210070000038b7'
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 224, in __call__
+    res = self._callback(*self._args, **self._kwargs)
+OSError: [Errno 16] Device or resource busy: '.nfs000000002c210074000038b6'
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 300, in _run_finalizers
+    finalizer()
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 133, in _remove_temp_dir
+    rmtree(tempdir)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 224, in __call__
+    res = self._callback(*self._args, **self._kwargs)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 734, in rmtree
+    _rmtree_safe_fd(fd, path, onerror)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 133, in _remove_temp_dir
+    rmtree(tempdir)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 690, in _rmtree_safe_fd
+    onerror(os.unlink, fullname, sys.exc_info())
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 734, in rmtree
+    _rmtree_safe_fd(fd, path, onerror)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 688, in _rmtree_safe_fd
+    os.unlink(entry.name, dir_fd=topfd)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 690, in _rmtree_safe_fd
+    onerror(os.unlink, fullname, sys.exc_info())
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 688, in _rmtree_safe_fd
+    os.unlink(entry.name, dir_fd=topfd)
+OSError: [Errno 16] Device or resource busy: '.nfs000000002c210073000038b8'
+OSError: [Errno 16] Device or resource busy: '.nfs000000002c210076000038b5'
+2025-11-15 18:26:29,688 DDP_Script [Rank 1] [INFO] val acc 90.02%
+2025-11-15 18:26:31,987 DDP_Script [Rank 1] [INFO] epoch 16 시작
+2025-11-15 18:26:32,010 DDP_Script [Rank 1] [INFO] DataLoader created with batch_size=64, num_workers=4
+2025-11-15 18:26:32,012 DDP_Script [Rank 1] [INFO] local_steps=527, global_steps=527
+Traceback (most recent call last):
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 300, in _run_finalizers
+    finalizer()
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 224, in __call__
+    res = self._callback(*self._args, **self._kwargs)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 133, in _remove_temp_dir
+    rmtree(tempdir)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 734, in rmtree
+    _rmtree_safe_fd(fd, path, onerror)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 690, in _rmtree_safe_fd
+    onerror(os.unlink, fullname, sys.exc_info())
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 688, in _rmtree_safe_fd
+    os.unlink(entry.name, dir_fd=topfd)
+OSError: [Errno 16] Device or resource busy: '.nfs000000002c210078000038ca'
+Traceback (most recent call last):
+Traceback (most recent call last):
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 300, in _run_finalizers
+    finalizer()
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 224, in __call__
+    res = self._callback(*self._args, **self._kwargs)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 133, in _remove_temp_dir
+    rmtree(tempdir)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 734, in rmtree
+    _rmtree_safe_fd(fd, path, onerror)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 690, in _rmtree_safe_fd
+    onerror(os.unlink, fullname, sys.exc_info())
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 300, in _run_finalizers
+    finalizer()
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 688, in _rmtree_safe_fd
+    os.unlink(entry.name, dir_fd=topfd)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 224, in __call__
+    res = self._callback(*self._args, **self._kwargs)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 133, in _remove_temp_dir
+    rmtree(tempdir)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 734, in rmtree
+    _rmtree_safe_fd(fd, path, onerror)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 690, in _rmtree_safe_fd
+    onerror(os.unlink, fullname, sys.exc_info())
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 688, in _rmtree_safe_fd
+    os.unlink(entry.name, dir_fd=topfd)
+OSError: [Errno 16] Device or resource busy: '.nfs000000002c21007c000038cb'
+OSError: [Errno 16] Device or resource busy: '.nfs000000002c21007d000038c8'
+Traceback (most recent call last):
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 300, in _run_finalizers
+    finalizer()
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 224, in __call__
+    res = self._callback(*self._args, **self._kwargs)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 133, in _remove_temp_dir
+    rmtree(tempdir)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 734, in rmtree
+    _rmtree_safe_fd(fd, path, onerror)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 690, in _rmtree_safe_fd
+    onerror(os.unlink, fullname, sys.exc_info())
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 688, in _rmtree_safe_fd
+    os.unlink(entry.name, dir_fd=topfd)
+OSError: [Errno 16] Device or resource busy: '.nfs000000002c21007e000038c9'
+2025-11-15 18:29:07,390 DDP_Script [Rank 1] [INFO] epoch 16 train step time: 155.38 seconds
+2025-11-15 18:29:07,392 DDP_Script [Rank 1] [INFO] epoch 16 끝 (local_steps=527, global_steps=527)
+Traceback (most recent call last):
+Traceback (most recent call last):
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 300, in _run_finalizers
+    finalizer()
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 224, in __call__
+    res = self._callback(*self._args, **self._kwargs)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 133, in _remove_temp_dir
+    rmtree(tempdir)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 734, in rmtree
+    _rmtree_safe_fd(fd, path, onerror)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 690, in _rmtree_safe_fd
+    onerror(os.unlink, fullname, sys.exc_info())
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 688, in _rmtree_safe_fd
+    os.unlink(entry.name, dir_fd=topfd)
+Traceback (most recent call last):
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 300, in _run_finalizers
+    finalizer()
+Traceback (most recent call last):
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 224, in __call__
+    res = self._callback(*self._args, **self._kwargs)
+OSError: [Errno 16] Device or resource busy: '.nfs000000002c210082000038d2'
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 133, in _remove_temp_dir
+    rmtree(tempdir)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 734, in rmtree
+    _rmtree_safe_fd(fd, path, onerror)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 690, in _rmtree_safe_fd
+    onerror(os.unlink, fullname, sys.exc_info())
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 688, in _rmtree_safe_fd
+    os.unlink(entry.name, dir_fd=topfd)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 300, in _run_finalizers
+    finalizer()
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 224, in __call__
+    res = self._callback(*self._args, **self._kwargs)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 300, in _run_finalizers
+    finalizer()
+OSError: [Errno 16] Device or resource busy: '.nfs000000002c210083000038d1'
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 133, in _remove_temp_dir
+    rmtree(tempdir)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 224, in __call__
+    res = self._callback(*self._args, **self._kwargs)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 734, in rmtree
+    _rmtree_safe_fd(fd, path, onerror)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 133, in _remove_temp_dir
+    rmtree(tempdir)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 690, in _rmtree_safe_fd
+    onerror(os.unlink, fullname, sys.exc_info())
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 734, in rmtree
+    _rmtree_safe_fd(fd, path, onerror)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 688, in _rmtree_safe_fd
+    os.unlink(entry.name, dir_fd=topfd)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 690, in _rmtree_safe_fd
+    onerror(os.unlink, fullname, sys.exc_info())
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 688, in _rmtree_safe_fd
+    os.unlink(entry.name, dir_fd=topfd)
+OSError: [Errno 16] Device or resource busy: '.nfs000000002c210086000038d3'
+OSError: [Errno 16] Device or resource busy: '.nfs000000002c210084000038d0'
+2025-11-15 18:29:07,737 DDP_Script [Rank 1] [INFO] val acc 90.14%
+2025-11-15 18:29:09,991 DDP_Script [Rank 1] [INFO] epoch 17 시작
+2025-11-15 18:29:10,013 DDP_Script [Rank 1] [INFO] DataLoader created with batch_size=64, num_workers=4
+2025-11-15 18:29:10,025 DDP_Script [Rank 1] [INFO] local_steps=527, global_steps=527
+Traceback (most recent call last):
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 300, in _run_finalizers
+    finalizer()
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 224, in __call__
+    res = self._callback(*self._args, **self._kwargs)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 133, in _remove_temp_dir
+    rmtree(tempdir)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 734, in rmtree
+    _rmtree_safe_fd(fd, path, onerror)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 690, in _rmtree_safe_fd
+    onerror(os.unlink, fullname, sys.exc_info())
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 688, in _rmtree_safe_fd
+    os.unlink(entry.name, dir_fd=topfd)
+OSError: [Errno 16] Device or resource busy: '.nfs000000002c21008d000038ee'
+Traceback (most recent call last):
+Traceback (most recent call last):
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 300, in _run_finalizers
+    finalizer()
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 224, in __call__
+    res = self._callback(*self._args, **self._kwargs)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 133, in _remove_temp_dir
+    rmtree(tempdir)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 734, in rmtree
+    _rmtree_safe_fd(fd, path, onerror)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 300, in _run_finalizers
+    finalizer()
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 690, in _rmtree_safe_fd
+    onerror(os.unlink, fullname, sys.exc_info())
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 224, in __call__
+    res = self._callback(*self._args, **self._kwargs)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 688, in _rmtree_safe_fd
+    os.unlink(entry.name, dir_fd=topfd)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 133, in _remove_temp_dir
+    rmtree(tempdir)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 734, in rmtree
+    _rmtree_safe_fd(fd, path, onerror)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 690, in _rmtree_safe_fd
+    onerror(os.unlink, fullname, sys.exc_info())
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 688, in _rmtree_safe_fd
+    os.unlink(entry.name, dir_fd=topfd)
+OSError: [Errno 16] Device or resource busy: '.nfs000000002c21008c000038e9'
+OSError: [Errno 16] Device or resource busy: '.nfs000000002c210088000038ef'
+Traceback (most recent call last):
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 300, in _run_finalizers
+    finalizer()
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 224, in __call__
+    res = self._callback(*self._args, **self._kwargs)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 133, in _remove_temp_dir
+    rmtree(tempdir)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 734, in rmtree
+    _rmtree_safe_fd(fd, path, onerror)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 690, in _rmtree_safe_fd
+    onerror(os.unlink, fullname, sys.exc_info())
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 688, in _rmtree_safe_fd
+    os.unlink(entry.name, dir_fd=topfd)
+OSError: [Errno 16] Device or resource busy: '.nfs000000002c21008e000038eb'
+2025-11-15 18:31:46,038 DDP_Script [Rank 1] [INFO] epoch 17 train step time: 156.01 seconds
+2025-11-15 18:31:46,041 DDP_Script [Rank 1] [INFO] epoch 17 끝 (local_steps=527, global_steps=527)
+Traceback (most recent call last):
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 300, in _run_finalizers
+    finalizer()
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 224, in __call__
+    res = self._callback(*self._args, **self._kwargs)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 133, in _remove_temp_dir
+    rmtree(tempdir)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 734, in rmtree
+    _rmtree_safe_fd(fd, path, onerror)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 690, in _rmtree_safe_fd
+    onerror(os.unlink, fullname, sys.exc_info())
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 688, in _rmtree_safe_fd
+    os.unlink(entry.name, dir_fd=topfd)
+OSError: [Errno 16] Device or resource busy: '.nfs000000002c210096000038f2'
+Traceback (most recent call last):
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 300, in _run_finalizers
+    finalizer()
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 224, in __call__
+    res = self._callback(*self._args, **self._kwargs)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 133, in _remove_temp_dir
+    rmtree(tempdir)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 734, in rmtree
+    _rmtree_safe_fd(fd, path, onerror)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 690, in _rmtree_safe_fd
+    onerror(os.unlink, fullname, sys.exc_info())
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 688, in _rmtree_safe_fd
+    os.unlink(entry.name, dir_fd=topfd)
+OSError: [Errno 16] Device or resource busy: '.nfs000000002c210092000038f3'
+Traceback (most recent call last):
+Traceback (most recent call last):
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 300, in _run_finalizers
+    finalizer()
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 224, in __call__
+    res = self._callback(*self._args, **self._kwargs)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 300, in _run_finalizers
+    finalizer()
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 133, in _remove_temp_dir
+    rmtree(tempdir)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 224, in __call__
+    res = self._callback(*self._args, **self._kwargs)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 734, in rmtree
+    _rmtree_safe_fd(fd, path, onerror)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 133, in _remove_temp_dir
+    rmtree(tempdir)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 690, in _rmtree_safe_fd
+    onerror(os.unlink, fullname, sys.exc_info())
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 734, in rmtree
+    _rmtree_safe_fd(fd, path, onerror)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 688, in _rmtree_safe_fd
+    os.unlink(entry.name, dir_fd=topfd)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 690, in _rmtree_safe_fd
+    onerror(os.unlink, fullname, sys.exc_info())
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 688, in _rmtree_safe_fd
+    os.unlink(entry.name, dir_fd=topfd)
+OSError: [Errno 16] Device or resource busy: '.nfs000000002c210093000038f1'
+OSError: [Errno 16] Device or resource busy: '.nfs000000002c210094000038f0'
+2025-11-15 18:31:46,375 DDP_Script [Rank 1] [INFO] val acc 90.14%
+2025-11-15 18:31:48,654 DDP_Script [Rank 1] [INFO] epoch 18 시작
+2025-11-15 18:31:48,668 DDP_Script [Rank 1] [INFO] DataLoader created with batch_size=64, num_workers=4
+2025-11-15 18:31:48,683 DDP_Script [Rank 1] [INFO] local_steps=527, global_steps=527
+Traceback (most recent call last):
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 300, in _run_finalizers
+    finalizer()
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 224, in __call__
+    res = self._callback(*self._args, **self._kwargs)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 133, in _remove_temp_dir
+    rmtree(tempdir)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 734, in rmtree
+    _rmtree_safe_fd(fd, path, onerror)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 690, in _rmtree_safe_fd
+    onerror(os.unlink, fullname, sys.exc_info())
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 688, in _rmtree_safe_fd
+    os.unlink(entry.name, dir_fd=topfd)
+OSError: [Errno 16] Device or resource busy: '.nfs000000002c21009e0000390e'
+Traceback (most recent call last):
+Traceback (most recent call last):
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 300, in _run_finalizers
+    finalizer()
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 224, in __call__
+    res = self._callback(*self._args, **self._kwargs)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 300, in _run_finalizers
+    finalizer()
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 133, in _remove_temp_dir
+    rmtree(tempdir)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 224, in __call__
+    res = self._callback(*self._args, **self._kwargs)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 734, in rmtree
+    _rmtree_safe_fd(fd, path, onerror)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 133, in _remove_temp_dir
+    rmtree(tempdir)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 690, in _rmtree_safe_fd
+    onerror(os.unlink, fullname, sys.exc_info())
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 734, in rmtree
+    _rmtree_safe_fd(fd, path, onerror)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 688, in _rmtree_safe_fd
+    os.unlink(entry.name, dir_fd=topfd)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 690, in _rmtree_safe_fd
+    onerror(os.unlink, fullname, sys.exc_info())
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 688, in _rmtree_safe_fd
+    os.unlink(entry.name, dir_fd=topfd)
+OSError: [Errno 16] Device or resource busy: '.nfs000000002c21009d0000390b'
+OSError: [Errno 16] Device or resource busy: '.nfs000000002c21009a0000390d'
+Traceback (most recent call last):
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 300, in _run_finalizers
+    finalizer()
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 224, in __call__
+    res = self._callback(*self._args, **self._kwargs)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 133, in _remove_temp_dir
+    rmtree(tempdir)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 734, in rmtree
+    _rmtree_safe_fd(fd, path, onerror)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 690, in _rmtree_safe_fd
+    onerror(os.unlink, fullname, sys.exc_info())
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 688, in _rmtree_safe_fd
+    os.unlink(entry.name, dir_fd=topfd)
+OSError: [Errno 16] Device or resource busy: '.nfs000000002c2100980000390f'
+2025-11-15 18:34:24,516 DDP_Script [Rank 1] [INFO] epoch 18 train step time: 155.83 seconds
+2025-11-15 18:34:24,522 DDP_Script [Rank 1] [INFO] epoch 18 끝 (local_steps=527, global_steps=527)
+Traceback (most recent call last):
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 300, in _run_finalizers
+    finalizer()
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 224, in __call__
+    res = self._callback(*self._args, **self._kwargs)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 133, in _remove_temp_dir
+    rmtree(tempdir)
+Traceback (most recent call last):
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 734, in rmtree
+    _rmtree_safe_fd(fd, path, onerror)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 690, in _rmtree_safe_fd
+    onerror(os.unlink, fullname, sys.exc_info())
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 688, in _rmtree_safe_fd
+    os.unlink(entry.name, dir_fd=topfd)
+OSError: [Errno 16] Device or resource busy: '.nfs000000002c21017700003917'
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 300, in _run_finalizers
+    finalizer()
+Traceback (most recent call last):
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 224, in __call__
+    res = self._callback(*self._args, **self._kwargs)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 133, in _remove_temp_dir
+    rmtree(tempdir)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 734, in rmtree
+    _rmtree_safe_fd(fd, path, onerror)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 690, in _rmtree_safe_fd
+    onerror(os.unlink, fullname, sys.exc_info())
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 688, in _rmtree_safe_fd
+    os.unlink(entry.name, dir_fd=topfd)
+OSError: [Errno 16] Device or resource busy: '.nfs000000002c21017500003915'
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 300, in _run_finalizers
+    finalizer()
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 224, in __call__
+    res = self._callback(*self._args, **self._kwargs)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 133, in _remove_temp_dir
+    rmtree(tempdir)
+Traceback (most recent call last):
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 734, in rmtree
+    _rmtree_safe_fd(fd, path, onerror)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 690, in _rmtree_safe_fd
+    onerror(os.unlink, fullname, sys.exc_info())
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 688, in _rmtree_safe_fd
+    os.unlink(entry.name, dir_fd=topfd)
+OSError: [Errno 16] Device or resource busy: '.nfs000000002c21017300003914'
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 300, in _run_finalizers
+    finalizer()
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 224, in __call__
+    res = self._callback(*self._args, **self._kwargs)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 133, in _remove_temp_dir
+    rmtree(tempdir)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 734, in rmtree
+    _rmtree_safe_fd(fd, path, onerror)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 690, in _rmtree_safe_fd
+    onerror(os.unlink, fullname, sys.exc_info())
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 688, in _rmtree_safe_fd
+    os.unlink(entry.name, dir_fd=topfd)
+OSError: [Errno 16] Device or resource busy: '.nfs000000002c21017400003916'
+2025-11-15 18:34:24,867 DDP_Script [Rank 1] [INFO] val acc 90.25%
+2025-11-15 18:34:27,217 DDP_Script [Rank 1] [INFO] epoch 19 시작
+2025-11-15 18:34:27,248 DDP_Script [Rank 1] [INFO] DataLoader created with batch_size=64, num_workers=4
+2025-11-15 18:34:27,253 DDP_Script [Rank 1] [INFO] local_steps=527, global_steps=527
+Traceback (most recent call last):
+Traceback (most recent call last):
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 300, in _run_finalizers
+    finalizer()
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 224, in __call__
+    res = self._callback(*self._args, **self._kwargs)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 133, in _remove_temp_dir
+    rmtree(tempdir)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 734, in rmtree
+    _rmtree_safe_fd(fd, path, onerror)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 300, in _run_finalizers
+    finalizer()
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 690, in _rmtree_safe_fd
+    onerror(os.unlink, fullname, sys.exc_info())
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 224, in __call__
+    res = self._callback(*self._args, **self._kwargs)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 688, in _rmtree_safe_fd
+    os.unlink(entry.name, dir_fd=topfd)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 133, in _remove_temp_dir
+    rmtree(tempdir)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 734, in rmtree
+    _rmtree_safe_fd(fd, path, onerror)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 690, in _rmtree_safe_fd
+    onerror(os.unlink, fullname, sys.exc_info())
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 688, in _rmtree_safe_fd
+    os.unlink(entry.name, dir_fd=topfd)
+OSError: [Errno 16] Device or resource busy: '.nfs000000002c21017d00003927'
+OSError: [Errno 16] Device or resource busy: '.nfs000000002c21017b00003928'
+Traceback (most recent call last):
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 300, in _run_finalizers
+    finalizer()
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 224, in __call__
+    res = self._callback(*self._args, **self._kwargs)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 133, in _remove_temp_dir
+    rmtree(tempdir)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 734, in rmtree
+    _rmtree_safe_fd(fd, path, onerror)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 690, in _rmtree_safe_fd
+    onerror(os.unlink, fullname, sys.exc_info())
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 688, in _rmtree_safe_fd
+    os.unlink(entry.name, dir_fd=topfd)
+OSError: [Errno 16] Device or resource busy: '.nfs000000002c21800200003929'
+Traceback (most recent call last):
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 300, in _run_finalizers
+    finalizer()
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 224, in __call__
+    res = self._callback(*self._args, **self._kwargs)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 133, in _remove_temp_dir
+    rmtree(tempdir)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 734, in rmtree
+    _rmtree_safe_fd(fd, path, onerror)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 690, in _rmtree_safe_fd
+    onerror(os.unlink, fullname, sys.exc_info())
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 688, in _rmtree_safe_fd
+    os.unlink(entry.name, dir_fd=topfd)
+OSError: [Errno 16] Device or resource busy: '.nfs000000002c21017a0000392a'
+2025-11-15 18:37:03,267 DDP_Script [Rank 1] [INFO] epoch 19 train step time: 156.01 seconds
+2025-11-15 18:37:03,269 DDP_Script [Rank 1] [INFO] epoch 19 끝 (local_steps=527, global_steps=527)
+Traceback (most recent call last):
+Traceback (most recent call last):
+Traceback (most recent call last):
+Traceback (most recent call last):
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 300, in _run_finalizers
+    finalizer()
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 224, in __call__
+    res = self._callback(*self._args, **self._kwargs)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 133, in _remove_temp_dir
+    rmtree(tempdir)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 734, in rmtree
+    _rmtree_safe_fd(fd, path, onerror)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 300, in _run_finalizers
+    finalizer()
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 690, in _rmtree_safe_fd
+    onerror(os.unlink, fullname, sys.exc_info())
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 224, in __call__
+    res = self._callback(*self._args, **self._kwargs)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 688, in _rmtree_safe_fd
+    os.unlink(entry.name, dir_fd=topfd)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 133, in _remove_temp_dir
+    rmtree(tempdir)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 734, in rmtree
+    _rmtree_safe_fd(fd, path, onerror)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 300, in _run_finalizers
+    finalizer()
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 690, in _rmtree_safe_fd
+    onerror(os.unlink, fullname, sys.exc_info())
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 300, in _run_finalizers
+    finalizer()
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 224, in __call__
+    res = self._callback(*self._args, **self._kwargs)
+OSError: [Errno 16] Device or resource busy: '.nfs000000002c21800e00003934'
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 688, in _rmtree_safe_fd
+    os.unlink(entry.name, dir_fd=topfd)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 224, in __call__
+    res = self._callback(*self._args, **self._kwargs)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 133, in _remove_temp_dir
+    rmtree(tempdir)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 133, in _remove_temp_dir
+    rmtree(tempdir)
+OSError: [Errno 16] Device or resource busy: '.nfs000000002c21801100003933'
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 734, in rmtree
+    _rmtree_safe_fd(fd, path, onerror)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 734, in rmtree
+    _rmtree_safe_fd(fd, path, onerror)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 690, in _rmtree_safe_fd
+    onerror(os.unlink, fullname, sys.exc_info())
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 690, in _rmtree_safe_fd
+    onerror(os.unlink, fullname, sys.exc_info())
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 688, in _rmtree_safe_fd
+    os.unlink(entry.name, dir_fd=topfd)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 688, in _rmtree_safe_fd
+    os.unlink(entry.name, dir_fd=topfd)
+OSError: [Errno 16] Device or resource busy: '.nfs000000002c21800d00003935'
+OSError: [Errno 16] Device or resource busy: '.nfs000000002c21800f00003936'
+2025-11-15 18:37:03,617 DDP_Script [Rank 1] [INFO] val acc 89.56%
+2025-11-15 18:37:05,837 DDP_Script [Rank 1] [INFO] epoch 20 시작
+2025-11-15 18:37:05,857 DDP_Script [Rank 1] [INFO] DataLoader created with batch_size=64, num_workers=4
+2025-11-15 18:37:05,859 DDP_Script [Rank 1] [INFO] local_steps=527, global_steps=527
+Traceback (most recent call last):
+Traceback (most recent call last):
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 300, in _run_finalizers
+    finalizer()
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 224, in __call__
+    res = self._callback(*self._args, **self._kwargs)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 300, in _run_finalizers
+    finalizer()
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 133, in _remove_temp_dir
+    rmtree(tempdir)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 224, in __call__
+    res = self._callback(*self._args, **self._kwargs)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 734, in rmtree
+    _rmtree_safe_fd(fd, path, onerror)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 133, in _remove_temp_dir
+    rmtree(tempdir)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 690, in _rmtree_safe_fd
+    onerror(os.unlink, fullname, sys.exc_info())
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 734, in rmtree
+    _rmtree_safe_fd(fd, path, onerror)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 688, in _rmtree_safe_fd
+    os.unlink(entry.name, dir_fd=topfd)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 690, in _rmtree_safe_fd
+    onerror(os.unlink, fullname, sys.exc_info())
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 688, in _rmtree_safe_fd
+    os.unlink(entry.name, dir_fd=topfd)
+OSError: [Errno 16] Device or resource busy: '.nfs000000002c21801800003949'
+OSError: [Errno 16] Device or resource busy: '.nfs000000002c21801900003947'
+Traceback (most recent call last):
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 300, in _run_finalizers
+    finalizer()
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 224, in __call__
+    res = self._callback(*self._args, **self._kwargs)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 133, in _remove_temp_dir
+    rmtree(tempdir)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 734, in rmtree
+    _rmtree_safe_fd(fd, path, onerror)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 690, in _rmtree_safe_fd
+    onerror(os.unlink, fullname, sys.exc_info())
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 688, in _rmtree_safe_fd
+    os.unlink(entry.name, dir_fd=topfd)
+OSError: [Errno 16] Device or resource busy: '.nfs000000002c2180170000394a'
+Traceback (most recent call last):
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 300, in _run_finalizers
+    finalizer()
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 224, in __call__
+    res = self._callback(*self._args, **self._kwargs)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 133, in _remove_temp_dir
+    rmtree(tempdir)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 734, in rmtree
+    _rmtree_safe_fd(fd, path, onerror)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 690, in _rmtree_safe_fd
+    onerror(os.unlink, fullname, sys.exc_info())
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 688, in _rmtree_safe_fd
+    os.unlink(entry.name, dir_fd=topfd)
+OSError: [Errno 16] Device or resource busy: '.nfs000000002c21801600003948'
+2025-11-15 18:39:42,097 DDP_Script [Rank 1] [INFO] epoch 20 train step time: 156.24 seconds
+2025-11-15 18:39:42,099 DDP_Script [Rank 1] [INFO] epoch 20 끝 (local_steps=527, global_steps=527)
+Traceback (most recent call last):
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 300, in _run_finalizers
+    finalizer()
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 224, in __call__
+    res = self._callback(*self._args, **self._kwargs)
+Traceback (most recent call last):
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 133, in _remove_temp_dir
+    rmtree(tempdir)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 734, in rmtree
+    _rmtree_safe_fd(fd, path, onerror)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 690, in _rmtree_safe_fd
+    onerror(os.unlink, fullname, sys.exc_info())
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 688, in _rmtree_safe_fd
+    os.unlink(entry.name, dir_fd=topfd)
+OSError: [Errno 16] Device or resource busy: '.nfs000000002c21801e00003950'
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 300, in _run_finalizers
+    finalizer()
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 224, in __call__
+    res = self._callback(*self._args, **self._kwargs)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 133, in _remove_temp_dir
+    rmtree(tempdir)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 734, in rmtree
+    _rmtree_safe_fd(fd, path, onerror)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 690, in _rmtree_safe_fd
+    onerror(os.unlink, fullname, sys.exc_info())
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 688, in _rmtree_safe_fd
+    os.unlink(entry.name, dir_fd=topfd)
+OSError: [Errno 16] Device or resource busy: '.nfs000000002c21801d00003952'
+Traceback (most recent call last):
+Traceback (most recent call last):
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 300, in _run_finalizers
+    finalizer()
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 224, in __call__
+    res = self._callback(*self._args, **self._kwargs)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 300, in _run_finalizers
+    finalizer()
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 133, in _remove_temp_dir
+    rmtree(tempdir)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 224, in __call__
+    res = self._callback(*self._args, **self._kwargs)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 734, in rmtree
+    _rmtree_safe_fd(fd, path, onerror)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/multiprocessing/util.py", line 133, in _remove_temp_dir
+    rmtree(tempdir)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 690, in _rmtree_safe_fd
+    onerror(os.unlink, fullname, sys.exc_info())
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 734, in rmtree
+    _rmtree_safe_fd(fd, path, onerror)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 688, in _rmtree_safe_fd
+    os.unlink(entry.name, dir_fd=topfd)
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 690, in _rmtree_safe_fd
+    onerror(os.unlink, fullname, sys.exc_info())
+  File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist2/lib/python3.9/shutil.py", line 688, in _rmtree_safe_fd
+    os.unlink(entry.name, dir_fd=topfd)
+OSError: [Errno 16] Device or resource busy: '.nfs000000002c21801f0000394f'
+OSError: [Errno 16] Device or resource busy: '.nfs000000002c21802100003951'
+2025-11-15 18:39:42,459 DDP_Script [Rank 1] [INFO] val acc 89.33%
+2025-11-15 18:39:44,775 DDP_Script [Rank 1] [INFO] Training loop finished.

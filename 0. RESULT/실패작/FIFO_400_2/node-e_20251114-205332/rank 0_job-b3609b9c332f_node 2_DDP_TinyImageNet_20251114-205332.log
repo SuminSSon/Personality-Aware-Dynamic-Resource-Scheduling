@@ -1,0 +1,23 @@
+/nas2/data/dlwmznzl1/anaconda3/envs/Dist1/lib/python3.9/site-packages/torch/cuda/__init__.py:63: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+Current CUDA device index: 0
+Current CUDA device name: NVIDIA RTX A5000
+Master address: 163.180.160.60, port: 29509
+2025-11-14 20:53:51,735 DDP_Script [Rank 0] [INFO] Node rank: 0, world size: 2
+[Gloo] Rank 0 is connected to 1 peer ranks. Expected number of connected peer ranks is : 1
+2025-11-14 20:53:52,179 DDP_Script [Rank 0] [INFO] Process group initialized: 163.180.160.60:29509
+2025-11-14 20:53:52,180 DDP_Script [Rank 0] [INFO] Rank 0/2 initialized
+[rank0]: Traceback (most recent call last):
+[rank0]:   File "/nas2/data/dlwmznzl1/CCGRID/TrainingCode/DDP_TinyImageNet_Densenet121.py", line 569, in <module>
+[rank0]:     main()
+[rank0]:   File "/nas2/data/dlwmznzl1/CCGRID/TrainingCode/DDP_TinyImageNet_Densenet121.py", line 188, in main
+[rank0]:     train_dataset = datasets.ImageFolder(
+[rank0]:   File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist1/lib/python3.9/site-packages/torchvision/datasets/folder.py", line 328, in __init__
+[rank0]:     super().__init__(
+[rank0]:   File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist1/lib/python3.9/site-packages/torchvision/datasets/folder.py", line 149, in __init__
+[rank0]:     classes, class_to_idx = self.find_classes(self.root)
+[rank0]:   File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist1/lib/python3.9/site-packages/torchvision/datasets/folder.py", line 234, in find_classes
+[rank0]:     return find_classes(directory)
+[rank0]:   File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist1/lib/python3.9/site-packages/torchvision/datasets/folder.py", line 41, in find_classes
+[rank0]:     classes = sorted(entry.name for entry in os.scandir(directory) if entry.is_dir())
+[rank0]: FileNotFoundError: [Errno 2] No such file or directory: '/local_datasets/tiny-imagenet-200/train'

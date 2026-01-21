@@ -1,0 +1,134 @@
+ts,event,job_id,cluster,world_size,note,metadata_json
+2025-11-23 23:39:12,submitted,job-a227a6b4,-,0,,"{""model"": ""ResNet-18"", ""dataset"": ""CIFAR-100"", ""epochs"": 20, ""batch_size_per_gpu"": 128, ""learning_rate"": 0.001}"
+2025-11-23 23:39:15,started,job-a227a6b4,clusterA,1,"started_on=clusterA, g=1","{""nodes"": [""node_a""], ""started_ts"": ""2025-11-23T23:39:15.254739""}"
+2025-11-23 23:42:29,submitted,job-6747a4b5,-,0,,"{""model"": ""ResNet-50"", ""dataset"": ""CIFAR-10"", ""epochs"": 20, ""batch_size_per_gpu"": 128, ""learning_rate"": 0.001}"
+2025-11-23 23:42:33,started,job-6747a4b5,cluster_A,1,"started_on=cluster_A, g=1","{""nodes"": [""node_b""], ""started_ts"": ""2025-11-23T23:42:33.561642""}"
+2025-11-23 23:47:30,submitted,job-63f593f4,-,0,,"{""model"": ""DistilBERT"", ""dataset"": ""SST-2"", ""epochs"": 20, ""batch_size_per_gpu"": 64, ""learning_rate"": 0.001}"
+2025-11-23 23:47:30,started,job-63f593f4,clusterA,1,"started_on=clusterA, g=1","{""nodes"": [""node_c""], ""started_ts"": ""2025-11-23T23:47:30.886880""}"
+2025-11-23 23:51:19,submitted,job-52ee13ff,-,0,,"{""model"": ""ResNet-18"", ""dataset"": ""CIFAR-100"", ""epochs"": 20, ""batch_size_per_gpu"": 32, ""learning_rate"": 0.001}"
+2025-11-23 23:51:19,submitted,job-fd5407bc,-,0,,"{""model"": ""DenseNet-121"", ""dataset"": ""TinyImageNet"", ""epochs"": 20, ""batch_size_per_gpu"": 64, ""learning_rate"": 0.001}"
+2025-11-23 23:51:24,started,job-52ee13ff,clusterA,1,"started_on=clusterA, g=1","{""nodes"": [""node_d""], ""started_ts"": ""2025-11-23T23:51:24.909526""}"
+2025-11-23 23:51:24,started,job-fd5407bc,clusterB,1,"started_on=clusterB, g=1","{""nodes"": [""node_e""], ""started_ts"": ""2025-11-23T23:51:24.925659""}"
+2025-11-23 23:51:39,failed,job-52ee13ff,clusterA,1,Done,{}
+2025-11-23 23:54:34,started,job-fd5407bc,clusterA,2,"started_on=clusterA, g=2","{""nodes"": [""node_d"", ""node_f""], ""started_ts"": ""2025-11-23T23:54:34.499722""}"
+2025-11-23 23:54:49,started,job-fd5407bc,clusterB,2,"started_on=clusterB, g=2","{""nodes"": [""node_g"", ""node_h""], ""started_ts"": ""2025-11-23T23:54:49.846443""}"
+2025-11-23 23:57:03,submitted,job-083ebadc,-,0,,"{""model"": ""ResNet-50"", ""dataset"": ""CIFAR-10"", ""epochs"": 20, ""batch_size_per_gpu"": 32, ""learning_rate"": 0.001}"
+2025-11-23 23:57:07,started,job-083ebadc,clusterA,1,"started_on=clusterA, g=1","{""nodes"": [""node_d""], ""started_ts"": ""2025-11-23T23:57:07.207986""}"
+2025-11-24 00:00:39,submitted,job-44d29810,-,0,,"{""model"": ""EfficientNetV2-S"", ""dataset"": ""MNIST"", ""epochs"": 20, ""batch_size_per_gpu"": 64, ""learning_rate"": 0.001}"
+2025-11-24 00:00:51,started,job-44d29810,clusterB,1,"started_on=clusterB, g=1","{""nodes"": [""node_e""], ""started_ts"": ""2025-11-24T00:00:51.944599""}"
+2025-11-24 00:02:07,failed,job-44d29810,clusterB,1,Done,{}
+2025-11-24 00:02:07,submitted,job-6c186806,-,0,,"{""model"": ""EfficientNetV2-S"", ""dataset"": ""MNIST"", ""epochs"": 20, ""batch_size_per_gpu"": 64, ""learning_rate"": 0.001}"
+2025-11-24 00:02:22,started,job-6c186806,clusterB,1,"started_on=clusterB, g=1","{""nodes"": [""node_e""], ""started_ts"": ""2025-11-24T00:02:22.524373""}"
+2025-11-24 00:03:07,failed,job-6c186806,clusterB,1,Done,{}
+2025-11-24 00:03:23,finished,job-a227a6b4,clusterA,1,Done,{}
+2025-11-24 00:03:34,started,job-083ebadc,clusterA,2,"started_on=clusterA, g=2","{""nodes"": [""node_a"", ""node_e""], ""started_ts"": ""2025-11-24T00:03:34.955801""}"
+2025-11-24 00:03:40,submitted,job-51a129ae,-,0,,"{""model"": ""DenseNet-121"", ""dataset"": ""TinyImageNet"", ""epochs"": 20, ""batch_size_per_gpu"": 32, ""learning_rate"": 0.001}"
+2025-11-24 00:03:40,started,job-083ebadc,clusterB,2,"started_on=clusterB, g=2","{""nodes"": [""node_f"", ""node_g""], ""started_ts"": ""2025-11-24T00:03:40.408953""}"
+2025-11-24 00:03:45,started,job-51a129ae,clusterB,1,"started_on=clusterB, g=1","{""nodes"": [""node_h""], ""started_ts"": ""2025-11-24T00:03:45.856512""}"
+2025-11-24 00:04:24,failed,job-083ebadc,clusterB,2,Done,{}
+2025-11-24 00:06:56,started,job-51a129ae,clusterA,2,"started_on=clusterA, g=2","{""nodes"": [""node_a"", ""node_d""], ""started_ts"": ""2025-11-24T00:06:56.692376""}"
+2025-11-24 00:07:02,started,job-51a129ae,clusterB,2,"started_on=clusterB, g=2","{""nodes"": [""node_e"", ""node_f""], ""started_ts"": ""2025-11-24T00:07:02.225069""}"
+2025-11-24 00:13:10,submitted,job-386aa3fa,-,0,,"{""model"": ""DistilBERT"", ""dataset"": ""SST-2"", ""epochs"": 20, ""batch_size_per_gpu"": 16, ""learning_rate"": 0.001}"
+2025-11-24 00:13:15,started,job-386aa3fa,clusterA,1,"started_on=clusterA, g=1","{""nodes"": [""node_a""], ""started_ts"": ""2025-11-24T00:13:15.402504""}"
+2025-11-24 00:14:42,submitted,job-97d1eb93,-,0,,"{""model"": ""DistilBERT"", ""dataset"": ""SST-2"", ""epochs"": 20, ""batch_size_per_gpu"": 16, ""learning_rate"": 0.001}"
+2025-11-24 00:14:48,started,job-97d1eb93,clusterA,1,"started_on=clusterA, g=1","{""nodes"": [""node_d""], ""started_ts"": ""2025-11-24T00:14:48.160668""}"
+2025-11-24 00:15:37,submitted,job-71da57bf,-,0,,"{""model"": ""DistilBERT"", ""dataset"": ""SST-2"", ""epochs"": 20, ""batch_size_per_gpu"": 16, ""learning_rate"": 0.001}"
+2025-11-24 00:15:52,started,job-71da57bf,clusterB,1,"started_on=clusterB, g=1","{""nodes"": [""node_e""], ""started_ts"": ""2025-11-24T00:15:52.622015""}"
+2025-11-24 00:26:22,submitted,job-685886d7,-,0,,"{""model"": ""EfficientNetV2-S"", ""dataset"": ""MNIST"", ""epochs"": 20, ""batch_size_per_gpu"": 64, ""learning_rate"": 0.001}"
+2025-11-24 00:26:37,started,job-685886d7,clusterB,1,"started_on=clusterB, g=1","{""nodes"": [""node_f""], ""started_ts"": ""2025-11-24T00:26:37.687787""}"
+2025-11-24 00:31:06,finished,job-6747a4b5,cluster_A,1,Done,{}
+2025-11-24 00:32:56,submitted,job-369fabfd,-,0,,"{""model"": ""ResNet-18"", ""dataset"": ""CIFAR-100"", ""epochs"": 20, ""batch_size_per_gpu"": 32, ""learning_rate"": 0.001}"
+2025-11-24 00:33:10,started,job-369fabfd,cluster_A,1,"started_on=cluster_A, g=1","{""nodes"": [""node_b""], ""started_ts"": ""2025-11-24T00:33:10.168520""}"
+2025-11-24 00:35:53,submitted,job-ef1f2038,-,0,,"{""model"": ""DenseNet-121"", ""dataset"": ""TinyImageNet"", ""epochs"": 20, ""batch_size_per_gpu"": 32, ""learning_rate"": 0.001}"
+2025-11-24 00:36:09,started,job-ef1f2038,clusterB,1,"started_on=clusterB, g=1","{""nodes"": [""node_g""], ""started_ts"": ""2025-11-24T00:36:09.231785""}"
+2025-11-24 00:36:36,submitted,job-e37e7615,-,0,,"{""model"": ""EfficientNetV2-S"", ""dataset"": ""MNIST"", ""epochs"": 20, ""batch_size_per_gpu"": 64, ""learning_rate"": 0.001}"
+2025-11-24 00:37:01,started,job-e37e7615,clusterB,1,"started_on=clusterB, g=1","{""nodes"": [""node_h""], ""started_ts"": ""2025-11-24T00:37:01.608142""}"
+2025-11-24 00:48:53,submitted,job-aa215c03,-,0,,"{""model"": ""DeepSpeech2"", ""dataset"": ""ARCTIC"", ""epochs"": 20, ""batch_size_per_gpu"": 8, ""learning_rate"": 0.001}"
+2025-11-24 00:50:37,submitted,job-bc349051,-,0,,"{""model"": ""DenseNet-121"", ""dataset"": ""TinyImageNet"", ""epochs"": 20, ""batch_size_per_gpu"": 32, ""learning_rate"": 0.001}"
+2025-11-24 00:56:43,finished,job-63f593f4,clusterA,1,Done,{}
+2025-11-24 00:56:59,started,job-aa215c03,clusterA,1,"started_on=clusterA, g=1","{""nodes"": [""node_c""], ""started_ts"": ""2025-11-24T00:56:59.647781""}"
+2025-11-24 00:59:09,submitted,job-0911a8d5,-,0,,"{""model"": ""EfficientNetV2-S"", ""dataset"": ""MNIST"", ""epochs"": 20, ""batch_size_per_gpu"": 64, ""learning_rate"": 0.001}"
+2025-11-24 00:59:09,finished,job-369fabfd,cluster_A,1,Done,{}
+2025-11-24 00:59:34,started,job-bc349051,cluster_A,1,"started_on=cluster_A, g=1","{""nodes"": [""node_b""], ""started_ts"": ""2025-11-24T00:59:34.669070""}"
+2025-11-24 01:05:12,submitted,job-882cf703,-,0,,"{""model"": ""ResNet-18"", ""dataset"": ""CIFAR-100"", ""epochs"": 20, ""batch_size_per_gpu"": 64, ""learning_rate"": 0.001}"
+2025-11-24 01:14:57,finished,job-386aa3fa,clusterA,1,Done,{}
+2025-11-24 01:15:12,started,job-0911a8d5,clusterA,1,"started_on=clusterA, g=1","{""nodes"": [""node_a""], ""started_ts"": ""2025-11-24T01:15:12.448154""}"
+2025-11-24 01:27:00,submitted,job-69e61fa6,-,0,,"{""model"": ""ResNet-50"", ""dataset"": ""CIFAR-10"", ""epochs"": 20, ""batch_size_per_gpu"": 64, ""learning_rate"": 0.001}"
+2025-11-24 01:27:50,submitted,job-9d451957,-,0,,"{""model"": ""DeepSpeech2"", ""dataset"": ""ARCTIC"", ""epochs"": 20, ""batch_size_per_gpu"": 8, ""learning_rate"": 0.001}"
+2025-11-24 01:33:40,finished,job-97d1eb93,clusterA,1,Done,{}
+2025-11-24 01:33:55,started,job-882cf703,clusterA,1,"started_on=clusterA, g=1","{""nodes"": [""node_d""], ""started_ts"": ""2025-11-24T01:33:55.842185""}"
+2025-11-24 01:35:27,started,job-0911a8d5,clusterA,1,"started_on=clusterA, g=1","{""nodes"": [""node_a""], ""started_ts"": ""2025-11-24T01:35:27.814241""}"
+2025-11-24 01:40:36,submitted,job-116ac9a9,-,0,,"{""model"": ""DistilBERT"", ""dataset"": ""SST-2"", ""epochs"": 20, ""batch_size_per_gpu"": 32, ""learning_rate"": 0.001}"
+2025-11-24 01:41:53,submitted,job-9650d1ec,-,0,,"{""model"": ""DeepSpeech2"", ""dataset"": ""ARCTIC"", ""epochs"": 20, ""batch_size_per_gpu"": 8, ""learning_rate"": 0.001}"
+2025-11-24 01:44:50,submitted,job-a6443c04,-,0,,"{""model"": ""DistilBERT"", ""dataset"": ""SST-2"", ""epochs"": 20, ""batch_size_per_gpu"": 32, ""learning_rate"": 0.001}"
+2025-11-24 01:49:57,submitted,job-846731a3,-,0,,"{""model"": ""DistilBERT"", ""dataset"": ""SST-2"", ""epochs"": 20, ""batch_size_per_gpu"": 16, ""learning_rate"": 0.001}"
+2025-11-24 01:51:39,submitted,job-ef1b32d4,-,0,,"{""model"": ""DeepSpeech2"", ""dataset"": ""ARCTIC"", ""epochs"": 20, ""batch_size_per_gpu"": 16, ""learning_rate"": 0.001}"
+2025-11-24 02:01:31,submitted,job-846fc9e7,-,0,,"{""model"": ""DeepSpeech2"", ""dataset"": ""ARCTIC"", ""epochs"": 20, ""batch_size_per_gpu"": 32, ""learning_rate"": 0.001}"
+2025-11-24 02:02:44,submitted,job-c22c8882,-,0,,"{""model"": ""DistilBERT"", ""dataset"": ""SST-2"", ""epochs"": 20, ""batch_size_per_gpu"": 64, ""learning_rate"": 0.001}"
+2025-11-24 02:03:08,finished,job-882cf703,clusterA,1,Done,{}
+2025-11-24 02:03:23,started,job-69e61fa6,clusterA,1,"started_on=clusterA, g=1","{""nodes"": [""node_d""], ""started_ts"": ""2025-11-24T02:03:23.185015""}"
+2025-11-24 02:04:38,finished,job-71da57bf,clusterB,1,Done,{}
+2025-11-24 02:04:53,started,job-0911a8d5,clusterA,2,"started_on=clusterA, g=2","{""nodes"": [""node_a"", ""node_e""], ""started_ts"": ""2025-11-24T02:04:53.953736""}"
+2025-11-24 02:06:24,started,job-ef1f2038,clusterB,1,"started_on=clusterB, g=1","{""nodes"": [""node_g""], ""started_ts"": ""2025-11-24T02:06:24.707893""}"
+2025-11-24 02:07:04,started,job-9d451957,clusterB,1,"started_on=clusterB, g=1","{""nodes"": [""node_g""], ""started_ts"": ""2025-11-24T02:07:04.269436""}"
+2025-11-24 02:07:29,started,job-116ac9a9,clusterB,1,"started_on=clusterB, g=1","{""nodes"": [""node_g""], ""started_ts"": ""2025-11-24T02:07:29.477513""}"
+2025-11-24 02:07:54,submitted,job-ec1f7ee9,-,0,,"{""model"": ""DistilBERT"", ""dataset"": ""SST-2"", ""epochs"": 20, ""batch_size_per_gpu"": 64, ""learning_rate"": 0.001}"
+2025-11-24 02:09:50,started,job-0911a8d5,clusterA,1,"started_on=clusterA, g=1","{""nodes"": [""node_a""], ""started_ts"": ""2025-11-24T02:09:50.132578""}"
+2025-11-24 02:09:50,started,job-9650d1ec,clusterB,1,"started_on=clusterB, g=1","{""nodes"": [""node_e""], ""started_ts"": ""2025-11-24T02:09:50.142508""}"
+2025-11-24 02:10:31,started,job-69e61fa6,clusterA,2,"started_on=clusterA, g=2","{""nodes"": [""node_a"", ""node_e""], ""started_ts"": ""2025-11-24T02:10:31.273056""}"
+2025-11-24 02:10:47,started,job-69e61fa6,clusterA,2,"started_on=clusterA, g=2","{""nodes"": [""node_a"", ""node_e""], ""started_ts"": ""2025-11-24T02:10:47.024950""}"
+2025-11-24 02:11:02,started,job-a6443c04,clusterA,1,"started_on=clusterA, g=1","{""nodes"": [""node_d""], ""started_ts"": ""2025-11-24T02:11:02.313289""}"
+2025-11-24 02:11:18,started,job-846731a3,clusterA,1,"started_on=clusterA, g=1","{""nodes"": [""node_a""], ""started_ts"": ""2025-11-24T02:11:18.170320""}"
+2025-11-24 02:11:18,started,job-ef1b32d4,clusterB,1,"started_on=clusterB, g=1","{""nodes"": [""node_e""], ""started_ts"": ""2025-11-24T02:11:18.184816""}"
+2025-11-24 02:12:09,started,job-846fc9e7,clusterA,1,"started_on=clusterA, g=1","{""nodes"": [""node_d""], ""started_ts"": ""2025-11-24T02:12:09.891837""}"
+2025-11-24 02:28:30,finished,job-685886d7,clusterB,1,Done,{}
+2025-11-24 02:28:56,started,job-c22c8882,clusterB,1,"started_on=clusterB, g=1","{""nodes"": [""node_f""], ""started_ts"": ""2025-11-24T02:28:56.058037""}"
+2025-11-24 02:31:01,submitted,job-56d09d3c,-,0,,"{""model"": ""DeepSpeech2"", ""dataset"": ""ARCTIC"", ""epochs"": 20, ""batch_size_per_gpu"": 32, ""learning_rate"": 0.001}"
+2025-11-24 02:31:25,submitted,job-338e8937,-,0,,"{""model"": ""ResNet-18"", ""dataset"": ""CIFAR-100"", ""epochs"": 20, ""batch_size_per_gpu"": 128, ""learning_rate"": 0.001}"
+2025-11-24 02:39:44,submitted,job-0c25af09,-,0,,"{""model"": ""DeepSpeech2"", ""dataset"": ""ARCTIC"", ""epochs"": 20, ""batch_size_per_gpu"": 16, ""learning_rate"": 0.001}"
+2025-11-24 02:57:17,submitted,job-c42e50d9,-,0,,"{""model"": ""DistilBERT"", ""dataset"": ""SST-2"", ""epochs"": 20, ""batch_size_per_gpu"": 16, ""learning_rate"": 0.001}"
+2025-11-24 03:06:25,submitted,job-6a89692d,-,0,,"{""model"": ""DenseNet-121"", ""dataset"": ""TinyImageNet"", ""epochs"": 20, ""batch_size_per_gpu"": 16, ""learning_rate"": 0.001}"
+2025-11-24 03:13:25,submitted,job-09ced85c,-,0,,"{""model"": ""DistilBERT"", ""dataset"": ""SST-2"", ""epochs"": 20, ""batch_size_per_gpu"": 32, ""learning_rate"": 0.001}"
+2025-11-24 03:14:38,finished,job-846731a3,clusterA,1,Done,{}
+2025-11-24 03:15:00,started,job-ec1f7ee9,clusterA,1,"started_on=clusterA, g=1","{""nodes"": [""node_a""], ""started_ts"": ""2025-11-24T03:15:00.898507""}"
+2025-11-24 03:17:52,finished,job-a6443c04,clusterA,1,Done,{}
+2025-11-24 03:18:38,submitted,job-34388443,-,0,,"{""model"": ""DeepSpeech2"", ""dataset"": ""ARCTIC"", ""epochs"": 20, ""batch_size_per_gpu"": 16, ""learning_rate"": 0.001}"
+2025-11-24 03:19:24,submitted,job-b303c0f5,-,0,,"{""model"": ""EfficientNetV2-S"", ""dataset"": ""MNIST"", ""epochs"": 20, ""batch_size_per_gpu"": 64, ""learning_rate"": 0.001}"
+2025-11-24 03:20:34,submitted,job-6492ebbf,-,0,,"{""model"": ""DenseNet-121"", ""dataset"": ""TinyImageNet"", ""epochs"": 20, ""batch_size_per_gpu"": 16, ""learning_rate"": 0.001}"
+2025-11-24 03:21:00,submitted,job-2262f01b,-,0,,"{""model"": ""DenseNet-121"", ""dataset"": ""TinyImageNet"", ""epochs"": 20, ""batch_size_per_gpu"": 64, ""learning_rate"": 0.001}"
+2025-11-24 03:22:09,finished,job-bc349051,cluster_A,1,Done,{}
+2025-11-24 03:22:28,started,job-56d09d3c,cluster_A,1,"started_on=cluster_A, g=1","{""nodes"": [""node_b""], ""started_ts"": ""2025-11-24T03:22:28.768938""}"
+2025-11-24 03:25:57,finished,job-c22c8882,clusterB,1,Done,{}
+2025-11-24 03:26:20,started,job-338e8937,clusterB,1,"started_on=clusterB, g=1","{""nodes"": [""node_f""], ""started_ts"": ""2025-11-24T03:26:20.367597""}"
+2025-11-24 03:29:21,submitted,job-c02a00a3,-,0,,"{""model"": ""ResNet-18"", ""dataset"": ""CIFAR-100"", ""epochs"": 20, ""batch_size_per_gpu"": 64, ""learning_rate"": 0.001}"
+2025-11-24 03:29:43,submitted,job-608c4ea3,-,0,,"{""model"": ""EfficientNetV2-S"", ""dataset"": ""MNIST"", ""epochs"": 20, ""batch_size_per_gpu"": 64, ""learning_rate"": 0.001}"
+2025-11-24 03:34:23,submitted,job-df156423,-,0,,"{""model"": ""DeepSpeech2"", ""dataset"": ""ARCTIC"", ""epochs"": 20, ""batch_size_per_gpu"": 32, ""learning_rate"": 0.001}"
+2025-11-24 03:34:28,submitted,job-5ce3f062,-,0,,"{""model"": ""DistilBERT"", ""dataset"": ""SST-2"", ""epochs"": 20, ""batch_size_per_gpu"": 64, ""learning_rate"": 0.001}"
+2025-11-24 03:34:45,submitted,job-8a591257,-,0,,"{""model"": ""DeepSpeech2"", ""dataset"": ""ARCTIC"", ""epochs"": 20, ""batch_size_per_gpu"": 32, ""learning_rate"": 0.001}"
+2025-11-24 03:42:11,submitted,job-353f8fd4,-,0,,"{""model"": ""DistilBERT"", ""dataset"": ""SST-2"", ""epochs"": 20, ""batch_size_per_gpu"": 32, ""learning_rate"": 0.001}"
+2025-11-24 03:49:34,finished,job-338e8937,clusterB,1,Done,{}
+2025-11-24 03:49:54,started,job-0c25af09,clusterB,1,"started_on=clusterB, g=1","{""nodes"": [""node_f""], ""started_ts"": ""2025-11-24T03:49:54.092628""}"
+2025-11-24 03:55:46,finished,job-116ac9a9,clusterB,1,Done,{}
+2025-11-24 03:56:08,started,job-c42e50d9,clusterB,1,"started_on=clusterB, g=1","{""nodes"": [""node_g""], ""started_ts"": ""2025-11-24T03:56:08.321867""}"
+2025-11-24 03:58:17,submitted,job-2aafeb17,-,0,,"{""model"": ""ResNet-50"", ""dataset"": ""CIFAR-10"", ""epochs"": 20, ""batch_size_per_gpu"": 128, ""learning_rate"": 0.001}"
+2025-11-24 04:00:08,submitted,job-ea351091,-,0,,"{""model"": ""DistilBERT"", ""dataset"": ""SST-2"", ""epochs"": 20, ""batch_size_per_gpu"": 64, ""learning_rate"": 0.001}"
+2025-11-24 04:06:39,submitted,job-c77dda8f,-,0,,"{""model"": ""DenseNet-121"", ""dataset"": ""TinyImageNet"", ""epochs"": 20, ""batch_size_per_gpu"": 64, ""learning_rate"": 0.001}"
+2025-11-24 04:07:19,finished,job-ec1f7ee9,clusterA,1,Done,{}
+2025-11-24 04:07:30,submitted,job-4a889b00,-,0,,"{""model"": ""DistilBERT"", ""dataset"": ""SST-2"", ""epochs"": 20, ""batch_size_per_gpu"": 32, ""learning_rate"": 0.001}"
+2025-11-24 04:07:30,started,job-6a89692d,clusterA,1,"started_on=clusterA, g=1","{""nodes"": [""node_a""], ""started_ts"": ""2025-11-24T04:07:30.944459""}"
+2025-11-24 05:19:41,finished,job-c42e50d9,clusterB,1,Done,{}
+2025-11-24 05:20:02,started,job-09ced85c,clusterB,1,"started_on=clusterB, g=1","{""nodes"": [""node_g""], ""started_ts"": ""2025-11-24T05:20:02.999240""}"
+2025-11-24 06:12:25,finished,job-09ced85c,clusterB,1,Done,{}
+2025-11-24 06:12:45,started,job-34388443,clusterB,1,"started_on=clusterB, g=1","{""nodes"": [""node_g""], ""started_ts"": ""2025-11-24T06:12:45.443129""}"
+2025-11-24 06:16:46,finished,job-6a89692d,clusterA,1,Done,{}
+2025-11-24 06:16:59,started,job-b303c0f5,clusterA,1,"started_on=clusterA, g=1","{""nodes"": [""node_a""], ""started_ts"": ""2025-11-24T06:16:59.967134""}"
+2025-11-24 07:50:33,finished,job-b303c0f5,clusterA,1,Done,{}
+2025-11-24 07:50:46,started,job-6492ebbf,clusterA,1,"started_on=clusterA, g=1","{""nodes"": [""node_a""], ""started_ts"": ""2025-11-24T07:50:46.400198""}"
+2025-11-24 09:55:59,finished,job-6492ebbf,clusterA,1,Done,{}
+2025-11-24 09:56:10,started,job-2262f01b,clusterA,1,"started_on=clusterA, g=1","{""nodes"": [""node_a""], ""started_ts"": ""2025-11-24T09:56:10.659565""}"
+2025-11-24 12:06:08,finished,job-2262f01b,clusterA,1,Done,{}
+2025-11-24 12:06:21,started,job-c02a00a3,clusterA,1,"started_on=clusterA, g=1","{""nodes"": [""node_a""], ""started_ts"": ""2025-11-24T12:06:21.788636""}"
+2025-11-24 12:30:22,finished,job-c02a00a3,clusterA,1,Done,{}
+2025-11-24 12:30:32,started,job-608c4ea3,clusterA,1,"started_on=clusterA, g=1","{""nodes"": [""node_a""], ""started_ts"": ""2025-11-24T12:30:32.248229""}"
+2025-11-24 14:02:58,finished,job-608c4ea3,clusterA,1,Done,{}
+2025-11-24 14:03:10,started,job-df156423,clusterA,1,"started_on=clusterA, g=1","{""nodes"": [""node_a""], ""started_ts"": ""2025-11-24T14:03:10.254172""}"

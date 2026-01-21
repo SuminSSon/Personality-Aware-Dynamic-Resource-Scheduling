@@ -1,0 +1,69 @@
+Current CUDA device index: 0
+Current CUDA device name: NVIDIA GeForce RTX 5070 Ti
+Master address: 163.180.117.216, port: 29523
+2025-11-17 17:47:52,892 DDP_Script [Rank 1] [INFO] Node rank: 1, world size: 2
+[Gloo] Rank 1 is connected to 1 peer ranks. Expected number of connected peer ranks is : 1
+2025-11-17 17:47:52,943 DDP_Script [Rank 1] [INFO] Process group initialized: 163.180.117.216:29523
+2025-11-17 17:47:52,945 DDP_Script [Rank 1] [INFO] Rank 1/2 initialized
+/home/ubuntu216/anaconda3/envs/Dist2/lib/python3.9/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+/home/ubuntu216/anaconda3/envs/Dist2/lib/python3.9/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=None`.
+  warnings.warn(msg)
+2025-11-17 17:47:53,710 DDP_Script [Rank 1] [INFO] Model, DDP, criterion, optimizer initialized
+2025-11-17 17:47:53,715 DDP_Script [Rank 1] [INFO] Modules initialized
+2025-11-17 17:47:53,715 DDP_Script [Rank 1] [INFO] Starting training from scratch (epoch 1).
+2025-11-17 17:47:53,716 DDP_Script [Rank 1] [INFO] epoch 1 시작
+2025-11-17 17:47:53,751 DDP_Script [Rank 1] [INFO] DataLoader created with batch_size=128, num_workers=4
+2025-11-17 17:47:53,761 DDP_Script [Rank 1] [INFO] local_steps=235, global_steps=235
+[rank1]: Traceback (most recent call last):
+[rank1]:   File "/home/ubuntu216/SUN/DDP_MNIST_EfficientNetV2.py", line 510, in <module>
+[rank1]:     main()
+[rank1]:   File "/home/ubuntu216/SUN/DDP_MNIST_EfficientNetV2.py", line 305, in main
+[rank1]:     outputs = model(inputs)
+[rank1]:   File "/home/ubuntu216/anaconda3/envs/Dist2/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+[rank1]:     return self._call_impl(*args, **kwargs)
+[rank1]:   File "/home/ubuntu216/anaconda3/envs/Dist2/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+[rank1]:     return forward_call(*args, **kwargs)
+[rank1]:   File "/home/ubuntu216/anaconda3/envs/Dist2/lib/python3.9/site-packages/torch/nn/parallel/distributed.py", line 1648, in forward
+[rank1]:     else self._run_ddp_forward(*inputs, **kwargs)
+[rank1]:   File "/home/ubuntu216/anaconda3/envs/Dist2/lib/python3.9/site-packages/torch/nn/parallel/distributed.py", line 1474, in _run_ddp_forward
+[rank1]:     return self.module(*inputs, **kwargs)  # type: ignore[index]
+[rank1]:   File "/home/ubuntu216/anaconda3/envs/Dist2/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+[rank1]:     return self._call_impl(*args, **kwargs)
+[rank1]:   File "/home/ubuntu216/anaconda3/envs/Dist2/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+[rank1]:     return forward_call(*args, **kwargs)
+[rank1]:   File "/home/ubuntu216/anaconda3/envs/Dist2/lib/python3.9/site-packages/torchvision/models/efficientnet.py", line 344, in forward
+[rank1]:     return self._forward_impl(x)
+[rank1]:   File "/home/ubuntu216/anaconda3/envs/Dist2/lib/python3.9/site-packages/torchvision/models/efficientnet.py", line 334, in _forward_impl
+[rank1]:     x = self.features(x)
+[rank1]:   File "/home/ubuntu216/anaconda3/envs/Dist2/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+[rank1]:     return self._call_impl(*args, **kwargs)
+[rank1]:   File "/home/ubuntu216/anaconda3/envs/Dist2/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+[rank1]:     return forward_call(*args, **kwargs)
+[rank1]:   File "/home/ubuntu216/anaconda3/envs/Dist2/lib/python3.9/site-packages/torch/nn/modules/container.py", line 244, in forward
+[rank1]:     input = module(input)
+[rank1]:   File "/home/ubuntu216/anaconda3/envs/Dist2/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+[rank1]:     return self._call_impl(*args, **kwargs)
+[rank1]:   File "/home/ubuntu216/anaconda3/envs/Dist2/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+[rank1]:     return forward_call(*args, **kwargs)
+[rank1]:   File "/home/ubuntu216/anaconda3/envs/Dist2/lib/python3.9/site-packages/torch/nn/modules/container.py", line 244, in forward
+[rank1]:     input = module(input)
+[rank1]:   File "/home/ubuntu216/anaconda3/envs/Dist2/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+[rank1]:     return self._call_impl(*args, **kwargs)
+[rank1]:   File "/home/ubuntu216/anaconda3/envs/Dist2/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+[rank1]:     return forward_call(*args, **kwargs)
+[rank1]:   File "/home/ubuntu216/anaconda3/envs/Dist2/lib/python3.9/site-packages/torchvision/models/efficientnet.py", line 165, in forward
+[rank1]:     result = self.block(input)
+[rank1]:   File "/home/ubuntu216/anaconda3/envs/Dist2/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+[rank1]:     return self._call_impl(*args, **kwargs)
+[rank1]:   File "/home/ubuntu216/anaconda3/envs/Dist2/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+[rank1]:     return forward_call(*args, **kwargs)
+[rank1]:   File "/home/ubuntu216/anaconda3/envs/Dist2/lib/python3.9/site-packages/torch/nn/modules/container.py", line 244, in forward
+[rank1]:     input = module(input)
+[rank1]:   File "/home/ubuntu216/anaconda3/envs/Dist2/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+[rank1]:     return self._call_impl(*args, **kwargs)
+[rank1]:   File "/home/ubuntu216/anaconda3/envs/Dist2/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+[rank1]:     return forward_call(*args, **kwargs)
+[rank1]:   File "/home/ubuntu216/anaconda3/envs/Dist2/lib/python3.9/site-packages/torchvision/ops/misc.py", line 261, in forward
+[rank1]:     return scale * input
+[rank1]: torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 38.00 MiB. GPU 0 has a total capacity of 15.48 GiB of which 9.00 MiB is free. Including non-PyTorch memory, this process has 15.46 GiB memory in use. Of the allocated memory 15.03 GiB is allocated by PyTorch, and 93.00 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)

@@ -1,0 +1,1935 @@
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+2026-01-20 17:34:15,566 [INFO] [LAUNCH_REQ] job_id=job-d8be081a75fd req_run_id=93ba75c60b1c req_attempt=1 ws=1 nodes=['node_e'] model=DeepSpeech2 dataset=ARCTIC request_id=job-d8be081a75fd-66ed83a4d2 reason=LAUNCH allow_preempted=False
+2026-01-20 17:34:15,566 [INFO] [LAUNCH_STATE] job_id=job-d8be081a75fd cur_status= cur_run_id=None cur_req=None blocked_until=0.000 now=1768898055.566
+2026-01-20 17:34:15,566 [INFO] [LAUNCH_RESERVED] job_id=job-d8be081a75fd run_id=93ba75c60b1c attempt=1 nodes=['node_e'] master=163.180.160.62 resume=None
+2026-01-20 17:34:15,566 [INFO] [LAUNCH_TRIGGER] job_id=job-d8be081a75fd run_id=93ba75c60b1c attempt=1 fanout_nodes=['node_e']
+2026-01-20 17:34:15,567 [INFO] [job-d8be081a75fd] Launching job... run_id=93ba75c60b1c attempt=1 WS=1 Master=163.180.160.62:29500 resume=None preempt_guard=20.0s
+2026-01-20 17:34:15,567 [INFO] [job-d8be081a75fd] Sending run command to node_e (Rank 0) path=/nas2/data/dlwmznzl1/test/TrainingCode(DART)/CMU_ARCTIC_DeepSpeech2.py run_id=93ba75c60b1c attempt=1
+2026-01-20 17:34:15,963 [INFO] [LAUNCH_TRIGGER_RESULT] job_id=job-d8be081a75fd run_id=93ba75c60b1c ok=True code=OK detail={'run_id': '93ba75c60b1c', 'master_port': 29500, 'launched_nodes': ['node_e']}
+2026-01-20 17:34:15,963 [INFO] [LAUNCH_OK] job_id=job-d8be081a75fd run_id=93ba75c60b1c attempt=1 nodes=['node_e']
+INFO:     127.0.0.1:33254 - "POST /launch_job HTTP/1.1" 200 OK
+2026-01-20 17:34:21,313 [INFO] [LAUNCH_REQ] job_id=job-30039f178eaa req_run_id=160f225a2ebe req_attempt=1 ws=1 nodes=['node_a'] model=DistilBERT dataset=SST-2 request_id=job-30039f178eaa-486cd8f5e2 reason=LAUNCH allow_preempted=False
+2026-01-20 17:34:21,313 [INFO] [LAUNCH_STATE] job_id=job-30039f178eaa cur_status= cur_run_id=None cur_req=None blocked_until=0.000 now=1768898061.313
+2026-01-20 17:34:21,313 [INFO] [LAUNCH_RESERVED] job_id=job-30039f178eaa run_id=160f225a2ebe attempt=1 nodes=['node_a'] master=163.180.117.216 resume=None
+2026-01-20 17:34:21,313 [INFO] [LAUNCH_TRIGGER] job_id=job-30039f178eaa run_id=160f225a2ebe attempt=1 fanout_nodes=['node_a']
+2026-01-20 17:34:21,313 [INFO] [job-30039f178eaa] Launching job... run_id=160f225a2ebe attempt=1 WS=1 Master=163.180.117.216:29501 resume=None preempt_guard=20.0s
+2026-01-20 17:34:21,314 [INFO] [job-30039f178eaa] Sending run command to node_a (Rank 0) path=/home/ubuntu216/SUN/SST2_DistilBert.py run_id=160f225a2ebe attempt=1
+2026-01-20 17:34:21,332 [INFO] [LAUNCH_TRIGGER_RESULT] job_id=job-30039f178eaa run_id=160f225a2ebe ok=True code=OK detail={'run_id': '160f225a2ebe', 'master_port': 29501, 'launched_nodes': ['node_a']}
+2026-01-20 17:34:21,332 [INFO] [LAUNCH_OK] job_id=job-30039f178eaa run_id=160f225a2ebe attempt=1 nodes=['node_a']
+INFO:     127.0.0.1:33268 - "POST /launch_job HTTP/1.1" 200 OK
+INFO:     163.180.160.62:53290 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.160.62:53302 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 17:34:33,854 [INFO] [job-d8be081a75fd] Received report: Epoch 1/20 (Acc: 0.00%)
+INFO:     163.180.160.62:53312 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.160.62:53328 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.160.62:53340 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 17:34:40,506 [INFO] [job-d8be081a75fd] Received report: Epoch 2/20 (Acc: 0.00%)
+INFO:     163.180.160.62:43520 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.160.62:43530 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.160.62:43540 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 17:34:46,897 [INFO] [job-d8be081a75fd] Received report: Epoch 3/20 (Acc: 0.00%)
+INFO:     163.180.160.62:43542 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.160.62:54628 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.160.62:54630 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 17:34:59,026 [INFO] [LAUNCH_REQ] job_id=job-cd8a81cc47a8 req_run_id=a274acc8303c req_attempt=1 ws=2 nodes=['node_b', 'node_c'] model=EfficientNetV2-S dataset=MNIST request_id=job-cd8a81cc47a8-95f1203272 reason=LAUNCH allow_preempted=False
+2026-01-20 17:34:59,026 [INFO] [LAUNCH_STATE] job_id=job-cd8a81cc47a8 cur_status= cur_run_id=None cur_req=None blocked_until=0.000 now=1768898099.027
+2026-01-20 17:34:59,027 [INFO] [LAUNCH_RESERVED] job_id=job-cd8a81cc47a8 run_id=a274acc8303c attempt=1 nodes=['node_b', 'node_c'] master=163.180.117.216 resume=None
+2026-01-20 17:34:59,027 [INFO] [LAUNCH_TRIGGER] job_id=job-cd8a81cc47a8 run_id=a274acc8303c attempt=1 fanout_nodes=['node_b', 'node_c']
+2026-01-20 17:34:59,027 [INFO] [job-cd8a81cc47a8] Launching job... run_id=a274acc8303c attempt=1 WS=2 Master=163.180.117.216:29502 resume=None preempt_guard=20.0s
+2026-01-20 17:34:59,027 [INFO] [job-cd8a81cc47a8] Sending run command to node_b (Rank 0) path=/home/ubuntu216/SUN/MNIST_EfficientNetV2.py run_id=a274acc8303c attempt=1
+2026-01-20 17:34:59,056 [INFO] [job-cd8a81cc47a8] Sending run command to node_c (Rank 1) path=/home/ubuntu216/SUN/MNIST_EfficientNetV2.py run_id=a274acc8303c attempt=1
+2026-01-20 17:34:59,098 [INFO] [LAUNCH_TRIGGER_RESULT] job_id=job-cd8a81cc47a8 run_id=a274acc8303c ok=True code=OK detail={'run_id': 'a274acc8303c', 'master_port': 29502, 'launched_nodes': ['node_b', 'node_c']}
+2026-01-20 17:34:59,098 [INFO] [LAUNCH_OK] job_id=job-cd8a81cc47a8 run_id=a274acc8303c attempt=1 nodes=['node_b', 'node_c']
+INFO:     127.0.0.1:40806 - "POST /launch_job HTTP/1.1" 200 OK
+2026-01-20 17:34:59,950 [INFO] [job-d8be081a75fd] Received report: Epoch 4/20 (Acc: 0.00%)
+INFO:     163.180.160.62:36786 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.160.62:36790 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.160.62:36800 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 17:35:06,334 [INFO] [job-d8be081a75fd] Received report: Epoch 5/20 (Acc: 0.00%)
+INFO:     163.180.160.62:36806 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.160.62:51586 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.160.62:51596 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 17:35:12,947 [INFO] [job-d8be081a75fd] Received report: Epoch 6/20 (Acc: 1.02%)
+INFO:     163.180.160.62:51598 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.160.62:51610 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.160.62:51614 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 17:35:21,967 [INFO] [job-d8be081a75fd] Received report: Epoch 7/20 (Acc: 2.41%)
+INFO:     163.180.160.62:41514 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.160.62:41516 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.160.62:41528 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 17:35:29,820 [INFO] [job-d8be081a75fd] Received report: Epoch 8/20 (Acc: 2.32%)
+INFO:     163.180.160.62:38348 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.160.62:38352 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.160.62:38368 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 17:35:35,953 [INFO] [job-d8be081a75fd] Received report: Epoch 9/20 (Acc: 3.52%)
+INFO:     163.180.160.62:38382 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.160.62:56898 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.160.62:56902 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 17:35:42,594 [INFO] [job-d8be081a75fd] Received report: Epoch 10/20 (Acc: 0.00%)
+INFO:     163.180.160.62:56916 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.160.62:56926 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.160.62:56942 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 17:35:49,021 [INFO] [job-d8be081a75fd] Received report: Epoch 11/20 (Acc: 0.00%)
+INFO:     163.180.160.62:50562 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.160.62:50564 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.160.62:50576 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 17:36:02,774 [INFO] [job-d8be081a75fd] Received report: Epoch 12/20 (Acc: 0.00%)
+INFO:     163.180.160.62:44422 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.160.62:44424 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.160.62:44432 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 17:36:10,482 [INFO] [job-d8be081a75fd] Received report: Epoch 13/20 (Acc: 0.00%)
+INFO:     163.180.160.62:33092 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.160.62:33102 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.160.62:33116 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 17:36:16,556 [INFO] [job-d8be081a75fd] Received report: Epoch 14/20 (Acc: 0.00%)
+INFO:     163.180.160.62:33128 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.160.62:41342 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.160.62:41354 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 17:36:25,168 [INFO] [job-d8be081a75fd] Received report: Epoch 15/20 (Acc: 2.59%)
+INFO:     163.180.160.62:41362 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.160.62:47074 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.160.62:47080 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 17:36:31,787 [INFO] [job-d8be081a75fd] Received report: Epoch 16/20 (Acc: 4.75%)
+INFO:     163.180.160.62:47094 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.160.62:47104 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.160.62:47106 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 17:36:39,237 [INFO] [job-d8be081a75fd] Received report: Epoch 17/20 (Acc: 3.59%)
+INFO:     163.180.160.62:39804 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.160.62:39826 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 17:36:47,778 [INFO] [job-d8be081a75fd] Received report: Epoch 18/20 (Acc: 10.27%)
+INFO:     163.180.160.62:39832 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.160.62:34012 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.160.62:34016 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 17:37:00,507 [INFO] [job-d8be081a75fd] Received report: Epoch 19/20 (Acc: 10.82%)
+INFO:     163.180.160.62:55180 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.160.62:55188 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.160.62:55198 - "POST /report_progress HTTP/1.1" 200 OK
+INFO:     163.180.117.216:52500 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:52502 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 17:37:10,359 [INFO] [job-30039f178eaa] Received report: Epoch 1/20 (Acc: 50.92%)
+INFO:     163.180.117.216:52514 - "POST /report_checkpoint HTTP/1.1" 200 OK
+2026-01-20 17:37:14,478 [INFO] [job-d8be081a75fd] Received report: Epoch 20/20 (Acc: 15.63%)
+INFO:     163.180.160.62:41422 - "POST /report_checkpoint HTTP/1.1" 200 OK
+2026-01-20 17:37:19,772 [INFO] HTTP Request: POST http://localhost:8082/report_job_completed "HTTP/1.1 200 OK"
+INFO:     163.180.160.62:55344 - "POST /report_job_status HTTP/1.1" 200 OK
+INFO:     163.180.117.216:44050 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:44056 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 17:38:47,812 [INFO] [job-cd8a81cc47a8] Received report: Epoch 1/20 (Acc: 97.69%)
+INFO:     163.180.117.216:43622 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.117.216:43638 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:43642 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 17:38:51,774 [INFO] [job-30039f178eaa] Received report: Epoch 2/20 (Acc: 50.92%)
+INFO:     163.180.117.216:43648 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.117.216:37430 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:37434 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 17:40:16,508 [INFO] [job-30039f178eaa] Received report: Epoch 3/20 (Acc: 50.92%)
+INFO:     163.180.117.216:37450 - "POST /report_checkpoint HTTP/1.1" 200 OK
+2026-01-20 17:40:34,537 [INFO] [LAUNCH_REQ] job_id=job-6b6d2bd8f4cd req_run_id=a2b41a9aa90c req_attempt=1 ws=1 nodes=['node_d'] model=ResNet-50 dataset=CIFAR-10 request_id=job-6b6d2bd8f4cd-81ba2f0cd4 reason=LAUNCH allow_preempted=False
+2026-01-20 17:40:34,537 [INFO] [LAUNCH_STATE] job_id=job-6b6d2bd8f4cd cur_status= cur_run_id=None cur_req=None blocked_until=0.000 now=1768898434.537
+2026-01-20 17:40:34,537 [INFO] [LAUNCH_RESERVED] job_id=job-6b6d2bd8f4cd run_id=a2b41a9aa90c attempt=1 nodes=['node_d'] master=163.180.117.216 resume=None
+2026-01-20 17:40:34,538 [INFO] [LAUNCH_TRIGGER] job_id=job-6b6d2bd8f4cd run_id=a2b41a9aa90c attempt=1 fanout_nodes=['node_d']
+2026-01-20 17:40:34,538 [INFO] [job-6b6d2bd8f4cd] Launching job... run_id=a2b41a9aa90c attempt=1 WS=1 Master=163.180.117.216:29503 resume=None preempt_guard=20.0s
+2026-01-20 17:40:34,538 [INFO] [job-6b6d2bd8f4cd] Sending run command to node_d (Rank 0) path=/home/ubuntu216/SUN/CIFAR10_Resnet50.py run_id=a2b41a9aa90c attempt=1
+2026-01-20 17:40:34,558 [INFO] [LAUNCH_TRIGGER_RESULT] job_id=job-6b6d2bd8f4cd run_id=a2b41a9aa90c ok=True code=OK detail={'run_id': 'a2b41a9aa90c', 'master_port': 29503, 'launched_nodes': ['node_d']}
+2026-01-20 17:40:34,558 [INFO] [LAUNCH_OK] job_id=job-6b6d2bd8f4cd run_id=a2b41a9aa90c attempt=1 nodes=['node_d']
+INFO:     127.0.0.1:47646 - "POST /launch_job HTTP/1.1" 200 OK
+INFO:     163.180.117.216:43370 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:43380 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 17:41:17,530 [INFO] [job-cd8a81cc47a8] Received report: Epoch 2/20 (Acc: 55.16%)
+INFO:     163.180.117.216:51752 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.117.216:43078 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:43080 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 17:41:41,873 [INFO] [job-30039f178eaa] Received report: Epoch 4/20 (Acc: 50.92%)
+INFO:     163.180.117.216:43096 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.117.216:36414 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:36428 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 17:42:32,301 [INFO] [job-6b6d2bd8f4cd] Received report: Epoch 1/20 (Acc: 38.60%)
+INFO:     163.180.117.216:36430 - "POST /report_checkpoint HTTP/1.1" 200 OK
+2026-01-20 17:43:01,896 [INFO] [LAUNCH_REQ] job_id=job-39f71ea93885 req_run_id=1bbc68cec823 req_attempt=1 ws=1 nodes=['node_e'] model=ResNet-18 dataset=CIFAR-100 request_id=job-39f71ea93885-959d875db2 reason=LAUNCH allow_preempted=False
+2026-01-20 17:43:01,896 [INFO] [LAUNCH_STATE] job_id=job-39f71ea93885 cur_status= cur_run_id=None cur_req=None blocked_until=0.000 now=1768898581.896
+2026-01-20 17:43:01,896 [INFO] [LAUNCH_RESERVED] job_id=job-39f71ea93885 run_id=1bbc68cec823 attempt=1 nodes=['node_e'] master=163.180.160.62 resume=None
+2026-01-20 17:43:01,896 [INFO] [LAUNCH_TRIGGER] job_id=job-39f71ea93885 run_id=1bbc68cec823 attempt=1 fanout_nodes=['node_e']
+2026-01-20 17:43:01,897 [INFO] [job-39f71ea93885] Launching job... run_id=1bbc68cec823 attempt=1 WS=1 Master=163.180.160.62:29504 resume=None preempt_guard=20.0s
+2026-01-20 17:43:01,897 [INFO] [job-39f71ea93885] Sending run command to node_e (Rank 0) path=/nas2/data/dlwmznzl1/test/TrainingCode(DART)/CIFAR100_Resnet18.py run_id=1bbc68cec823 attempt=1
+2026-01-20 17:43:01,919 [INFO] [LAUNCH_TRIGGER_RESULT] job_id=job-39f71ea93885 run_id=1bbc68cec823 ok=True code=OK detail={'run_id': '1bbc68cec823', 'master_port': 29504, 'launched_nodes': ['node_e']}
+2026-01-20 17:43:01,919 [INFO] [LAUNCH_OK] job_id=job-39f71ea93885 run_id=1bbc68cec823 attempt=1 nodes=['node_e']
+INFO:     127.0.0.1:34472 - "POST /launch_job HTTP/1.1" 200 OK
+INFO:     163.180.117.216:57312 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:57318 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 17:43:08,403 [INFO] [job-30039f178eaa] Received report: Epoch 5/20 (Acc: 50.92%)
+INFO:     163.180.117.216:57334 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.117.216:36248 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:36258 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 17:43:26,533 [INFO] [job-cd8a81cc47a8] Received report: Epoch 3/20 (Acc: 55.16%)
+INFO:     163.180.117.216:60100 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.117.216:34210 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:34224 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 17:44:00,014 [INFO] [job-6b6d2bd8f4cd] Received report: Epoch 2/20 (Acc: 27.94%)
+INFO:     163.180.117.216:34238 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.160.62:40486 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.160.62:40492 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 17:44:26,665 [INFO] [job-39f71ea93885] Received report: Epoch 1/20 (Acc: 16.58%)
+INFO:     163.180.160.62:35910 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.117.216:36832 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:36836 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 17:44:33,344 [INFO] [job-30039f178eaa] Received report: Epoch 6/20 (Acc: 50.92%)
+INFO:     163.180.117.216:33062 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.117.216:44600 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:44604 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 17:44:57,482 [INFO] [LAUNCH_REQ] job_id=job-f7c5e559986a req_run_id=623599eeb9f4 req_attempt=1 ws=1 nodes=['node_f'] model=DeepSpeech2 dataset=ARCTIC request_id=job-f7c5e559986a-1d08a2bb9a reason=LAUNCH allow_preempted=False
+2026-01-20 17:44:57,482 [INFO] [LAUNCH_STATE] job_id=job-f7c5e559986a cur_status= cur_run_id=None cur_req=None blocked_until=0.000 now=1768898697.482
+2026-01-20 17:44:57,482 [INFO] [LAUNCH_RESERVED] job_id=job-f7c5e559986a run_id=623599eeb9f4 attempt=1 nodes=['node_f'] master=163.180.160.62 resume=None
+2026-01-20 17:44:57,483 [INFO] [LAUNCH_TRIGGER] job_id=job-f7c5e559986a run_id=623599eeb9f4 attempt=1 fanout_nodes=['node_f']
+2026-01-20 17:44:57,483 [INFO] [job-f7c5e559986a] Launching job... run_id=623599eeb9f4 attempt=1 WS=1 Master=163.180.160.62:29505 resume=None preempt_guard=20.0s
+2026-01-20 17:44:57,483 [INFO] [job-f7c5e559986a] Sending run command to node_f (Rank 0) path=/nas2/data/dlwmznzl1/test/TrainingCode(DART)/CMU_ARCTIC_DeepSpeech2.py run_id=623599eeb9f4 attempt=1
+2026-01-20 17:44:57,509 [INFO] [LAUNCH_TRIGGER_RESULT] job_id=job-f7c5e559986a run_id=623599eeb9f4 ok=True code=OK detail={'run_id': '623599eeb9f4', 'master_port': 29505, 'launched_nodes': ['node_f']}
+2026-01-20 17:44:57,509 [INFO] [LAUNCH_OK] job_id=job-f7c5e559986a run_id=623599eeb9f4 attempt=1 nodes=['node_f']
+INFO:     127.0.0.1:59852 - "POST /launch_job HTTP/1.1" 200 OK
+2026-01-20 17:44:57,703 [INFO] [job-6b6d2bd8f4cd] Received report: Epoch 3/20 (Acc: 43.37%)
+INFO:     163.180.117.216:44616 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.160.62:52872 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.160.62:52874 - "POST /report_progress HTTP/1.1" 200 OK
+INFO:     163.180.160.62:52884 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.160.62:52894 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 17:45:18,663 [INFO] [job-f7c5e559986a] Received report: Epoch 1/20 (Acc: 0.00%)
+INFO:     163.180.160.62:52906 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.160.62:46112 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.160.62:46124 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 17:45:24,540 [INFO] [job-39f71ea93885] Received report: Epoch 2/20 (Acc: 31.35%)
+INFO:     163.180.160.62:46126 - "POST /report_checkpoint HTTP/1.1" 200 OK
+2026-01-20 17:45:25,958 [INFO] [job-f7c5e559986a] Received report: Epoch 2/20 (Acc: 0.00%)
+INFO:     163.180.160.62:46136 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.117.216:46104 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:46114 - "POST /report_progress HTTP/1.1" 200 OK
+INFO:     163.180.160.62:33300 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.160.62:33310 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 17:45:33,143 [INFO] [job-f7c5e559986a] Received report: Epoch 3/20 (Acc: 0.00%)
+INFO:     163.180.160.62:33314 - "POST /report_checkpoint HTTP/1.1" 200 OK
+2026-01-20 17:45:33,831 [INFO] [job-cd8a81cc47a8] Received report: Epoch 4/20 (Acc: 55.08%)
+INFO:     163.180.117.216:37172 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.160.62:33316 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.160.62:33326 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 17:45:39,915 [INFO] [job-f7c5e559986a] Received report: Epoch 4/20 (Acc: 0.00%)
+INFO:     163.180.160.62:52746 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.160.62:52752 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.160.62:52768 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 17:45:47,002 [INFO] [job-f7c5e559986a] Received report: Epoch 5/20 (Acc: 0.00%)
+INFO:     163.180.160.62:52782 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.160.62:42784 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.160.62:42786 - "POST /report_progress HTTP/1.1" 200 OK
+INFO:     163.180.117.216:41628 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:41638 - "POST /report_progress HTTP/1.1" 200 OK
+INFO:     163.180.117.216:41644 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:41658 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 17:45:54,376 [INFO] [job-f7c5e559986a] Received report: Epoch 6/20 (Acc: 0.00%)
+INFO:     163.180.160.62:42790 - "POST /report_checkpoint HTTP/1.1" 200 OK
+2026-01-20 17:45:57,264 [INFO] [job-6b6d2bd8f4cd] Received report: Epoch 4/20 (Acc: 46.56%)
+INFO:     163.180.117.216:41662 - "POST /report_checkpoint HTTP/1.1" 200 OK
+2026-01-20 17:45:58,454 [INFO] [job-30039f178eaa] Received report: Epoch 7/20 (Acc: 50.92%)
+INFO:     163.180.117.216:41668 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.160.62:37780 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.160.62:37794 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 17:46:01,668 [INFO] [job-f7c5e559986a] Received report: Epoch 7/20 (Acc: 0.00%)
+INFO:     163.180.160.62:37810 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.160.62:37822 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.160.62:37826 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 17:46:10,620 [INFO] [job-f7c5e559986a] Received report: Epoch 8/20 (Acc: 0.00%)
+INFO:     163.180.160.62:48102 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.160.62:48118 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.160.62:48124 - "POST /report_progress HTTP/1.1" 200 OK
+INFO:     163.180.160.62:48132 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.160.62:48134 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 17:46:19,595 [INFO] [job-f7c5e559986a] Received report: Epoch 9/20 (Acc: 2.20%)
+INFO:     163.180.160.62:58686 - "POST /report_checkpoint HTTP/1.1" 200 OK
+2026-01-20 17:46:21,235 [INFO] [job-39f71ea93885] Received report: Epoch 3/20 (Acc: 39.10%)
+INFO:     163.180.160.62:58696 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.160.62:58702 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.160.62:58712 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 17:46:27,459 [INFO] [job-f7c5e559986a] Received report: Epoch 10/20 (Acc: 0.15%)
+INFO:     163.180.160.62:58728 - "POST /report_checkpoint HTTP/1.1" 200 OK
+2026-01-20 17:46:29,779 [INFO] [LAUNCH_REQ] job_id=job-b7a60a5b144a req_run_id=2c6fea5073c6 req_attempt=1 ws=1 nodes=['node_g'] model=DistilBERT dataset=SST-2 request_id=job-b7a60a5b144a-f4abcd8e10 reason=LAUNCH allow_preempted=False
+2026-01-20 17:46:29,779 [INFO] [LAUNCH_STATE] job_id=job-b7a60a5b144a cur_status= cur_run_id=None cur_req=None blocked_until=0.000 now=1768898789.779
+2026-01-20 17:46:29,779 [INFO] [LAUNCH_RESERVED] job_id=job-b7a60a5b144a run_id=2c6fea5073c6 attempt=1 nodes=['node_g'] master=163.180.160.62 resume=None
+2026-01-20 17:46:29,779 [INFO] [LAUNCH_TRIGGER] job_id=job-b7a60a5b144a run_id=2c6fea5073c6 attempt=1 fanout_nodes=['node_g']
+2026-01-20 17:46:29,779 [INFO] [job-b7a60a5b144a] Launching job... run_id=2c6fea5073c6 attempt=1 WS=1 Master=163.180.160.62:29506 resume=None preempt_guard=20.0s
+2026-01-20 17:46:29,780 [INFO] [job-b7a60a5b144a] Sending run command to node_g (Rank 0) path=/data/breath12/CCGRID/test/TrainingCode(DART)/SST2_DistilBert.py run_id=2c6fea5073c6 attempt=1
+2026-01-20 17:46:29,792 [INFO] [LAUNCH_TRIGGER_RESULT] job_id=job-b7a60a5b144a run_id=2c6fea5073c6 ok=True code=OK detail={'run_id': '2c6fea5073c6', 'master_port': 29506, 'launched_nodes': ['node_g']}
+2026-01-20 17:46:29,792 [INFO] [LAUNCH_OK] job_id=job-b7a60a5b144a run_id=2c6fea5073c6 attempt=1 nodes=['node_g']
+INFO:     127.0.0.1:58360 - "POST /launch_job HTTP/1.1" 200 OK
+INFO:     163.180.160.62:57536 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.160.62:57552 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 17:46:34,017 [INFO] [job-f7c5e559986a] Received report: Epoch 11/20 (Acc: 4.38%)
+INFO:     163.180.160.62:57564 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.160.62:48604 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.160.62:48608 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 17:46:40,710 [INFO] [job-f7c5e559986a] Received report: Epoch 12/20 (Acc: 4.51%)
+INFO:     163.180.160.62:48612 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.160.62:48614 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.160.62:48624 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 17:46:49,058 [INFO] [job-f7c5e559986a] Received report: Epoch 13/20 (Acc: 4.40%)
+INFO:     163.180.160.62:53610 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.117.216:60576 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:60582 - "POST /report_progress HTTP/1.1" 200 OK
+INFO:     163.180.160.62:53626 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.160.62:53630 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 17:46:56,808 [INFO] [job-6b6d2bd8f4cd] Received report: Epoch 5/20 (Acc: 53.41%)
+INFO:     163.180.117.216:60598 - "POST /report_checkpoint HTTP/1.1" 200 OK
+2026-01-20 17:46:57,494 [INFO] [job-f7c5e559986a] Received report: Epoch 14/20 (Acc: 4.01%)
+INFO:     163.180.160.62:53634 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.160.62:59588 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.160.62:59602 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 17:47:10,247 [INFO] [job-f7c5e559986a] Received report: Epoch 15/20 (Acc: 3.74%)
+INFO:     163.180.160.62:37236 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.160.62:37250 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.160.62:37258 - "POST /report_progress HTTP/1.1" 200 OK
+INFO:     163.180.160.62:37266 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.160.62:37276 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 17:47:18,413 [INFO] [job-39f71ea93885] Received report: Epoch 4/20 (Acc: 47.25%)
+INFO:     163.180.160.62:37280 - "POST /report_checkpoint HTTP/1.1" 200 OK
+2026-01-20 17:47:18,631 [INFO] [job-f7c5e559986a] Received report: Epoch 16/20 (Acc: 4.24%)
+INFO:     163.180.160.62:37294 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.117.216:39638 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:39650 - "POST /report_progress HTTP/1.1" 200 OK
+INFO:     163.180.160.62:39012 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.160.62:39020 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 17:47:23,869 [INFO] [job-30039f178eaa] Received report: Epoch 8/20 (Acc: 50.92%)
+INFO:     163.180.117.216:58980 - "POST /report_checkpoint HTTP/1.1" 200 OK
+2026-01-20 17:47:30,551 [INFO] [job-f7c5e559986a] Received report: Epoch 17/20 (Acc: 0.00%)
+INFO:     163.180.160.62:60982 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.117.216:46276 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:46278 - "POST /report_progress HTTP/1.1" 200 OK
+INFO:     163.180.160.62:60990 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.160.62:60992 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 17:47:41,222 [INFO] [job-cd8a81cc47a8] Received report: Epoch 5/20 (Acc: 55.01%)
+INFO:     163.180.117.216:46282 - "POST /report_checkpoint HTTP/1.1" 200 OK
+2026-01-20 17:47:44,884 [INFO] [job-f7c5e559986a] Received report: Epoch 18/20 (Acc: 0.00%)
+INFO:     163.180.160.62:55146 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.117.216:34218 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:34228 - "POST /report_progress HTTP/1.1" 200 OK
+INFO:     163.180.160.62:57520 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.160.62:57526 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 17:47:54,223 [INFO] [job-f7c5e559986a] Received report: Epoch 19/20 (Acc: 0.00%)
+INFO:     163.180.160.62:57528 - "POST /report_checkpoint HTTP/1.1" 200 OK
+2026-01-20 17:47:55,138 [INFO] [job-6b6d2bd8f4cd] Received report: Epoch 6/20 (Acc: 58.76%)
+INFO:     163.180.117.216:50978 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.160.62:43798 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.160.62:43808 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 17:48:03,856 [INFO] [job-f7c5e559986a] Received report: Epoch 20/20 (Acc: 1.12%)
+INFO:     163.180.160.62:43822 - "POST /report_checkpoint HTTP/1.1" 200 OK
+2026-01-20 17:48:08,038 [INFO] HTTP Request: POST http://localhost:8082/report_job_completed "HTTP/1.1 200 OK"
+INFO:     163.180.160.62:43834 - "POST /report_job_status HTTP/1.1" 200 OK
+INFO:     163.180.160.62:52782 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.160.62:52784 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 17:48:21,931 [INFO] [job-39f71ea93885] Received report: Epoch 5/20 (Acc: 51.68%)
+INFO:     163.180.160.62:47258 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.117.216:39738 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:39754 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 17:48:47,182 [INFO] [LAUNCH_REQ] job_id=job-54ce055f3767 req_run_id=5c53dd2591eb req_attempt=1 ws=1 nodes=['node_f'] model=ResNet-50 dataset=CIFAR-10 request_id=job-54ce055f3767-0944e9dbbc reason=LAUNCH allow_preempted=False
+2026-01-20 17:48:47,183 [INFO] [LAUNCH_STATE] job_id=job-54ce055f3767 cur_status= cur_run_id=None cur_req=None blocked_until=0.000 now=1768898927.183
+2026-01-20 17:48:47,183 [INFO] [LAUNCH_RESERVED] job_id=job-54ce055f3767 run_id=5c53dd2591eb attempt=1 nodes=['node_f'] master=163.180.160.62 resume=None
+2026-01-20 17:48:47,183 [INFO] [LAUNCH_TRIGGER] job_id=job-54ce055f3767 run_id=5c53dd2591eb attempt=1 fanout_nodes=['node_f']
+2026-01-20 17:48:47,183 [INFO] [job-54ce055f3767] Launching job... run_id=5c53dd2591eb attempt=1 WS=1 Master=163.180.160.62:29507 resume=None preempt_guard=20.0s
+2026-01-20 17:48:47,183 [INFO] [job-54ce055f3767] Sending run command to node_f (Rank 0) path=/nas2/data/dlwmznzl1/test/TrainingCode(DART)/CIFAR10_Resnet50.py run_id=5c53dd2591eb attempt=1
+2026-01-20 17:48:47,194 [INFO] [LAUNCH_TRIGGER_RESULT] job_id=job-54ce055f3767 run_id=5c53dd2591eb ok=True code=OK detail={'run_id': '5c53dd2591eb', 'master_port': 29507, 'launched_nodes': ['node_f']}
+2026-01-20 17:48:47,194 [INFO] [LAUNCH_OK] job_id=job-54ce055f3767 run_id=5c53dd2591eb attempt=1 nodes=['node_f']
+INFO:     127.0.0.1:50248 - "POST /launch_job HTTP/1.1" 200 OK
+INFO:     163.180.117.216:39766 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:39778 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 17:48:48,279 [INFO] [job-30039f178eaa] Received report: Epoch 9/20 (Acc: 50.92%)
+INFO:     163.180.117.216:39788 - "POST /report_checkpoint HTTP/1.1" 200 OK
+2026-01-20 17:48:51,708 [INFO] [job-6b6d2bd8f4cd] Received report: Epoch 7/20 (Acc: 60.54%)
+INFO:     163.180.117.216:39790 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.160.62:55744 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.160.62:55748 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 17:49:24,388 [INFO] [job-39f71ea93885] Received report: Epoch 6/20 (Acc: 55.32%)
+INFO:     163.180.160.62:44544 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.160.62:39516 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.160.62:39532 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 17:49:34,285 [INFO] [job-b7a60a5b144a] Received report: Epoch 1/20 (Acc: 50.92%)
+INFO:     163.180.160.62:39542 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.117.216:46532 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:46538 - "POST /report_progress HTTP/1.1" 200 OK
+INFO:     163.180.117.216:44932 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:44942 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 17:49:48,533 [INFO] [job-cd8a81cc47a8] Received report: Epoch 6/20 (Acc: 55.00%)
+INFO:     163.180.117.216:44958 - "POST /report_checkpoint HTTP/1.1" 200 OK
+2026-01-20 17:49:50,950 [INFO] [job-6b6d2bd8f4cd] Received report: Epoch 8/20 (Acc: 59.40%)
+INFO:     163.180.117.216:44972 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.117.216:44798 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:44812 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 17:50:13,135 [INFO] [job-30039f178eaa] Received report: Epoch 10/20 (Acc: 50.92%)
+INFO:     163.180.117.216:37110 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.160.62:45354 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.160.62:45360 - "POST /report_progress HTTP/1.1" 200 OK
+INFO:     163.180.160.62:45370 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.160.62:45372 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 17:50:23,966 [INFO] [job-54ce055f3767] Received report: Epoch 1/20 (Acc: 29.29%)
+INFO:     163.180.160.62:51346 - "POST /report_checkpoint HTTP/1.1" 200 OK
+2026-01-20 17:50:26,527 [INFO] [job-39f71ea93885] Received report: Epoch 7/20 (Acc: 57.20%)
+INFO:     163.180.160.62:51360 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.117.216:37084 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:37092 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 17:50:47,782 [INFO] [job-6b6d2bd8f4cd] Received report: Epoch 9/20 (Acc: 66.59%)
+INFO:     163.180.117.216:37096 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.160.62:52680 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.160.62:52686 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 17:51:17,994 [INFO] [job-54ce055f3767] Received report: Epoch 2/20 (Acc: 40.02%)
+INFO:     163.180.160.62:50800 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.160.62:48460 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.160.62:48464 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 17:51:28,962 [INFO] [job-39f71ea93885] Received report: Epoch 8/20 (Acc: 59.46%)
+INFO:     163.180.160.62:51082 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.160.62:51084 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.160.62:51086 - "POST /report_progress HTTP/1.1" 200 OK
+INFO:     163.180.117.216:58070 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:58082 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 17:51:36,702 [INFO] [job-b7a60a5b144a] Received report: Epoch 2/20 (Acc: 50.92%)
+INFO:     163.180.160.62:51090 - "POST /report_checkpoint HTTP/1.1" 200 OK
+2026-01-20 17:51:37,402 [INFO] [job-30039f178eaa] Received report: Epoch 11/20 (Acc: 50.92%)
+INFO:     163.180.117.216:58094 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.117.216:46308 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:46314 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 17:51:46,925 [INFO] [job-6b6d2bd8f4cd] Received report: Epoch 10/20 (Acc: 72.04%)
+INFO:     163.180.117.216:46326 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.117.216:46332 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:46340 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 17:51:51,576 [INFO] [LAUNCH_REQ] job_id=job-d7f728b2b674 req_run_id=53f5864b1a03 req_attempt=1 ws=1 nodes=['node_h'] model=DistilBERT dataset=SST-2 request_id=job-d7f728b2b674-f3aaf7bec9 reason=LAUNCH allow_preempted=False
+2026-01-20 17:51:51,576 [INFO] [LAUNCH_STATE] job_id=job-d7f728b2b674 cur_status= cur_run_id=None cur_req=None blocked_until=0.000 now=1768899111.576
+2026-01-20 17:51:51,576 [INFO] [LAUNCH_RESERVED] job_id=job-d7f728b2b674 run_id=53f5864b1a03 attempt=1 nodes=['node_h'] master=163.180.160.62 resume=None
+2026-01-20 17:51:51,577 [INFO] [LAUNCH_TRIGGER] job_id=job-d7f728b2b674 run_id=53f5864b1a03 attempt=1 fanout_nodes=['node_h']
+2026-01-20 17:51:51,577 [INFO] [job-d7f728b2b674] Launching job... run_id=53f5864b1a03 attempt=1 WS=1 Master=163.180.160.62:29508 resume=None preempt_guard=20.0s
+2026-01-20 17:51:51,577 [INFO] [job-d7f728b2b674] Sending run command to node_h (Rank 0) path=/data/breath12/CCGRID/test/TrainingCode(DART)/SST2_DistilBert.py run_id=53f5864b1a03 attempt=1
+2026-01-20 17:51:51,602 [INFO] [LAUNCH_TRIGGER_RESULT] job_id=job-d7f728b2b674 run_id=53f5864b1a03 ok=True code=OK detail={'run_id': '53f5864b1a03', 'master_port': 29508, 'launched_nodes': ['node_h']}
+2026-01-20 17:51:51,602 [INFO] [LAUNCH_OK] job_id=job-d7f728b2b674 run_id=53f5864b1a03 attempt=1 nodes=['node_h']
+INFO:     127.0.0.1:54956 - "POST /launch_job HTTP/1.1" 200 OK
+INFO:     163.180.160.62:53754 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.160.62:53764 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 17:51:54,883 [INFO] [job-54ce055f3767] Received report: Epoch 3/20 (Acc: 41.17%)
+INFO:     163.180.160.62:53768 - "POST /report_checkpoint HTTP/1.1" 200 OK
+2026-01-20 17:51:58,190 [INFO] [job-cd8a81cc47a8] Received report: Epoch 7/20 (Acc: 55.18%)
+INFO:     163.180.117.216:59616 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.160.62:37922 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.160.62:37932 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 17:52:31,255 [INFO] [job-39f71ea93885] Received report: Epoch 9/20 (Acc: 60.85%)
+INFO:     163.180.160.62:53920 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.160.62:53922 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.160.62:53936 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 17:52:36,711 [INFO] [job-54ce055f3767] Received report: Epoch 4/20 (Acc: 48.42%)
+INFO:     163.180.160.62:53940 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.117.216:54562 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:54572 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 17:52:47,410 [INFO] [job-6b6d2bd8f4cd] Received report: Epoch 11/20 (Acc: 71.72%)
+INFO:     163.180.117.216:54574 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     147.182.190.82:55876 - "GET / HTTP/1.1" 404 Not Found
+INFO:     147.182.190.82:55882 - "GET /favicon.ico HTTP/1.1" 404 Not Found
+INFO:     163.180.117.216:37630 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:37646 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 17:53:02,804 [INFO] [job-30039f178eaa] Received report: Epoch 12/20 (Acc: 50.92%)
+INFO:     163.180.117.216:48978 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.160.62:37536 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.160.62:37540 - "POST /report_progress HTTP/1.1" 200 OK
+INFO:     163.180.160.62:42134 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.160.62:42136 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 17:53:30,912 [INFO] [job-54ce055f3767] Received report: Epoch 5/20 (Acc: 48.73%)
+INFO:     163.180.160.62:42148 - "POST /report_checkpoint HTTP/1.1" 200 OK
+2026-01-20 17:53:39,495 [INFO] [job-39f71ea93885] Received report: Epoch 10/20 (Acc: 60.65%)
+INFO:     163.180.160.62:39922 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.117.216:42624 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:42638 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 17:53:47,571 [INFO] [job-6b6d2bd8f4cd] Received report: Epoch 12/20 (Acc: 69.64%)
+INFO:     163.180.117.216:42640 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.160.62:56702 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.160.62:56718 - "POST /report_progress HTTP/1.1" 200 OK
+INFO:     163.180.117.216:53020 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:53036 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 17:54:02,400 [INFO] [job-b7a60a5b144a] Received report: Epoch 3/20 (Acc: 50.92%)
+INFO:     163.180.160.62:54492 - "POST /report_checkpoint HTTP/1.1" 200 OK
+2026-01-20 17:54:06,765 [INFO] [job-cd8a81cc47a8] Received report: Epoch 8/20 (Acc: 58.70%)
+INFO:     163.180.117.216:48304 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.160.62:37636 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.160.62:37642 - "POST /report_progress HTTP/1.1" 200 OK
+INFO:     163.180.117.216:40904 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:40916 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 17:54:26,831 [INFO] [job-54ce055f3767] Received report: Epoch 6/20 (Acc: 49.05%)
+INFO:     163.180.160.62:56868 - "POST /report_checkpoint HTTP/1.1" 200 OK
+2026-01-20 17:54:27,305 [INFO] [job-30039f178eaa] Received report: Epoch 13/20 (Acc: 50.92%)
+INFO:     163.180.117.216:40930 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.160.62:39898 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.160.62:39908 - "POST /report_progress HTTP/1.1" 200 OK
+INFO:     163.180.117.216:60920 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:60924 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 17:54:44,574 [INFO] [job-39f71ea93885] Received report: Epoch 11/20 (Acc: 60.56%)
+INFO:     163.180.160.62:53392 - "POST /report_checkpoint HTTP/1.1" 200 OK
+2026-01-20 17:54:44,749 [INFO] [job-6b6d2bd8f4cd] Received report: Epoch 13/20 (Acc: 71.85%)
+INFO:     163.180.117.216:46504 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.160.62:47908 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.160.62:47924 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 17:55:16,102 [INFO] [job-54ce055f3767] Received report: Epoch 7/20 (Acc: 54.63%)
+INFO:     163.180.160.62:47934 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.117.216:51940 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:51948 - "POST /report_progress HTTP/1.1" 200 OK
+INFO:     163.180.160.62:53212 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.160.62:53216 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 17:55:44,190 [INFO] [job-6b6d2bd8f4cd] Received report: Epoch 14/20 (Acc: 73.76%)
+INFO:     163.180.117.216:48250 - "POST /report_checkpoint HTTP/1.1" 200 OK
+2026-01-20 17:55:48,555 [INFO] [job-39f71ea93885] Received report: Epoch 12/20 (Acc: 61.66%)
+INFO:     163.180.160.62:53228 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.117.216:48262 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:48266 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 17:55:53,808 [INFO] [job-30039f178eaa] Received report: Epoch 14/20 (Acc: 50.92%)
+INFO:     163.180.117.216:36120 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.160.62:57706 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.160.62:57720 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 17:56:00,420 [INFO] [job-54ce055f3767] Received report: Epoch 8/20 (Acc: 56.53%)
+INFO:     163.180.160.62:48100 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.117.216:45006 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:45018 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 17:56:16,805 [INFO] [job-cd8a81cc47a8] Received report: Epoch 9/20 (Acc: 56.24%)
+INFO:     163.180.117.216:51878 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.160.62:40978 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.160.62:40984 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 17:56:27,768 [INFO] [job-d7f728b2b674] Received report: Epoch 1/20 (Acc: 50.92%)
+INFO:     163.180.160.62:40992 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.160.62:33248 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.160.62:33254 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 17:56:32,273 [INFO] [job-b7a60a5b144a] Received report: Epoch 4/20 (Acc: 50.92%)
+INFO:     163.180.160.62:33258 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.117.216:33914 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:33924 - "POST /report_progress HTTP/1.1" 200 OK
+INFO:     163.180.160.62:54474 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.160.62:54486 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 17:56:42,907 [INFO] [job-6b6d2bd8f4cd] Received report: Epoch 15/20 (Acc: 74.60%)
+INFO:     163.180.117.216:47454 - "POST /report_checkpoint HTTP/1.1" 200 OK
+2026-01-20 17:56:44,823 [INFO] [job-54ce055f3767] Received report: Epoch 9/20 (Acc: 52.39%)
+INFO:     163.180.160.62:54496 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.160.62:54512 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.160.62:54520 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 17:56:52,188 [INFO] [job-39f71ea93885] Received report: Epoch 13/20 (Acc: 62.71%)
+INFO:     163.180.160.62:52766 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.117.216:33126 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:33134 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 17:57:19,741 [INFO] [job-30039f178eaa] Received report: Epoch 15/20 (Acc: 50.92%)
+INFO:     163.180.117.216:33140 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.160.62:56638 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.160.62:56648 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 17:57:36,117 [INFO] [job-54ce055f3767] Received report: Epoch 10/20 (Acc: 62.43%)
+INFO:     163.180.160.62:56652 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.117.216:34290 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:34302 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 17:57:42,804 [INFO] [job-6b6d2bd8f4cd] Received report: Epoch 16/20 (Acc: 75.80%)
+INFO:     163.180.117.216:52770 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.160.62:47046 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.160.62:47048 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 17:57:56,993 [INFO] [job-39f71ea93885] Received report: Epoch 14/20 (Acc: 61.81%)
+INFO:     163.180.160.62:47050 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.117.216:33274 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:33282 - "POST /report_progress HTTP/1.1" 200 OK
+INFO:     163.180.160.62:57878 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.160.62:57880 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 17:58:27,829 [INFO] [job-cd8a81cc47a8] Received report: Epoch 10/20 (Acc: 54.99%)
+INFO:     163.180.117.216:39688 - "POST /report_checkpoint HTTP/1.1" 200 OK
+2026-01-20 17:58:31,082 [INFO] [job-54ce055f3767] Received report: Epoch 11/20 (Acc: 56.18%)
+INFO:     163.180.160.62:43792 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.117.216:43300 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:43314 - "POST /report_progress HTTP/1.1" 200 OK
+INFO:     163.180.117.216:43326 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:43340 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 17:58:42,463 [INFO] [job-6b6d2bd8f4cd] Received report: Epoch 17/20 (Acc: 76.10%)
+INFO:     163.180.117.216:43346 - "POST /report_checkpoint HTTP/1.1" 200 OK
+2026-01-20 17:58:44,419 [INFO] [job-30039f178eaa] Received report: Epoch 16/20 (Acc: 50.92%)
+INFO:     163.180.117.216:50526 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.160.62:36454 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.160.62:36468 - "POST /report_progress HTTP/1.1" 200 OK
+INFO:     163.180.160.62:36484 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.160.62:36500 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 17:58:59,813 [INFO] [job-39f71ea93885] Received report: Epoch 15/20 (Acc: 62.13%)
+INFO:     163.180.160.62:52050 - "POST /report_checkpoint HTTP/1.1" 200 OK
+2026-01-20 17:59:00,471 [INFO] [job-d7f728b2b674] Received report: Epoch 2/20 (Acc: 50.92%)
+INFO:     163.180.160.62:52054 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.160.62:52064 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.160.62:52066 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 17:59:05,833 [INFO] [job-b7a60a5b144a] Received report: Epoch 5/20 (Acc: 50.92%)
+INFO:     163.180.160.62:52078 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.160.62:36780 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.160.62:36794 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 17:59:14,691 [INFO] [job-54ce055f3767] Received report: Epoch 12/20 (Acc: 62.56%)
+INFO:     163.180.160.62:36806 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.117.216:33566 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:33574 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 17:59:41,955 [INFO] [job-6b6d2bd8f4cd] Received report: Epoch 18/20 (Acc: 75.17%)
+INFO:     163.180.117.216:33586 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.160.62:51150 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.160.62:51154 - "POST /report_progress HTTP/1.1" 200 OK
+INFO:     163.180.160.62:51168 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.160.62:51184 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 17:59:58,886 [INFO] [job-54ce055f3767] Received report: Epoch 13/20 (Acc: 66.35%)
+INFO:     163.180.160.62:51198 - "POST /report_checkpoint HTTP/1.1" 200 OK
+2026-01-20 18:00:04,155 [INFO] [job-39f71ea93885] Received report: Epoch 16/20 (Acc: 62.28%)
+INFO:     163.180.160.62:59066 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.117.216:41404 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:41420 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 18:00:08,616 [INFO] [job-30039f178eaa] Received report: Epoch 17/20 (Acc: 50.92%)
+INFO:     163.180.117.216:41422 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.117.216:46620 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:46632 - "POST /report_progress HTTP/1.1" 200 OK
+INFO:     163.180.117.216:34708 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:34714 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 18:00:37,106 [INFO] [job-6b6d2bd8f4cd] Received report: Epoch 19/20 (Acc: 77.90%)
+INFO:     163.180.117.216:34722 - "POST /report_checkpoint HTTP/1.1" 200 OK
+2026-01-20 18:00:38,424 [INFO] [job-cd8a81cc47a8] Received report: Epoch 11/20 (Acc: 63.34%)
+INFO:     163.180.117.216:34736 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.160.62:53912 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.160.62:53924 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 18:00:46,209 [INFO] [job-54ce055f3767] Received report: Epoch 14/20 (Acc: 71.88%)
+INFO:     163.180.160.62:53938 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.160.62:33682 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.160.62:33698 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 18:01:09,942 [INFO] [job-39f71ea93885] Received report: Epoch 17/20 (Acc: 63.13%)
+INFO:     163.180.160.62:42596 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.117.216:38064 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:38076 - "POST /report_progress HTTP/1.1" 200 OK
+INFO:     163.180.117.216:38080 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:38088 - "POST /report_progress HTTP/1.1" 200 OK
+INFO:     163.180.160.62:53370 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.160.62:53378 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 18:01:33,164 [INFO] [job-30039f178eaa] Received report: Epoch 18/20 (Acc: 50.92%)
+INFO:     163.180.117.216:38986 - "POST /report_checkpoint HTTP/1.1" 200 OK
+2026-01-20 18:01:35,991 [INFO] [job-6b6d2bd8f4cd] Received report: Epoch 20/20 (Acc: 78.99%)
+INFO:     163.180.117.216:38990 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.160.62:53394 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.160.62:53400 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 18:01:38,117 [INFO] [job-54ce055f3767] Received report: Epoch 15/20 (Acc: 67.30%)
+INFO:     163.180.160.62:53410 - "POST /report_checkpoint HTTP/1.1" 200 OK
+2026-01-20 18:01:39,098 [INFO] HTTP Request: POST http://localhost:8082/report_job_completed "HTTP/1.1 200 OK"
+INFO:     163.180.117.216:38994 - "POST /report_job_status HTTP/1.1" 200 OK
+2026-01-20 18:01:39,637 [INFO] [job-d7f728b2b674] Received report: Epoch 3/20 (Acc: 50.92%)
+INFO:     163.180.160.62:57258 - "POST /report_checkpoint HTTP/1.1" 200 OK
+2026-01-20 18:01:39,673 [INFO] [LAUNCH_REQ] job_id=job-0bcbdef2044d req_run_id=902f4dd07ad4 req_attempt=1 ws=1 nodes=['node_d'] model=EfficientNetV2-S dataset=MNIST request_id=job-0bcbdef2044d-4c90fbbe6d reason=LAUNCH allow_preempted=False
+2026-01-20 18:01:39,673 [INFO] [LAUNCH_STATE] job_id=job-0bcbdef2044d cur_status= cur_run_id=None cur_req=None blocked_until=0.000 now=1768899699.673
+2026-01-20 18:01:39,673 [WARNING] [LAUNCH_REJECT] job_id=job-0bcbdef2044d reason=node_draining node=node_d drain_until=1768899701.997 now=1768899699.673
+INFO:     127.0.0.1:47082 - "POST /launch_job HTTP/1.1" 409 Conflict
+INFO:     163.180.160.62:57266 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.160.62:57272 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 18:01:43,653 [INFO] [job-b7a60a5b144a] Received report: Epoch 6/20 (Acc: 50.92%)
+INFO:     163.180.160.62:57286 - "POST /report_checkpoint HTTP/1.1" 200 OK
+2026-01-20 18:01:44,680 [INFO] [LAUNCH_REQ] job_id=job-0bcbdef2044d req_run_id=902f4dd07ad4 req_attempt=1 ws=1 nodes=['node_d'] model=EfficientNetV2-S dataset=MNIST request_id=job-0bcbdef2044d-04dc894d03 reason=LAUNCH allow_preempted=False
+2026-01-20 18:01:44,680 [INFO] [LAUNCH_STATE] job_id=job-0bcbdef2044d cur_status= cur_run_id=None cur_req=None blocked_until=0.000 now=1768899704.680
+2026-01-20 18:01:44,680 [INFO] [LAUNCH_RESERVED] job_id=job-0bcbdef2044d run_id=902f4dd07ad4 attempt=1 nodes=['node_d'] master=163.180.117.216 resume=None
+2026-01-20 18:01:44,680 [INFO] [LAUNCH_TRIGGER] job_id=job-0bcbdef2044d run_id=902f4dd07ad4 attempt=1 fanout_nodes=['node_d']
+2026-01-20 18:01:44,681 [INFO] [job-0bcbdef2044d] Launching job... run_id=902f4dd07ad4 attempt=1 WS=1 Master=163.180.117.216:29509 resume=None preempt_guard=20.0s
+2026-01-20 18:01:44,681 [INFO] [job-0bcbdef2044d] Sending run command to node_d (Rank 0) path=/home/ubuntu216/SUN/MNIST_EfficientNetV2.py run_id=902f4dd07ad4 attempt=1
+2026-01-20 18:01:44,730 [INFO] [LAUNCH_TRIGGER_RESULT] job_id=job-0bcbdef2044d run_id=902f4dd07ad4 ok=True code=OK detail={'run_id': '902f4dd07ad4', 'master_port': 29509, 'launched_nodes': ['node_d']}
+2026-01-20 18:01:44,731 [INFO] [LAUNCH_OK] job_id=job-0bcbdef2044d run_id=902f4dd07ad4 attempt=1 nodes=['node_d']
+INFO:     127.0.0.1:33464 - "POST /launch_job HTTP/1.1" 200 OK
+INFO:     163.180.160.62:47108 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.160.62:47120 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 18:02:14,799 [INFO] [job-39f71ea93885] Received report: Epoch 18/20 (Acc: 62.30%)
+INFO:     163.180.160.62:57886 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.160.62:47250 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.160.62:47264 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 18:02:33,067 [INFO] [job-54ce055f3767] Received report: Epoch 16/20 (Acc: 71.76%)
+INFO:     163.180.160.62:58786 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.117.216:40950 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:40966 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 18:02:47,686 [INFO] [job-cd8a81cc47a8] Received report: Epoch 12/20 (Acc: 62.94%)
+INFO:     163.180.117.216:46122 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.117.216:38520 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:38526 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 18:03:00,954 [INFO] [job-30039f178eaa] Received report: Epoch 19/20 (Acc: 50.92%)
+INFO:     163.180.117.216:38528 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.160.62:48102 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.160.62:48116 - "POST /report_progress HTTP/1.1" 200 OK
+INFO:     163.180.160.62:48126 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.160.62:48132 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 18:03:16,612 [INFO] [job-54ce055f3767] Received report: Epoch 17/20 (Acc: 72.89%)
+INFO:     163.180.160.62:48148 - "POST /report_checkpoint HTTP/1.1" 200 OK
+2026-01-20 18:03:17,859 [INFO] [job-39f71ea93885] Received report: Epoch 19/20 (Acc: 63.09%)
+INFO:     163.180.160.62:48158 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.160.62:40170 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.160.62:40174 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 18:03:59,550 [INFO] [job-54ce055f3767] Received report: Epoch 18/20 (Acc: 73.23%)
+INFO:     163.180.160.62:43160 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.160.62:44774 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.160.62:44784 - "POST /report_progress HTTP/1.1" 200 OK
+INFO:     163.180.160.62:44800 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.160.62:44812 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 18:04:15,011 [INFO] [job-d7f728b2b674] Received report: Epoch 4/20 (Acc: 50.92%)
+INFO:     163.180.160.62:44814 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.160.62:44818 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.160.62:44826 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 18:04:19,218 [INFO] [job-b7a60a5b144a] Received report: Epoch 7/20 (Acc: 50.92%)
+INFO:     163.180.160.62:59826 - "POST /report_checkpoint HTTP/1.1" 200 OK
+2026-01-20 18:04:20,690 [INFO] [job-39f71ea93885] Received report: Epoch 20/20 (Acc: 63.25%)
+INFO:     163.180.160.62:59840 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.117.216:52428 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:39870 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 18:04:26,596 [INFO] [job-30039f178eaa] Received report: Epoch 20/20 (Acc: 50.92%)
+INFO:     163.180.117.216:39878 - "POST /report_checkpoint HTTP/1.1" 200 OK
+2026-01-20 18:04:26,605 [INFO] HTTP Request: POST http://localhost:8082/report_job_completed "HTTP/1.1 200 OK"
+INFO:     163.180.160.62:59850 - "POST /report_job_status HTTP/1.1" 200 OK
+2026-01-20 18:04:26,672 [INFO] [LAUNCH_REQ] job_id=job-8c2ebe5a2254 req_run_id=939b80047707 req_attempt=1 ws=1 nodes=['node_e'] model=DistilBERT dataset=SST-2 request_id=job-8c2ebe5a2254-5d1f8d6cfe reason=LAUNCH allow_preempted=False
+2026-01-20 18:04:26,673 [INFO] [LAUNCH_STATE] job_id=job-8c2ebe5a2254 cur_status= cur_run_id=None cur_req=None blocked_until=0.000 now=1768899866.673
+2026-01-20 18:04:26,673 [WARNING] [LAUNCH_REJECT] job_id=job-8c2ebe5a2254 reason=node_draining node=node_e drain_until=1768899869.516 now=1768899866.673
+INFO:     127.0.0.1:45910 - "POST /launch_job HTTP/1.1" 409 Conflict
+2026-01-20 18:04:31,183 [INFO] HTTP Request: POST http://localhost:8082/report_job_completed "HTTP/1.1 200 OK"
+INFO:     163.180.117.216:39882 - "POST /report_job_status HTTP/1.1" 200 OK
+2026-01-20 18:04:31,702 [INFO] [LAUNCH_REQ] job_id=job-e76f751b17fb req_run_id=21c1971db7de req_attempt=1 ws=1 nodes=['node_a'] model=DeepSpeech2 dataset=ARCTIC request_id=job-e76f751b17fb-564ca41033 reason=LAUNCH allow_preempted=False
+2026-01-20 18:04:31,702 [INFO] [LAUNCH_STATE] job_id=job-e76f751b17fb cur_status= cur_run_id=None cur_req=None blocked_until=0.000 now=1768899871.702
+2026-01-20 18:04:31,702 [WARNING] [LAUNCH_REJECT] job_id=job-e76f751b17fb reason=node_draining node=node_a drain_until=1768899874.106 now=1768899871.702
+INFO:     127.0.0.1:45922 - "POST /launch_job HTTP/1.1" 409 Conflict
+2026-01-20 18:04:31,760 [INFO] [LAUNCH_REQ] job_id=job-8c2ebe5a2254 req_run_id=939b80047707 req_attempt=1 ws=1 nodes=['node_e'] model=DistilBERT dataset=SST-2 request_id=job-8c2ebe5a2254-e74567fa6e reason=LAUNCH allow_preempted=False
+2026-01-20 18:04:31,760 [INFO] [LAUNCH_STATE] job_id=job-8c2ebe5a2254 cur_status= cur_run_id=None cur_req=None blocked_until=0.000 now=1768899871.760
+2026-01-20 18:04:31,760 [INFO] [LAUNCH_RESERVED] job_id=job-8c2ebe5a2254 run_id=939b80047707 attempt=1 nodes=['node_e'] master=163.180.160.62 resume=None
+2026-01-20 18:04:31,760 [INFO] [LAUNCH_TRIGGER] job_id=job-8c2ebe5a2254 run_id=939b80047707 attempt=1 fanout_nodes=['node_e']
+2026-01-20 18:04:31,760 [INFO] [job-8c2ebe5a2254] Launching job... run_id=939b80047707 attempt=1 WS=1 Master=163.180.160.62:29510 resume=None preempt_guard=20.0s
+2026-01-20 18:04:31,760 [INFO] [job-8c2ebe5a2254] Sending run command to node_e (Rank 0) path=/nas2/data/dlwmznzl1/test/TrainingCode(DART)/SST2_DistilBert.py run_id=939b80047707 attempt=1
+2026-01-20 18:04:31,938 [INFO] [LAUNCH_TRIGGER_RESULT] job_id=job-8c2ebe5a2254 run_id=939b80047707 ok=True code=OK detail={'run_id': '939b80047707', 'master_port': 29510, 'launched_nodes': ['node_e']}
+2026-01-20 18:04:31,939 [INFO] [LAUNCH_OK] job_id=job-8c2ebe5a2254 run_id=939b80047707 attempt=1 nodes=['node_e']
+INFO:     127.0.0.1:45934 - "POST /launch_job HTTP/1.1" 200 OK
+2026-01-20 18:04:36,702 [INFO] [LAUNCH_REQ] job_id=job-e76f751b17fb req_run_id=21c1971db7de req_attempt=1 ws=1 nodes=['node_a'] model=DeepSpeech2 dataset=ARCTIC request_id=job-e76f751b17fb-88b0d307ef reason=LAUNCH allow_preempted=False
+2026-01-20 18:04:36,702 [INFO] [LAUNCH_STATE] job_id=job-e76f751b17fb cur_status= cur_run_id=None cur_req=None blocked_until=0.000 now=1768899876.702
+2026-01-20 18:04:36,702 [INFO] [LAUNCH_RESERVED] job_id=job-e76f751b17fb run_id=21c1971db7de attempt=1 nodes=['node_a'] master=163.180.117.216 resume=None
+2026-01-20 18:04:36,702 [INFO] [LAUNCH_TRIGGER] job_id=job-e76f751b17fb run_id=21c1971db7de attempt=1 fanout_nodes=['node_a']
+2026-01-20 18:04:36,703 [INFO] [job-e76f751b17fb] Launching job... run_id=21c1971db7de attempt=1 WS=1 Master=163.180.117.216:29511 resume=None preempt_guard=20.0s
+2026-01-20 18:04:36,703 [INFO] [job-e76f751b17fb] Sending run command to node_a (Rank 0) path=/home/ubuntu216/SUN/CMU_ARCTIC_DeepSpeech2.py run_id=21c1971db7de attempt=1
+2026-01-20 18:04:36,727 [INFO] [LAUNCH_TRIGGER_RESULT] job_id=job-e76f751b17fb run_id=21c1971db7de ok=True code=OK detail={'run_id': '21c1971db7de', 'master_port': 29511, 'launched_nodes': ['node_a']}
+2026-01-20 18:04:36,727 [INFO] [LAUNCH_OK] job_id=job-e76f751b17fb run_id=21c1971db7de attempt=1 nodes=['node_a']
+INFO:     127.0.0.1:41148 - "POST /launch_job HTTP/1.1" 200 OK
+INFO:     163.180.160.62:49338 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.160.62:49346 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 18:04:45,203 [INFO] [job-54ce055f3767] Received report: Epoch 19/20 (Acc: 75.73%)
+INFO:     163.180.160.62:49354 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.117.216:33830 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:33836 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 18:04:50,163 [INFO] [job-e76f751b17fb] Received report: Epoch 1/20 (Acc: 0.00%)
+INFO:     163.180.117.216:33848 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.117.216:33856 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:33864 - "POST /report_progress HTTP/1.1" 200 OK
+INFO:     163.180.117.216:45506 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:45514 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 18:04:58,193 [INFO] [job-e76f751b17fb] Received report: Epoch 2/20 (Acc: 0.00%)
+INFO:     163.180.117.216:45516 - "POST /report_checkpoint HTTP/1.1" 200 OK
+2026-01-20 18:04:58,988 [INFO] [job-cd8a81cc47a8] Received report: Epoch 13/20 (Acc: 63.28%)
+INFO:     163.180.117.216:45526 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.117.216:45228 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:45240 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 18:05:06,229 [INFO] [job-e76f751b17fb] Received report: Epoch 3/20 (Acc: 0.00%)
+INFO:     163.180.117.216:45252 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.117.216:45262 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:45276 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 18:05:14,136 [INFO] [job-e76f751b17fb] Received report: Epoch 4/20 (Acc: 0.00%)
+INFO:     163.180.117.216:46892 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.117.216:46904 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:46912 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 18:05:22,169 [INFO] [job-e76f751b17fb] Received report: Epoch 5/20 (Acc: 0.00%)
+INFO:     163.180.117.216:46924 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.160.62:45352 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.160.62:45366 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 18:05:27,493 [INFO] [job-54ce055f3767] Received report: Epoch 20/20 (Acc: 76.57%)
+INFO:     163.180.160.62:45368 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.117.216:35390 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:35394 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 18:05:30,110 [INFO] [job-e76f751b17fb] Received report: Epoch 6/20 (Acc: 0.00%)
+INFO:     163.180.117.216:35410 - "POST /report_checkpoint HTTP/1.1" 200 OK
+2026-01-20 18:05:31,965 [INFO] HTTP Request: POST http://localhost:8082/report_job_completed "HTTP/1.1 200 OK"
+INFO:     163.180.160.62:58026 - "POST /report_job_status HTTP/1.1" 200 OK
+2026-01-20 18:05:32,711 [INFO] [LAUNCH_REQ] job_id=job-3e6db1778cc0 req_run_id=8f786efff49f req_attempt=1 ws=1 nodes=['node_f'] model=ResNet-50 dataset=CIFAR-10 request_id=job-3e6db1778cc0-956f49a248 reason=LAUNCH allow_preempted=False
+2026-01-20 18:05:32,711 [INFO] [LAUNCH_STATE] job_id=job-3e6db1778cc0 cur_status= cur_run_id=None cur_req=None blocked_until=0.000 now=1768899932.711
+2026-01-20 18:05:32,711 [WARNING] [LAUNCH_REJECT] job_id=job-3e6db1778cc0 reason=node_draining node=node_f drain_until=1768899934.885 now=1768899932.711
+INFO:     127.0.0.1:34418 - "POST /launch_job HTTP/1.1" 409 Conflict
+INFO:     163.180.117.216:55836 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:55842 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 18:05:37,716 [INFO] [LAUNCH_REQ] job_id=job-3e6db1778cc0 req_run_id=8f786efff49f req_attempt=1 ws=1 nodes=['node_f'] model=ResNet-50 dataset=CIFAR-10 request_id=job-3e6db1778cc0-1397d09b6d reason=LAUNCH allow_preempted=False
+2026-01-20 18:05:37,716 [INFO] [LAUNCH_STATE] job_id=job-3e6db1778cc0 cur_status= cur_run_id=None cur_req=None blocked_until=0.000 now=1768899937.716
+2026-01-20 18:05:37,716 [INFO] [LAUNCH_RESERVED] job_id=job-3e6db1778cc0 run_id=8f786efff49f attempt=1 nodes=['node_f'] master=163.180.160.62 resume=None
+2026-01-20 18:05:37,716 [INFO] [LAUNCH_TRIGGER] job_id=job-3e6db1778cc0 run_id=8f786efff49f attempt=1 fanout_nodes=['node_f']
+2026-01-20 18:05:37,716 [INFO] [job-3e6db1778cc0] Launching job... run_id=8f786efff49f attempt=1 WS=1 Master=163.180.160.62:29512 resume=None preempt_guard=20.0s
+2026-01-20 18:05:37,716 [INFO] [job-3e6db1778cc0] Sending run command to node_f (Rank 0) path=/nas2/data/dlwmznzl1/test/TrainingCode(DART)/CIFAR10_Resnet50.py run_id=8f786efff49f attempt=1
+2026-01-20 18:05:37,735 [INFO] [LAUNCH_TRIGGER_RESULT] job_id=job-3e6db1778cc0 run_id=8f786efff49f ok=True code=OK detail={'run_id': '8f786efff49f', 'master_port': 29512, 'launched_nodes': ['node_f']}
+2026-01-20 18:05:37,735 [INFO] [LAUNCH_OK] job_id=job-3e6db1778cc0 run_id=8f786efff49f attempt=1 nodes=['node_f']
+INFO:     127.0.0.1:35824 - "POST /launch_job HTTP/1.1" 200 OK
+2026-01-20 18:05:38,171 [INFO] [job-e76f751b17fb] Received report: Epoch 7/20 (Acc: 0.00%)
+INFO:     163.180.117.216:55848 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.117.216:46872 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:46882 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 18:05:46,108 [INFO] [job-e76f751b17fb] Received report: Epoch 8/20 (Acc: 1.40%)
+INFO:     163.180.117.216:46898 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.117.216:46910 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:46926 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 18:05:53,833 [INFO] [job-e76f751b17fb] Received report: Epoch 9/20 (Acc: 0.00%)
+INFO:     163.180.117.216:51688 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.117.216:51696 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:51706 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 18:06:02,010 [INFO] [job-e76f751b17fb] Received report: Epoch 10/20 (Acc: 1.73%)
+INFO:     163.180.117.216:51720 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.117.216:50386 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:50388 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 18:06:10,089 [INFO] [job-e76f751b17fb] Received report: Epoch 11/20 (Acc: 3.07%)
+INFO:     163.180.117.216:50394 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.117.216:50262 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:50272 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 18:06:17,903 [INFO] [job-e76f751b17fb] Received report: Epoch 12/20 (Acc: 1.10%)
+INFO:     163.180.117.216:50286 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.117.216:50296 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:50302 - "POST /report_progress HTTP/1.1" 200 OK
+INFO:     163.180.117.216:36236 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:36246 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 18:06:26,239 [INFO] [job-e76f751b17fb] Received report: Epoch 13/20 (Acc: 0.36%)
+INFO:     163.180.117.216:36248 - "POST /report_checkpoint HTTP/1.1" 200 OK
+2026-01-20 18:06:31,461 [INFO] [job-0bcbdef2044d] Received report: Epoch 1/20 (Acc: 98.77%)
+INFO:     163.180.117.216:36254 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.117.216:44700 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:44716 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 18:06:34,337 [INFO] [job-e76f751b17fb] Received report: Epoch 14/20 (Acc: 0.00%)
+INFO:     163.180.117.216:44726 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.117.216:44738 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:44748 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 18:06:42,442 [INFO] [job-e76f751b17fb] Received report: Epoch 15/20 (Acc: 0.00%)
+INFO:     163.180.117.216:44764 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.117.216:53978 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:53982 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 18:06:50,603 [INFO] [job-e76f751b17fb] Received report: Epoch 16/20 (Acc: 0.00%)
+INFO:     163.180.117.216:53992 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.160.62:35438 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.160.62:35450 - "POST /report_progress HTTP/1.1" 200 OK
+INFO:     163.180.117.216:47124 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:47138 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 18:06:58,512 [INFO] [job-d7f728b2b674] Received report: Epoch 5/20 (Acc: 50.92%)
+INFO:     163.180.160.62:35462 - "POST /report_checkpoint HTTP/1.1" 200 OK
+2026-01-20 18:06:58,859 [INFO] [job-e76f751b17fb] Received report: Epoch 17/20 (Acc: 0.00%)
+INFO:     163.180.117.216:47142 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.160.62:51568 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.160.62:51578 - "POST /report_progress HTTP/1.1" 200 OK
+INFO:     163.180.117.216:47156 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:47168 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 18:07:03,603 [INFO] [job-b7a60a5b144a] Received report: Epoch 8/20 (Acc: 50.92%)
+INFO:     163.180.160.62:51586 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.117.216:51006 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:51010 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 18:07:07,148 [INFO] [job-e76f751b17fb] Received report: Epoch 18/20 (Acc: 0.00%)
+INFO:     163.180.117.216:51016 - "POST /report_checkpoint HTTP/1.1" 200 OK
+2026-01-20 18:07:08,748 [INFO] [job-cd8a81cc47a8] Received report: Epoch 14/20 (Acc: 76.82%)
+INFO:     163.180.117.216:51018 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.117.216:57904 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:57920 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 18:07:15,084 [INFO] [job-e76f751b17fb] Received report: Epoch 19/20 (Acc: 0.00%)
+INFO:     163.180.117.216:57928 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.160.62:41926 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.160.62:41930 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 18:07:18,858 [INFO] [job-3e6db1778cc0] Received report: Epoch 1/20 (Acc: 36.02%)
+INFO:     163.180.160.62:41938 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.117.216:57942 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:57944 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 18:07:22,705 [INFO] [job-e76f751b17fb] Received report: Epoch 20/20 (Acc: 0.00%)
+INFO:     163.180.117.216:57956 - "POST /report_checkpoint HTTP/1.1" 200 OK
+2026-01-20 18:07:24,811 [INFO] HTTP Request: POST http://localhost:8082/report_job_completed "HTTP/1.1 200 OK"
+INFO:     163.180.117.216:55872 - "POST /report_job_status HTTP/1.1" 200 OK
+2026-01-20 18:07:25,706 [INFO] [LAUNCH_REQ] job_id=job-428eed4b5d4c req_run_id=58872ad748b7 req_attempt=1 ws=1 nodes=['node_a'] model=ResNet-18 dataset=CIFAR-100 request_id=job-428eed4b5d4c-704d32a859 reason=LAUNCH allow_preempted=False
+2026-01-20 18:07:25,706 [INFO] [LAUNCH_STATE] job_id=job-428eed4b5d4c cur_status= cur_run_id=None cur_req=None blocked_until=0.000 now=1768900045.706
+2026-01-20 18:07:25,706 [WARNING] [LAUNCH_REJECT] job_id=job-428eed4b5d4c reason=node_draining node=node_a drain_until=1768900047.734 now=1768900045.706
+INFO:     127.0.0.1:43426 - "POST /launch_job HTTP/1.1" 409 Conflict
+2026-01-20 18:07:30,733 [INFO] [LAUNCH_REQ] job_id=job-428eed4b5d4c req_run_id=58872ad748b7 req_attempt=1 ws=1 nodes=['node_a'] model=ResNet-18 dataset=CIFAR-100 request_id=job-428eed4b5d4c-a348657810 reason=LAUNCH allow_preempted=False
+2026-01-20 18:07:30,734 [INFO] [LAUNCH_STATE] job_id=job-428eed4b5d4c cur_status= cur_run_id=None cur_req=None blocked_until=0.000 now=1768900050.734
+2026-01-20 18:07:30,734 [INFO] [LAUNCH_RESERVED] job_id=job-428eed4b5d4c run_id=58872ad748b7 attempt=1 nodes=['node_a'] master=163.180.117.216 resume=None
+2026-01-20 18:07:30,734 [INFO] [LAUNCH_TRIGGER] job_id=job-428eed4b5d4c run_id=58872ad748b7 attempt=1 fanout_nodes=['node_a']
+2026-01-20 18:07:30,734 [INFO] [job-428eed4b5d4c] Launching job... run_id=58872ad748b7 attempt=1 WS=1 Master=163.180.117.216:29513 resume=None preempt_guard=20.0s
+2026-01-20 18:07:30,734 [INFO] [job-428eed4b5d4c] Sending run command to node_a (Rank 0) path=/home/ubuntu216/SUN/CIFAR100_Resnet18.py run_id=58872ad748b7 attempt=1
+2026-01-20 18:07:30,753 [INFO] [LAUNCH_TRIGGER_RESULT] job_id=job-428eed4b5d4c run_id=58872ad748b7 ok=True code=OK detail={'run_id': '58872ad748b7', 'master_port': 29513, 'launched_nodes': ['node_a']}
+2026-01-20 18:07:30,753 [INFO] [LAUNCH_OK] job_id=job-428eed4b5d4c run_id=58872ad748b7 attempt=1 nodes=['node_a']
+INFO:     127.0.0.1:43440 - "POST /launch_job HTTP/1.1" 200 OK
+INFO:     163.180.160.62:58342 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.160.62:58348 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 18:08:22,976 [INFO] [job-3e6db1778cc0] Received report: Epoch 2/20 (Acc: 43.65%)
+INFO:     163.180.160.62:58018 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.117.216:50178 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:50186 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 18:08:50,997 [INFO] [job-428eed4b5d4c] Received report: Epoch 1/20 (Acc: 18.23%)
+INFO:     163.180.117.216:50196 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.160.62:50366 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.160.62:50372 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 18:09:08,506 [INFO] [job-3e6db1778cc0] Received report: Epoch 3/20 (Acc: 52.44%)
+INFO:     163.180.160.62:50388 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.117.216:52680 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:52694 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 18:09:20,763 [INFO] [job-cd8a81cc47a8] Received report: Epoch 15/20 (Acc: 83.68%)
+INFO:     163.180.117.216:52708 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.160.62:37028 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.160.62:37032 - "POST /report_progress HTTP/1.1" 200 OK
+INFO:     163.180.160.62:37046 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.160.62:37054 - "POST /report_progress HTTP/1.1" 200 OK
+INFO:     163.180.117.216:57238 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:57240 - "POST /report_progress HTTP/1.1" 200 OK
+INFO:     163.180.160.62:37060 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.160.62:37062 - "POST /report_progress HTTP/1.1" 200 OK
+INFO:     163.180.160.62:37078 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.160.62:37094 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 18:09:58,166 [INFO] [job-d7f728b2b674] Received report: Epoch 6/20 (Acc: 50.92%)
+INFO:     163.180.160.62:37098 - "POST /report_checkpoint HTTP/1.1" 200 OK
+2026-01-20 18:09:59,139 [INFO] [job-3e6db1778cc0] Received report: Epoch 4/20 (Acc: 36.82%)
+INFO:     163.180.160.62:54662 - "POST /report_checkpoint HTTP/1.1" 200 OK
+2026-01-20 18:10:00,938 [INFO] [job-b7a60a5b144a] Received report: Epoch 9/20 (Acc: 50.92%)
+INFO:     163.180.160.62:54678 - "POST /report_checkpoint HTTP/1.1" 200 OK
+2026-01-20 18:10:01,778 [INFO] [job-428eed4b5d4c] Received report: Epoch 2/20 (Acc: 32.41%)
+INFO:     163.180.117.216:57244 - "POST /report_checkpoint HTTP/1.1" 200 OK
+2026-01-20 18:10:05,011 [INFO] [job-8c2ebe5a2254] Received report: Epoch 1/20 (Acc: 50.92%)
+INFO:     163.180.160.62:54694 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.117.216:32784 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:32796 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 18:10:42,513 [INFO] [job-0bcbdef2044d] Received report: Epoch 2/20 (Acc: 98.77%)
+INFO:     163.180.117.216:41702 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.160.62:59228 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.160.62:59242 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 18:10:51,711 [INFO] [job-3e6db1778cc0] Received report: Epoch 5/20 (Acc: 41.79%)
+INFO:     163.180.160.62:54342 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.117.216:45748 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:45764 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 18:11:00,165 [INFO] [job-428eed4b5d4c] Received report: Epoch 3/20 (Acc: 42.51%)
+INFO:     163.180.117.216:45766 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.117.216:53556 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:53564 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 18:11:28,773 [INFO] [job-cd8a81cc47a8] Received report: Epoch 16/20 (Acc: 86.58%)
+INFO:     163.180.117.216:38378 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.160.62:50224 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.160.62:50226 - "POST /report_progress HTTP/1.1" 200 OK
+INFO:     163.180.117.216:39202 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:39218 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 18:11:45,935 [INFO] [job-3e6db1778cc0] Received report: Epoch 6/20 (Acc: 47.00%)
+INFO:     163.180.160.62:57762 - "POST /report_checkpoint HTTP/1.1" 200 OK
+2026-01-20 18:11:50,930 [INFO] [job-428eed4b5d4c] Received report: Epoch 4/20 (Acc: 49.50%)
+INFO:     163.180.117.216:39230 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.160.62:57000 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.160.62:57004 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 18:12:33,227 [INFO] [job-3e6db1778cc0] Received report: Epoch 7/20 (Acc: 45.95%)
+INFO:     163.180.160.62:57020 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.117.216:32768 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:32778 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 18:12:41,855 [INFO] [job-428eed4b5d4c] Received report: Epoch 5/20 (Acc: 51.52%)
+INFO:     163.180.117.216:32782 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.160.62:42806 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.160.62:42812 - "POST /report_progress HTTP/1.1" 200 OK
+INFO:     163.180.160.62:42814 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.160.62:42828 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 18:12:54,904 [INFO] [job-d7f728b2b674] Received report: Epoch 7/20 (Acc: 50.92%)
+INFO:     163.180.160.62:42832 - "POST /report_checkpoint HTTP/1.1" 200 OK
+2026-01-20 18:12:57,135 [INFO] [job-b7a60a5b144a] Received report: Epoch 10/20 (Acc: 50.92%)
+INFO:     163.180.160.62:42836 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.160.62:49270 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.160.62:49284 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 18:13:07,257 [INFO] [job-8c2ebe5a2254] Received report: Epoch 2/20 (Acc: 50.92%)
+INFO:     163.180.160.62:49286 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.160.62:54844 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.160.62:54860 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 18:13:12,442 [INFO] [job-3e6db1778cc0] Received report: Epoch 8/20 (Acc: 46.14%)
+INFO:     163.180.160.62:54870 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.117.216:55224 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:55240 - "POST /report_progress HTTP/1.1" 200 OK
+INFO:     163.180.117.216:55244 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:55260 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 18:13:32,236 [INFO] [job-428eed4b5d4c] Received report: Epoch 6/20 (Acc: 55.98%)
+INFO:     163.180.117.216:55266 - "POST /report_checkpoint HTTP/1.1" 200 OK
+2026-01-20 18:13:39,848 [INFO] [job-cd8a81cc47a8] Received report: Epoch 17/20 (Acc: 79.17%)
+INFO:     163.180.117.216:36800 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.117.216:45086 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:45090 - "POST /report_progress HTTP/1.1" 200 OK
+INFO:     163.180.160.62:39620 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.160.62:39636 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 18:14:02,893 [INFO] [job-0bcbdef2044d] Received report: Epoch 3/20 (Acc: 98.87%)
+INFO:     163.180.117.216:43230 - "POST /report_checkpoint HTTP/1.1" 200 OK
+2026-01-20 18:14:06,260 [INFO] [job-3e6db1778cc0] Received report: Epoch 9/20 (Acc: 54.17%)
+INFO:     163.180.160.62:39640 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.117.216:46958 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:46966 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 18:14:23,218 [INFO] [job-428eed4b5d4c] Received report: Epoch 7/20 (Acc: 58.55%)
+INFO:     163.180.117.216:50482 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.160.62:47098 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.160.62:47102 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 18:14:58,492 [INFO] [job-3e6db1778cc0] Received report: Epoch 10/20 (Acc: 56.17%)
+INFO:     163.180.160.62:47116 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.117.216:48766 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:48768 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 18:15:13,616 [INFO] [job-428eed4b5d4c] Received report: Epoch 8/20 (Acc: 59.18%)
+INFO:     163.180.117.216:56294 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.117.216:50786 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:50794 - "POST /report_progress HTTP/1.1" 200 OK
+INFO:     163.180.160.62:52040 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.160.62:52050 - "POST /report_progress HTTP/1.1" 200 OK
+INFO:     163.180.160.62:52052 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.160.62:52062 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 18:15:49,350 [INFO] [job-cd8a81cc47a8] Received report: Epoch 18/20 (Acc: 78.22%)
+INFO:     163.180.117.216:36128 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.160.62:59914 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.160.62:59916 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 18:15:50,684 [INFO] [job-d7f728b2b674] Received report: Epoch 8/20 (Acc: 50.92%)
+INFO:     163.180.160.62:59924 - "POST /report_checkpoint HTTP/1.1" 200 OK
+2026-01-20 18:15:51,983 [INFO] [job-3e6db1778cc0] Received report: Epoch 11/20 (Acc: 57.91%)
+INFO:     163.180.160.62:59926 - "POST /report_checkpoint HTTP/1.1" 200 OK
+2026-01-20 18:15:53,065 [INFO] [job-b7a60a5b144a] Received report: Epoch 11/20 (Acc: 50.92%)
+INFO:     163.180.160.62:59928 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.117.216:58842 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:58846 - "POST /report_progress HTTP/1.1" 200 OK
+INFO:     163.180.160.62:47094 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.160.62:47106 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 18:16:04,088 [INFO] [job-428eed4b5d4c] Received report: Epoch 9/20 (Acc: 60.28%)
+INFO:     163.180.117.216:47420 - "POST /report_checkpoint HTTP/1.1" 200 OK
+2026-01-20 18:16:11,212 [INFO] [job-8c2ebe5a2254] Received report: Epoch 3/20 (Acc: 50.92%)
+INFO:     163.180.160.62:59932 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.160.62:35890 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.160.62:35898 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 18:16:30,124 [INFO] [job-3e6db1778cc0] Received report: Epoch 12/20 (Acc: 59.62%)
+INFO:     163.180.160.62:33572 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.117.216:49576 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:49584 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 18:16:54,115 [INFO] [job-428eed4b5d4c] Received report: Epoch 10/20 (Acc: 61.91%)
+INFO:     163.180.117.216:44746 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.117.216:39474 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:39488 - "POST /report_progress HTTP/1.1" 200 OK
+INFO:     163.180.160.62:51936 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.160.62:51944 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 18:17:19,895 [INFO] [job-0bcbdef2044d] Received report: Epoch 4/20 (Acc: 99.01%)
+INFO:     163.180.117.216:48036 - "POST /report_checkpoint HTTP/1.1" 200 OK
+2026-01-20 18:17:21,890 [INFO] [job-3e6db1778cc0] Received report: Epoch 13/20 (Acc: 59.27%)
+INFO:     163.180.160.62:36438 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.117.216:56990 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:57002 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 18:17:45,715 [INFO] [job-428eed4b5d4c] Received report: Epoch 11/20 (Acc: 61.70%)
+INFO:     163.180.117.216:37396 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.117.216:37412 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:37426 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 18:17:56,917 [INFO] [job-cd8a81cc47a8] Received report: Epoch 19/20 (Acc: 90.74%)
+INFO:     163.180.117.216:45712 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.160.62:37684 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.160.62:37700 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 18:18:13,808 [INFO] [job-3e6db1778cc0] Received report: Epoch 14/20 (Acc: 68.07%)
+INFO:     163.180.160.62:37710 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.117.216:45398 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:45402 - "POST /report_progress HTTP/1.1" 200 OK
+INFO:     163.180.160.62:46226 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.160.62:46242 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 18:18:35,682 [INFO] [job-428eed4b5d4c] Received report: Epoch 12/20 (Acc: 61.21%)
+INFO:     163.180.117.216:35232 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.160.62:46252 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.160.62:46254 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 18:18:37,779 [INFO] [job-d7f728b2b674] Received report: Epoch 9/20 (Acc: 50.92%)
+INFO:     163.180.160.62:46270 - "POST /report_checkpoint HTTP/1.1" 200 OK
+2026-01-20 18:18:39,756 [INFO] [job-b7a60a5b144a] Received report: Epoch 12/20 (Acc: 50.92%)
+INFO:     163.180.160.62:59234 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.160.62:49786 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.160.62:49790 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 18:19:03,973 [INFO] [job-3e6db1778cc0] Received report: Epoch 15/20 (Acc: 67.77%)
+INFO:     163.180.160.62:49792 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.160.62:49800 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.160.62:49814 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 18:19:08,178 [INFO] [job-8c2ebe5a2254] Received report: Epoch 4/20 (Acc: 50.92%)
+INFO:     163.180.160.62:49826 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.117.216:57744 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:57754 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 18:19:25,687 [INFO] [job-428eed4b5d4c] Received report: Epoch 13/20 (Acc: 62.21%)
+INFO:     163.180.117.216:47552 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.160.62:42506 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.160.62:42522 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 18:19:50,774 [INFO] [job-3e6db1778cc0] Received report: Epoch 16/20 (Acc: 69.41%)
+INFO:     163.180.160.62:36574 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.117.216:48938 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:48948 - "POST /report_progress HTTP/1.1" 200 OK
+INFO:     163.180.117.216:48958 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:48960 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 18:20:11,823 [INFO] [job-cd8a81cc47a8] Received report: Epoch 20/20 (Acc: 93.63%)
+INFO:     163.180.117.216:48968 - "POST /report_checkpoint HTTP/1.1" 200 OK
+2026-01-20 18:20:14,202 [INFO] HTTP Request: POST http://localhost:8082/report_job_completed "HTTP/1.1 200 OK"
+INFO:     163.180.117.216:35804 - "POST /report_job_status HTTP/1.1" 200 OK
+2026-01-20 18:20:14,886 [INFO] [LAUNCH_REQ] job_id=job-7d6782b3f1c1 req_run_id=13a003751562 req_attempt=1 ws=1 nodes=['node_b'] model=ResNet-18 dataset=CIFAR-100 request_id=job-7d6782b3f1c1-5ead8a9547 reason=LAUNCH allow_preempted=False
+2026-01-20 18:20:14,886 [INFO] [LAUNCH_STATE] job_id=job-7d6782b3f1c1 cur_status= cur_run_id=None cur_req=None blocked_until=0.000 now=1768900814.887
+2026-01-20 18:20:14,887 [WARNING] [LAUNCH_REJECT] job_id=job-7d6782b3f1c1 reason=node_draining node=node_b drain_until=1768900817.123 now=1768900814.887
+INFO:     127.0.0.1:47336 - "POST /launch_job HTTP/1.1" 409 Conflict
+INFO:     163.180.117.216:35820 - "POST /report_job_status HTTP/1.1" 200 OK
+2026-01-20 18:20:15,672 [INFO] [job-428eed4b5d4c] Received report: Epoch 14/20 (Acc: 62.26%)
+INFO:     163.180.117.216:35822 - "POST /report_checkpoint HTTP/1.1" 200 OK
+2026-01-20 18:20:15,866 [INFO] [LAUNCH_REQ] job_id=job-c8911402ebee req_run_id=7ac6484d5d2c req_attempt=1 ws=1 nodes=['node_c'] model=DeepSpeech2 dataset=ARCTIC request_id=job-c8911402ebee-d8649f6d22 reason=LAUNCH allow_preempted=False
+2026-01-20 18:20:15,866 [INFO] [LAUNCH_STATE] job_id=job-c8911402ebee cur_status= cur_run_id=None cur_req=None blocked_until=0.000 now=1768900815.866
+2026-01-20 18:20:15,866 [WARNING] [LAUNCH_REJECT] job_id=job-c8911402ebee reason=node_draining node=node_c drain_until=1768900817.123 now=1768900815.866
+INFO:     127.0.0.1:47342 - "POST /launch_job HTTP/1.1" 409 Conflict
+INFO:     163.180.117.216:35836 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:35852 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 18:20:19,887 [INFO] [LAUNCH_REQ] job_id=job-7d6782b3f1c1 req_run_id=13a003751562 req_attempt=1 ws=1 nodes=['node_b'] model=ResNet-18 dataset=CIFAR-100 request_id=job-7d6782b3f1c1-210ec921d5 reason=LAUNCH allow_preempted=False
+2026-01-20 18:20:19,887 [INFO] [LAUNCH_STATE] job_id=job-7d6782b3f1c1 cur_status= cur_run_id=None cur_req=None blocked_until=0.000 now=1768900819.887
+2026-01-20 18:20:19,887 [INFO] [LAUNCH_RESERVED] job_id=job-7d6782b3f1c1 run_id=13a003751562 attempt=1 nodes=['node_b'] master=163.180.117.216 resume=None
+2026-01-20 18:20:19,887 [INFO] [LAUNCH_TRIGGER] job_id=job-7d6782b3f1c1 run_id=13a003751562 attempt=1 fanout_nodes=['node_b']
+2026-01-20 18:20:19,887 [INFO] [job-7d6782b3f1c1] Launching job... run_id=13a003751562 attempt=1 WS=1 Master=163.180.117.216:29514 resume=None preempt_guard=20.0s
+2026-01-20 18:20:19,887 [INFO] [job-7d6782b3f1c1] Sending run command to node_b (Rank 0) path=/home/ubuntu216/SUN/CIFAR100_Resnet18.py run_id=13a003751562 attempt=1
+2026-01-20 18:20:19,947 [INFO] [LAUNCH_TRIGGER_RESULT] job_id=job-7d6782b3f1c1 run_id=13a003751562 ok=True code=OK detail={'run_id': '13a003751562', 'master_port': 29514, 'launched_nodes': ['node_b']}
+2026-01-20 18:20:19,947 [INFO] [LAUNCH_OK] job_id=job-7d6782b3f1c1 run_id=13a003751562 attempt=1 nodes=['node_b']
+INFO:     127.0.0.1:47344 - "POST /launch_job HTTP/1.1" 200 OK
+2026-01-20 18:20:20,879 [INFO] [LAUNCH_REQ] job_id=job-c8911402ebee req_run_id=7ac6484d5d2c req_attempt=1 ws=1 nodes=['node_c'] model=DeepSpeech2 dataset=ARCTIC request_id=job-c8911402ebee-14893dd7d9 reason=LAUNCH allow_preempted=False
+2026-01-20 18:20:20,880 [INFO] [LAUNCH_STATE] job_id=job-c8911402ebee cur_status= cur_run_id=None cur_req=None blocked_until=0.000 now=1768900820.880
+2026-01-20 18:20:20,880 [INFO] [LAUNCH_RESERVED] job_id=job-c8911402ebee run_id=7ac6484d5d2c attempt=1 nodes=['node_c'] master=163.180.117.216 resume=None
+2026-01-20 18:20:20,880 [INFO] [LAUNCH_TRIGGER] job_id=job-c8911402ebee run_id=7ac6484d5d2c attempt=1 fanout_nodes=['node_c']
+2026-01-20 18:20:20,880 [INFO] [job-c8911402ebee] Launching job... run_id=7ac6484d5d2c attempt=1 WS=1 Master=163.180.117.216:29515 resume=None preempt_guard=20.0s
+2026-01-20 18:20:20,880 [INFO] [job-c8911402ebee] Sending run command to node_c (Rank 0) path=/home/ubuntu216/SUN/CMU_ARCTIC_DeepSpeech2.py run_id=7ac6484d5d2c attempt=1
+2026-01-20 18:20:20,927 [INFO] [LAUNCH_TRIGGER_RESULT] job_id=job-c8911402ebee run_id=7ac6484d5d2c ok=True code=OK detail={'run_id': '7ac6484d5d2c', 'master_port': 29515, 'launched_nodes': ['node_c']}
+2026-01-20 18:20:20,927 [INFO] [LAUNCH_OK] job_id=job-c8911402ebee run_id=7ac6484d5d2c attempt=1 nodes=['node_c']
+INFO:     127.0.0.1:47348 - "POST /launch_job HTTP/1.1" 200 OK
+2026-01-20 18:20:32,356 [INFO] [job-0bcbdef2044d] Received report: Epoch 5/20 (Acc: 99.03%)
+INFO:     163.180.117.216:46138 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.117.216:54122 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:54126 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 18:20:35,349 [INFO] [job-c8911402ebee] Received report: Epoch 1/20 (Acc: 0.00%)
+INFO:     163.180.117.216:54136 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.160.62:39296 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.160.62:39308 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 18:20:40,844 [INFO] [job-3e6db1778cc0] Received report: Epoch 17/20 (Acc: 70.71%)
+INFO:     163.180.160.62:35414 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.117.216:54146 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:54162 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 18:20:43,249 [INFO] [job-c8911402ebee] Received report: Epoch 2/20 (Acc: 0.00%)
+INFO:     163.180.117.216:42178 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.117.216:42194 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:42200 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 18:20:51,387 [INFO] [job-c8911402ebee] Received report: Epoch 3/20 (Acc: 0.00%)
+INFO:     163.180.117.216:42210 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.117.216:38766 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:38772 - "POST /report_progress HTTP/1.1" 200 OK
+INFO:     163.180.117.216:38774 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:38776 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 18:20:59,587 [INFO] [job-c8911402ebee] Received report: Epoch 4/20 (Acc: 0.00%)
+INFO:     163.180.117.216:38790 - "POST /report_checkpoint HTTP/1.1" 200 OK
+2026-01-20 18:21:06,162 [INFO] [job-428eed4b5d4c] Received report: Epoch 15/20 (Acc: 62.52%)
+INFO:     163.180.117.216:34848 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.117.216:34862 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:34870 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 18:21:07,779 [INFO] [job-c8911402ebee] Received report: Epoch 5/20 (Acc: 0.00%)
+INFO:     163.180.117.216:34876 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.117.216:49472 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:49488 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 18:21:15,993 [INFO] [job-c8911402ebee] Received report: Epoch 6/20 (Acc: 0.00%)
+INFO:     163.180.117.216:49494 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.117.216:49506 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:49522 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 18:21:23,940 [INFO] [job-c8911402ebee] Received report: Epoch 7/20 (Acc: 0.00%)
+INFO:     163.180.117.216:55504 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.160.62:35082 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.160.62:35096 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 18:21:27,902 [INFO] [job-3e6db1778cc0] Received report: Epoch 18/20 (Acc: 73.75%)
+INFO:     163.180.160.62:35102 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.117.216:55520 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:55528 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 18:21:32,134 [INFO] [job-c8911402ebee] Received report: Epoch 8/20 (Acc: 0.00%)
+INFO:     163.180.117.216:55536 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.117.216:45044 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:45048 - "POST /report_progress HTTP/1.1" 200 OK
+INFO:     163.180.160.62:46116 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.160.62:46126 - "POST /report_progress HTTP/1.1" 200 OK
+INFO:     163.180.160.62:46142 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.160.62:46150 - "POST /report_progress HTTP/1.1" 200 OK
+INFO:     163.180.117.216:45064 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:45074 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 18:21:39,086 [INFO] [job-d7f728b2b674] Received report: Epoch 10/20 (Acc: 50.92%)
+INFO:     163.180.160.62:51564 - "POST /report_checkpoint HTTP/1.1" 200 OK
+2026-01-20 18:21:39,601 [INFO] [job-7d6782b3f1c1] Received report: Epoch 1/20 (Acc: 14.84%)
+INFO:     163.180.117.216:45076 - "POST /report_checkpoint HTTP/1.1" 200 OK
+2026-01-20 18:21:40,171 [INFO] [job-c8911402ebee] Received report: Epoch 9/20 (Acc: 0.00%)
+INFO:     163.180.117.216:45092 - "POST /report_checkpoint HTTP/1.1" 200 OK
+2026-01-20 18:21:41,095 [INFO] [job-b7a60a5b144a] Received report: Epoch 13/20 (Acc: 50.92%)
+INFO:     163.180.160.62:51574 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.117.216:41890 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:41906 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 18:21:48,299 [INFO] [job-c8911402ebee] Received report: Epoch 10/20 (Acc: 3.92%)
+INFO:     163.180.117.216:41910 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.117.216:41920 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:41934 - "POST /report_progress HTTP/1.1" 200 OK
+INFO:     163.180.117.216:34748 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:34752 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 18:21:56,351 [INFO] [job-c8911402ebee] Received report: Epoch 11/20 (Acc: 0.00%)
+INFO:     163.180.117.216:34762 - "POST /report_checkpoint HTTP/1.1" 200 OK
+2026-01-20 18:21:57,430 [INFO] [job-428eed4b5d4c] Received report: Epoch 16/20 (Acc: 62.66%)
+INFO:     163.180.117.216:34774 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.160.62:55604 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.160.62:55618 - "POST /report_progress HTTP/1.1" 200 OK
+INFO:     163.180.117.216:49124 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:49136 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 18:22:04,618 [INFO] [job-c8911402ebee] Received report: Epoch 12/20 (Acc: 0.00%)
+INFO:     163.180.117.216:49144 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.160.62:49608 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.160.62:49620 - "POST /report_progress HTTP/1.1" 200 OK
+INFO:     163.180.117.216:49158 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:49170 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 18:22:12,688 [INFO] [job-c8911402ebee] Received report: Epoch 13/20 (Acc: 1.40%)
+INFO:     163.180.117.216:49172 - "POST /report_checkpoint HTTP/1.1" 200 OK
+2026-01-20 18:22:14,644 [INFO] [job-8c2ebe5a2254] Received report: Epoch 5/20 (Acc: 50.92%)
+INFO:     163.180.160.62:49636 - "POST /report_checkpoint HTTP/1.1" 200 OK
+2026-01-20 18:22:18,818 [INFO] [job-3e6db1778cc0] Received report: Epoch 19/20 (Acc: 55.71%)
+INFO:     163.180.160.62:49646 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.117.216:42324 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:42332 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 18:22:20,795 [INFO] [job-c8911402ebee] Received report: Epoch 14/20 (Acc: 0.00%)
+INFO:     163.180.117.216:42348 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.117.216:54176 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:54178 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 18:22:28,846 [INFO] [job-c8911402ebee] Received report: Epoch 15/20 (Acc: 2.18%)
+INFO:     163.180.117.216:54194 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.117.216:50206 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:50208 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 18:22:36,979 [INFO] [job-c8911402ebee] Received report: Epoch 16/20 (Acc: 2.30%)
+INFO:     163.180.117.216:50220 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.117.216:50232 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:50248 - "POST /report_progress HTTP/1.1" 200 OK
+INFO:     163.180.117.216:50254 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:50262 - "POST /report_progress HTTP/1.1" 200 OK
+INFO:     163.180.117.216:41118 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:41122 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 18:22:44,912 [INFO] [job-c8911402ebee] Received report: Epoch 17/20 (Acc: 3.90%)
+INFO:     163.180.117.216:41126 - "POST /report_checkpoint HTTP/1.1" 200 OK
+2026-01-20 18:22:45,738 [INFO] [job-7d6782b3f1c1] Received report: Epoch 2/20 (Acc: 30.85%)
+INFO:     163.180.117.216:41132 - "POST /report_checkpoint HTTP/1.1" 200 OK
+2026-01-20 18:22:47,484 [INFO] [job-428eed4b5d4c] Received report: Epoch 17/20 (Acc: 62.65%)
+INFO:     163.180.117.216:41146 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.117.216:41156 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:41160 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 18:22:53,008 [INFO] [job-c8911402ebee] Received report: Epoch 18/20 (Acc: 2.21%)
+INFO:     163.180.117.216:34282 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.117.216:34286 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:34298 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 18:23:01,165 [INFO] [job-c8911402ebee] Received report: Epoch 19/20 (Acc: 4.25%)
+INFO:     163.180.117.216:34308 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.117.216:58652 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:58666 - "POST /report_progress HTTP/1.1" 200 OK
+INFO:     163.180.160.62:35164 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.160.62:35168 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 18:23:09,143 [INFO] [job-c8911402ebee] Received report: Epoch 20/20 (Acc: 0.74%)
+INFO:     163.180.117.216:58672 - "POST /report_checkpoint HTTP/1.1" 200 OK
+2026-01-20 18:23:10,839 [INFO] [job-3e6db1778cc0] Received report: Epoch 20/20 (Acc: 74.68%)
+INFO:     163.180.160.62:52750 - "POST /report_checkpoint HTTP/1.1" 200 OK
+2026-01-20 18:23:11,284 [INFO] HTTP Request: POST http://localhost:8082/report_job_completed "HTTP/1.1 200 OK"
+INFO:     163.180.117.216:58682 - "POST /report_job_status HTTP/1.1" 200 OK
+2026-01-20 18:23:11,923 [INFO] [LAUNCH_REQ] job_id=job-10ece9a1a910 req_run_id=62f99a6dec0c req_attempt=1 ws=1 nodes=['node_c'] model=DistilBERT dataset=SST-2 request_id=job-10ece9a1a910-4eb87878b5 reason=LAUNCH allow_preempted=False
+2026-01-20 18:23:11,923 [INFO] [LAUNCH_STATE] job_id=job-10ece9a1a910 cur_status= cur_run_id=None cur_req=None blocked_until=0.000 now=1768900991.924
+2026-01-20 18:23:11,924 [WARNING] [LAUNCH_REJECT] job_id=job-10ece9a1a910 reason=node_draining node=node_c drain_until=1768900994.235 now=1768900991.924
+INFO:     127.0.0.1:43274 - "POST /launch_job HTTP/1.1" 409 Conflict
+2026-01-20 18:23:16,922 [INFO] [LAUNCH_REQ] job_id=job-10ece9a1a910 req_run_id=62f99a6dec0c req_attempt=1 ws=1 nodes=['node_c'] model=DistilBERT dataset=SST-2 request_id=job-10ece9a1a910-601e809a48 reason=LAUNCH allow_preempted=False
+2026-01-20 18:23:16,922 [INFO] [LAUNCH_STATE] job_id=job-10ece9a1a910 cur_status= cur_run_id=None cur_req=None blocked_until=0.000 now=1768900996.923
+2026-01-20 18:23:16,923 [INFO] [LAUNCH_RESERVED] job_id=job-10ece9a1a910 run_id=62f99a6dec0c attempt=1 nodes=['node_c'] master=163.180.117.216 resume=None
+2026-01-20 18:23:16,923 [INFO] [LAUNCH_TRIGGER] job_id=job-10ece9a1a910 run_id=62f99a6dec0c attempt=1 fanout_nodes=['node_c']
+2026-01-20 18:23:16,923 [INFO] [job-10ece9a1a910] Launching job... run_id=62f99a6dec0c attempt=1 WS=1 Master=163.180.117.216:29516 resume=None preempt_guard=20.0s
+2026-01-20 18:23:16,923 [INFO] [job-10ece9a1a910] Sending run command to node_c (Rank 0) path=/home/ubuntu216/SUN/SST2_DistilBert.py run_id=62f99a6dec0c attempt=1
+2026-01-20 18:23:16,943 [INFO] [LAUNCH_TRIGGER_RESULT] job_id=job-10ece9a1a910 run_id=62f99a6dec0c ok=True code=OK detail={'run_id': '62f99a6dec0c', 'master_port': 29516, 'launched_nodes': ['node_c']}
+2026-01-20 18:23:16,943 [INFO] [LAUNCH_OK] job_id=job-10ece9a1a910 run_id=62f99a6dec0c attempt=1 nodes=['node_c']
+INFO:     127.0.0.1:53392 - "POST /launch_job HTTP/1.1" 200 OK
+2026-01-20 18:23:17,040 [INFO] HTTP Request: POST http://localhost:8082/report_job_completed "HTTP/1.1 200 OK"
+INFO:     163.180.160.62:52764 - "POST /report_job_status HTTP/1.1" 200 OK
+INFO:     163.180.117.216:54304 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:54316 - "POST /report_progress HTTP/1.1" 200 OK
+INFO:     163.180.117.216:54320 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:54322 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 18:23:35,415 [INFO] [job-7d6782b3f1c1] Received report: Epoch 3/20 (Acc: 42.13%)
+INFO:     163.180.117.216:53924 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.117.216:53926 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:53934 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 18:23:37,687 [INFO] [job-428eed4b5d4c] Received report: Epoch 18/20 (Acc: 62.52%)
+INFO:     163.180.117.216:53950 - "POST /report_checkpoint HTTP/1.1" 200 OK
+2026-01-20 18:23:49,933 [INFO] [job-0bcbdef2044d] Received report: Epoch 6/20 (Acc: 99.00%)
+INFO:     163.180.117.216:51922 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.160.62:45154 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.160.62:45166 - "POST /report_progress HTTP/1.1" 200 OK
+INFO:     163.180.160.62:45180 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.160.62:45196 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 18:24:16,691 [INFO] [job-d7f728b2b674] Received report: Epoch 11/20 (Acc: 50.92%)
+INFO:     163.180.160.62:45210 - "POST /report_checkpoint HTTP/1.1" 200 OK
+2026-01-20 18:24:16,945 [INFO] [job-b7a60a5b144a] Received report: Epoch 14/20 (Acc: 50.92%)
+INFO:     163.180.160.62:45216 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.117.216:40796 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:40808 - "POST /report_progress HTTP/1.1" 200 OK
+INFO:     163.180.117.216:40814 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:40820 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 18:24:27,038 [INFO] [job-7d6782b3f1c1] Received report: Epoch 4/20 (Acc: 48.80%)
+INFO:     163.180.117.216:45948 - "POST /report_checkpoint HTTP/1.1" 200 OK
+2026-01-20 18:24:28,468 [INFO] [job-428eed4b5d4c] Received report: Epoch 19/20 (Acc: 62.82%)
+INFO:     163.180.117.216:45956 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.160.62:32924 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.160.62:32928 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 18:24:55,173 [INFO] [job-8c2ebe5a2254] Received report: Epoch 6/20 (Acc: 50.92%)
+INFO:     163.180.160.62:32942 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.117.216:54204 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:54210 - "POST /report_progress HTTP/1.1" 200 OK
+INFO:     163.180.117.216:42386 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:42400 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 18:25:18,414 [INFO] [job-7d6782b3f1c1] Received report: Epoch 5/20 (Acc: 53.06%)
+INFO:     163.180.117.216:42402 - "POST /report_checkpoint HTTP/1.1" 200 OK
+2026-01-20 18:25:19,257 [INFO] [job-428eed4b5d4c] Received report: Epoch 20/20 (Acc: 62.68%)
+INFO:     163.180.117.216:42406 - "POST /report_checkpoint HTTP/1.1" 200 OK
+2026-01-20 18:25:22,392 [INFO] HTTP Request: POST http://localhost:8082/report_job_completed "HTTP/1.1 200 OK"
+INFO:     163.180.117.216:42422 - "POST /report_job_status HTTP/1.1" 200 OK
+2026-01-20 18:25:22,927 [INFO] [LAUNCH_REQ] job_id=job-efd581dbd798 req_run_id=466dfb4cccdd req_attempt=1 ws=1 nodes=['node_a'] model=EfficientNetV2-S dataset=MNIST request_id=job-efd581dbd798-290c01bff1 reason=LAUNCH allow_preempted=False
+2026-01-20 18:25:22,927 [INFO] [LAUNCH_STATE] job_id=job-efd581dbd798 cur_status= cur_run_id=None cur_req=None blocked_until=0.000 now=1768901122.927
+2026-01-20 18:25:22,927 [WARNING] [LAUNCH_REJECT] job_id=job-efd581dbd798 reason=node_draining node=node_a drain_until=1768901125.317 now=1768901122.927
+INFO:     127.0.0.1:44538 - "POST /launch_job HTTP/1.1" 409 Conflict
+2026-01-20 18:25:27,953 [INFO] [LAUNCH_REQ] job_id=job-efd581dbd798 req_run_id=466dfb4cccdd req_attempt=1 ws=1 nodes=['node_a'] model=EfficientNetV2-S dataset=MNIST request_id=job-efd581dbd798-baa7616491 reason=LAUNCH allow_preempted=False
+2026-01-20 18:25:27,953 [INFO] [LAUNCH_STATE] job_id=job-efd581dbd798 cur_status= cur_run_id=None cur_req=None blocked_until=0.000 now=1768901127.953
+2026-01-20 18:25:27,953 [INFO] [LAUNCH_RESERVED] job_id=job-efd581dbd798 run_id=466dfb4cccdd attempt=1 nodes=['node_a'] master=163.180.117.216 resume=None
+2026-01-20 18:25:27,953 [INFO] [LAUNCH_TRIGGER] job_id=job-efd581dbd798 run_id=466dfb4cccdd attempt=1 fanout_nodes=['node_a']
+2026-01-20 18:25:27,953 [INFO] [job-efd581dbd798] Launching job... run_id=466dfb4cccdd attempt=1 WS=1 Master=163.180.117.216:29517 resume=None preempt_guard=20.0s
+2026-01-20 18:25:27,953 [INFO] [job-efd581dbd798] Sending run command to node_a (Rank 0) path=/home/ubuntu216/SUN/MNIST_EfficientNetV2.py run_id=466dfb4cccdd attempt=1
+2026-01-20 18:25:27,975 [INFO] [LAUNCH_TRIGGER_RESULT] job_id=job-efd581dbd798 run_id=466dfb4cccdd ok=True code=OK detail={'run_id': '466dfb4cccdd', 'master_port': 29517, 'launched_nodes': ['node_a']}
+2026-01-20 18:25:27,975 [INFO] [LAUNCH_OK] job_id=job-efd581dbd798 run_id=466dfb4cccdd attempt=1 nodes=['node_a']
+INFO:     127.0.0.1:44550 - "POST /launch_job HTTP/1.1" 200 OK
+INFO:     163.180.117.216:47254 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:47268 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 18:26:07,981 [INFO] [job-7d6782b3f1c1] Received report: Epoch 6/20 (Acc: 54.87%)
+INFO:     163.180.117.216:53020 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.160.62:43734 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.160.62:43748 - "POST /report_progress HTTP/1.1" 200 OK
+INFO:     163.180.160.62:43756 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.160.62:43772 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 18:26:47,769 [INFO] [job-b7a60a5b144a] Received report: Epoch 15/20 (Acc: 50.92%)
+INFO:     163.180.160.62:43784 - "POST /report_checkpoint HTTP/1.1" 200 OK
+2026-01-20 18:26:48,418 [INFO] [job-d7f728b2b674] Received report: Epoch 12/20 (Acc: 50.92%)
+INFO:     163.180.160.62:43796 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.117.216:39464 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:39480 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 18:26:51,016 [INFO] [job-10ece9a1a910] Received report: Epoch 1/20 (Acc: 50.92%)
+INFO:     163.180.117.216:39496 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.117.216:39506 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:39518 - "POST /report_progress HTTP/1.1" 200 OK
+INFO:     163.180.117.216:51418 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:51424 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 18:26:58,468 [INFO] [job-7d6782b3f1c1] Received report: Epoch 7/20 (Acc: 58.41%)
+INFO:     163.180.117.216:51428 - "POST /report_checkpoint HTTP/1.1" 200 OK
+2026-01-20 18:27:06,219 [INFO] [job-0bcbdef2044d] Received report: Epoch 7/20 (Acc: 99.22%)
+INFO:     163.180.117.216:51262 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.160.62:47456 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.160.62:47472 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 18:27:28,543 [INFO] [job-8c2ebe5a2254] Received report: Epoch 7/20 (Acc: 50.92%)
+INFO:     163.180.160.62:47486 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.117.216:52356 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:52364 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 18:27:48,658 [INFO] [job-7d6782b3f1c1] Received report: Epoch 8/20 (Acc: 58.25%)
+INFO:     163.180.117.216:39472 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.117.216:34988 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:35004 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 18:28:39,067 [INFO] [job-7d6782b3f1c1] Received report: Epoch 9/20 (Acc: 60.99%)
+INFO:     163.180.117.216:43320 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.117.216:39196 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:39198 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 18:28:58,094 [INFO] [job-10ece9a1a910] Received report: Epoch 2/20 (Acc: 50.92%)
+INFO:     163.180.117.216:39204 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.160.62:51640 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.160.62:51650 - "POST /report_progress HTTP/1.1" 200 OK
+INFO:     163.180.160.62:51666 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.160.62:51676 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 18:29:19,741 [INFO] [job-b7a60a5b144a] Received report: Epoch 16/20 (Acc: 50.92%)
+INFO:     163.180.160.62:43704 - "POST /report_checkpoint HTTP/1.1" 200 OK
+2026-01-20 18:29:20,461 [INFO] [job-d7f728b2b674] Received report: Epoch 13/20 (Acc: 50.92%)
+INFO:     163.180.160.62:43718 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.117.216:33390 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:33404 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 18:29:29,072 [INFO] [job-7d6782b3f1c1] Received report: Epoch 10/20 (Acc: 61.18%)
+INFO:     163.180.117.216:52914 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.160.62:53142 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.160.62:53148 - "POST /report_progress HTTP/1.1" 200 OK
+INFO:     163.180.117.216:36768 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:36772 - "POST /report_progress HTTP/1.1" 200 OK
+INFO:     163.180.117.216:54386 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:54390 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 18:30:14,179 [INFO] [job-8c2ebe5a2254] Received report: Epoch 8/20 (Acc: 50.92%)
+INFO:     163.180.160.62:38434 - "POST /report_checkpoint HTTP/1.1" 200 OK
+2026-01-20 18:30:19,997 [INFO] [job-7d6782b3f1c1] Received report: Epoch 11/20 (Acc: 61.11%)
+INFO:     163.180.117.216:54400 - "POST /report_checkpoint HTTP/1.1" 200 OK
+2026-01-20 18:30:20,246 [INFO] [job-0bcbdef2044d] Received report: Epoch 8/20 (Acc: 99.06%)
+INFO:     163.180.117.216:54402 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.117.216:37184 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:37200 - "POST /report_progress HTTP/1.1" 200 OK
+INFO:     163.180.117.216:34108 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:34114 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 18:30:43,813 [INFO] [job-efd581dbd798] Received report: Epoch 1/20 (Acc: 98.20%)
+INFO:     163.180.117.216:44616 - "POST /report_checkpoint HTTP/1.1" 200 OK
+2026-01-20 18:30:43,815 [INFO] [job-10ece9a1a910] Received report: Epoch 3/20 (Acc: 50.92%)
+INFO:     163.180.117.216:44622 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.117.216:55620 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:55628 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 18:31:11,526 [INFO] [job-7d6782b3f1c1] Received report: Epoch 12/20 (Acc: 62.68%)
+INFO:     163.180.117.216:55642 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.160.62:42394 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.160.62:42408 - "POST /report_progress HTTP/1.1" 200 OK
+INFO:     163.180.160.62:42420 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.160.62:42422 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 18:31:50,258 [INFO] [job-b7a60a5b144a] Received report: Epoch 17/20 (Acc: 50.92%)
+INFO:     163.180.160.62:59460 - "POST /report_checkpoint HTTP/1.1" 200 OK
+2026-01-20 18:31:52,177 [INFO] [job-d7f728b2b674] Received report: Epoch 14/20 (Acc: 50.92%)
+INFO:     163.180.160.62:59472 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.117.216:59646 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:59648 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 18:32:02,015 [INFO] [job-7d6782b3f1c1] Received report: Epoch 13/20 (Acc: 61.63%)
+INFO:     163.180.117.216:59652 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.117.216:38104 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:38120 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 18:32:30,240 [INFO] [job-10ece9a1a910] Received report: Epoch 4/20 (Acc: 50.92%)
+INFO:     163.180.117.216:38134 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.160.62:42610 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.160.62:42616 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 18:32:40,614 [INFO] [job-8c2ebe5a2254] Received report: Epoch 9/20 (Acc: 50.92%)
+INFO:     163.180.160.62:40352 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.117.216:55122 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:55128 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 18:32:52,002 [INFO] [job-7d6782b3f1c1] Received report: Epoch 14/20 (Acc: 61.91%)
+INFO:     163.180.117.216:55134 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.117.216:57278 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:57280 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 18:33:33,173 [INFO] [job-0bcbdef2044d] Received report: Epoch 9/20 (Acc: 99.19%)
+INFO:     163.180.117.216:43434 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.117.216:43436 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:43450 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 18:33:42,509 [INFO] [job-7d6782b3f1c1] Received report: Epoch 15/20 (Acc: 61.50%)
+INFO:     163.180.117.216:43456 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.117.216:40134 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:40150 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 18:33:59,818 [INFO] [job-efd581dbd798] Received report: Epoch 2/20 (Acc: 99.33%)
+INFO:     163.180.117.216:58082 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.117.216:42266 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:42268 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 18:34:16,133 [INFO] [job-10ece9a1a910] Received report: Epoch 5/20 (Acc: 50.92%)
+INFO:     163.180.117.216:44466 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.160.62:42898 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.160.62:42902 - "POST /report_progress HTTP/1.1" 200 OK
+INFO:     163.180.160.62:42912 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.160.62:42924 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 18:34:22,478 [INFO] [job-b7a60a5b144a] Received report: Epoch 18/20 (Acc: 50.92%)
+INFO:     163.180.160.62:42932 - "POST /report_checkpoint HTTP/1.1" 200 OK
+2026-01-20 18:34:23,890 [INFO] [job-d7f728b2b674] Received report: Epoch 15/20 (Acc: 50.92%)
+INFO:     163.180.160.62:42936 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.117.216:43248 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:43254 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 18:34:32,712 [INFO] [job-7d6782b3f1c1] Received report: Epoch 16/20 (Acc: 61.35%)
+INFO:     163.180.117.216:43266 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.160.62:60674 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.160.62:60686 - "POST /report_progress HTTP/1.1" 200 OK
+INFO:     163.180.117.216:34550 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:34560 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 18:35:22,836 [INFO] [job-7d6782b3f1c1] Received report: Epoch 17/20 (Acc: 61.99%)
+INFO:     163.180.117.216:37112 - "POST /report_checkpoint HTTP/1.1" 200 OK
+2026-01-20 18:35:27,781 [INFO] [job-8c2ebe5a2254] Received report: Epoch 10/20 (Acc: 50.92%)
+INFO:     163.180.160.62:48436 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.117.216:58134 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:58146 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 18:36:04,590 [INFO] [job-10ece9a1a910] Received report: Epoch 6/20 (Acc: 50.92%)
+INFO:     163.180.117.216:38004 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.117.216:38006 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:38020 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 18:36:12,538 [INFO] [job-7d6782b3f1c1] Received report: Epoch 18/20 (Acc: 61.86%)
+INFO:     163.180.117.216:38036 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.117.216:48822 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:48832 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 18:36:44,757 [INFO] [job-0bcbdef2044d] Received report: Epoch 10/20 (Acc: 99.35%)
+INFO:     163.180.117.216:33392 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.160.62:52248 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.160.62:52252 - "POST /report_progress HTTP/1.1" 200 OK
+INFO:     163.180.160.62:44724 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.160.62:44734 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 18:36:51,512 [INFO] [job-b7a60a5b144a] Received report: Epoch 19/20 (Acc: 50.92%)
+INFO:     163.180.160.62:44746 - "POST /report_checkpoint HTTP/1.1" 200 OK
+2026-01-20 18:36:53,768 [INFO] [job-d7f728b2b674] Received report: Epoch 16/20 (Acc: 50.92%)
+INFO:     163.180.160.62:44756 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.117.216:54328 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:54332 - "POST /report_progress HTTP/1.1" 200 OK
+INFO:     163.180.117.216:54336 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:54348 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 18:37:03,466 [INFO] [job-7d6782b3f1c1] Received report: Epoch 19/20 (Acc: 63.31%)
+INFO:     163.180.117.216:48116 - "POST /report_checkpoint HTTP/1.1" 200 OK
+2026-01-20 18:37:14,521 [INFO] [job-efd581dbd798] Received report: Epoch 3/20 (Acc: 99.13%)
+INFO:     163.180.117.216:38006 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.117.216:42186 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:42192 - "POST /report_progress HTTP/1.1" 200 OK
+INFO:     163.180.117.216:42194 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:42208 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 18:37:52,740 [INFO] [job-7d6782b3f1c1] Received report: Epoch 20/20 (Acc: 62.49%)
+INFO:     163.180.117.216:35394 - "POST /report_checkpoint HTTP/1.1" 200 OK
+2026-01-20 18:37:54,673 [INFO] [job-10ece9a1a910] Received report: Epoch 7/20 (Acc: 50.92%)
+INFO:     163.180.117.216:35402 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.160.62:32900 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.160.62:32910 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 18:37:57,713 [INFO] HTTP Request: POST http://localhost:8082/report_job_completed "HTTP/1.1 200 OK"
+INFO:     163.180.117.216:35410 - "POST /report_job_status HTTP/1.1" 200 OK
+2026-01-20 18:38:00,845 [INFO] [job-8c2ebe5a2254] Received report: Epoch 11/20 (Acc: 50.92%)
+INFO:     163.180.160.62:39828 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.160.62:32842 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.160.62:32856 - "POST /report_progress HTTP/1.1" 200 OK
+INFO:     163.180.160.62:32866 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.160.62:32876 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 18:39:25,174 [INFO] [job-b7a60a5b144a] Received report: Epoch 20/20 (Acc: 50.92%)
+INFO:     163.180.160.62:32880 - "POST /report_checkpoint HTTP/1.1" 200 OK
+2026-01-20 18:39:27,254 [INFO] [job-d7f728b2b674] Received report: Epoch 17/20 (Acc: 50.92%)
+INFO:     163.180.160.62:32888 - "POST /report_checkpoint HTTP/1.1" 200 OK
+2026-01-20 18:39:28,249 [INFO] HTTP Request: POST http://localhost:8082/report_job_completed "HTTP/1.1 200 OK"
+INFO:     163.180.160.62:32896 - "POST /report_job_status HTTP/1.1" 200 OK
+2026-01-20 18:39:29,120 [INFO] [job-d7f728b2b674] Preempt requested. run_id=53f5864b1a03 reason=HOL_GANG_PREEMPT HOL=JOB-CC3321F48D9B PIN=CLUSTERB ack={"ok": true, "acks": [{"node": "node_h", "http": 200, "body": {"status": "stop_issued", "job_id": "job-d7f728b2b674", "run_id": "53f5864b1a03", "reason": "HOL_GANG_PREEMPT HOL=JOB-CC3321F48D9B PIN=CLUSTERB", "note": "sigterm_sent_async_wait"}}], "fails": []}
+INFO:     127.0.0.1:37152 - "POST /preempt_job HTTP/1.1" 200 OK
+INFO:     163.180.117.216:49752 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:49766 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 18:39:34,266 [INFO] HTTP Request: POST http://localhost:8082/report_job_completed "HTTP/1.1 200 OK"
+INFO:     163.180.160.62:53272 - "POST /report_job_status HTTP/1.1" 200 OK
+2026-01-20 18:39:34,397 [INFO] [job-10ece9a1a910] Received report: Epoch 8/20 (Acc: 50.92%)
+INFO:     163.180.117.216:42826 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.117.216:33674 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:33678 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 18:39:57,904 [INFO] [job-0bcbdef2044d] Received report: Epoch 11/20 (Acc: 99.05%)
+INFO:     163.180.117.216:58906 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.117.216:58908 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:58916 - "POST /report_progress HTTP/1.1" 200 OK
+INFO:     163.180.160.62:49508 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.160.62:49522 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 18:40:11,670 [INFO] [job-efd581dbd798] Received report: Epoch 4/20 (Acc: 99.08%)
+INFO:     163.180.117.216:51786 - "POST /report_checkpoint HTTP/1.1" 200 OK
+2026-01-20 18:40:13,381 [INFO] [job-8c2ebe5a2254] Received report: Epoch 12/20 (Acc: 50.92%)
+INFO:     163.180.160.62:49534 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.117.216:53626 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:53636 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 18:41:15,036 [INFO] [job-10ece9a1a910] Received report: Epoch 9/20 (Acc: 50.92%)
+INFO:     163.180.117.216:52834 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.160.62:44094 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.160.62:44096 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 18:42:00,641 [INFO] [job-8c2ebe5a2254] Received report: Epoch 13/20 (Acc: 50.92%)
+INFO:     163.180.160.62:57700 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.117.216:42644 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:50096 - "POST /report_progress HTTP/1.1" 200 OK
+INFO:     163.180.117.216:50106 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:50114 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 18:42:56,289 [INFO] [job-10ece9a1a910] Received report: Epoch 10/20 (Acc: 50.92%)
+INFO:     163.180.117.216:50130 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.117.216:35662 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:35670 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 18:43:07,970 [INFO] [job-0bcbdef2044d] Received report: Epoch 12/20 (Acc: 99.51%)
+INFO:     163.180.117.216:35680 - "POST /report_checkpoint HTTP/1.1" 200 OK
+2026-01-20 18:43:18,049 [INFO] [job-efd581dbd798] Received report: Epoch 5/20 (Acc: 99.05%)
+INFO:     163.180.117.216:55294 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.160.62:55790 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.160.62:55798 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 18:43:48,487 [INFO] [job-8c2ebe5a2254] Received report: Epoch 14/20 (Acc: 50.92%)
+INFO:     163.180.160.62:55806 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.117.216:54062 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:54068 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 18:44:37,451 [INFO] [job-10ece9a1a910] Received report: Epoch 11/20 (Acc: 50.92%)
+INFO:     163.180.117.216:54070 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.160.62:37804 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.160.62:37820 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 18:45:41,307 [INFO] [job-8c2ebe5a2254] Received report: Epoch 15/20 (Acc: 50.92%)
+INFO:     163.180.160.62:46000 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.117.216:54890 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:54906 - "POST /report_progress HTTP/1.1" 200 OK
+INFO:     163.180.117.216:39924 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:39936 - "POST /report_progress HTTP/1.1" 200 OK
+INFO:     163.180.117.216:39940 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:39942 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 18:46:17,258 [INFO] [job-0bcbdef2044d] Received report: Epoch 13/20 (Acc: 99.55%)
+INFO:     163.180.117.216:39944 - "POST /report_checkpoint HTTP/1.1" 200 OK
+2026-01-20 18:46:18,852 [INFO] [job-10ece9a1a910] Received report: Epoch 12/20 (Acc: 50.92%)
+INFO:     163.180.117.216:39960 - "POST /report_checkpoint HTTP/1.1" 200 OK
+2026-01-20 18:46:25,765 [INFO] [job-efd581dbd798] Received report: Epoch 6/20 (Acc: 98.63%)
+INFO:     163.180.117.216:53486 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.160.62:56274 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.160.62:56280 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 18:47:27,881 [INFO] [job-8c2ebe5a2254] Received report: Epoch 16/20 (Acc: 50.92%)
+INFO:     163.180.160.62:56296 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.117.216:57320 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:57322 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 18:47:59,053 [INFO] [job-10ece9a1a910] Received report: Epoch 13/20 (Acc: 50.92%)
+INFO:     163.180.117.216:57328 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.117.216:45526 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:45536 - "POST /report_progress HTTP/1.1" 200 OK
+INFO:     163.180.160.62:47008 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.160.62:47012 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 18:49:10,067 [INFO] [job-8c2ebe5a2254] Received report: Epoch 17/20 (Acc: 50.92%)
+INFO:     163.180.160.62:49386 - "POST /report_checkpoint HTTP/1.1" 200 OK
+2026-01-20 18:49:16,896 [INFO] [job-0bcbdef2044d] Received report: Epoch 14/20 (Acc: 99.40%)
+INFO:     163.180.117.216:53244 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.117.216:53258 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:53262 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 18:49:31,733 [INFO] [job-efd581dbd798] Received report: Epoch 7/20 (Acc: 99.11%)
+INFO:     163.180.117.216:58338 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.117.216:39626 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:39630 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 18:49:39,486 [INFO] [job-10ece9a1a910] Received report: Epoch 14/20 (Acc: 50.92%)
+INFO:     163.180.117.216:39640 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.160.62:52758 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.160.62:52764 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 18:50:58,975 [INFO] [job-8c2ebe5a2254] Received report: Epoch 18/20 (Acc: 50.92%)
+INFO:     163.180.160.62:38996 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.117.216:58246 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:58260 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 18:51:20,150 [INFO] [job-10ece9a1a910] Received report: Epoch 15/20 (Acc: 50.92%)
+INFO:     163.180.117.216:58266 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.117.216:45030 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:45032 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 18:52:25,073 [INFO] [job-0bcbdef2044d] Received report: Epoch 15/20 (Acc: 99.10%)
+INFO:     163.180.117.216:48620 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.117.216:48628 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:48638 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 18:52:40,030 [INFO] [job-efd581dbd798] Received report: Epoch 8/20 (Acc: 99.30%)
+INFO:     163.180.117.216:47950 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.160.62:36222 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.160.62:36232 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 18:52:53,504 [INFO] [job-8c2ebe5a2254] Received report: Epoch 19/20 (Acc: 50.92%)
+INFO:     163.180.160.62:48480 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.117.216:52562 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:52564 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 18:53:01,960 [INFO] [job-10ece9a1a910] Received report: Epoch 16/20 (Acc: 50.92%)
+INFO:     163.180.117.216:52574 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.160.62:53106 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.160.62:53122 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 18:54:39,238 [INFO] [job-8c2ebe5a2254] Received report: Epoch 20/20 (Acc: 50.92%)
+INFO:     163.180.160.62:32880 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.117.216:43072 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:43074 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 18:54:43,481 [INFO] [job-10ece9a1a910] Received report: Epoch 17/20 (Acc: 50.92%)
+INFO:     163.180.117.216:59874 - "POST /report_checkpoint HTTP/1.1" 200 OK
+2026-01-20 18:54:43,565 [INFO] HTTP Request: POST http://localhost:8082/report_job_completed "HTTP/1.1 200 OK"
+INFO:     163.180.160.62:32888 - "POST /report_job_status HTTP/1.1" 200 OK
+2026-01-20 18:54:44,267 [INFO] [LAUNCH_REQ] job_id=job-cc3321f48d9b req_run_id=69b2ed20335c req_attempt=1 ws=4 nodes=['node_e', 'node_f', 'node_g', 'node_h'] model=DenseNet-121 dataset=TinyImageNet request_id=job-cc3321f48d9b-3e28db5fe9 reason=LAUNCH allow_preempted=False
+2026-01-20 18:54:44,268 [INFO] [LAUNCH_STATE] job_id=job-cc3321f48d9b cur_status= cur_run_id=None cur_req=None blocked_until=0.000 now=1768902884.268
+2026-01-20 18:54:44,268 [WARNING] [LAUNCH_REJECT] job_id=job-cc3321f48d9b reason=node_draining node=node_e drain_until=1768902886.494 now=1768902884.268
+INFO:     127.0.0.1:54756 - "POST /launch_job HTTP/1.1" 409 Conflict
+2026-01-20 18:54:49,273 [INFO] [LAUNCH_REQ] job_id=job-cc3321f48d9b req_run_id=69b2ed20335c req_attempt=1 ws=4 nodes=['node_e', 'node_f', 'node_g', 'node_h'] model=DenseNet-121 dataset=TinyImageNet request_id=job-cc3321f48d9b-72d00ed9c7 reason=LAUNCH allow_preempted=False
+2026-01-20 18:54:49,273 [INFO] [LAUNCH_STATE] job_id=job-cc3321f48d9b cur_status= cur_run_id=None cur_req=None blocked_until=0.000 now=1768902889.273
+2026-01-20 18:54:49,273 [INFO] [LAUNCH_RESERVED] job_id=job-cc3321f48d9b run_id=69b2ed20335c attempt=1 nodes=['node_e', 'node_f', 'node_g', 'node_h'] master=163.180.160.62 resume=None
+2026-01-20 18:54:49,274 [INFO] [LAUNCH_TRIGGER] job_id=job-cc3321f48d9b run_id=69b2ed20335c attempt=1 fanout_nodes=['node_e', 'node_f', 'node_g', 'node_h']
+2026-01-20 18:54:49,274 [INFO] [job-cc3321f48d9b] Launching job... run_id=69b2ed20335c attempt=1 WS=4 Master=163.180.160.62:29518 resume=None preempt_guard=20.0s
+2026-01-20 18:54:49,274 [INFO] [job-cc3321f48d9b] Sending run command to node_e (Rank 0) path=/nas2/data/dlwmznzl1/test/TrainingCode(DART)/TinyImageNet_Densenet121.py run_id=69b2ed20335c attempt=1
+2026-01-20 18:54:49,360 [INFO] [job-cc3321f48d9b] Sending run command to node_f (Rank 1) path=/nas2/data/dlwmznzl1/test/TrainingCode(DART)/TinyImageNet_Densenet121.py run_id=69b2ed20335c attempt=1
+2026-01-20 18:54:49,441 [INFO] [job-cc3321f48d9b] Sending run command to node_g (Rank 2) path=/data/breath12/CCGRID/test/TrainingCode(DART)/TinyImageNet_Densenet121.py run_id=69b2ed20335c attempt=1
+2026-01-20 18:54:49,451 [INFO] [job-cc3321f48d9b] Sending run command to node_h (Rank 3) path=/data/breath12/CCGRID/test/TrainingCode(DART)/TinyImageNet_Densenet121.py run_id=69b2ed20335c attempt=1
+2026-01-20 18:54:49,461 [INFO] [LAUNCH_TRIGGER_RESULT] job_id=job-cc3321f48d9b run_id=69b2ed20335c ok=True code=OK detail={'run_id': '69b2ed20335c', 'master_port': 29518, 'launched_nodes': ['node_e', 'node_f', 'node_g', 'node_h']}
+2026-01-20 18:54:49,462 [INFO] [LAUNCH_OK] job_id=job-cc3321f48d9b run_id=69b2ed20335c attempt=1 nodes=['node_e', 'node_f', 'node_g', 'node_h']
+INFO:     127.0.0.1:54758 - "POST /launch_job HTTP/1.1" 200 OK
+INFO:     163.180.117.216:53010 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:53024 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 18:55:32,284 [INFO] [job-0bcbdef2044d] Received report: Epoch 16/20 (Acc: 98.93%)
+INFO:     163.180.117.216:49576 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.117.216:58348 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:58360 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 18:55:52,550 [INFO] [job-efd581dbd798] Received report: Epoch 9/20 (Acc: 99.27%)
+INFO:     163.180.117.216:39060 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.117.216:43572 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:43586 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 18:56:26,595 [INFO] [job-10ece9a1a910] Received report: Epoch 18/20 (Acc: 50.92%)
+INFO:     163.180.117.216:43588 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.160.62:38938 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.160.62:38952 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 18:57:06,924 [INFO] [job-cc3321f48d9b] Received report: Epoch 1/20 (Acc: 12.18%)
+INFO:     163.180.160.62:38954 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.117.216:37556 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:37572 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 18:58:07,229 [INFO] [job-10ece9a1a910] Received report: Epoch 19/20 (Acc: 50.92%)
+INFO:     163.180.117.216:37580 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.117.216:56378 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:56394 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 18:58:40,639 [INFO] [job-0bcbdef2044d] Received report: Epoch 17/20 (Acc: 99.52%)
+INFO:     163.180.117.216:39290 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.117.216:48280 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:48286 - "POST /report_progress HTTP/1.1" 200 OK
+INFO:     163.180.160.62:41948 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.160.62:41954 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 18:59:02,082 [INFO] [job-cc3321f48d9b] Received report: Epoch 2/20 (Acc: 5.51%)
+INFO:     163.180.160.62:41256 - "POST /report_checkpoint HTTP/1.1" 200 OK
+2026-01-20 18:59:06,867 [INFO] [job-efd581dbd798] Received report: Epoch 10/20 (Acc: 99.34%)
+INFO:     163.180.117.216:57740 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.117.216:59260 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:59276 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 18:59:48,051 [INFO] [job-10ece9a1a910] Received report: Epoch 20/20 (Acc: 50.92%)
+INFO:     163.180.117.216:59288 - "POST /report_checkpoint HTTP/1.1" 200 OK
+2026-01-20 18:59:50,283 [INFO] HTTP Request: POST http://localhost:8082/report_job_completed "HTTP/1.1 200 OK"
+INFO:     163.180.117.216:59298 - "POST /report_job_status HTTP/1.1" 200 OK
+INFO:     163.180.160.62:34642 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.160.62:34654 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 19:00:42,436 [INFO] [job-cc3321f48d9b] Received report: Epoch 3/20 (Acc: 0.70%)
+INFO:     163.180.160.62:34294 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.117.216:39408 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:39412 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 19:01:46,574 [INFO] [job-0bcbdef2044d] Received report: Epoch 18/20 (Acc: 99.63%)
+INFO:     163.180.117.216:54538 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.117.216:60654 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:60656 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 19:02:08,914 [INFO] [job-efd581dbd798] Received report: Epoch 11/20 (Acc: 98.94%)
+INFO:     163.180.117.216:35654 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.160.62:41748 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.160.62:41758 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 19:02:14,521 [INFO] [job-cc3321f48d9b] Received report: Epoch 4/20 (Acc: 1.72%)
+INFO:     163.180.160.62:41772 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.160.62:55696 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.160.62:55706 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 19:03:47,417 [INFO] [job-cc3321f48d9b] Received report: Epoch 5/20 (Acc: 2.57%)
+INFO:     163.180.160.62:55710 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.117.216:56640 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:56648 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 19:04:53,857 [INFO] [job-0bcbdef2044d] Received report: Epoch 19/20 (Acc: 99.43%)
+INFO:     163.180.117.216:58220 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.117.216:58230 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:58238 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 19:05:11,862 [INFO] [job-efd581dbd798] Received report: Epoch 12/20 (Acc: 99.55%)
+INFO:     163.180.117.216:55068 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.160.62:50448 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.160.62:50458 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 19:05:17,431 [INFO] [job-cc3321f48d9b] Received report: Epoch 6/20 (Acc: 2.89%)
+INFO:     163.180.160.62:50474 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.160.62:33922 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.160.62:33938 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 19:06:48,785 [INFO] [job-cc3321f48d9b] Received report: Epoch 7/20 (Acc: 3.23%)
+INFO:     163.180.160.62:33942 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.117.216:54212 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:54222 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 19:07:58,284 [INFO] [job-0bcbdef2044d] Received report: Epoch 20/20 (Acc: 99.41%)
+INFO:     163.180.117.216:55016 - "POST /report_checkpoint HTTP/1.1" 200 OK
+2026-01-20 19:08:00,962 [INFO] HTTP Request: POST http://localhost:8082/report_job_completed "HTTP/1.1 200 OK"
+INFO:     163.180.117.216:55032 - "POST /report_job_status HTTP/1.1" 200 OK
+INFO:     163.180.117.216:40082 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:40088 - "POST /report_progress HTTP/1.1" 200 OK
+INFO:     163.180.160.62:58458 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.160.62:58470 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 19:08:17,142 [INFO] [job-efd581dbd798] Received report: Epoch 13/20 (Acc: 98.94%)
+INFO:     163.180.117.216:57760 - "POST /report_checkpoint HTTP/1.1" 200 OK
+2026-01-20 19:08:18,906 [INFO] [job-cc3321f48d9b] Received report: Epoch 8/20 (Acc: 3.61%)
+INFO:     163.180.160.62:58472 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.160.62:39850 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.160.62:39860 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 19:09:50,675 [INFO] [job-cc3321f48d9b] Received report: Epoch 9/20 (Acc: 4.48%)
+INFO:     163.180.160.62:46614 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.117.216:46942 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:46956 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 19:11:18,341 [INFO] [job-efd581dbd798] Received report: Epoch 14/20 (Acc: 99.53%)
+INFO:     163.180.117.216:34630 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.160.62:33974 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.160.62:33990 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 19:11:23,217 [INFO] [job-cc3321f48d9b] Received report: Epoch 10/20 (Acc: 4.95%)
+INFO:     163.180.160.62:42876 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.160.62:59860 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.160.62:59870 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 19:12:55,862 [INFO] [job-cc3321f48d9b] Received report: Epoch 11/20 (Acc: 5.38%)
+INFO:     163.180.160.62:59874 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.117.216:52146 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:52162 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 19:14:20,250 [INFO] [job-efd581dbd798] Received report: Epoch 15/20 (Acc: 99.55%)
+INFO:     163.180.117.216:43160 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.160.62:34644 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.160.62:34656 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 19:14:26,579 [INFO] [job-cc3321f48d9b] Received report: Epoch 12/20 (Acc: 5.87%)
+INFO:     163.180.160.62:34660 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.160.62:47818 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.160.62:47830 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 19:15:58,312 [INFO] [job-cc3321f48d9b] Received report: Epoch 13/20 (Acc: 6.12%)
+INFO:     163.180.160.62:47842 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.117.216:40422 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:40428 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 19:17:21,548 [INFO] [job-efd581dbd798] Received report: Epoch 16/20 (Acc: 99.56%)
+INFO:     163.180.117.216:60184 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.160.62:46062 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.160.62:46076 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 19:17:30,562 [INFO] [job-cc3321f48d9b] Received report: Epoch 14/20 (Acc: 6.26%)
+INFO:     163.180.160.62:52520 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.160.62:42598 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.160.62:42602 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 19:19:02,395 [INFO] [job-cc3321f48d9b] Received report: Epoch 15/20 (Acc: 6.68%)
+INFO:     163.180.160.62:42604 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.117.216:34022 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:34024 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 19:20:21,746 [INFO] [job-efd581dbd798] Received report: Epoch 17/20 (Acc: 99.64%)
+INFO:     163.180.117.216:58030 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.160.62:50660 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.160.62:50676 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 19:20:33,682 [INFO] [job-cc3321f48d9b] Received report: Epoch 16/20 (Acc: 7.58%)
+INFO:     163.180.160.62:50678 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.160.62:52512 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.160.62:52522 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 19:22:05,188 [INFO] [job-cc3321f48d9b] Received report: Epoch 17/20 (Acc: 7.62%)
+INFO:     163.180.160.62:52526 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.117.216:33168 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:33174 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 19:23:23,999 [INFO] [job-efd581dbd798] Received report: Epoch 18/20 (Acc: 99.59%)
+INFO:     163.180.117.216:53142 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.160.62:48660 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.160.62:48666 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 19:23:35,927 [INFO] [job-cc3321f48d9b] Received report: Epoch 18/20 (Acc: 7.98%)
+INFO:     163.180.160.62:48672 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.160.62:35270 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.160.62:35284 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 19:25:07,400 [INFO] [job-cc3321f48d9b] Received report: Epoch 19/20 (Acc: 8.32%)
+INFO:     163.180.160.62:35296 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.117.216:45556 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:45564 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 19:26:24,605 [INFO] [job-efd581dbd798] Received report: Epoch 19/20 (Acc: 99.46%)
+INFO:     163.180.117.216:41230 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.160.62:36018 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.160.62:36028 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 19:26:41,732 [INFO] [job-cc3321f48d9b] Received report: Epoch 20/20 (Acc: 8.58%)
+INFO:     163.180.160.62:50684 - "POST /report_checkpoint HTTP/1.1" 200 OK
+2026-01-20 19:26:44,082 [INFO] HTTP Request: POST http://localhost:8082/report_job_completed "HTTP/1.1 200 OK"
+INFO:     163.180.160.62:50698 - "POST /report_job_status HTTP/1.1" 200 OK
+2026-01-20 19:26:44,609 [INFO] [LAUNCH_REQ] job_id=job-b7181d3c1e67 req_run_id=17174eedff3b req_attempt=1 ws=4 nodes=['node_e', 'node_f', 'node_g', 'node_h'] model=DenseNet-121 dataset=TinyImageNet request_id=job-b7181d3c1e67-507b6fb78f reason=LAUNCH allow_preempted=False
+2026-01-20 19:26:44,609 [INFO] [LAUNCH_STATE] job_id=job-b7181d3c1e67 cur_status= cur_run_id=None cur_req=None blocked_until=0.000 now=1768904804.610
+2026-01-20 19:26:44,610 [WARNING] [LAUNCH_REJECT] job_id=job-b7181d3c1e67 reason=node_draining node=node_e drain_until=1768904807.004 now=1768904804.610
+INFO:     127.0.0.1:56500 - "POST /launch_job HTTP/1.1" 409 Conflict
+2026-01-20 19:26:44,648 [INFO] [LAUNCH_REQ] job_id=job-d7f728b2b674 req_run_id=53f5864b1a03 req_attempt=1 ws=1 nodes=['node_f'] model=DistilBERT dataset=SST-2 request_id=job-d7f728b2b674-d2468c370c reason=BACKFILL allow_preempted=False
+2026-01-20 19:26:44,648 [INFO] [LAUNCH_STATE] job_id=job-d7f728b2b674 cur_status=stopped cur_run_id=53f5864b1a03 cur_req=job-d7f728b2b674-f3aaf7bec9 blocked_until=1768901977.190 now=1768904804.649
+2026-01-20 19:26:44,648 [WARNING] [LAUNCH_REJECT] job_id=job-d7f728b2b674 reason=node_draining node=node_f drain_until=1768904807.004 now=1768904804.649
+INFO:     127.0.0.1:56510 - "POST /launch_job HTTP/1.1" 409 Conflict
+INFO:     163.180.160.62:50706 - "POST /report_job_status HTTP/1.1" 200 OK
+2026-01-20 19:26:47,601 [INFO] [LAUNCH_REQ] job_id=job-d7f728b2b674 req_run_id=53f5864b1a03 req_attempt=1 ws=1 nodes=['node_g'] model=DistilBERT dataset=SST-2 request_id=job-d7f728b2b674-c82b61158e reason=BACKFILL allow_preempted=False
+2026-01-20 19:26:47,601 [INFO] [LAUNCH_STATE] job_id=job-d7f728b2b674 cur_status=stopped cur_run_id=53f5864b1a03 cur_req=job-d7f728b2b674-f3aaf7bec9 blocked_until=1768901977.190 now=1768904807.601
+2026-01-20 19:26:47,601 [INFO] [LAUNCH_RESERVED] job_id=job-d7f728b2b674 run_id=53f5864b1a03 attempt=1 nodes=['node_g'] master=163.180.160.62 resume=None
+2026-01-20 19:26:47,601 [INFO] [LAUNCH_TRIGGER] job_id=job-d7f728b2b674 run_id=53f5864b1a03 attempt=1 fanout_nodes=['node_g']
+2026-01-20 19:26:47,601 [INFO] [job-d7f728b2b674] Launching job... run_id=53f5864b1a03 attempt=1 WS=1 Master=163.180.160.62:29519 resume=None preempt_guard=20.0s
+2026-01-20 19:26:47,601 [INFO] [job-d7f728b2b674] Sending run command to node_g (Rank 0) path=/data/breath12/CCGRID/test/TrainingCode(DART)/SST2_DistilBert.py run_id=53f5864b1a03 attempt=1
+2026-01-20 19:26:47,614 [INFO] [LAUNCH_TRIGGER_RESULT] job_id=job-d7f728b2b674 run_id=53f5864b1a03 ok=True code=OK detail={'run_id': '53f5864b1a03', 'master_port': 29519, 'launched_nodes': ['node_g']}
+2026-01-20 19:26:47,614 [INFO] [LAUNCH_OK] job_id=job-d7f728b2b674 run_id=53f5864b1a03 attempt=1 nodes=['node_g']
+INFO:     127.0.0.1:56520 - "POST /launch_job HTTP/1.1" 200 OK
+INFO:     163.180.160.62:33304 - "POST /report_job_status HTTP/1.1" 200 OK
+INFO:     163.180.160.62:33288 - "POST /report_job_status HTTP/1.1" 200 OK
+INFO:     163.180.117.216:50156 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:50158 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 19:29:24,061 [INFO] [job-efd581dbd798] Received report: Epoch 20/20 (Acc: 99.39%)
+INFO:     163.180.117.216:47274 - "POST /report_checkpoint HTTP/1.1" 200 OK
+2026-01-20 19:29:28,895 [INFO] HTTP Request: POST http://localhost:8082/report_job_completed "HTTP/1.1 200 OK"
+INFO:     163.180.117.216:47280 - "POST /report_job_status HTTP/1.1" 200 OK
+2026-01-20 19:29:29,641 [INFO] [LAUNCH_REQ] job_id=job-b7181d3c1e67 req_run_id=17174eedff3b req_attempt=1 ws=4 nodes=['node_a', 'node_b', 'node_c', 'node_d'] model=DenseNet-121 dataset=TinyImageNet request_id=job-b7181d3c1e67-75e44732b7 reason=LAUNCH allow_preempted=False
+2026-01-20 19:29:29,641 [INFO] [LAUNCH_STATE] job_id=job-b7181d3c1e67 cur_status= cur_run_id=None cur_req=None blocked_until=0.000 now=1768904969.642
+2026-01-20 19:29:29,642 [WARNING] [LAUNCH_REJECT] job_id=job-b7181d3c1e67 reason=node_draining node=node_a drain_until=1768904971.803 now=1768904969.642
+INFO:     127.0.0.1:51916 - "POST /launch_job HTTP/1.1" 409 Conflict
+2026-01-20 19:29:34,641 [INFO] [LAUNCH_REQ] job_id=job-b7181d3c1e67 req_run_id=17174eedff3b req_attempt=1 ws=4 nodes=['node_a', 'node_b', 'node_c', 'node_d'] model=DenseNet-121 dataset=TinyImageNet request_id=job-b7181d3c1e67-e8e6450087 reason=LAUNCH allow_preempted=False
+2026-01-20 19:29:34,641 [INFO] [LAUNCH_STATE] job_id=job-b7181d3c1e67 cur_status= cur_run_id=None cur_req=None blocked_until=0.000 now=1768904974.641
+2026-01-20 19:29:34,641 [INFO] [LAUNCH_RESERVED] job_id=job-b7181d3c1e67 run_id=17174eedff3b attempt=1 nodes=['node_a', 'node_b', 'node_c', 'node_d'] master=163.180.117.216 resume=None
+2026-01-20 19:29:34,641 [INFO] [LAUNCH_TRIGGER] job_id=job-b7181d3c1e67 run_id=17174eedff3b attempt=1 fanout_nodes=['node_a', 'node_b', 'node_c', 'node_d']
+2026-01-20 19:29:34,642 [INFO] [job-b7181d3c1e67] Launching job... run_id=17174eedff3b attempt=1 WS=4 Master=163.180.117.216:29520 resume=None preempt_guard=20.0s
+2026-01-20 19:29:34,642 [INFO] [job-b7181d3c1e67] Sending run command to node_a (Rank 0) path=/home/ubuntu216/SUN/TinyImageNet_Densenet121.py run_id=17174eedff3b attempt=1
+2026-01-20 19:29:34,662 [INFO] [job-b7181d3c1e67] Sending run command to node_b (Rank 1) path=/home/ubuntu216/SUN/TinyImageNet_Densenet121.py run_id=17174eedff3b attempt=1
+2026-01-20 19:29:34,682 [INFO] [job-b7181d3c1e67] Sending run command to node_c (Rank 2) path=/home/ubuntu216/SUN/TinyImageNet_Densenet121.py run_id=17174eedff3b attempt=1
+2026-01-20 19:29:34,701 [INFO] [job-b7181d3c1e67] Sending run command to node_d (Rank 3) path=/home/ubuntu216/SUN/TinyImageNet_Densenet121.py run_id=17174eedff3b attempt=1
+2026-01-20 19:29:34,720 [INFO] [LAUNCH_TRIGGER_RESULT] job_id=job-b7181d3c1e67 run_id=17174eedff3b ok=True code=OK detail={'run_id': '17174eedff3b', 'master_port': 29520, 'launched_nodes': ['node_a', 'node_b', 'node_c', 'node_d']}
+2026-01-20 19:29:34,720 [INFO] [LAUNCH_OK] job_id=job-b7181d3c1e67 run_id=17174eedff3b attempt=1 nodes=['node_a', 'node_b', 'node_c', 'node_d']
+INFO:     127.0.0.1:41638 - "POST /launch_job HTTP/1.1" 200 OK
+INFO:     163.180.160.62:37444 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.160.62:37456 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 19:29:38,834 [INFO] [job-d7f728b2b674] Received report: Epoch 1/20 (Acc: 50.92%)
+INFO:     163.180.160.62:37464 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.160.62:33326 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.160.62:33342 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 19:31:23,783 [INFO] [job-d7f728b2b674] Received report: Epoch 2/20 (Acc: 50.92%)
+INFO:     163.180.160.62:33354 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.117.216:46306 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:46314 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 19:32:41,179 [INFO] [job-b7181d3c1e67] Received report: Epoch 1/20 (Acc: 11.05%)
+INFO:     163.180.117.216:46324 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.160.62:60512 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.160.62:60524 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 19:33:07,953 [INFO] [job-d7f728b2b674] Received report: Epoch 3/20 (Acc: 50.92%)
+INFO:     163.180.160.62:60528 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.160.62:53186 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.160.62:53192 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 19:34:54,005 [INFO] [job-d7f728b2b674] Received report: Epoch 4/20 (Acc: 50.92%)
+INFO:     163.180.160.62:53196 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.117.216:57016 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:57032 - "POST /report_progress HTTP/1.1" 200 OK
+INFO:     163.180.160.62:50590 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.160.62:50594 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 19:36:40,156 [INFO] [job-d7f728b2b674] Received report: Epoch 5/20 (Acc: 50.92%)
+INFO:     163.180.160.62:46008 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.117.216:59256 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:59260 - "POST /report_progress HTTP/1.1" 200 OK
+INFO:     163.180.160.62:56128 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.160.62:56142 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 19:38:24,545 [INFO] [job-d7f728b2b674] Received report: Epoch 6/20 (Acc: 50.92%)
+INFO:     163.180.160.62:56152 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.117.216:54832 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:54842 - "POST /report_progress HTTP/1.1" 200 OK
+INFO:     163.180.160.62:33710 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.160.62:33716 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 19:40:09,468 [INFO] [job-d7f728b2b674] Received report: Epoch 7/20 (Acc: 50.92%)
+INFO:     163.180.160.62:35868 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.117.216:45268 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:45282 - "POST /report_progress HTTP/1.1" 200 OK
+INFO:     163.180.160.62:46662 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.160.62:46672 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 19:41:55,572 [INFO] [job-d7f728b2b674] Received report: Epoch 8/20 (Acc: 50.92%)
+INFO:     163.180.160.62:46680 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.117.216:37230 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:37242 - "POST /report_progress HTTP/1.1" 200 OK
+INFO:     163.180.160.62:59658 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.160.62:59664 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 19:43:40,486 [INFO] [job-d7f728b2b674] Received report: Epoch 9/20 (Acc: 50.92%)
+INFO:     163.180.160.62:47766 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.117.216:52040 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:52048 - "POST /report_progress HTTP/1.1" 200 OK
+INFO:     163.180.160.62:45008 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.160.62:45022 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 19:45:25,656 [INFO] [job-d7f728b2b674] Received report: Epoch 10/20 (Acc: 50.92%)
+INFO:     163.180.160.62:45034 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.117.216:59502 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:59508 - "POST /report_progress HTTP/1.1" 200 OK
+INFO:     163.180.160.62:34776 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.160.62:34786 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 19:47:10,582 [INFO] [job-d7f728b2b674] Received report: Epoch 11/20 (Acc: 50.92%)
+INFO:     163.180.160.62:37186 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.117.216:40072 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:40080 - "POST /report_progress HTTP/1.1" 200 OK
+INFO:     163.180.160.62:54908 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.160.62:54910 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 19:48:56,975 [INFO] [job-d7f728b2b674] Received report: Epoch 12/20 (Acc: 50.92%)
+INFO:     163.180.160.62:54912 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.117.216:43500 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:43516 - "POST /report_progress HTTP/1.1" 200 OK
+INFO:     163.180.160.62:52252 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.160.62:52266 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 19:50:41,296 [INFO] [job-d7f728b2b674] Received report: Epoch 13/20 (Acc: 50.92%)
+INFO:     163.180.160.62:44314 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.117.216:38514 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:38524 - "POST /report_progress HTTP/1.1" 200 OK
+INFO:     163.180.160.62:50964 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.160.62:50972 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 19:52:25,600 [INFO] [job-d7f728b2b674] Received report: Epoch 14/20 (Acc: 50.92%)
+INFO:     163.180.160.62:50976 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.117.216:43872 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:43882 - "POST /report_progress HTTP/1.1" 200 OK
+INFO:     163.180.160.62:50004 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.160.62:50008 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 19:54:11,903 [INFO] [job-d7f728b2b674] Received report: Epoch 15/20 (Acc: 50.92%)
+INFO:     163.180.160.62:39880 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.117.216:40766 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:40776 - "POST /report_progress HTTP/1.1" 200 OK
+INFO:     163.180.160.62:44736 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.160.62:44744 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 19:55:55,247 [INFO] [job-d7f728b2b674] Received report: Epoch 16/20 (Acc: 50.92%)
+INFO:     163.180.160.62:44754 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.117.216:35690 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:35696 - "POST /report_progress HTTP/1.1" 200 OK
+INFO:     163.180.160.62:54630 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.160.62:54632 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 19:57:41,949 [INFO] [job-d7f728b2b674] Received report: Epoch 17/20 (Acc: 50.92%)
+INFO:     163.180.160.62:37800 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.117.216:38756 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:38768 - "POST /report_progress HTTP/1.1" 200 OK
+INFO:     163.180.160.62:50234 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.160.62:50248 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 19:59:26,634 [INFO] [job-d7f728b2b674] Received report: Epoch 18/20 (Acc: 50.92%)
+INFO:     163.180.160.62:50260 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.117.216:51708 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:51720 - "POST /report_progress HTTP/1.1" 200 OK
+INFO:     163.180.160.62:49982 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.160.62:49984 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 20:01:13,743 [INFO] [job-d7f728b2b674] Received report: Epoch 19/20 (Acc: 50.92%)
+INFO:     163.180.160.62:49986 - "POST /report_checkpoint HTTP/1.1" 200 OK
+INFO:     163.180.117.216:57908 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:57924 - "POST /report_progress HTTP/1.1" 200 OK
+INFO:     163.180.160.62:47382 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.160.62:47388 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 20:02:57,816 [INFO] [job-d7f728b2b674] Received report: Epoch 20/20 (Acc: 50.92%)
+INFO:     163.180.160.62:47394 - "POST /report_checkpoint HTTP/1.1" 200 OK
+2026-01-20 20:02:59,960 [INFO] HTTP Request: POST http://localhost:8082/report_job_completed "HTTP/1.1 200 OK"
+INFO:     163.180.160.62:38194 - "POST /report_job_status HTTP/1.1" 200 OK
+INFO:     163.180.117.216:46094 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:46100 - "POST /report_progress HTTP/1.1" 200 OK
+INFO:     163.180.117.216:52124 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:52132 - "POST /report_progress HTTP/1.1" 200 OK
+INFO:     163.180.117.216:58430 - "POST /report_job_metrics HTTP/1.1" 200 OK
+INFO:     163.180.117.216:58438 - "POST /report_progress HTTP/1.1" 200 OK
+2026-01-20 20:07:03,404 [INFO] HTTP Request: POST http://localhost:8082/report_job_completed "HTTP/1.1 200 OK"
+INFO:     163.180.117.216:59984 - "POST /report_job_status HTTP/1.1" 200 OK
+INFO:     163.180.117.216:59988 - "POST /report_job_status HTTP/1.1" 200 OK
+INFO:     163.180.117.216:59998 - "POST /report_job_status HTTP/1.1" 200 OK
+INFO:     163.180.117.216:60010 - "POST /report_job_status HTTP/1.1" 200 OK
+^CINFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [3594675]

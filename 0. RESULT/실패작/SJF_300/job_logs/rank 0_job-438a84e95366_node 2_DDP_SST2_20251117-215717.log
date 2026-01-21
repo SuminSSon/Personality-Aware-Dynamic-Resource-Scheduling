@@ -1,0 +1,201 @@
+Current CUDA device index: 0
+Current CUDA device name: NVIDIA GeForce RTX 5070 Ti
+Master address: 163.180.117.216, port: 29575
+2025-11-17 21:57:23,682 DDP_Script [Rank 0] [INFO] Node rank: 0, world size: 2
+[Gloo] Rank 0 is connected to 1 peer ranks. Expected number of connected peer ranks is : 1
+2025-11-17 21:57:24,311 DDP_Script [Rank 0] [INFO] Process group initialized: 163.180.117.216:29575
+2025-11-17 21:57:24,311 DDP_Script [Rank 0] [INFO] Rank 0/2 initialized
+2025-11-17 21:57:24,311 DDP_Script [Rank 0] [INFO] Rank 0 downloading tokenizer: distilbert-base-uncased
+2025-11-17 21:57:25,532 DDP_Script [Rank 0] [INFO] Rank 0 downloading dataset: glue/sst2
+2025-11-17 21:57:30,745 DDP_Script [Rank 0] [INFO] Tokenizing datasets...
+2025-11-17 21:57:30,790 DDP_Script [Rank 0] [INFO] SST-2 Dataset and Tokenizer loaded.
+2025-11-17 21:57:30,791 DDP_Script [Rank 0] [INFO] Rank 0 downloading model: distilbert-base-uncased
+Some weights of DistilBertForSequenceClassification were not initialized from the model checkpoint at distilbert-base-uncased and are newly initialized: ['classifier.bias', 'classifier.weight', 'pre_classifier.bias', 'pre_classifier.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2025-11-17 21:57:37,743 DDP_Script [Rank 0] [INFO] Model (DistilBert), DDP, optimizer (AdamW) initialized
+2025-11-17 21:57:37,747 DDP_Script [Rank 0] [INFO] Modules initialized
+2025-11-17 21:57:37,748 DDP_Script [Rank 0] [INFO] Checkpoint directory created: ./checkpoints/job-438a84e95366
+2025-11-17 21:57:37,748 DDP_Script [Rank 0] [INFO] Starting training from scratch (epoch 1).
+2025-11-17 21:57:37,781 DDP_Script [Rank 0] [INFO] epoch 1 시작
+2025-11-17 21:57:37,793 DDP_Script [Rank 0] [INFO] DataLoader created with batch_size=16, num_workers=4
+2025-11-17 21:57:37,845 DDP_Script [Rank 0] [INFO] 모든 노드 중 max_steps = 2105
+2025-11-17 21:57:37,846 DDP_Script [Rank 0] [INFO] local_steps=2105, global_steps=2105
+2025-11-17 22:09:38,431 DDP_Script [Rank 0] [INFO] epoch 1 train step time: 720.58 seconds
+2025-11-17 22:09:38,435 DDP_Script [Rank 0] [INFO] epoch 1 끝 (local_steps=2105, global_steps=2105)
+2025-11-17 22:09:38,883 DDP_Script [Rank 0] [INFO] val acc 89.56%
+2025-11-17 22:09:38,894 DDP_Script [Rank 0] [INFO] Saving checkpoint to ./checkpoints/job-438a84e95366/latest_checkpoint.pth ...
+2025-11-17 22:09:40,069 DDP_Script [Rank 0] [INFO] Successfully reported epoch 1/20 (Acc: 89.56%) to global server.
+2025-11-17 22:09:40,071 DDP_Script [Rank 0] [INFO] epoch 2 시작
+2025-11-17 22:09:40,078 DDP_Script [Rank 0] [INFO] DataLoader created with batch_size=16, num_workers=4
+2025-11-17 22:09:40,088 DDP_Script [Rank 0] [INFO] 모든 노드 중 max_steps = 2105
+2025-11-17 22:09:40,088 DDP_Script [Rank 0] [INFO] local_steps=2105, global_steps=2105
+2025-11-17 22:21:37,312 DDP_Script [Rank 0] [INFO] epoch 2 train step time: 717.22 seconds
+2025-11-17 22:21:37,315 DDP_Script [Rank 0] [INFO] epoch 2 끝 (local_steps=2105, global_steps=2105)
+2025-11-17 22:21:37,902 DDP_Script [Rank 0] [INFO] val acc 91.06%
+2025-11-17 22:21:37,917 DDP_Script [Rank 0] [INFO] Saving checkpoint to ./checkpoints/job-438a84e95366/latest_checkpoint.pth ...
+2025-11-17 22:21:40,754 DDP_Script [Rank 0] [INFO] Successfully reported epoch 2/20 (Acc: 91.06%) to global server.
+2025-11-17 22:21:40,758 DDP_Script [Rank 0] [INFO] epoch 3 시작
+2025-11-17 22:21:40,774 DDP_Script [Rank 0] [INFO] DataLoader created with batch_size=16, num_workers=4
+2025-11-17 22:21:40,778 DDP_Script [Rank 0] [INFO] 모든 노드 중 max_steps = 2105
+2025-11-17 22:21:40,778 DDP_Script [Rank 0] [INFO] local_steps=2105, global_steps=2105
+2025-11-17 22:33:36,425 DDP_Script [Rank 0] [INFO] epoch 3 train step time: 715.65 seconds
+2025-11-17 22:33:36,428 DDP_Script [Rank 0] [INFO] epoch 3 끝 (local_steps=2105, global_steps=2105)
+2025-11-17 22:33:36,907 DDP_Script [Rank 0] [INFO] val acc 90.37%
+2025-11-17 22:33:36,920 DDP_Script [Rank 0] [INFO] Saving checkpoint to ./checkpoints/job-438a84e95366/latest_checkpoint.pth ...
+2025-11-17 22:33:39,938 DDP_Script [Rank 0] [INFO] Successfully reported epoch 3/20 (Acc: 90.37%) to global server.
+2025-11-17 22:33:39,942 DDP_Script [Rank 0] [INFO] epoch 4 시작
+2025-11-17 22:33:39,967 DDP_Script [Rank 0] [INFO] DataLoader created with batch_size=16, num_workers=4
+2025-11-17 22:33:39,972 DDP_Script [Rank 0] [INFO] 모든 노드 중 max_steps = 2105
+2025-11-17 22:33:39,972 DDP_Script [Rank 0] [INFO] local_steps=2105, global_steps=2105
+2025-11-17 22:45:13,183 DDP_Script [Rank 0] [INFO] epoch 4 train step time: 693.21 seconds
+2025-11-17 22:45:13,186 DDP_Script [Rank 0] [INFO] epoch 4 끝 (local_steps=2105, global_steps=2105)
+2025-11-17 22:45:13,803 DDP_Script [Rank 0] [INFO] val acc 89.56%
+2025-11-17 22:45:13,822 DDP_Script [Rank 0] [INFO] Saving checkpoint to ./checkpoints/job-438a84e95366/latest_checkpoint.pth ...
+2025-11-17 22:45:16,736 DDP_Script [Rank 0] [INFO] Successfully reported epoch 4/20 (Acc: 89.56%) to global server.
+2025-11-17 22:45:16,738 DDP_Script [Rank 0] [INFO] epoch 5 시작
+2025-11-17 22:45:16,753 DDP_Script [Rank 0] [INFO] DataLoader created with batch_size=16, num_workers=4
+2025-11-17 22:45:16,763 DDP_Script [Rank 0] [INFO] 모든 노드 중 max_steps = 2105
+2025-11-17 22:45:16,763 DDP_Script [Rank 0] [INFO] local_steps=2105, global_steps=2105
+2025-11-17 22:57:06,948 DDP_Script [Rank 0] [INFO] epoch 5 train step time: 710.18 seconds
+2025-11-17 22:57:06,951 DDP_Script [Rank 0] [INFO] epoch 5 끝 (local_steps=2105, global_steps=2105)
+2025-11-17 22:57:07,424 DDP_Script [Rank 0] [INFO] val acc 90.60%
+2025-11-17 22:57:07,434 DDP_Script [Rank 0] [INFO] Saving checkpoint to ./checkpoints/job-438a84e95366/latest_checkpoint.pth ...
+2025-11-17 22:57:10,287 DDP_Script [Rank 0] [INFO] Successfully reported epoch 5/20 (Acc: 90.60%) to global server.
+2025-11-17 22:57:10,292 DDP_Script [Rank 0] [INFO] epoch 6 시작
+2025-11-17 22:57:10,315 DDP_Script [Rank 0] [INFO] DataLoader created with batch_size=16, num_workers=4
+2025-11-17 22:57:10,320 DDP_Script [Rank 0] [INFO] 모든 노드 중 max_steps = 2105
+2025-11-17 22:57:10,320 DDP_Script [Rank 0] [INFO] local_steps=2105, global_steps=2105
+2025-11-17 23:09:03,047 DDP_Script [Rank 0] [INFO] epoch 6 train step time: 712.73 seconds
+2025-11-17 23:09:03,053 DDP_Script [Rank 0] [INFO] epoch 6 끝 (local_steps=2105, global_steps=2105)
+2025-11-17 23:09:03,492 DDP_Script [Rank 0] [INFO] val acc 89.68%
+2025-11-17 23:09:03,503 DDP_Script [Rank 0] [INFO] Saving checkpoint to ./checkpoints/job-438a84e95366/latest_checkpoint.pth ...
+2025-11-17 23:09:06,330 DDP_Script [Rank 0] [INFO] Successfully reported epoch 6/20 (Acc: 89.68%) to global server.
+2025-11-17 23:09:06,333 DDP_Script [Rank 0] [INFO] epoch 7 시작
+2025-11-17 23:09:06,347 DDP_Script [Rank 0] [INFO] DataLoader created with batch_size=16, num_workers=4
+2025-11-17 23:09:06,355 DDP_Script [Rank 0] [INFO] 모든 노드 중 max_steps = 2105
+2025-11-17 23:09:06,355 DDP_Script [Rank 0] [INFO] local_steps=2105, global_steps=2105
+2025-11-17 23:21:00,454 DDP_Script [Rank 0] [INFO] epoch 7 train step time: 714.10 seconds
+2025-11-17 23:21:00,457 DDP_Script [Rank 0] [INFO] epoch 7 끝 (local_steps=2105, global_steps=2105)
+2025-11-17 23:21:00,985 DDP_Script [Rank 0] [INFO] val acc 90.02%
+2025-11-17 23:21:01,001 DDP_Script [Rank 0] [INFO] Saving checkpoint to ./checkpoints/job-438a84e95366/latest_checkpoint.pth ...
+2025-11-17 23:21:04,061 DDP_Script [Rank 0] [INFO] Successfully reported epoch 7/20 (Acc: 90.02%) to global server.
+2025-11-17 23:21:04,065 DDP_Script [Rank 0] [INFO] epoch 8 시작
+2025-11-17 23:21:04,087 DDP_Script [Rank 0] [INFO] DataLoader created with batch_size=16, num_workers=4
+2025-11-17 23:21:04,091 DDP_Script [Rank 0] [INFO] 모든 노드 중 max_steps = 2105
+2025-11-17 23:21:04,091 DDP_Script [Rank 0] [INFO] local_steps=2105, global_steps=2105
+2025-11-17 23:32:36,793 DDP_Script [Rank 0] [INFO] epoch 8 train step time: 692.70 seconds
+2025-11-17 23:32:36,814 DDP_Script [Rank 0] [INFO] epoch 8 끝 (local_steps=2105, global_steps=2105)
+2025-11-17 23:32:37,336 DDP_Script [Rank 0] [INFO] val acc 89.33%
+2025-11-17 23:32:37,347 DDP_Script [Rank 0] [INFO] Saving checkpoint to ./checkpoints/job-438a84e95366/latest_checkpoint.pth ...
+2025-11-17 23:32:40,295 DDP_Script [Rank 0] [INFO] Successfully reported epoch 8/20 (Acc: 89.33%) to global server.
+2025-11-17 23:32:40,298 DDP_Script [Rank 0] [INFO] epoch 9 시작
+2025-11-17 23:32:40,314 DDP_Script [Rank 0] [INFO] DataLoader created with batch_size=16, num_workers=4
+2025-11-17 23:32:40,318 DDP_Script [Rank 0] [INFO] 모든 노드 중 max_steps = 2105
+2025-11-17 23:32:40,318 DDP_Script [Rank 0] [INFO] local_steps=2105, global_steps=2105
+2025-11-17 23:44:30,970 DDP_Script [Rank 0] [INFO] epoch 9 train step time: 710.65 seconds
+2025-11-17 23:44:30,973 DDP_Script [Rank 0] [INFO] epoch 9 끝 (local_steps=2105, global_steps=2105)
+2025-11-17 23:44:31,569 DDP_Script [Rank 0] [INFO] val acc 90.71%
+2025-11-17 23:44:31,586 DDP_Script [Rank 0] [INFO] Saving checkpoint to ./checkpoints/job-438a84e95366/latest_checkpoint.pth ...
+2025-11-17 23:44:34,558 DDP_Script [Rank 0] [INFO] Successfully reported epoch 9/20 (Acc: 90.71%) to global server.
+2025-11-17 23:44:34,563 DDP_Script [Rank 0] [INFO] epoch 10 시작
+2025-11-17 23:44:34,585 DDP_Script [Rank 0] [INFO] DataLoader created with batch_size=16, num_workers=4
+2025-11-17 23:44:34,589 DDP_Script [Rank 0] [INFO] 모든 노드 중 max_steps = 2105
+2025-11-17 23:44:34,589 DDP_Script [Rank 0] [INFO] local_steps=2105, global_steps=2105
+2025-11-17 23:56:25,388 DDP_Script [Rank 0] [INFO] epoch 10 train step time: 710.80 seconds
+2025-11-17 23:56:25,391 DDP_Script [Rank 0] [INFO] epoch 10 끝 (local_steps=2105, global_steps=2105)
+2025-11-17 23:56:25,861 DDP_Script [Rank 0] [INFO] val acc 89.56%
+2025-11-17 23:56:25,873 DDP_Script [Rank 0] [INFO] Saving checkpoint to ./checkpoints/job-438a84e95366/latest_checkpoint.pth ...
+2025-11-17 23:56:28,888 DDP_Script [Rank 0] [INFO] Successfully reported epoch 10/20 (Acc: 89.56%) to global server.
+2025-11-17 23:56:28,891 DDP_Script [Rank 0] [INFO] epoch 11 시작
+2025-11-17 23:56:28,904 DDP_Script [Rank 0] [INFO] DataLoader created with batch_size=16, num_workers=4
+2025-11-17 23:56:28,912 DDP_Script [Rank 0] [INFO] 모든 노드 중 max_steps = 2105
+2025-11-17 23:56:28,913 DDP_Script [Rank 0] [INFO] local_steps=2105, global_steps=2105
+2025-11-18 00:08:45,942 DDP_Script [Rank 0] [INFO] epoch 11 train step time: 737.03 seconds
+2025-11-18 00:08:45,958 DDP_Script [Rank 0] [INFO] epoch 11 끝 (local_steps=2105, global_steps=2105)
+2025-11-18 00:08:46,433 DDP_Script [Rank 0] [INFO] val acc 89.45%
+2025-11-18 00:08:46,443 DDP_Script [Rank 0] [INFO] Saving checkpoint to ./checkpoints/job-438a84e95366/latest_checkpoint.pth ...
+2025-11-18 00:08:49,338 DDP_Script [Rank 0] [INFO] Successfully reported epoch 11/20 (Acc: 89.45%) to global server.
+2025-11-18 00:08:49,340 DDP_Script [Rank 0] [INFO] epoch 12 시작
+2025-11-18 00:08:49,355 DDP_Script [Rank 0] [INFO] DataLoader created with batch_size=16, num_workers=4
+2025-11-18 00:08:49,358 DDP_Script [Rank 0] [INFO] 모든 노드 중 max_steps = 2105
+2025-11-18 00:08:49,359 DDP_Script [Rank 0] [INFO] local_steps=2105, global_steps=2105
+2025-11-18 00:21:10,734 DDP_Script [Rank 0] [INFO] epoch 12 train step time: 741.37 seconds
+2025-11-18 00:21:10,737 DDP_Script [Rank 0] [INFO] epoch 12 끝 (local_steps=2105, global_steps=2105)
+2025-11-18 00:21:11,211 DDP_Script [Rank 0] [INFO] val acc 89.33%
+2025-11-18 00:21:11,221 DDP_Script [Rank 0] [INFO] Saving checkpoint to ./checkpoints/job-438a84e95366/latest_checkpoint.pth ...
+2025-11-18 00:21:14,225 DDP_Script [Rank 0] [INFO] Successfully reported epoch 12/20 (Acc: 89.33%) to global server.
+2025-11-18 00:21:14,228 DDP_Script [Rank 0] [INFO] epoch 13 시작
+2025-11-18 00:21:14,240 DDP_Script [Rank 0] [INFO] DataLoader created with batch_size=16, num_workers=4
+2025-11-18 00:21:14,250 DDP_Script [Rank 0] [INFO] 모든 노드 중 max_steps = 2105
+2025-11-18 00:21:14,250 DDP_Script [Rank 0] [INFO] local_steps=2105, global_steps=2105
+2025-11-18 00:33:30,843 DDP_Script [Rank 0] [INFO] epoch 13 train step time: 736.59 seconds
+2025-11-18 00:33:30,846 DDP_Script [Rank 0] [INFO] epoch 13 끝 (local_steps=2105, global_steps=2105)
+2025-11-18 00:33:31,482 DDP_Script [Rank 0] [INFO] val acc 89.68%
+2025-11-18 00:33:31,497 DDP_Script [Rank 0] [INFO] Saving checkpoint to ./checkpoints/job-438a84e95366/latest_checkpoint.pth ...
+2025-11-18 00:33:34,480 DDP_Script [Rank 0] [INFO] Successfully reported epoch 13/20 (Acc: 89.68%) to global server.
+2025-11-18 00:33:34,482 DDP_Script [Rank 0] [INFO] epoch 14 시작
+2025-11-18 00:33:34,495 DDP_Script [Rank 0] [INFO] DataLoader created with batch_size=16, num_workers=4
+2025-11-18 00:33:34,498 DDP_Script [Rank 0] [INFO] 모든 노드 중 max_steps = 2105
+2025-11-18 00:33:34,498 DDP_Script [Rank 0] [INFO] local_steps=2105, global_steps=2105
+2025-11-18 00:45:56,482 DDP_Script [Rank 0] [INFO] epoch 14 train step time: 741.98 seconds
+2025-11-18 00:45:56,484 DDP_Script [Rank 0] [INFO] epoch 14 끝 (local_steps=2105, global_steps=2105)
+2025-11-18 00:45:56,952 DDP_Script [Rank 0] [INFO] val acc 89.45%
+2025-11-18 00:45:56,967 DDP_Script [Rank 0] [INFO] Saving checkpoint to ./checkpoints/job-438a84e95366/latest_checkpoint.pth ...
+2025-11-18 00:46:00,027 DDP_Script [Rank 0] [INFO] Successfully reported epoch 14/20 (Acc: 89.45%) to global server.
+2025-11-18 00:46:00,031 DDP_Script [Rank 0] [INFO] epoch 15 시작
+2025-11-18 00:46:00,054 DDP_Script [Rank 0] [INFO] DataLoader created with batch_size=16, num_workers=4
+2025-11-18 00:46:00,058 DDP_Script [Rank 0] [INFO] 모든 노드 중 max_steps = 2105
+2025-11-18 00:46:00,058 DDP_Script [Rank 0] [INFO] local_steps=2105, global_steps=2105
+2025-11-18 00:58:21,484 DDP_Script [Rank 0] [INFO] epoch 15 train step time: 741.42 seconds
+2025-11-18 00:58:21,486 DDP_Script [Rank 0] [INFO] epoch 15 끝 (local_steps=2105, global_steps=2105)
+2025-11-18 00:58:21,971 DDP_Script [Rank 0] [INFO] val acc 89.22%
+2025-11-18 00:58:21,982 DDP_Script [Rank 0] [INFO] Saving checkpoint to ./checkpoints/job-438a84e95366/latest_checkpoint.pth ...
+2025-11-18 00:58:24,830 DDP_Script [Rank 0] [INFO] Successfully reported epoch 15/20 (Acc: 89.22%) to global server.
+2025-11-18 00:58:24,833 DDP_Script [Rank 0] [INFO] epoch 16 시작
+2025-11-18 00:58:24,847 DDP_Script [Rank 0] [INFO] DataLoader created with batch_size=16, num_workers=4
+2025-11-18 00:58:24,854 DDP_Script [Rank 0] [INFO] 모든 노드 중 max_steps = 2105
+2025-11-18 00:58:24,854 DDP_Script [Rank 0] [INFO] local_steps=2105, global_steps=2105
+2025-11-18 01:10:43,939 DDP_Script [Rank 0] [INFO] epoch 16 train step time: 739.08 seconds
+2025-11-18 01:10:43,941 DDP_Script [Rank 0] [INFO] epoch 16 끝 (local_steps=2105, global_steps=2105)
+2025-11-18 01:10:44,423 DDP_Script [Rank 0] [INFO] val acc 88.07%
+2025-11-18 01:10:44,434 DDP_Script [Rank 0] [INFO] Saving checkpoint to ./checkpoints/job-438a84e95366/latest_checkpoint.pth ...
+2025-11-18 01:10:47,346 DDP_Script [Rank 0] [INFO] Successfully reported epoch 16/20 (Acc: 88.07%) to global server.
+2025-11-18 01:10:47,350 DDP_Script [Rank 0] [INFO] epoch 17 시작
+2025-11-18 01:10:47,380 DDP_Script [Rank 0] [INFO] DataLoader created with batch_size=16, num_workers=4
+2025-11-18 01:10:47,384 DDP_Script [Rank 0] [INFO] 모든 노드 중 max_steps = 2105
+2025-11-18 01:10:47,384 DDP_Script [Rank 0] [INFO] local_steps=2105, global_steps=2105
+2025-11-18 01:23:08,813 DDP_Script [Rank 0] [INFO] epoch 17 train step time: 741.43 seconds
+2025-11-18 01:23:08,816 DDP_Script [Rank 0] [INFO] epoch 17 끝 (local_steps=2105, global_steps=2105)
+2025-11-18 01:23:09,285 DDP_Script [Rank 0] [INFO] val acc 89.91%
+2025-11-18 01:23:09,295 DDP_Script [Rank 0] [INFO] Saving checkpoint to ./checkpoints/job-438a84e95366/latest_checkpoint.pth ...
+2025-11-18 01:23:12,096 DDP_Script [Rank 0] [INFO] Successfully reported epoch 17/20 (Acc: 89.91%) to global server.
+2025-11-18 01:23:12,098 DDP_Script [Rank 0] [INFO] epoch 18 시작
+2025-11-18 01:23:12,111 DDP_Script [Rank 0] [INFO] DataLoader created with batch_size=16, num_workers=4
+2025-11-18 01:23:12,122 DDP_Script [Rank 0] [INFO] 모든 노드 중 max_steps = 2105
+2025-11-18 01:23:12,122 DDP_Script [Rank 0] [INFO] local_steps=2105, global_steps=2105
+2025-11-18 01:35:34,408 DDP_Script [Rank 0] [INFO] epoch 18 train step time: 742.28 seconds
+2025-11-18 01:35:34,411 DDP_Script [Rank 0] [INFO] epoch 18 끝 (local_steps=2105, global_steps=2105)
+2025-11-18 01:35:34,904 DDP_Script [Rank 0] [INFO] val acc 90.48%
+2025-11-18 01:35:34,916 DDP_Script [Rank 0] [INFO] Saving checkpoint to ./checkpoints/job-438a84e95366/latest_checkpoint.pth ...
+2025-11-18 01:35:37,784 DDP_Script [Rank 0] [INFO] Successfully reported epoch 18/20 (Acc: 90.48%) to global server.
+2025-11-18 01:35:37,787 DDP_Script [Rank 0] [INFO] epoch 19 시작
+2025-11-18 01:35:37,800 DDP_Script [Rank 0] [INFO] DataLoader created with batch_size=16, num_workers=4
+2025-11-18 01:35:37,806 DDP_Script [Rank 0] [INFO] 모든 노드 중 max_steps = 2105
+2025-11-18 01:35:37,806 DDP_Script [Rank 0] [INFO] local_steps=2105, global_steps=2105
+2025-11-18 01:47:57,383 DDP_Script [Rank 0] [INFO] epoch 19 train step time: 739.58 seconds
+2025-11-18 01:47:57,386 DDP_Script [Rank 0] [INFO] epoch 19 끝 (local_steps=2105, global_steps=2105)
+2025-11-18 01:47:57,935 DDP_Script [Rank 0] [INFO] val acc 88.30%
+2025-11-18 01:47:57,945 DDP_Script [Rank 0] [INFO] Saving checkpoint to ./checkpoints/job-438a84e95366/latest_checkpoint.pth ...
+2025-11-18 01:48:00,881 DDP_Script [Rank 0] [INFO] Successfully reported epoch 19/20 (Acc: 88.30%) to global server.
+2025-11-18 01:48:00,885 DDP_Script [Rank 0] [INFO] epoch 20 시작
+2025-11-18 01:48:00,910 DDP_Script [Rank 0] [INFO] DataLoader created with batch_size=16, num_workers=4
+2025-11-18 01:48:00,913 DDP_Script [Rank 0] [INFO] 모든 노드 중 max_steps = 2105
+2025-11-18 01:48:00,914 DDP_Script [Rank 0] [INFO] local_steps=2105, global_steps=2105
+2025-11-18 02:00:01,703 DDP_Script [Rank 0] [INFO] epoch 20 train step time: 720.79 seconds
+2025-11-18 02:00:01,706 DDP_Script [Rank 0] [INFO] epoch 20 끝 (local_steps=2105, global_steps=2105)
+2025-11-18 02:00:02,170 DDP_Script [Rank 0] [INFO] val acc 89.22%
+2025-11-18 02:00:02,181 DDP_Script [Rank 0] [INFO] Saving checkpoint to ./checkpoints/job-438a84e95366/latest_checkpoint.pth ...
+2025-11-18 02:00:05,068 DDP_Script [Rank 0] [INFO] Successfully reported epoch 20/20 (Acc: 89.22%) to global server.
+2025-11-18 02:00:05,087 DDP_Script [Rank 0] [INFO] Training completed successfully.
+2025-11-18 02:00:05,101 DDP_Script [Rank 0] [INFO] Reported job completion to global server.
+2025-11-18 02:00:05,101 DDP_Script [Rank 0] [INFO] Training loop finished.

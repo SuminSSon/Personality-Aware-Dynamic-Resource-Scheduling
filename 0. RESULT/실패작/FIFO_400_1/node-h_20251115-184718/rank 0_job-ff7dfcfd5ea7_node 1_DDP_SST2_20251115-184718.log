@@ -1,0 +1,39 @@
+Current CUDA device index: 0
+Current CUDA device name: NVIDIA RTX A5000
+Master address: 163.180.160.61, port: 29521
+2025-11-15 18:47:29,329 DDP_Script [Rank 0] [INFO] Node rank: 0, world size: 1
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+2025-11-15 18:47:29,336 DDP_Script [Rank 0] [INFO] Process group initialized: 163.180.160.61:29521
+2025-11-15 18:47:29,336 DDP_Script [Rank 0] [INFO] Rank 0/1 initialized
+2025-11-15 18:47:29,336 DDP_Script [Rank 0] [INFO] Rank 0 downloading tokenizer: distilbert-base-uncased
+[rank0]: Traceback (most recent call last):
+[rank0]:   File "/data/breath12/CCGRID/TrainingCode/DDP_SST2_DistilBert.py", line 616, in <module>
+[rank0]:     main()
+[rank0]:   File "/data/breath12/CCGRID/TrainingCode/DDP_SST2_DistilBert.py", line 158, in main
+[rank0]:     tokenizer = AutoTokenizer.from_pretrained(args.model_name)
+[rank0]:   File "/data/breath12/anaconda3/envs/Dist2/lib/python3.9/site-packages/transformers/models/auto/tokenization_auto.py", line 1073, in from_pretrained
+[rank0]:     tokenizer_config = get_tokenizer_config(pretrained_model_name_or_path, **kwargs)
+[rank0]:   File "/data/breath12/anaconda3/envs/Dist2/lib/python3.9/site-packages/transformers/models/auto/tokenization_auto.py", line 905, in get_tokenizer_config
+[rank0]:     resolved_config_file = cached_file(
+[rank0]:   File "/data/breath12/anaconda3/envs/Dist2/lib/python3.9/site-packages/transformers/utils/hub.py", line 322, in cached_file
+[rank0]:     file = cached_files(path_or_repo_id=path_or_repo_id, filenames=[filename], **kwargs)
+[rank0]:   File "/data/breath12/anaconda3/envs/Dist2/lib/python3.9/site-packages/transformers/utils/hub.py", line 567, in cached_files
+[rank0]:     raise e
+[rank0]:   File "/data/breath12/anaconda3/envs/Dist2/lib/python3.9/site-packages/transformers/utils/hub.py", line 479, in cached_files
+[rank0]:     hf_hub_download(
+[rank0]:   File "/data/breath12/anaconda3/envs/Dist2/lib/python3.9/site-packages/huggingface_hub/utils/_validators.py", line 114, in _inner_fn
+[rank0]:     return fn(*args, **kwargs)
+[rank0]:   File "/data/breath12/anaconda3/envs/Dist2/lib/python3.9/site-packages/huggingface_hub/file_download.py", line 1007, in hf_hub_download
+[rank0]:     return _hf_hub_download_to_cache_dir(
+[rank0]:   File "/data/breath12/anaconda3/envs/Dist2/lib/python3.9/site-packages/huggingface_hub/file_download.py", line 1124, in _hf_hub_download_to_cache_dir
+[rank0]:     os.makedirs(os.path.dirname(blob_path), exist_ok=True)
+[rank0]:   File "/data/breath12/anaconda3/envs/Dist2/lib/python3.9/os.py", line 215, in makedirs
+[rank0]:     makedirs(head, exist_ok=exist_ok)
+[rank0]:   File "/data/breath12/anaconda3/envs/Dist2/lib/python3.9/os.py", line 215, in makedirs
+[rank0]:     makedirs(head, exist_ok=exist_ok)
+[rank0]:   File "/data/breath12/anaconda3/envs/Dist2/lib/python3.9/os.py", line 215, in makedirs
+[rank0]:     makedirs(head, exist_ok=exist_ok)
+[rank0]:   [Previous line repeated 1 more time]
+[rank0]:   File "/data/breath12/anaconda3/envs/Dist2/lib/python3.9/os.py", line 225, in makedirs
+[rank0]:     mkdir(name, mode)
+[rank0]: OSError: [Errno 28] No space left on device: '/home/breath12/.cache'

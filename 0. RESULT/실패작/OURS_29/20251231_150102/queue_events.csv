@@ -1,0 +1,142 @@
+ts,event,job_id,queue_len,note
+2025-12-31 15:04:40,enqueue,job-4166b72a84b3,1,src=HOME kind=HOME cluster=clusterA qlen_home=1 qlen_global=1 inserted=True
+2025-12-31 15:04:40,dequeue_global,job-4166b72a84b3,0,cluster=clusterA g=2 home_qcid=clusterA prev_kind=HOME home_len=0 clusterq_len=0 req_id=job-4166b72a84b3-b79ba3962a queued_delta=0.134115
+2025-12-31 15:04:40,dequeue_home,job-4166b72a84b3,0,home_qcid=clusterA run_cluster=clusterA g=2 req_id=job-4166b72a84b3-b79ba3962a queued_delta=0.134115
+2025-12-31 15:04:40,queue_dequeued_by_hol,job-4166b72a84b3,0,cluster=clusterA g=2 kind0=HOME qcid0=clusterA qlen_eligible=0 qlen_home=0 qlen_clusterq=0 qlen_global=0
+2025-12-31 15:04:42,enqueue,job-170335782f06,1,src=HOME kind=HOME cluster=clusterB qlen_home=1 qlen_global=1 inserted=True
+2025-12-31 15:04:42,dequeue_global,job-170335782f06,0,cluster=clusterB g=2 home_qcid=clusterB prev_kind=HOME home_len=0 clusterq_len=0 req_id=job-170335782f06-ff094d0817 queued_delta=0.135517
+2025-12-31 15:04:42,dequeue_home,job-170335782f06,0,home_qcid=clusterB run_cluster=clusterB g=2 req_id=job-170335782f06-ff094d0817 queued_delta=0.135517
+2025-12-31 15:04:42,queue_dequeued_by_hol,job-170335782f06,0,cluster=clusterB g=2 kind0=HOME qcid0=clusterB qlen_eligible=0 qlen_home=0 qlen_clusterq=0 qlen_global=0
+2025-12-31 15:10:26,enqueue,job-0d0ab97e57d4,1,src=HOME kind=HOME cluster=clusterA qlen_home=1 qlen_global=1 inserted=True
+2025-12-31 15:10:26,dequeue_global,job-0d0ab97e57d4,0,cluster=clusterA g=2 home_qcid=clusterA prev_kind=HOME home_len=0 clusterq_len=0 req_id=job-0d0ab97e57d4-b301ce88a3 queued_delta=0.175316
+2025-12-31 15:10:26,dequeue_home,job-0d0ab97e57d4,0,home_qcid=clusterA run_cluster=clusterA g=2 req_id=job-0d0ab97e57d4-b301ce88a3 queued_delta=0.175316
+2025-12-31 15:10:26,queue_dequeued_by_hol,job-0d0ab97e57d4,0,cluster=clusterA g=2 kind0=HOME qcid0=clusterA qlen_eligible=0 qlen_home=0 qlen_clusterq=0 qlen_global=0
+2025-12-31 15:14:04,enqueue,job-48baf3ce7c64,1,src=HOME kind=HOME cluster=clusterB qlen_home=1 qlen_global=1 inserted=True
+2025-12-31 15:14:04,dequeue_global,job-48baf3ce7c64,0,cluster=clusterB g=1 home_qcid=clusterB prev_kind=HOME home_len=0 clusterq_len=0 req_id=job-48baf3ce7c64-4c431b16d3 queued_delta=0.113745
+2025-12-31 15:14:04,dequeue_home,job-48baf3ce7c64,0,home_qcid=clusterB run_cluster=clusterB g=1 req_id=job-48baf3ce7c64-4c431b16d3 queued_delta=0.113745
+2025-12-31 15:14:04,queue_dequeued_by_hol,job-48baf3ce7c64,0,cluster=clusterB g=1 kind0= qcid0= qlen_eligible=0 qlen_home=0 qlen_clusterq=0 qlen_global=0
+2025-12-31 15:15:31,enqueue,job-8892a8a2f2ae,1,src=HOME kind=HOME cluster=clusterB qlen_home=1 qlen_global=1 inserted=True
+2025-12-31 15:15:31,dequeue_global,job-8892a8a2f2ae,0,cluster=clusterB g=1 home_qcid=clusterB prev_kind=HOME home_len=0 clusterq_len=0 req_id=job-8892a8a2f2ae-6e2c114b53 queued_delta=0.108183
+2025-12-31 15:15:31,dequeue_home,job-8892a8a2f2ae,0,home_qcid=clusterB run_cluster=clusterB g=1 req_id=job-8892a8a2f2ae-6e2c114b53 queued_delta=0.108183
+2025-12-31 15:15:31,queue_dequeued_by_hol,job-8892a8a2f2ae,0,cluster=clusterB g=1 kind0=HOME qcid0=clusterB qlen_eligible=0 qlen_home=0 qlen_clusterq=0 qlen_global=0
+2025-12-31 15:17:05,enqueue,job-3fd7489698d4,1,src=HOME kind=HOME cluster=clusterA qlen_home=1 qlen_global=1 inserted=True
+2025-12-31 15:26:35,enqueue,job-00586e9dccbf,2,src=HOME kind=HOME cluster=clusterA qlen_home=2 qlen_global=2 inserted=True
+2025-12-31 15:28:09,enqueue,job-dfebb9d9381a,3,src=HOME kind=HOME cluster=clusterA qlen_home=3 qlen_global=3 inserted=True
+2025-12-31 15:29:05,enqueue,job-79b114936b0e,4,src=HOME kind=HOME cluster=clusterA qlen_home=4 qlen_global=4 inserted=True
+2025-12-31 15:34:44,dequeue_global,job-3fd7489698d4,3,cluster=clusterA g=2 home_qcid=clusterA prev_kind=HOME home_len=3 clusterq_len=3 req_id=job-3fd7489698d4-da1b29de0e queued_delta=1059.442449
+2025-12-31 15:34:44,dequeue_home,job-3fd7489698d4,3,home_qcid=clusterA run_cluster=clusterA g=2 req_id=job-3fd7489698d4-da1b29de0e queued_delta=1059.442449
+2025-12-31 15:34:44,queue_dequeued_by_hol,job-3fd7489698d4,3,cluster=clusterA g=2 kind0=HOME qcid0=clusterA qlen_eligible=3 qlen_home=3 qlen_clusterq=3 qlen_global=3
+2025-12-31 15:39:51,enqueue,job-0dc6f549c1de,4,src=HOME kind=HOME cluster=clusterA qlen_home=4 qlen_global=4 inserted=True
+2025-12-31 15:46:26,enqueue,job-e729e33238db,5,src=HOME kind=HOME cluster=clusterA qlen_home=5 qlen_global=5 inserted=True
+2025-12-31 15:49:24,enqueue,job-4c2e9977a89c,6,src=HOME kind=HOME cluster=clusterA qlen_home=6 qlen_global=6 inserted=True
+2025-12-31 15:50:08,enqueue,job-13cc60deab1b,7,src=HOME kind=HOME cluster=clusterA qlen_home=7 qlen_global=7 inserted=True
+2025-12-31 15:58:26,dequeue_global,job-00586e9dccbf,6,cluster=clusterA g=1 home_qcid=clusterA prev_kind=HOME home_len=6 clusterq_len=6 req_id=job-00586e9dccbf-051d180c31 queued_delta=1910.925659
+2025-12-31 15:58:26,dequeue_home,job-00586e9dccbf,6,home_qcid=clusterA run_cluster=clusterA g=1 req_id=job-00586e9dccbf-051d180c31 queued_delta=1910.925659
+2025-12-31 15:58:26,queue_dequeued_by_hol,job-00586e9dccbf,6,cluster=clusterA g=1 kind0=HOME qcid0=clusterA qlen_eligible=6 qlen_home=6 qlen_clusterq=6 qlen_global=6
+2025-12-31 15:58:26,dequeue_global,job-79b114936b0e,5,cluster=clusterA g=1 home_qcid=clusterA prev_kind=HOME home_len=5 clusterq_len=5 req_id=job-79b114936b0e-63e4209f04 queued_delta=1761.386051
+2025-12-31 15:58:26,dequeue_home,job-79b114936b0e,5,home_qcid=clusterA run_cluster=clusterA g=1 req_id=job-79b114936b0e-63e4209f04 queued_delta=1761.386051
+2025-12-31 16:02:25,enqueue,job-3c2e618e3134,6,src=HOME kind=HOME cluster=clusterA qlen_home=6 qlen_global=6 inserted=True
+2025-12-31 16:04:05,enqueue,job-f7d7e44edc5b,7,src=HOME kind=HOME cluster=clusterA qlen_home=7 qlen_global=7 inserted=True
+2025-12-31 16:12:18,enqueue,job-4cf423c90ae7,8,src=HOME kind=HOME cluster=clusterA qlen_home=8 qlen_global=8 inserted=True
+2025-12-31 16:18:33,enqueue,job-f97b75fa3a12,9,src=HOME kind=HOME cluster=clusterA qlen_home=9 qlen_global=9 inserted=True
+2025-12-31 16:18:52,dequeue_global,job-0dc6f549c1de,8,cluster=clusterA g=1 home_qcid=clusterA prev_kind=HOME home_len=8 clusterq_len=8 req_id=job-0dc6f549c1de-baae6bc797 queued_delta=2341.384432
+2025-12-31 16:18:52,dequeue_home,job-0dc6f549c1de,8,home_qcid=clusterA run_cluster=clusterA g=1 req_id=job-0dc6f549c1de-baae6bc797 queued_delta=2341.384432
+2025-12-31 16:18:53,dequeue_global,job-e729e33238db,7,cluster=clusterA g=1 home_qcid=clusterA prev_kind=HOME home_len=7 clusterq_len=7 req_id=job-e729e33238db-9e5b547f1e queued_delta=1947.268188
+2025-12-31 16:18:53,dequeue_home,job-e729e33238db,7,home_qcid=clusterA run_cluster=clusterA g=1 req_id=job-e729e33238db-9e5b547f1e queued_delta=1947.268188
+2025-12-31 16:24:37,dequeue_global,job-dfebb9d9381a,9,cluster=clusterA g=4 home_qcid=clusterA prev_kind=HOME home_len=6 clusterq_len=6 req_id=job-dfebb9d9381a-dcc91146bc queued_delta=3388.128985
+2025-12-31 16:24:37,dequeue_home,job-dfebb9d9381a,6,home_qcid=clusterA run_cluster=clusterA g=4 req_id=job-dfebb9d9381a-dcc91146bc queued_delta=3388.128985
+2025-12-31 16:24:37,queue_dequeued_by_hol,job-dfebb9d9381a,9,cluster=clusterA g=4 kind0=HOME qcid0=clusterA qlen_eligible=9 qlen_home=6 qlen_clusterq=6 qlen_global=9
+2025-12-31 16:27:51,dequeue_global,job-79b114936b0e,8,cluster=clusterB g=1 home_qcid=clusterA prev_kind=None home_len=6 clusterq_len=0 req_id=job-79b114936b0e-90ce8adadd queued_delta=204.448821
+2025-12-31 16:27:51,dequeue_home,job-79b114936b0e,6,home_qcid=clusterA run_cluster=clusterB g=1 req_id=job-79b114936b0e-90ce8adadd queued_delta=204.448821
+2025-12-31 16:27:51,queue_dequeued_by_hol,job-79b114936b0e,2,cluster=clusterB g=1 kind0= qcid0= qlen_eligible=2 qlen_home=0 qlen_clusterq=0 qlen_global=8
+2025-12-31 16:29:51,dequeue_global,job-0dc6f549c1de,7,cluster=clusterB g=1 home_qcid=clusterA prev_kind=None home_len=6 clusterq_len=0 req_id=job-0dc6f549c1de-247c67a556 queued_delta=324.388022
+2025-12-31 16:29:51,dequeue_home,job-0dc6f549c1de,6,home_qcid=clusterA run_cluster=clusterB g=1 req_id=job-0dc6f549c1de-247c67a556 queued_delta=324.388022
+2025-12-31 16:29:51,queue_dequeued_by_hol,job-0dc6f549c1de,1,cluster=clusterB g=1 kind0= qcid0= qlen_eligible=1 qlen_home=0 qlen_clusterq=0 qlen_global=7
+2025-12-31 16:40:11,enqueue,job-6f837c056b95,7,src=HOME kind=HOME cluster=clusterA qlen_home=7 qlen_global=8 inserted=True
+2025-12-31 16:41:02,enqueue,job-568ad10280f0,8,src=HOME kind=HOME cluster=clusterA qlen_home=8 qlen_global=9 inserted=True
+2025-12-31 16:41:21,dequeue_global,job-e729e33238db,8,cluster=clusterB g=1 home_qcid=clusterA prev_kind=None home_len=8 clusterq_len=0 req_id=job-e729e33238db-b15070bd13 queued_delta=1014.151336
+2025-12-31 16:41:21,dequeue_home,job-e729e33238db,8,home_qcid=clusterA run_cluster=clusterB g=1 req_id=job-e729e33238db-b15070bd13 queued_delta=1014.151336
+2025-12-31 16:41:21,queue_dequeued_by_hol,job-e729e33238db,0,cluster=clusterB g=1 kind0= qcid0= qlen_eligible=0 qlen_home=0 qlen_clusterq=0 qlen_global=8
+2025-12-31 16:41:21,dequeue_global,job-4cf423c90ae7,7,cluster=clusterB g=1 home_qcid=clusterA prev_kind=HOME home_len=7 clusterq_len=0 req_id=job-4cf423c90ae7-73c5282802 queued_delta=1743.198945
+2025-12-31 16:41:21,dequeue_home,job-4cf423c90ae7,7,home_qcid=clusterA run_cluster=clusterB g=1 req_id=job-4cf423c90ae7-73c5282802 queued_delta=1743.198945
+2025-12-31 16:53:40,enqueue,job-469089faa65b,8,src=HOME kind=HOME cluster=clusterA qlen_home=8 qlen_global=8 inserted=True
+2025-12-31 16:54:53,enqueue,job-53057db2c0ae,9,src=HOME kind=HOME cluster=clusterA qlen_home=9 qlen_global=9 inserted=True
+2025-12-31 16:57:48,enqueue,job-f2eff02e9ae3,10,src=HOME kind=HOME cluster=clusterA qlen_home=10 qlen_global=10 inserted=True
+2025-12-31 16:59:12,dequeue_global,job-568ad10280f0,9,cluster=clusterB g=1 home_qcid=clusterA prev_kind=HOME home_len=9 clusterq_len=0 req_id=job-568ad10280f0-afc863c086 queued_delta=1090.305945
+2025-12-31 16:59:12,dequeue_home,job-568ad10280f0,9,home_qcid=clusterA run_cluster=clusterB g=1 req_id=job-568ad10280f0-afc863c086 queued_delta=1090.305945
+2025-12-31 17:02:41,enqueue,job-38b41690f860,10,src=HOME kind=HOME cluster=clusterA qlen_home=10 qlen_global=10 inserted=True
+2025-12-31 17:04:15,enqueue,job-a23253b8e165,11,src=HOME kind=HOME cluster=clusterA qlen_home=11 qlen_global=11 inserted=True
+2025-12-31 17:14:13,enqueue,job-538be18e13ff,12,src=HOME kind=HOME cluster=clusterA qlen_home=12 qlen_global=12 inserted=True
+2025-12-31 17:15:17,enqueue,job-4f8aefcba88c,13,src=HOME kind=HOME cluster=clusterA qlen_home=13 qlen_global=13 inserted=True
+2025-12-31 17:20:16,enqueue,job-b126a5271bb7,14,src=HOME kind=HOME cluster=clusterA qlen_home=14 qlen_global=14 inserted=True
+2025-12-31 17:26:05,dequeue_global,job-4c2e9977a89c,13,cluster=clusterA g=2 home_qcid=clusterA prev_kind=HOME home_len=13 clusterq_len=13 req_id=job-4c2e9977a89c-86ce6913d1 queued_delta=5800.769099
+2025-12-31 17:26:05,dequeue_home,job-4c2e9977a89c,13,home_qcid=clusterA run_cluster=clusterA g=2 req_id=job-4c2e9977a89c-86ce6913d1 queued_delta=5800.769099
+2025-12-31 17:26:05,queue_dequeued_by_hol,job-4c2e9977a89c,13,cluster=clusterA g=2 kind0=HOME qcid0=clusterA qlen_eligible=13 qlen_home=13 qlen_clusterq=13 qlen_global=13
+2025-12-31 17:26:05,dequeue_global,job-4f8aefcba88c,12,cluster=clusterA g=1 home_qcid=clusterA prev_kind=HOME home_len=12 clusterq_len=12 req_id=job-4f8aefcba88c-500886c292 queued_delta=648.187463
+2025-12-31 17:26:05,dequeue_home,job-4f8aefcba88c,12,home_qcid=clusterA run_cluster=clusterA g=1 req_id=job-4f8aefcba88c-500886c292 queued_delta=648.187463
+2025-12-31 17:26:05,dequeue_global,job-538be18e13ff,11,cluster=clusterA g=1 home_qcid=clusterA prev_kind=HOME home_len=11 clusterq_len=11 req_id=job-538be18e13ff-096dd0f6fd queued_delta=711.752215
+2025-12-31 17:26:05,dequeue_home,job-538be18e13ff,11,home_qcid=clusterA run_cluster=clusterA g=1 req_id=job-538be18e13ff-096dd0f6fd queued_delta=711.752215
+2025-12-31 17:43:26,enqueue,job-5f860341e763,12,src=HOME kind=HOME cluster=clusterA qlen_home=12 qlen_global=12 inserted=True
+2025-12-31 17:43:37,enqueue,job-f3048b85e560,13,src=HOME kind=HOME cluster=clusterA qlen_home=13 qlen_global=13 inserted=True
+2025-12-31 17:51:19,dequeue_global,job-13cc60deab1b,12,cluster=clusterA g=1 home_qcid=clusterA prev_kind=HOME home_len=12 clusterq_len=12 req_id=job-13cc60deab1b-5fd885d755 queued_delta=7271.290539
+2025-12-31 17:51:19,dequeue_home,job-13cc60deab1b,12,home_qcid=clusterA run_cluster=clusterA g=1 req_id=job-13cc60deab1b-5fd885d755 queued_delta=7271.290539
+2025-12-31 17:51:19,queue_dequeued_by_hol,job-13cc60deab1b,12,cluster=clusterA g=1 kind0=HOME qcid0=clusterA qlen_eligible=12 qlen_home=12 qlen_clusterq=12 qlen_global=12
+2025-12-31 17:51:47,enqueue,job-69749c54c528,13,src=HOME kind=HOME cluster=clusterA qlen_home=13 qlen_global=13 inserted=True
+2025-12-31 18:02:45,dequeue_global,job-5f860341e763,12,cluster=clusterB g=1 home_qcid=clusterA prev_kind=HOME home_len=12 clusterq_len=0 req_id=job-5f860341e763-cdcfe94017 queued_delta=1158.267349
+2025-12-31 18:02:45,dequeue_home,job-5f860341e763,12,home_qcid=clusterA run_cluster=clusterB g=1 req_id=job-5f860341e763-cdcfe94017 queued_delta=1158.267349
+2025-12-31 18:02:50,dequeue_global,job-a23253b8e165,11,cluster=clusterB g=1 home_qcid=clusterA prev_kind=HOME home_len=11 clusterq_len=0 req_id=job-a23253b8e165-9aa4b5f9c5 queued_delta=3515.072233
+2025-12-31 18:02:50,dequeue_home,job-a23253b8e165,11,home_qcid=clusterA run_cluster=clusterB g=1 req_id=job-a23253b8e165-9aa4b5f9c5 queued_delta=3515.072233
+2025-12-31 18:09:27,enqueue,job-313b5e053ff7,12,src=HOME kind=HOME cluster=clusterA qlen_home=12 qlen_global=12 inserted=True
+2025-12-31 18:18:32,enqueue,job-20488c92db18,13,src=HOME kind=HOME cluster=clusterA qlen_home=13 qlen_global=13 inserted=True
+2025-12-31 18:25:25,enqueue,job-6c2b198632ed,14,src=HOME kind=HOME cluster=clusterA qlen_home=14 qlen_global=14 inserted=True
+2025-12-31 18:30:28,enqueue,job-d331d3270221,15,src=HOME kind=HOME cluster=clusterA qlen_home=15 qlen_global=15 inserted=True
+2025-12-31 18:31:15,enqueue,job-ac4b799b24be,16,src=HOME kind=HOME cluster=clusterA qlen_home=16 qlen_global=16 inserted=True
+2025-12-31 18:32:09,enqueue,job-8bacb84d9264,17,src=HOME kind=HOME cluster=clusterA qlen_home=17 qlen_global=17 inserted=True
+2025-12-31 18:32:10,dequeue_global,job-3c2e618e3134,16,cluster=clusterA g=1 home_qcid=clusterA prev_kind=HOME home_len=16 clusterq_len=16 req_id=job-3c2e618e3134-bf3cd4c291 queued_delta=8984.842674
+2025-12-31 18:32:10,dequeue_home,job-3c2e618e3134,16,home_qcid=clusterA run_cluster=clusterA g=1 req_id=job-3c2e618e3134-bf3cd4c291 queued_delta=8984.842674
+2025-12-31 18:32:10,queue_dequeued_by_hol,job-3c2e618e3134,16,cluster=clusterA g=1 kind0=HOME qcid0=clusterA qlen_eligible=16 qlen_home=16 qlen_clusterq=16 qlen_global=16
+2025-12-31 18:32:43,enqueue,job-2198e4f3f7a6,17,src=HOME kind=HOME cluster=clusterA qlen_home=17 qlen_global=17 inserted=True
+2025-12-31 18:40:56,enqueue,job-aef414168c61,1,src=HOME kind=HOME cluster=clusterB qlen_home=1 qlen_global=18 inserted=True
+2025-12-31 18:40:56,dequeue_global,job-aef414168c61,17,cluster=clusterB g=1 home_qcid=clusterB prev_kind=HOME home_len=0 clusterq_len=0 req_id=job-aef414168c61-d54b996e47 queued_delta=0.134565
+2025-12-31 18:40:56,dequeue_home,job-aef414168c61,0,home_qcid=clusterB run_cluster=clusterB g=1 req_id=job-aef414168c61-d54b996e47 queued_delta=0.134565
+2025-12-31 18:40:56,queue_dequeued_by_hol,job-aef414168c61,0,cluster=clusterB g=1 kind0=HOME qcid0=clusterB qlen_eligible=0 qlen_home=0 qlen_clusterq=0 qlen_global=17
+2025-12-31 18:41:06,enqueue,job-c36df8fd1a13,18,src=HOME kind=HOME cluster=clusterA qlen_home=18 qlen_global=18 inserted=True
+2025-12-31 18:45:43,enqueue,job-a8c227676f90,19,src=HOME kind=HOME cluster=clusterA qlen_home=19 qlen_global=19 inserted=True
+2025-12-31 18:45:49,enqueue,job-68c20003863f,20,src=HOME kind=HOME cluster=clusterA qlen_home=20 qlen_global=20 inserted=True
+2025-12-31 18:45:57,enqueue,job-659378d2f54f,21,src=HOME kind=HOME cluster=clusterA qlen_home=21 qlen_global=21 inserted=True
+2025-12-31 18:53:22,enqueue,job-7ac1b7eb7984,22,src=HOME kind=HOME cluster=clusterA qlen_home=22 qlen_global=22 inserted=True
+2025-12-31 19:09:25,enqueue,job-07e81079cd4a,23,src=HOME kind=HOME cluster=clusterA qlen_home=23 qlen_global=23 inserted=True
+2025-12-31 19:11:17,enqueue,job-fa07dc88fa67,24,src=HOME kind=HOME cluster=clusterA qlen_home=24 qlen_global=24 inserted=True
+2025-12-31 19:17:49,enqueue,job-451576657240,25,src=HOME kind=HOME cluster=clusterA qlen_home=25 qlen_global=25 inserted=True
+2025-12-31 19:18:36,enqueue,job-5e0b274c6b28,26,src=HOME kind=HOME cluster=clusterA qlen_home=26 qlen_global=26 inserted=True
+2025-12-31 19:25:28,enqueue,job-7233d3c442f4,27,src=HOME kind=HOME cluster=clusterA qlen_home=27 qlen_global=27 inserted=True
+2025-12-31 19:26:33,dequeue_global,job-f97b75fa3a12,26,cluster=clusterA g=1 home_qcid=clusterA prev_kind=HOME home_len=26 clusterq_len=26 req_id=job-f97b75fa3a12-60071e079c queued_delta=11280.279250
+2025-12-31 19:26:33,dequeue_home,job-f97b75fa3a12,26,home_qcid=clusterA run_cluster=clusterA g=1 req_id=job-f97b75fa3a12-60071e079c queued_delta=11280.279250
+2025-12-31 19:28:28,enqueue,job-4f196fe5da15,27,src=HOME kind=HOME cluster=clusterA qlen_home=27 qlen_global=27 inserted=True
+2025-12-31 19:28:32,enqueue,job-d4c39f03a045,28,src=HOME kind=HOME cluster=clusterA qlen_home=28 qlen_global=28 inserted=True
+2025-12-31 19:31:06,dequeue_global,job-6f837c056b95,27,cluster=clusterA g=2 home_qcid=clusterA prev_kind=HOME home_len=27 clusterq_len=27 req_id=job-6f837c056b95-3c906b201c queued_delta=10254.488582
+2025-12-31 19:31:06,dequeue_home,job-6f837c056b95,27,home_qcid=clusterA run_cluster=clusterA g=2 req_id=job-6f837c056b95-3c906b201c queued_delta=10254.488582
+2025-12-31 20:19:22,dequeue_global,job-469089faa65b,26,cluster=clusterA g=1 home_qcid=clusterA prev_kind=HOME home_len=26 clusterq_len=26 req_id=job-469089faa65b-a9a7530b0c queued_delta=12342.596684
+2025-12-31 20:19:22,dequeue_home,job-469089faa65b,26,home_qcid=clusterA run_cluster=clusterA g=1 req_id=job-469089faa65b-a9a7530b0c queued_delta=12342.596684
+2025-12-31 21:30:14,dequeue_global,job-53057db2c0ae,25,cluster=clusterA g=2 home_qcid=clusterA prev_kind=HOME home_len=25 clusterq_len=25 req_id=job-53057db2c0ae-1e3f42cf5e queued_delta=16521.267779
+2025-12-31 21:30:14,dequeue_home,job-53057db2c0ae,25,home_qcid=clusterA run_cluster=clusterA g=2 req_id=job-53057db2c0ae-1e3f42cf5e queued_delta=16521.267779
+2025-12-31 22:01:52,dequeue_global,job-b126a5271bb7,24,cluster=clusterA g=1 home_qcid=clusterA prev_kind=HOME home_len=24 clusterq_len=24 req_id=job-b126a5271bb7-3dec657927 queued_delta=16896.748398
+2025-12-31 22:01:52,dequeue_home,job-b126a5271bb7,24,home_qcid=clusterA run_cluster=clusterA g=1 req_id=job-b126a5271bb7-3dec657927 queued_delta=16896.748398
+2025-12-31 22:01:53,dequeue_global,job-f3048b85e560,23,cluster=clusterA g=1 home_qcid=clusterA prev_kind=HOME home_len=23 clusterq_len=23 req_id=job-f3048b85e560-f59ea82431 queued_delta=15496.458018
+2025-12-31 22:01:53,dequeue_home,job-f3048b85e560,23,home_qcid=clusterA run_cluster=clusterA g=1 req_id=job-f3048b85e560-f59ea82431 queued_delta=15496.458018
+2025-12-31 22:39:16,dequeue_global,job-69749c54c528,22,cluster=clusterA g=1 home_qcid=clusterA prev_kind=HOME home_len=22 clusterq_len=22 req_id=job-69749c54c528-86e333f0bf queued_delta=17248.399098
+2025-12-31 22:39:16,dequeue_home,job-69749c54c528,22,home_qcid=clusterA run_cluster=clusterA g=1 req_id=job-69749c54c528-86e333f0bf queued_delta=17248.399098
+2025-12-31 22:40:02,dequeue_global,job-313b5e053ff7,21,cluster=clusterA g=1 home_qcid=clusterA prev_kind=HOME home_len=21 clusterq_len=21 req_id=job-313b5e053ff7-e2a2db919e queued_delta=16234.349457
+2025-12-31 22:40:02,dequeue_home,job-313b5e053ff7,21,home_qcid=clusterA run_cluster=clusterA g=1 req_id=job-313b5e053ff7-e2a2db919e queued_delta=16234.349457
+2025-12-31 23:15:58,dequeue_global,job-20488c92db18,20,cluster=clusterA g=1 home_qcid=clusterA prev_kind=HOME home_len=20 clusterq_len=20 req_id=job-20488c92db18-ff43716fc0 queued_delta=17845.732744
+2025-12-31 23:15:58,dequeue_home,job-20488c92db18,20,home_qcid=clusterA run_cluster=clusterA g=1 req_id=job-20488c92db18-ff43716fc0 queued_delta=17845.732744
+2026-01-01 00:07:41,dequeue_global,job-6c2b198632ed,19,cluster=clusterA g=1 home_qcid=clusterA prev_kind=HOME home_len=19 clusterq_len=19 req_id=job-6c2b198632ed-90befa2f80 queued_delta=20535.478532
+2026-01-01 00:07:41,dequeue_home,job-6c2b198632ed,19,home_qcid=clusterA run_cluster=clusterA g=1 req_id=job-6c2b198632ed-90befa2f80 queued_delta=20535.478532
+2026-01-01 00:59:40,dequeue_global,job-ac4b799b24be,18,cluster=clusterA g=1 home_qcid=clusterA prev_kind=HOME home_len=18 clusterq_len=18 req_id=job-ac4b799b24be-9db14d6419 queued_delta=23305.525420
+2026-01-01 00:59:40,dequeue_home,job-ac4b799b24be,18,home_qcid=clusterA run_cluster=clusterA g=1 req_id=job-ac4b799b24be-9db14d6419 queued_delta=23305.525420
+2026-01-01 01:51:23,dequeue_global,job-8bacb84d9264,17,cluster=clusterA g=1 home_qcid=clusterA prev_kind=HOME home_len=17 clusterq_len=17 req_id=job-8bacb84d9264-de97fa3021 queued_delta=26353.581129
+2026-01-01 01:51:23,dequeue_home,job-8bacb84d9264,17,home_qcid=clusterA run_cluster=clusterA g=1 req_id=job-8bacb84d9264-de97fa3021 queued_delta=26353.581129
+2026-01-01 03:21:09,dequeue_global,job-2198e4f3f7a6,16,cluster=clusterA g=1 home_qcid=clusterA prev_kind=HOME home_len=16 clusterq_len=16 req_id=job-2198e4f3f7a6-e5baca0712 queued_delta=31705.780399
+2026-01-01 03:21:09,dequeue_home,job-2198e4f3f7a6,16,home_qcid=clusterA run_cluster=clusterA g=1 req_id=job-2198e4f3f7a6-e5baca0712 queued_delta=31705.780399
+2026-01-01 03:44:22,dequeue_global,job-c36df8fd1a13,15,cluster=clusterA g=1 home_qcid=clusterA prev_kind=HOME home_len=15 clusterq_len=15 req_id=job-c36df8fd1a13-880ddc308b queued_delta=32596.433085
+2026-01-01 03:44:22,dequeue_home,job-c36df8fd1a13,15,home_qcid=clusterA run_cluster=clusterA g=1 req_id=job-c36df8fd1a13-880ddc308b queued_delta=32596.433085

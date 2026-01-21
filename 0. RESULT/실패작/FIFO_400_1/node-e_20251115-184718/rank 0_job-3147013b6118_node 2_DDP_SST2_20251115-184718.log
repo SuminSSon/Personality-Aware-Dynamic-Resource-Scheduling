@@ -1,0 +1,21 @@
+/nas2/data/dlwmznzl1/anaconda3/envs/Dist1/lib/python3.9/site-packages/torch/cuda/__init__.py:63: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+Current CUDA device index: 0
+Current CUDA device name: NVIDIA RTX A5000
+Master address: 163.180.160.61, port: 29519
+2025-11-15 18:47:28,865 DDP_Script [Rank 0] [INFO] Node rank: 0, world size: 2
+[Gloo] Rank 0 is connected to 1 peer ranks. Expected number of connected peer ranks is : 1
+2025-11-15 18:47:29,145 DDP_Script [Rank 0] [INFO] Process group initialized: 163.180.160.61:29519
+2025-11-15 18:47:29,145 DDP_Script [Rank 0] [INFO] Rank 0/2 initialized
+2025-11-15 18:47:29,145 DDP_Script [Rank 0] [INFO] Rank 0 downloading tokenizer: distilbert-base-uncased
+2025-11-15 18:47:30,170 DDP_Script [Rank 0] [INFO] Rank 0 downloading dataset: glue/sst2
+[rank0]: Traceback (most recent call last):
+[rank0]:   File "/nas2/data/dlwmznzl1/CCGRID/TrainingCode/DDP_SST2_DistilBert.py", line 616, in <module>
+[rank0]:     main()
+[rank0]:   File "/nas2/data/dlwmznzl1/CCGRID/TrainingCode/DDP_SST2_DistilBert.py", line 169, in main
+[rank0]:     dist.barrier()
+[rank0]:   File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist1/lib/python3.9/site-packages/torch/distributed/c10d_logger.py", line 81, in wrapper
+[rank0]:     return func(*args, **kwargs)
+[rank0]:   File "/nas2/data/dlwmznzl1/anaconda3/envs/Dist1/lib/python3.9/site-packages/torch/distributed/distributed_c10d.py", line 4818, in barrier
+[rank0]:     work.wait()
+[rank0]: RuntimeError: [/pytorch/third_party/gloo/gloo/transport/tcp/pair.cc:544] Connection closed by peer [163.180.160.61]:14721

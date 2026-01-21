@@ -1,0 +1,138 @@
+Current CUDA device index: 0
+Current CUDA device name: NVIDIA RTX A5000
+Master address: 163.180.160.61, port: 29591
+2025-11-17 05:50:13,794 DDP_Script [Rank 1] [INFO] Node rank: 1, world size: 2
+[Gloo] Rank 1 is connected to 1 peer ranks. Expected number of connected peer ranks is : 1
+2025-11-17 05:50:13,810 DDP_Script [Rank 1] [INFO] Process group initialized: 163.180.160.61:29591
+2025-11-17 05:50:13,810 DDP_Script [Rank 1] [INFO] Rank 1/2 initialized
+2025-11-17 05:50:14,867 DDP_Script [Rank 1] [INFO] Rank 1 loading tokenizer from cache: distilbert-base-uncased
+2025-11-17 05:50:20,020 DDP_Script [Rank 1] [INFO] Rank 1 loading dataset from cache: glue/sst2
+2025-11-17 05:50:24,305 DDP_Script [Rank 1] [INFO] Tokenizing datasets...
+2025-11-17 05:50:24,332 DDP_Script [Rank 1] [INFO] SST-2 Dataset and Tokenizer loaded.
+2025-11-17 05:50:24,333 DDP_Script [Rank 1] [INFO] Rank 1 loading model from cache: distilbert-base-uncased
+Some weights of DistilBertForSequenceClassification were not initialized from the model checkpoint at distilbert-base-uncased and are newly initialized: ['classifier.bias', 'classifier.weight', 'pre_classifier.bias', 'pre_classifier.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2025-11-17 05:50:25,407 DDP_Script [Rank 1] [INFO] Model (DistilBert), DDP, optimizer (AdamW) initialized
+2025-11-17 05:50:25,437 DDP_Script [Rank 1] [INFO] Modules initialized
+2025-11-17 05:50:25,437 DDP_Script [Rank 1] [INFO] Starting training from scratch (epoch 1).
+2025-11-17 05:50:25,439 DDP_Script [Rank 1] [INFO] epoch 1 시작
+2025-11-17 05:50:25,477 DDP_Script [Rank 1] [INFO] DataLoader created with batch_size=32, num_workers=4
+2025-11-17 05:50:25,484 DDP_Script [Rank 1] [INFO] local_steps=1053, global_steps=1053
+2025-11-17 05:55:58,623 DDP_Script [Rank 1] [INFO] epoch 1 train step time: 333.14 seconds
+2025-11-17 05:55:58,631 DDP_Script [Rank 1] [INFO] epoch 1 끝 (local_steps=1053, global_steps=1053)
+2025-11-17 05:55:58,994 DDP_Script [Rank 1] [INFO] val acc 90.37%
+2025-11-17 05:56:00,872 DDP_Script [Rank 1] [INFO] epoch 2 시작
+2025-11-17 05:56:00,885 DDP_Script [Rank 1] [INFO] DataLoader created with batch_size=32, num_workers=4
+2025-11-17 05:56:00,890 DDP_Script [Rank 1] [INFO] local_steps=1053, global_steps=1053
+2025-11-17 06:01:39,082 DDP_Script [Rank 1] [INFO] epoch 2 train step time: 338.19 seconds
+2025-11-17 06:01:39,091 DDP_Script [Rank 1] [INFO] epoch 2 끝 (local_steps=1053, global_steps=1053)
+2025-11-17 06:01:39,470 DDP_Script [Rank 1] [INFO] val acc 90.02%
+2025-11-17 06:01:42,682 DDP_Script [Rank 1] [INFO] epoch 3 시작
+2025-11-17 06:01:42,697 DDP_Script [Rank 1] [INFO] DataLoader created with batch_size=32, num_workers=4
+2025-11-17 06:01:42,700 DDP_Script [Rank 1] [INFO] local_steps=1053, global_steps=1053
+2025-11-17 06:07:24,978 DDP_Script [Rank 1] [INFO] epoch 3 train step time: 342.28 seconds
+2025-11-17 06:07:24,990 DDP_Script [Rank 1] [INFO] epoch 3 끝 (local_steps=1053, global_steps=1053)
+2025-11-17 06:07:25,636 DDP_Script [Rank 1] [INFO] val acc 90.14%
+2025-11-17 06:07:27,904 DDP_Script [Rank 1] [INFO] epoch 4 시작
+2025-11-17 06:07:27,920 DDP_Script [Rank 1] [INFO] DataLoader created with batch_size=32, num_workers=4
+2025-11-17 06:07:27,922 DDP_Script [Rank 1] [INFO] local_steps=1053, global_steps=1053
+2025-11-17 06:13:10,443 DDP_Script [Rank 1] [INFO] epoch 4 train step time: 342.52 seconds
+2025-11-17 06:13:10,449 DDP_Script [Rank 1] [INFO] epoch 4 끝 (local_steps=1053, global_steps=1053)
+2025-11-17 06:13:10,830 DDP_Script [Rank 1] [INFO] val acc 89.22%
+2025-11-17 06:13:13,210 DDP_Script [Rank 1] [INFO] epoch 5 시작
+2025-11-17 06:13:13,224 DDP_Script [Rank 1] [INFO] DataLoader created with batch_size=32, num_workers=4
+2025-11-17 06:13:13,226 DDP_Script [Rank 1] [INFO] local_steps=1053, global_steps=1053
+2025-11-17 06:18:31,594 DDP_Script [Rank 1] [INFO] epoch 5 train step time: 318.37 seconds
+2025-11-17 06:18:31,598 DDP_Script [Rank 1] [INFO] epoch 5 끝 (local_steps=1053, global_steps=1053)
+2025-11-17 06:18:31,969 DDP_Script [Rank 1] [INFO] val acc 90.02%
+2025-11-17 06:18:34,284 DDP_Script [Rank 1] [INFO] epoch 6 시작
+2025-11-17 06:18:34,297 DDP_Script [Rank 1] [INFO] DataLoader created with batch_size=32, num_workers=4
+2025-11-17 06:18:34,304 DDP_Script [Rank 1] [INFO] local_steps=1053, global_steps=1053
+2025-11-17 06:23:54,262 DDP_Script [Rank 1] [INFO] epoch 6 train step time: 319.96 seconds
+2025-11-17 06:23:54,270 DDP_Script [Rank 1] [INFO] epoch 6 끝 (local_steps=1053, global_steps=1053)
+2025-11-17 06:23:54,643 DDP_Script [Rank 1] [INFO] val acc 90.37%
+2025-11-17 06:23:56,896 DDP_Script [Rank 1] [INFO] epoch 7 시작
+2025-11-17 06:23:56,909 DDP_Script [Rank 1] [INFO] DataLoader created with batch_size=32, num_workers=4
+2025-11-17 06:23:56,911 DDP_Script [Rank 1] [INFO] local_steps=1053, global_steps=1053
+2025-11-17 06:29:16,560 DDP_Script [Rank 1] [INFO] epoch 7 train step time: 319.65 seconds
+2025-11-17 06:29:16,575 DDP_Script [Rank 1] [INFO] epoch 7 끝 (local_steps=1053, global_steps=1053)
+2025-11-17 06:29:16,970 DDP_Script [Rank 1] [INFO] val acc 89.56%
+2025-11-17 06:29:18,899 DDP_Script [Rank 1] [INFO] epoch 8 시작
+2025-11-17 06:29:18,913 DDP_Script [Rank 1] [INFO] DataLoader created with batch_size=32, num_workers=4
+2025-11-17 06:29:18,915 DDP_Script [Rank 1] [INFO] local_steps=1053, global_steps=1053
+2025-11-17 06:34:39,465 DDP_Script [Rank 1] [INFO] epoch 8 train step time: 320.55 seconds
+2025-11-17 06:34:39,471 DDP_Script [Rank 1] [INFO] epoch 8 끝 (local_steps=1053, global_steps=1053)
+2025-11-17 06:34:39,856 DDP_Script [Rank 1] [INFO] val acc 90.25%
+2025-11-17 06:34:42,182 DDP_Script [Rank 1] [INFO] epoch 9 시작
+2025-11-17 06:34:42,194 DDP_Script [Rank 1] [INFO] DataLoader created with batch_size=32, num_workers=4
+2025-11-17 06:34:42,204 DDP_Script [Rank 1] [INFO] local_steps=1053, global_steps=1053
+2025-11-17 06:40:01,758 DDP_Script [Rank 1] [INFO] epoch 9 train step time: 319.55 seconds
+2025-11-17 06:40:01,765 DDP_Script [Rank 1] [INFO] epoch 9 끝 (local_steps=1053, global_steps=1053)
+2025-11-17 06:40:02,132 DDP_Script [Rank 1] [INFO] val acc 89.45%
+2025-11-17 06:40:04,220 DDP_Script [Rank 1] [INFO] epoch 10 시작
+2025-11-17 06:40:04,232 DDP_Script [Rank 1] [INFO] DataLoader created with batch_size=32, num_workers=4
+2025-11-17 06:40:04,235 DDP_Script [Rank 1] [INFO] local_steps=1053, global_steps=1053
+2025-11-17 06:45:22,573 DDP_Script [Rank 1] [INFO] epoch 10 train step time: 318.34 seconds
+2025-11-17 06:45:22,585 DDP_Script [Rank 1] [INFO] epoch 10 끝 (local_steps=1053, global_steps=1053)
+2025-11-17 06:45:22,972 DDP_Script [Rank 1] [INFO] val acc 89.79%
+2025-11-17 06:45:25,217 DDP_Script [Rank 1] [INFO] epoch 11 시작
+2025-11-17 06:45:25,229 DDP_Script [Rank 1] [INFO] DataLoader created with batch_size=32, num_workers=4
+2025-11-17 06:45:25,232 DDP_Script [Rank 1] [INFO] local_steps=1053, global_steps=1053
+2025-11-17 06:50:43,628 DDP_Script [Rank 1] [INFO] epoch 11 train step time: 318.40 seconds
+2025-11-17 06:50:43,634 DDP_Script [Rank 1] [INFO] epoch 11 끝 (local_steps=1053, global_steps=1053)
+2025-11-17 06:50:44,023 DDP_Script [Rank 1] [INFO] val acc 89.79%
+2025-11-17 06:50:46,080 DDP_Script [Rank 1] [INFO] epoch 12 시작
+2025-11-17 06:50:46,092 DDP_Script [Rank 1] [INFO] DataLoader created with batch_size=32, num_workers=4
+2025-11-17 06:50:46,113 DDP_Script [Rank 1] [INFO] local_steps=1053, global_steps=1053
+2025-11-17 06:56:06,773 DDP_Script [Rank 1] [INFO] epoch 12 train step time: 320.66 seconds
+2025-11-17 06:56:06,782 DDP_Script [Rank 1] [INFO] epoch 12 끝 (local_steps=1053, global_steps=1053)
+2025-11-17 06:56:07,160 DDP_Script [Rank 1] [INFO] val acc 89.56%
+2025-11-17 06:56:09,492 DDP_Script [Rank 1] [INFO] epoch 13 시작
+2025-11-17 06:56:09,504 DDP_Script [Rank 1] [INFO] DataLoader created with batch_size=32, num_workers=4
+2025-11-17 06:56:09,507 DDP_Script [Rank 1] [INFO] local_steps=1053, global_steps=1053
+2025-11-17 07:01:30,429 DDP_Script [Rank 1] [INFO] epoch 13 train step time: 320.92 seconds
+2025-11-17 07:01:30,441 DDP_Script [Rank 1] [INFO] epoch 13 끝 (local_steps=1053, global_steps=1053)
+2025-11-17 07:01:30,825 DDP_Script [Rank 1] [INFO] val acc 89.33%
+2025-11-17 07:01:33,105 DDP_Script [Rank 1] [INFO] epoch 14 시작
+2025-11-17 07:01:33,118 DDP_Script [Rank 1] [INFO] DataLoader created with batch_size=32, num_workers=4
+2025-11-17 07:01:33,120 DDP_Script [Rank 1] [INFO] local_steps=1053, global_steps=1053
+2025-11-17 07:06:53,351 DDP_Script [Rank 1] [INFO] epoch 14 train step time: 320.23 seconds
+2025-11-17 07:06:53,357 DDP_Script [Rank 1] [INFO] epoch 14 끝 (local_steps=1053, global_steps=1053)
+2025-11-17 07:06:53,723 DDP_Script [Rank 1] [INFO] val acc 90.25%
+2025-11-17 07:06:55,974 DDP_Script [Rank 1] [INFO] epoch 15 시작
+2025-11-17 07:06:55,986 DDP_Script [Rank 1] [INFO] DataLoader created with batch_size=32, num_workers=4
+2025-11-17 07:06:55,988 DDP_Script [Rank 1] [INFO] local_steps=1053, global_steps=1053
+2025-11-17 07:12:15,070 DDP_Script [Rank 1] [INFO] epoch 15 train step time: 319.08 seconds
+2025-11-17 07:12:15,075 DDP_Script [Rank 1] [INFO] epoch 15 끝 (local_steps=1053, global_steps=1053)
+2025-11-17 07:12:15,474 DDP_Script [Rank 1] [INFO] val acc 89.68%
+2025-11-17 07:12:17,734 DDP_Script [Rank 1] [INFO] epoch 16 시작
+2025-11-17 07:12:17,747 DDP_Script [Rank 1] [INFO] DataLoader created with batch_size=32, num_workers=4
+2025-11-17 07:12:17,755 DDP_Script [Rank 1] [INFO] local_steps=1053, global_steps=1053
+2025-11-17 07:17:38,374 DDP_Script [Rank 1] [INFO] epoch 16 train step time: 320.62 seconds
+2025-11-17 07:17:38,380 DDP_Script [Rank 1] [INFO] epoch 16 끝 (local_steps=1053, global_steps=1053)
+2025-11-17 07:17:38,761 DDP_Script [Rank 1] [INFO] val acc 89.33%
+2025-11-17 07:17:41,031 DDP_Script [Rank 1] [INFO] epoch 17 시작
+2025-11-17 07:17:41,046 DDP_Script [Rank 1] [INFO] DataLoader created with batch_size=32, num_workers=4
+2025-11-17 07:17:41,049 DDP_Script [Rank 1] [INFO] local_steps=1053, global_steps=1053
+2025-11-17 07:23:02,179 DDP_Script [Rank 1] [INFO] epoch 17 train step time: 321.13 seconds
+2025-11-17 07:23:02,194 DDP_Script [Rank 1] [INFO] epoch 17 끝 (local_steps=1053, global_steps=1053)
+2025-11-17 07:23:02,593 DDP_Script [Rank 1] [INFO] val acc 90.71%
+2025-11-17 07:23:04,903 DDP_Script [Rank 1] [INFO] epoch 18 시작
+2025-11-17 07:23:04,917 DDP_Script [Rank 1] [INFO] DataLoader created with batch_size=32, num_workers=4
+2025-11-17 07:23:04,918 DDP_Script [Rank 1] [INFO] local_steps=1053, global_steps=1053
+2025-11-17 07:28:24,468 DDP_Script [Rank 1] [INFO] epoch 18 train step time: 319.55 seconds
+2025-11-17 07:28:24,470 DDP_Script [Rank 1] [INFO] epoch 18 끝 (local_steps=1053, global_steps=1053)
+2025-11-17 07:28:24,844 DDP_Script [Rank 1] [INFO] val acc 88.76%
+2025-11-17 07:28:27,073 DDP_Script [Rank 1] [INFO] epoch 19 시작
+2025-11-17 07:28:27,085 DDP_Script [Rank 1] [INFO] DataLoader created with batch_size=32, num_workers=4
+2025-11-17 07:28:27,088 DDP_Script [Rank 1] [INFO] local_steps=1053, global_steps=1053
+2025-11-17 07:33:46,945 DDP_Script [Rank 1] [INFO] epoch 19 train step time: 319.86 seconds
+2025-11-17 07:33:46,952 DDP_Script [Rank 1] [INFO] epoch 19 끝 (local_steps=1053, global_steps=1053)
+2025-11-17 07:33:47,339 DDP_Script [Rank 1] [INFO] val acc 90.14%
+2025-11-17 07:33:49,698 DDP_Script [Rank 1] [INFO] epoch 20 시작
+2025-11-17 07:33:49,711 DDP_Script [Rank 1] [INFO] DataLoader created with batch_size=32, num_workers=4
+2025-11-17 07:33:49,716 DDP_Script [Rank 1] [INFO] local_steps=1053, global_steps=1053
+2025-11-17 07:39:09,501 DDP_Script [Rank 1] [INFO] epoch 20 train step time: 319.78 seconds
+2025-11-17 07:39:09,510 DDP_Script [Rank 1] [INFO] epoch 20 끝 (local_steps=1053, global_steps=1053)
+2025-11-17 07:39:09,898 DDP_Script [Rank 1] [INFO] val acc 91.06%
+2025-11-17 07:39:12,200 DDP_Script [Rank 1] [INFO] Training loop finished.
