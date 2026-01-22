@@ -1,0 +1,55 @@
+2026-01-11 00:24:14,771 [INFO] (WorkerAgent) Worker Agent Starting. Managing GPU 0 on Port 8304
+2026-01-11 00:24:14,771 [INFO] (WorkerAgent) Telemetry thread started for GPU 0 -> http://163.180.117.216:8082
+INFO:     Started server process [1850435]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8304 (Press CTRL+C to quit)
+2026-01-11 01:29:25,316 [INFO] (WorkerAgent) [8304] [job-dff8b02aeff7] Launch Request received. run_id=625945663e23
+INFO:     163.180.117.216:34040 - "POST /launch_task HTTP/1.1" 200 OK
+2026-01-11 01:51:18,001 [INFO] (WorkerAgent) [8304] [job-dff8b02aeff7] reported status=FAILED exit=1 run_id=625945663e23 reason=None stop0=False stop1=False
+2026-01-11 01:52:16,232 [INFO] (WorkerAgent) [8304] [job-6174fb43b910] Launch Request received. run_id=f7901f158b1f
+INFO:     163.180.117.216:56046 - "POST /launch_task HTTP/1.1" 200 OK
+2026-01-11 02:59:06,954 [INFO] (WorkerAgent) [8304] [job-6174fb43b910] reported status=FAILED exit=1 run_id=f7901f158b1f reason=None stop0=False stop1=False
+2026-01-11 02:59:10,992 [INFO] (WorkerAgent) [8304] [job-2e844ad6f755] Launch Request received. run_id=0084bf5f4972
+INFO:     163.180.117.216:36088 - "POST /launch_task HTTP/1.1" 200 OK
+2026-01-11 03:04:31,831 [INFO] (WorkerAgent) [8304] [job-2e844ad6f755] reported status=FAILED exit=1 run_id=0084bf5f4972 reason=None stop0=False stop1=False
+2026-01-11 03:04:36,062 [INFO] (WorkerAgent) [8304] [job-8bc2c35f1992] Launch Request received. run_id=73c14cf15e94
+INFO:     163.180.117.216:41036 - "POST /launch_task HTTP/1.1" 200 OK
+2026-01-11 03:08:33,036 [INFO] (WorkerAgent) [8304] [job-8bc2c35f1992] reported status=FAILED exit=1 run_id=73c14cf15e94 reason=None stop0=False stop1=False
+2026-01-11 03:08:37,109 [INFO] (WorkerAgent) [8304] [job-4019cb61d820] Launch Request received. run_id=11da91e6b60d
+INFO:     163.180.117.216:57494 - "POST /launch_task HTTP/1.1" 200 OK
+2026-01-11 03:12:27,540 [INFO] (WorkerAgent) [8304] [job-4019cb61d820] reported status=FAILED exit=1 run_id=11da91e6b60d reason=None stop0=False stop1=False
+2026-01-11 03:17:08,218 [INFO] (WorkerAgent) [8304] [job-e92a0d802089] Launch Request received. run_id=608bf2ff196b
+INFO:     163.180.117.216:39010 - "POST /launch_task HTTP/1.1" 200 OK
+2026-01-11 03:38:26,978 [INFO] (WorkerAgent) [8304] [job-e92a0d802089] reported status=FAILED exit=1 run_id=608bf2ff196b reason=None stop0=False stop1=False
+2026-01-11 03:54:42,636 [INFO] (WorkerAgent) [8304] [job-1338a630ed56] Launch Request received. run_id=b78aa5aa589a
+INFO:     163.180.117.216:48522 - "POST /launch_task HTTP/1.1" 200 OK
+2026-01-11 04:14:42,902 [INFO] (WorkerAgent) [8304] [job-1338a630ed56] reported status=FAILED exit=1 run_id=b78aa5aa589a reason=None stop0=False stop1=False
+2026-01-11 04:34:09,115 [INFO] (WorkerAgent) [8304] [job-5b68ced15a39] Launch Request received. run_id=7103f1c7b4e3
+INFO:     163.180.117.216:48678 - "POST /launch_task HTTP/1.1" 200 OK
+2026-01-11 05:27:25,746 [INFO] (WorkerAgent) [8304] [job-5b68ced15a39] Created stop flag at /tmp/job-5b68ced15a39_attempt-1.flag reason=HOL_GANG_PREEMPT HOL=JOB-3E82979BD0FC PIN=CLUSTERB
+2026-01-11 05:27:25,747 [INFO] (WorkerAgent) [8304] [job-5b68ced15a39] Sending SIGTERM to pid=1893727 reason=HOL_GANG_PREEMPT HOL=JOB-3E82979BD0FC PIN=CLUSTERB
+2026-01-11 05:27:25,747 [WARNING] (WorkerAgent) [8304] [job-5b68ced15a39] stop_ack report failed: TypeError("_report_job_stopped() got an unexpected keyword argument 'phase'")
+INFO:     163.180.117.216:54356 - "POST /stop_task HTTP/1.1" 200 OK
+2026-01-11 05:27:30,857 [INFO] (WorkerAgent) [8304] [job-5b68ced15a39] reported status=STOPPED exit=-15 run_id=7103f1c7b4e3 reason=HOL_GANG_PREEMPT HOL=JOB-3E82979BD0FC PIN=CLUSTERB stop0=False stop1=True
+2026-01-11 05:27:36,733 [INFO] (WorkerAgent) [8304] [job-3e82979bd0fc] Launch Request received. run_id=401e42df9f98
+INFO:     163.180.117.216:57854 - "POST /launch_task HTTP/1.1" 200 OK
+2026-01-11 06:02:56,977 [INFO] (WorkerAgent) [8304] [job-3e82979bd0fc] reported status=FAILED exit=1 run_id=401e42df9f98 reason=None stop0=False stop1=False
+2026-01-11 06:02:59,248 [INFO] (WorkerAgent) [8304] [job-5b80e3f46f86] Launch Request received. run_id=253e9b6193cc
+INFO:     163.180.117.216:59928 - "POST /launch_task HTTP/1.1" 200 OK
+2026-01-11 06:38:11,963 [INFO] (WorkerAgent) [8304] [job-5b80e3f46f86] reported status=FAILED exit=1 run_id=253e9b6193cc reason=None stop0=False stop1=False
+2026-01-11 06:38:14,482 [INFO] (WorkerAgent) [8304] [job-eae3551c1d5c] Launch Request received. run_id=1d636e46b7e3
+INFO:     163.180.117.216:44204 - "POST /launch_task HTTP/1.1" 200 OK
+2026-01-11 07:12:59,372 [INFO] (WorkerAgent) [8304] [job-eae3551c1d5c] reported status=FAILED exit=1 run_id=1d636e46b7e3 reason=None stop0=False stop1=False
+2026-01-11 07:13:01,786 [INFO] (WorkerAgent) [8304] [job-5b68ced15a39] Launch Request received. run_id=7103f1c7b4e3
+INFO:     163.180.117.216:43878 - "POST /launch_task HTTP/1.1" 200 OK
+2026-01-11 08:25:46,053 [INFO] (WorkerAgent) [8304] [job-5b68ced15a39] reported status=FAILED exit=1 run_id=7103f1c7b4e3 reason=None stop0=False stop1=False
+2026-01-11 08:25:49,631 [INFO] (WorkerAgent) [8304] [job-5b78cdfda8f8] Launch Request received. run_id=18c1ca9fc402
+INFO:     163.180.117.216:37592 - "POST /launch_task HTTP/1.1" 200 OK
+2026-01-11 08:29:35,331 [INFO] (WorkerAgent) [8304] [job-5b78cdfda8f8] reported status=FAILED exit=1 run_id=18c1ca9fc402 reason=None stop0=False stop1=False
+2026-01-11 08:29:39,664 [INFO] (WorkerAgent) [8304] [job-7758fb21cb31] Launch Request received. run_id=56b38242dc42
+INFO:     163.180.117.216:46930 - "POST /launch_task HTTP/1.1" 200 OK
+2026-01-11 08:33:40,442 [INFO] (WorkerAgent) [8304] [job-7758fb21cb31] reported status=FAILED exit=1 run_id=56b38242dc42 reason=None stop0=False stop1=False
+2026-01-11 08:33:44,725 [INFO] (WorkerAgent) [8304] [job-0f2619d5099d] Launch Request received. run_id=38836fda994b
+INFO:     163.180.117.216:41044 - "POST /launch_task HTTP/1.1" 200 OK
+2026-01-11 08:54:42,989 [INFO] (WorkerAgent) [8304] [job-0f2619d5099d] reported status=FAILED exit=1 run_id=38836fda994b reason=None stop0=False stop1=False

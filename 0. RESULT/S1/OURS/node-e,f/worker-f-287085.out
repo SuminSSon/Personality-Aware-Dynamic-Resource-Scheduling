@@ -1,0 +1,42 @@
+2026-01-11 00:30:12,774 [INFO] (WorkerAgent) Worker Agent Starting. Managing GPU 0 on Port 8302
+2026-01-11 00:30:12,775 [INFO] (WorkerAgent) Telemetry thread started for GPU 0 -> http://163.180.117.216:8082
+INFO:     Started server process [1851095]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8302 (Press CTRL+C to quit)
+2026-01-11 01:16:53,850 [INFO] (WorkerAgent) [8302] [job-35ad5fee962b] Launch Request received. run_id=e47be85f0542
+INFO:     163.180.117.216:49274 - "POST /launch_task HTTP/1.1" 200 OK
+2026-01-11 02:28:40,851 [INFO] (WorkerAgent) [8302] [job-35ad5fee962b] reported status=FAILED exit=1 run_id=e47be85f0542 reason=None stop0=False stop1=False
+2026-01-11 02:28:44,651 [INFO] (WorkerAgent) [8302] [job-1890c976062b] Launch Request received. run_id=523fe027e81f
+INFO:     163.180.117.216:45402 - "POST /launch_task HTTP/1.1" 200 OK
+2026-01-11 02:31:08,705 [INFO] (WorkerAgent) [8302] [job-1890c976062b] reported status=FAILED exit=1 run_id=523fe027e81f reason=None stop0=False stop1=False
+2026-01-11 02:43:05,830 [INFO] (WorkerAgent) [8302] [job-ff71a7cdd84f] Launch Request received. run_id=fd080c041bc4
+INFO:     163.180.117.216:40696 - "POST /launch_task HTTP/1.1" 200 OK
+2026-01-11 03:36:16,110 [INFO] (WorkerAgent) [8302] [job-ff71a7cdd84f] reported status=FAILED exit=1 run_id=fd080c041bc4 reason=None stop0=False stop1=False
+2026-01-11 03:46:31,532 [INFO] (WorkerAgent) [8302] [job-4b89c164796c] Launch Request received. run_id=29cf6b2436c6
+INFO:     163.180.117.216:32818 - "POST /launch_task HTTP/1.1" 200 OK
+2026-01-11 04:06:46,915 [INFO] (WorkerAgent) [8302] [job-4b89c164796c] reported status=FAILED exit=1 run_id=29cf6b2436c6 reason=None stop0=False stop1=False
+2026-01-11 04:12:21,863 [INFO] (WorkerAgent) [8302] [job-39cd5cd25efd] Launch Request received. run_id=3375309d47e3
+INFO:     163.180.117.216:43060 - "POST /launch_task HTTP/1.1" 200 OK
+2026-01-11 04:15:08,793 [INFO] (WorkerAgent) [8302] [job-39cd5cd25efd] reported status=FAILED exit=1 run_id=3375309d47e3 reason=None stop0=False stop1=False
+2026-01-11 04:21:26,945 [INFO] (WorkerAgent) [8302] [job-1c8a7e8323c8] Launch Request received. run_id=2ffd7719c238
+INFO:     163.180.117.216:52400 - "POST /launch_task HTTP/1.1" 200 OK
+2026-01-11 05:27:25,310 [INFO] (WorkerAgent) [8302] [job-1c8a7e8323c8] reported status=FAILED exit=1 run_id=2ffd7719c238 reason=None stop0=False stop1=False
+2026-01-11 05:27:36,686 [INFO] (WorkerAgent) [8302] [job-3e82979bd0fc] Launch Request received. run_id=401e42df9f98
+INFO:     163.180.117.216:40982 - "POST /launch_task HTTP/1.1" 200 OK
+2026-01-11 06:02:57,827 [INFO] (WorkerAgent) [8302] [job-3e82979bd0fc] reported status=FAILED exit=1 run_id=401e42df9f98 reason=None stop0=False stop1=False
+2026-01-11 06:02:59,076 [INFO] (WorkerAgent) [8302] [job-5b80e3f46f86] Launch Request received. run_id=253e9b6193cc
+INFO:     163.180.117.216:49884 - "POST /launch_task HTTP/1.1" 200 OK
+2026-01-11 06:38:10,311 [INFO] (WorkerAgent) [8302] [job-5b80e3f46f86] reported status=FAILED exit=1 run_id=253e9b6193cc reason=None stop0=False stop1=False
+2026-01-11 06:38:14,452 [INFO] (WorkerAgent) [8302] [job-eae3551c1d5c] Launch Request received. run_id=1d636e46b7e3
+INFO:     163.180.117.216:52856 - "POST /launch_task HTTP/1.1" 200 OK
+2026-01-11 07:12:58,977 [INFO] (WorkerAgent) [8302] [job-eae3551c1d5c] reported status=FAILED exit=1 run_id=1d636e46b7e3 reason=None stop0=False stop1=False
+2026-01-11 07:13:03,777 [INFO] (WorkerAgent) [8302] [job-5fe61ce885ae] Launch Request received. run_id=98f20583cc02
+INFO:     163.180.117.216:44196 - "POST /launch_task HTTP/1.1" 200 OK
+2026-01-11 08:35:06,410 [INFO] (WorkerAgent) [8302] [job-5fe61ce885ae] reported status=FAILED exit=1 run_id=98f20583cc02 reason=None stop0=False stop1=False
+2026-01-11 08:35:10,727 [INFO] (WorkerAgent) [8302] [job-ca1bbc82689f] Launch Request received. run_id=0ae385b77ce0
+INFO:     163.180.117.216:55730 - "POST /launch_task HTTP/1.1" 200 OK
+2026-01-11 08:38:01,507 [INFO] (WorkerAgent) [8302] [job-ca1bbc82689f] reported status=FAILED exit=1 run_id=0ae385b77ce0 reason=None stop0=False stop1=False
+2026-01-11 08:38:05,746 [INFO] (WorkerAgent) [8302] [job-31a2651411ef] Launch Request received. run_id=405ab762ffd4
+INFO:     163.180.117.216:35322 - "POST /launch_task HTTP/1.1" 200 OK
+2026-01-11 09:24:26,041 [INFO] (WorkerAgent) [8302] [job-31a2651411ef] reported status=FAILED exit=1 run_id=405ab762ffd4 reason=None stop0=False stop1=False
