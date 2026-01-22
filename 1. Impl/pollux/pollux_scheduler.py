@@ -69,14 +69,12 @@ def is_gang_job(job: RuntimeJobState) -> bool:
 ALLOWED_G = [1, 2, 4]
 
 def _next_up_g(g: int) -> Optional[int]:
-    """현재 g에서 '위쪽'으로 가장 가까운 허용 g (없으면 None)"""
     for x in ALLOWED_G:
         if x > g:
             return x
     return None
 
 def _next_down_g(g: int) -> Optional[int]:
-    """현재 g에서 '아래쪽'으로 가장 가까운 허용 g (없으면 None)"""
     prev = None
     for x in ALLOWED_G:
         if x >= g:
@@ -86,9 +84,6 @@ def _next_down_g(g: int) -> Optional[int]:
 
 class PolluxGoodputProfiler:
     def __init__(self, alpha: float = 0.5, explore_prob: float = 0.0):
-        """
-        ✅ 재시작(stop+requeue) 기반 시스템에서는 탐색(explore)이 오버헤드 폭탄이므로 0으로 둔다.
-        """
         self._lock = threading.Lock()
         # key = (job_id, g, local_batch, accum) -> (sps, stat_eff, goodput)
         self._gp: Dict[Tuple[str, int, int, int], Tuple[float, float, float]] = {}
@@ -145,9 +140,6 @@ class PolluxGoodputProfiler:
         accum: int,
         gns: float,
     ) -> float:
-        """
-        Pollux에서 쓰는 GNS 기반 stat. efficiency 근사.
-        """
         if gns <= 0:
             return 1.0
         eff_batch = max(1.0, float(g) * float(local_batch) * float(accum))
@@ -163,9 +155,9 @@ class PolluxGoodputProfiler:
         max_global_batch: int = 4096,
     ) -> List[Tuple[int, int]]:
         """
-        (g, local_batch, accum)에 대해 탐색할 후보 집합 생성.
-        - default_batch, default_accum 주변의 몇 개 배치/accum 조합.
-        - Pollux autotuner가 하는 'config search space' 역할의 단순 버전.
+        (g, local_batch, accum)에 대해 탐색할 후보 집합 생성
+        - default_batch, default_accum 주변의 몇 개 배치/accum 조합
+        - Pollux autotuner가 하는 'config search space' 역할
         """
         base_b = max(4, default_batch)
         base_a = max(1, default_accum)
@@ -207,14 +199,6 @@ class PolluxGoodputProfiler:
         accum: int,
         default_sps: float,
     ) -> Tuple[float, float, float]:
-        """
-        prior (model, dataset, g) 기반으로 goodput(B) surface를 근사.
-        아이디어:
-          - prior에서 (b0, a0, sps0, se0) 하나 가져옴
-          - global batch B0 = g * b0 * a0, B = g * local_batch * accum
-          - se(B) ~ B_crit / (B_crit + B)  (Pollux의 GNS 기반 곡선 흉내)
-          - B_crit은 se0를 만족하도록 역산
-        """
         key_mdg = (model_name, dataset, g)
         prior_list = self._prior_by_mdg.get(key_mdg)
         if not prior_list:
@@ -253,10 +237,6 @@ class PolluxGoodputProfiler:
         gns: Optional[float] = None,
         stat_eff: Optional[float] = None,
     ) -> None:
-        """
-        학습 코드에서 보내는 (sps, gns/stat_eff)를 EMA로 적재.
-        Pollux의 online goodput profiler와 같은 역할.
-        """
         if g <= 0 or local_batch <= 0 or accum <= 0 or sps <= 0:
             return
 
@@ -391,10 +371,6 @@ def record_throughput_sample(job_id: str, g: int, local_batch: int, sps: float) 
 FAIRNESS_ALPHA = 0.3  # fairness 영향 완화용 스케일 팩터
 
 def _fairness_weight(job: RuntimeJobState) -> float:
-    """
-    attained_service가 커져도 너무 빨리 weight가 0으로 떨어지지 않도록 완화.
-    FAIRNESS_ALPHA가 작을수록 fairness 페널티가 약해짐.
-    """
     s = max(0.0, float(job.attained_service))
     return 1.0 / (1.0 + FAIRNESS_ALPHA * s)
 
@@ -504,71 +480,11 @@ def _job_weighted_utility(
     w = _fairness_weight(job)
     return w * U_val
 
-def _compute_marginal_gains(
-    runtime_jobs: List[RuntimeJobState],
-    assign_g: Dict[str, int],
-    U_table: Dict[str, Dict[int, Tuple[int, int, float, float, float]]],
-    min_g: Dict[str, int],
-    allow_preemption: bool,
-) -> Tuple[Dict[str, float], Dict[str, float]]:
-    """
-    각 job에 대해:
-      ΔU_up[j]   = w_j * (U_j(g_up)   - U_j(g_cur))  (g_cur -> next_up_g)
-      ΔU_down[j] = w_j * (U_j(g_down) - U_j(g_cur))  (g_cur -> next_down_g)
-
-    - g_down == 0 인 경우:
-        * allow_preemption=True 이고 min_g[j] == 0 일 때만 preemption 고려
-        * 그 외에는 ΔU_down을 0으로 두어 donor 후보에서 제외
-    """
-    delta_up: Dict[str, float] = {}
-    delta_down: Dict[str, float] = {}
-
-    for j in runtime_jobs:
-        jid = j.job_id
-        g_cur = assign_g.get(jid, j.current_gpus)
-
-        job_U = U_table.get(jid, {})
-
-        # --- up: g_cur -> next_up_g ---
-        g_up = _next_up_g(g_cur)
-        if g_up is not None and g_up in job_U and g_cur in job_U:
-            u_cur = _job_weighted_utility(j, g_cur, U_table)
-            u_next = _job_weighted_utility(j, g_up, U_table)
-            delta_up[jid] = u_next - u_cur
-        else:
-            delta_up[jid] = 0.0
-
-        # --- down: g_cur -> next_down_g ---
-        if g_cur <= 0:
-            delta_down[jid] = 0.0
-            continue
-
-        g_min = min_g.get(jid, 1)
-        g_down = _next_down_g(g_cur)
-
-        # (1) g_down >= max(1, g_min) 인 경우: 정상적인 scale-down
-        if g_down is not None and g_down >= max(1, g_min) and g_down in job_U and g_cur in job_U:
-            u_cur = _job_weighted_utility(j, g_cur, U_table)
-            u_prev = _job_weighted_utility(j, g_down, U_table)
-            delta_down[jid] = u_prev - u_cur  # 보통 음수
-            continue
-
-        # (2) g_down == 0 인 경우: preemption 후보는 allow_preemption=True & min_g=0일 때만
-        if g_down == 0 and allow_preemption and g_min <= 0:
-            u_cur = _job_weighted_utility(j, g_cur, U_table)
-            u_prev = 0.0  # U(0) = 0
-            delta_down[jid] = u_prev - u_cur
-        else:
-            delta_down[jid] = 0.0
-
-    return delta_up, delta_down
-
 def update_job_metrics_from_telemetry(job: RuntimeJobState, metrics: Dict):
     now = time.time()
     new_attained = float(metrics.get("attained_service", 0.0))
     job.attained_service = new_attained
     job.last_metric_ts = now
-    # ✅ goodput 샘플은 /report_progress에서만 기록하도록 통일 (오염 방지)
 
 def pollux_reallocation_tick(
     cluster_id: str,

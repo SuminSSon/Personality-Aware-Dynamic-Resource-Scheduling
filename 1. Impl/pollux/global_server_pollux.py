@@ -144,9 +144,9 @@ LAMBDA_TIME = 0.0
 LAMBDA_COST = 0.0
 LAMBDA_FAIR = 0.0
 
-POLLUX_DELTA_GOODPUT_THRESH_IDLE = 0.0
+POLLUX_DELTA_GOODPUT_THRESH_IDLE = 0.2
 POLLUX_DELTA_GOODPUT_THRESH_BUSY = 0.01
-POLLUX_SCALE_COOLDOWN_SEC = 60.0
+POLLUX_SCALE_COOLDOWN_SEC = 600.0
 
 NODE_REGISTRY_LOCK = threading.Lock()
 
@@ -264,11 +264,6 @@ def get_now_str() -> str:
     return datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
 def _compute_cluster_free_gpus() -> int:
-    """
-    현재 전체 클러스터(노드 레지스트리 기준)의 free GPU 개수 추정.
-    - NODE_REGISTRY: 전체 슬롯 수
-    - ACTIVE_JOBS: 이미 사용 중인 슬롯 수
-    """
     with NODE_REGISTRY_LOCK:
         total_slots = len(NODE_REGISTRY)
 
@@ -323,18 +318,14 @@ def _decide_initial_g_for_job(
 
     # submit/admission 단계에서는 최소 1로 clamp
     g = max(1, int(g))
+
+
     if g > free_slots:
         g = free_slots
     return g
 
 # --- Co-Adaptive Tuner (batch size / learning rate) ---
 class CoAdaptiveTuner:
-    """
-    간단한 Pollux-style co-adaptive 튜너 (per-job).
-    - 제출 시 몇 개의 (g, batch, lr) 후보를 등록
-    - checkpoint마다 reward(accuracy - loss) 기록
-    - 일정 이상 관측되면 best 후보를 고르고 이후 exploit 단계에서 g에 맞춰 scaling
-    """
     def __init__(self):
         self.jobs: Dict[str, Dict[str, Any]] = {}
         self._lock = threading.Lock()
@@ -795,16 +786,7 @@ async def _launch_job_on_nodes(job_config: Dict[str, Any], assigned_nodes: List[
         f"g={world_size}, cluster={cluster_name}",
     ])
 
-async def _stop_job(job_id: str, stop_timeout_sec: float = 15.0) -> bool:
-    """
-    안전한 stop 로직:
-    - ACTIVE_JOBS에서 제거하되, 노드를 즉시 idle로 풀지 않는다.
-    - 노드를 'stopping'으로 표기하고 stop_task 전송
-    - /report_job_stopped(stop_event) ACK를 최대 stop_timeout_sec까지 기다린다.
-      (ACK가 없으면 강제 idle로 전환하되, 로그에 "FORCE"를 남긴다.)
-
-    이렇게 해야 "같은 GPU에 두 잡이 동시에 뜨는" 최악을 막는다.
-    """
+async def _stop_job(job_id: str, stop_timeout_sec: float = 300.0) -> bool:
     # 0) ACTIVE_JOBS에서 job_info 확보 + stop_event 확보 (먼저)
     with ACTIVE_JOBS_LOCK:
         job_info = ACTIVE_JOBS.get(job_id)
@@ -875,6 +857,13 @@ async def _stop_job(job_id: str, stop_timeout_sec: float = 15.0) -> bool:
 
 async def _scale_and_requeue_job(rj: RuntimeJobState, desired_g: int, suggested_local_b: int):
     jid = rj.job_id
+    curr_g = int(rj.current_gpus)
+    desired_g = int(desired_g)
+
+    # ✅ [핵심 방어] GPU 개수가 똑같다면 절대 죽이지(stop) 않는다!
+    if desired_g == curr_g:
+        log.info(f"[POLLUX][PREVENT] Scaling requested for {jid} but g is same ({curr_g}). Ignoring to avoid 300s freeze.")
+        return
 
     log.info(
         f"[POLLUX][SCALE_EXEC] start job={jid} "
@@ -971,26 +960,35 @@ async def _scale_and_requeue_job(rj: RuntimeJobState, desired_g: int, suggested_
 
 def _make_scale_job_fn():
     def _scale_job(rj: RuntimeJobState, new_g: int, new_local_batch: int) -> bool:
-        # 1. 동일 스케일/배치면 '성공'으로 간주하되 실제 액션(재시작)은 안 함
-        if int(new_g) == int(rj.current_gpus) and int(new_local_batch) == int(rj.current_local_batch):
-            # Pollux에게 "계획대로 잘 처리됨(이미 그 상태임)"이라고 알려줌
-            return True 
-
-        now_ts = time.time()
-        # 2. 너무 자주 껐다 켜는 것 방지 (Livelock 방지)
-        # 이미 pollux_reallocation_tick에서 residency_ok를 체크하지만, 여기서 한 번 더 막는 것은 안전장치로 좋습니다.
-        MIN_SCALE_INTERVAL_SEC = 240.0
+        log.info(f"DEBUG: _scale_job called for {rj.job_id}. curr_g={rj.current_gpus}, new_g={new_g}")
+        curr_g = int(rj.current_gpus)
         
+        # 1. GPU 개수 변화 없으면 무시
+        if int(new_g) == int(curr_g):
+            return False
+
+        # 2. Downscale 시 IDLE 노드 있으면 거절 (사용자님이 원하신 핵심 로직)
+        if int(new_g) < curr_g:
+            with NODE_REGISTRY_LOCK:
+                idle_nodes = [nid for nid, ninfo in NODE_REGISTRY.items() 
+                              if ninfo.get("cluster") == rj.cluster_id and ninfo.get("status") == "idle"]
+            if len(idle_nodes) > 0:
+                log.info(f"[POLLUX][KEEP] {rj.job_id} stays at {curr_g} because IDLE nodes exist.")
+                return False
+
+            # 3. 쿨다운 체크 (선택사항이지만 넣어두면 안전함)
+            now_ts = time.time()
+            with ACTIVE_JOBS_LOCK:
+                info = ACTIVE_JOBS.get(rj.job_id, {})
+                if (now_ts - float(info.get("last_scaled_at_ts", 0))) < 300:
+                    return False
+
+        # 4. 위 필터를 통과한 '진짜 필요한' 스케일링만 실행
+        log.info(f"[POLLUX][SCALE_EXECUTE] {rj.job_id} {curr_g} -> {new_g}")
         with ACTIVE_JOBS_LOCK:
             info = ACTIVE_JOBS.get(rj.job_id)
-            if info:
-                last = float(info.get("last_scaled_at_ts", 0.0) or 0.0)
-                if last > 0.0 and (now_ts - last) < MIN_SCALE_INTERVAL_SEC:
-                    log.info(f"[POLLUX][SCALE_REJECT] job={rj.job_id} too frequent scaling.")
-                    return False # 이건 진짜 "바꿔야 하는데 너무 빨리 요청해서 못 바꿈"의 의미
-
-        # 3. 실제 액션 수행
-        # ... 로그 생략 ...
+            if info: info["last_scaled_at_ts"] = time.time()
+            
         asyncio.create_task(_scale_and_requeue_job(rj, new_g, new_local_batch))
         return True
 
