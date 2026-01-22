@@ -13,8 +13,8 @@ PUSH_TTL_SEC = int(os.getenv("PUSH_TTL_SEC", "120"))
 CLUSTERA_GPUS_ENV = "CLUSTERA_GPUS"
 
 SPEED_FACTOR: Dict[str, float] = {
-    "clusterA": 1.0,   # RTX 5070Ti 클러스터
-    "clusterB": 1.5,   # A5000 클러스터
+    "clusterA": 1.41,
+    "clusterB": 1.0,
 }
 
 _LAST_TILDE_U: Dict[str, float] = {}

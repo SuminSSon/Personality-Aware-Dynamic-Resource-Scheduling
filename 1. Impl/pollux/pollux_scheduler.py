@@ -948,8 +948,8 @@ def pollux_initial_g(
     # - 너무 민감하면 스케일업이 영영 안 일어나고
     # - 너무 둔하면 항상 4로 붙습니다.
     # 아래는 실험하기 좋은 형태(단조 감소) + 하이퍼파라미터 2개
-    price_min = float(extra.get("pollux_price_min", 0.01))  # 널널할 때 최소 가격
-    price_max = float(extra.get("pollux_price_max", 0.20))  # 빡빡할 때 최대 가격
+    price_min = float(extra.get("pollux_price_min", 0.1))  # 널널할 때 최소 가격
+    price_max = float(extra.get("pollux_price_max", 0.5))  # 빡빡할 때 최대 가격
     price_min = max(0.0, min(price_min, 1.0))
     price_max = max(price_min, min(price_max, 2.0))
 
@@ -992,7 +992,7 @@ def pollux_initial_g(
 
     # 4) near-tie 처리: best 대비 너무 미미한 차이면 작은 g로 (GPU 낭비 방지)
     # (원하면 0~0.05 정도로 튜닝)
-    rel_tol = float(extra.get("pollux_rel_tol", 0.02))
+    rel_tol = float(extra.get("pollux_rel_tol", 0.15))
     rel_tol = max(0.0, min(rel_tol, 0.2))
 
     # 여기서 "best"는 candidates 중 U 최대
