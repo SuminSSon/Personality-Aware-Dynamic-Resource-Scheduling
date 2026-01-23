@@ -68,19 +68,16 @@ def is_gang_job(job: RuntimeJobState) -> bool:
 
 ALLOWED_G = [1, 2, 4]
 
-def _next_up_g(g: int) -> Optional[int]:
-    for x in ALLOWED_G:
-        if x > g:
-            return x
+def _next_up_g(g: int):
+    if g == 0: return 1
+    if g == 1: return 2
+    if g == 2: return 4
     return None
 
-def _next_down_g(g: int) -> Optional[int]:
-    prev = None
-    for x in ALLOWED_G:
-        if x >= g:
-            break
-        prev = x
-    return prev
+def _next_down_g(g: int):
+    if g == 4: return 2
+    if g == 2: return 1
+    return None
 
 class PolluxGoodputProfiler:
     def __init__(self, alpha: float = 0.5, explore_prob: float = 0.0):
@@ -495,8 +492,8 @@ def pollux_reallocation_tick(
     cooldown_sec: float,
     min_delta_gain: float,
     *,
-    restart_overhead_sec: float = 45.0,
-    min_residency_sec: float = 180.0,
+    restart_overhead_sec: float = 300.0,
+    min_residency_sec: float = 600.0,
     busy_mode_enabled: bool = True,
 ) -> None:
     """
@@ -644,6 +641,9 @@ def pollux_reallocation_tick(
             if gain_total <= (min_delta_gain + overhead_gate):
                 continue
 
+            if int(g_up) == int(g_cur):
+                continue
+
             if gain_per_gpu > best_gain_per_gpu:
                 best_gain_per_gpu = gain_per_gpu
                 best_gain_total = gain_total
@@ -720,6 +720,9 @@ def pollux_reallocation_tick(
 
         g_min_j = max(1, int(min_g.get(dj.job_id, 1)))
         if g_down < g_min_j:
+            continue
+
+        if int(g_cur) == int(g_down):
             continue
 
         freed = int(g_cur - g_down)
