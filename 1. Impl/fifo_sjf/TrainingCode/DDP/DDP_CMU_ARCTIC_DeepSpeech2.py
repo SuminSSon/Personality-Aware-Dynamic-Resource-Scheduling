@@ -598,18 +598,29 @@ def main():
             step += 1
 
         model.eval()
-        while step < max_steps and last_batch is not None:
-            inputs, in_lens, targets, tgt_lens = last_batch
-            inputs = inputs.to(device, non_blocking=True)
-            in_lens = in_lens.to(device)
-            targets = targets.to(device)
-            tgt_lens = tgt_lens.to(device)
-            optimizer.zero_grad()
-            logits, out_lens = model(inputs, in_lens)
-            log_probs = torch.nn.functional.log_softmax(logits, dim=-1)
-            loss = criterion(log_probs, targets, out_lens, tgt_lens)
-            loss.backward()
-            step += 1
+        # ========== TRAIN 완료 후 남은 스텝 맞추기 (Padding) ==========
+        if step < max_steps:
+            log.info(f"Rank {rank}: 남은 {max_steps - step} 스텝만큼 더미 연산을 진행합니다. (동기화 제외)")
+            
+            # 동기화 없이 연산만 수행하여 데드락 방지
+            with model.no_sync(): 
+                while step < max_steps and last_batch is not None:
+                    inputs, in_lens, targets, tgt_lens = last_batch
+                    inputs = inputs.to(device, non_blocking=True)
+                    in_lens = in_lens.to(device)
+                    targets = targets.to(device)
+                    tgt_lens = tgt_lens.to(device)
+
+                    optimizer.zero_grad()
+                    logits, out_lens = model(inputs, in_lens)
+                    log_probs = torch.nn.functional.log_softmax(logits, dim=-1)
+                    loss = criterion(log_probs, targets, out_lens, tgt_lens)
+                    
+                    # no_sync 컨텍스트 안에서는 backward를 해도 타 노드와 통신하지 않음
+                    loss.backward()
+                    # optimizer.step()은 하지 않습니다 (가중치 오염 방지)
+                    
+                    step += 1
 
         train_time = time.time() - t0
         local_train_loss_value = (local_train_loss.item() / max(1, local_train_samples.item()))
