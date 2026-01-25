@@ -1,0 +1,993 @@
+2026-01-24 23:36:30,866 [INFO] Global Server Started. Scheduler loop initiated.
+2026-01-24 23:36:30,866 [INFO] Lucid Scheduler Loop Started
+2026-01-24 23:40:18,673 [INFO] [enqueue job=job-0c8c1c5a, g_target=1] queue=1 active_jobs=0 | clusterA: total=4 busy=0 idle=4 | clusterB: total=4 busy=0 idle=4
+2026-01-24 23:40:21,029 [INFO] [LUCID] Launched job-0c8c1c5a on ['node_a']
+2026-01-24 23:41:21,041 [INFO] [LUCID-PROFILE] Job job-0c8c1c5a Classifed -> SS=2 (Tiny/Med/Jumbo)
+2026-01-24 23:43:00,308 [INFO] [PROGRESS] job=job-0c8c1c5a g=1, batch=32, accum=1, sps=14.400, loss=0.6976083877983443, acc=50.91743119266055
+2026-01-24 23:45:05,659 [INFO] [enqueue job=job-bed9de98, g_target=1] queue=1 active_jobs=1 | clusterA: total=4 busy=1 idle=3 | clusterB: total=4 busy=0 idle=4
+2026-01-24 23:45:06,171 [INFO] [LUCID] Launched job-bed9de98 on ['node_b']
+2026-01-24 23:45:32,009 [INFO] [PROGRESS] job=job-0c8c1c5a g=1, batch=32, accum=1, sps=14.039, loss=0.7010997107269568, acc=50.91743119266055
+2026-01-24 23:46:06,182 [INFO] [LUCID-PROFILE] Job job-bed9de98 Classifed -> SS=2 (Tiny/Med/Jumbo)
+2026-01-24 23:48:06,663 [INFO] [PROGRESS] job=job-0c8c1c5a g=1, batch=32, accum=1, sps=13.945, loss=0.6966270656760679, acc=50.91743119266055
+2026-01-24 23:48:08,441 [INFO] [PROGRESS] job=job-bed9de98 g=1, batch=64, accum=1, sps=5.602, loss=0.04324037170410156, acc=98.66
+2026-01-24 23:50:41,014 [INFO] [PROGRESS] job=job-0c8c1c5a g=1, batch=32, accum=1, sps=13.986, loss=0.6985817305538633, acc=50.91743119266055
+2026-01-24 23:51:11,616 [INFO] [PROGRESS] job=job-bed9de98 g=1, batch=64, accum=1, sps=5.418, loss=0.034274755859375, acc=98.87
+2026-01-24 23:53:15,509 [INFO] [PROGRESS] job=job-0c8c1c5a g=1, batch=32, accum=1, sps=13.971, loss=0.6992526273114965, acc=50.91743119266055
+2026-01-24 23:54:14,369 [INFO] [PROGRESS] job=job-bed9de98 g=1, batch=64, accum=1, sps=5.454, loss=0.0366727783203125, acc=98.8
+2026-01-24 23:55:50,100 [INFO] [PROGRESS] job=job-0c8c1c5a g=1, batch=32, accum=1, sps=13.976, loss=0.6974820478246846, acc=50.91743119266055
+2026-01-24 23:57:16,546 [INFO] [PROGRESS] job=job-bed9de98 g=1, batch=64, accum=1, sps=5.463, loss=0.047297711181640625, acc=98.53
+2026-01-24 23:58:23,846 [INFO] [PROGRESS] job=job-0c8c1c5a g=1, batch=32, accum=1, sps=14.054, loss=0.6963876146788991, acc=50.91743119266055
+2026-01-25 00:00:18,169 [INFO] [PROGRESS] job=job-bed9de98 g=1, batch=64, accum=1, sps=5.488, loss=0.03161048889160156, acc=99.08
+2026-01-25 00:00:57,551 [INFO] [PROGRESS] job=job-0c8c1c5a g=1, batch=32, accum=1, sps=14.032, loss=0.6976362455875502, acc=50.91743119266055
+2026-01-25 00:02:00,475 [INFO] [enqueue job=job-bc4daa86, g_target=4] queue=1 active_jobs=2 | clusterA: total=4 busy=2 idle=2 | clusterB: total=4 busy=0 idle=4
+2026-01-25 00:02:03,587 [INFO] [LUCID] Launched job-bc4daa86 on ['node_e', 'node_f', 'node_g', 'node_h']
+2026-01-25 00:03:03,598 [INFO] [LUCID-PROFILE] Job job-bc4daa86 Classifed -> SS=2 (Tiny/Med/Jumbo)
+2026-01-25 00:03:21,551 [INFO] [PROGRESS] job=job-bed9de98 g=1, batch=64, accum=1, sps=5.435, loss=0.027010748291015626, acc=99.04
+2026-01-25 00:03:31,341 [INFO] [PROGRESS] job=job-0c8c1c5a g=1, batch=32, accum=1, sps=14.014, loss=0.6969992961358586, acc=50.91743119266055
+2026-01-25 00:03:59,356 [INFO] [enqueue job=job-912dbee6, g_target=1] queue=1 active_jobs=3 | clusterA: total=4 busy=2 idle=2 | clusterB: total=4 busy=4 idle=0
+2026-01-25 00:04:03,716 [INFO] [LUCID] Launched job-912dbee6 on ['node_c']
+2026-01-25 00:04:33,915 [INFO] [PROGRESS] job=job-bc4daa86 g=4, batch=64, accum=1, sps=3.134, loss=4.267409765625, acc=10.63
+2026-01-25 00:05:03,726 [INFO] [LUCID-PROFILE] Job job-912dbee6 Classifed -> SS=2 (Tiny/Med/Jumbo)
+2026-01-25 00:05:53,410 [INFO] [PROGRESS] job=job-912dbee6 g=1, batch=64, accum=1, sps=10.933, loss=0.6993139424455275, acc=50.91743119266055
+2026-01-25 00:06:05,337 [INFO] [PROGRESS] job=job-0c8c1c5a g=1, batch=32, accum=1, sps=14.025, loss=0.6993553791571101, acc=50.91743119266055
+2026-01-25 00:06:26,223 [INFO] [PROGRESS] job=job-bed9de98 g=1, batch=64, accum=1, sps=5.385, loss=0.0296519775390625, acc=99.05
+2026-01-25 00:06:42,804 [INFO] [PROGRESS] job=job-bc4daa86 g=4, batch=64, accum=1, sps=3.145, loss=3.722220703125, acc=18.06
+2026-01-25 00:07:32,185 [INFO] [PROGRESS] job=job-912dbee6 g=1, batch=64, accum=1, sps=10.873, loss=0.6974896772192158, acc=50.91743119266055
+2026-01-25 00:08:39,930 [INFO] [PROGRESS] job=job-0c8c1c5a g=1, batch=32, accum=1, sps=14.003, loss=0.6968599371953842, acc=50.91743119266055
+2026-01-25 00:08:52,632 [INFO] [PROGRESS] job=job-bc4daa86 g=4, batch=64, accum=1, sps=3.147, loss=3.329730859375, acc=24.5
+2026-01-25 00:09:13,863 [INFO] [PROGRESS] job=job-912dbee6 g=1, batch=64, accum=1, sps=10.750, loss=0.6975431529753798, acc=50.91743119266055
+2026-01-25 00:09:27,368 [INFO] [PROGRESS] job=job-bed9de98 g=1, batch=64, accum=1, sps=5.488, loss=0.037755587768554685, acc=98.88
+2026-01-25 00:10:55,127 [INFO] [PROGRESS] job=job-912dbee6 g=1, batch=64, accum=1, sps=10.794, loss=0.6989408020579487, acc=50.91743119266055
+2026-01-25 00:11:02,194 [INFO] [PROGRESS] job=job-bc4daa86 g=4, batch=64, accum=1, sps=3.144, loss=3.05281640625, acc=29.04
+2026-01-25 00:11:14,906 [INFO] [PROGRESS] job=job-0c8c1c5a g=1, batch=32, accum=1, sps=13.929, loss=0.6972211085328268, acc=50.91743119266055
+2026-01-25 00:12:14,452 [INFO] [PROGRESS] job=job-bed9de98 g=1, batch=64, accum=1, sps=5.984, loss=0.03232031860351563, acc=98.98
+2026-01-25 00:12:36,722 [INFO] [PROGRESS] job=job-912dbee6 g=1, batch=64, accum=1, sps=10.774, loss=0.6983947053961798, acc=50.91743119266055
+2026-01-25 00:13:16,944 [INFO] [PROGRESS] job=job-bc4daa86 g=4, batch=64, accum=1, sps=3.158, loss=2.835078515625, acc=33.34
+2026-01-25 00:13:50,729 [INFO] [PROGRESS] job=job-0c8c1c5a g=1, batch=32, accum=1, sps=13.851, loss=0.6966221660649011, acc=50.91743119266055
+2026-01-25 00:14:17,988 [INFO] [PROGRESS] job=job-912dbee6 g=1, batch=64, accum=1, sps=10.793, loss=0.6985629720425387, acc=50.91743119266055
+2026-01-25 00:15:07,851 [INFO] [PROGRESS] job=job-bed9de98 g=1, batch=64, accum=1, sps=5.769, loss=0.02003655242919922, acc=99.46
+2026-01-25 00:15:30,570 [INFO] [PROGRESS] job=job-bc4daa86 g=4, batch=64, accum=1, sps=3.117, loss=2.723928515625, acc=35.27
+2026-01-25 00:15:59,187 [INFO] [PROGRESS] job=job-912dbee6 g=1, batch=64, accum=1, sps=10.810, loss=0.6987637861059346, acc=50.91743119266055
+2026-01-25 00:16:26,794 [INFO] [PROGRESS] job=job-0c8c1c5a g=1, batch=32, accum=1, sps=13.841, loss=0.6985503030479501, acc=50.91743119266055
+2026-01-25 00:17:40,312 [INFO] [PROGRESS] job=job-bc4daa86 g=4, batch=64, accum=1, sps=3.128, loss=2.54161015625, acc=39.38
+2026-01-25 00:17:40,811 [INFO] [PROGRESS] job=job-912dbee6 g=1, batch=64, accum=1, sps=10.746, loss=0.6988983154296875, acc=50.91743119266055
+2026-01-25 00:18:01,770 [INFO] [PROGRESS] job=job-bed9de98 g=1, batch=64, accum=1, sps=5.738, loss=0.05249178466796875, acc=98.3
+2026-01-25 00:19:01,787 [INFO] [PROGRESS] job=job-0c8c1c5a g=1, batch=32, accum=1, sps=13.922, loss=0.6964055332568807, acc=50.91743119266055
+2026-01-25 00:19:20,087 [INFO] [PROGRESS] job=job-912dbee6 g=1, batch=64, accum=1, sps=11.027, loss=0.6970483622419725, acc=50.91743119266055
+2026-01-25 00:19:50,354 [INFO] [PROGRESS] job=job-bc4daa86 g=4, batch=64, accum=1, sps=3.126, loss=2.4265341796875, acc=42.23
+2026-01-25 00:21:01,725 [INFO] [PROGRESS] job=job-912dbee6 g=1, batch=64, accum=1, sps=10.740, loss=0.698133766104322, acc=50.91743119266055
+2026-01-25 00:21:02,007 [INFO] [PROGRESS] job=job-bed9de98 g=1, batch=64, accum=1, sps=5.521, loss=0.015241787719726563, acc=99.53
+2026-01-25 00:21:36,845 [INFO] [PROGRESS] job=job-0c8c1c5a g=1, batch=32, accum=1, sps=13.901, loss=0.6990123363809848, acc=50.91743119266055
+2026-01-25 00:22:01,446 [INFO] [PROGRESS] job=job-bc4daa86 g=4, batch=64, accum=1, sps=3.099, loss=2.4879080078125, acc=41.63
+2026-01-25 00:22:43,501 [INFO] [PROGRESS] job=job-912dbee6 g=1, batch=64, accum=1, sps=10.746, loss=0.6970636910254803, acc=50.91743119266055
+2026-01-25 00:23:36,029 [INFO] [enqueue job=job-d38e73ec, g_target=1] queue=1 active_jobs=4 | clusterA: total=4 busy=3 idle=1 | clusterB: total=4 busy=4 idle=0
+2026-01-25 00:23:39,153 [INFO] [LUCID] Launched job-d38e73ec on ['node_d']
+2026-01-25 00:23:42,983 [INFO] [finish job=job-d38e73ec status=FAILED exit_code=2] queue=0 active_jobs=4 | clusterA: total=4 busy=3 idle=1 | clusterB: total=4 busy=4 idle=0
+2026-01-25 00:24:04,206 [INFO] [PROGRESS] job=job-bed9de98 g=1, batch=64, accum=1, sps=5.461, loss=0.018758369445800782, acc=99.43
+2026-01-25 00:24:07,725 [INFO] [PROGRESS] job=job-0c8c1c5a g=1, batch=32, accum=1, sps=14.340, loss=0.6974137332461295, acc=50.91743119266055
+2026-01-25 00:24:09,814 [INFO] [PROGRESS] job=job-bc4daa86 g=4, batch=64, accum=1, sps=3.157, loss=2.26992734375, acc=44.81
+2026-01-25 00:24:25,693 [INFO] [PROGRESS] job=job-912dbee6 g=1, batch=64, accum=1, sps=10.709, loss=0.6977384374776018, acc=50.91743119266055
+2026-01-25 00:26:04,264 [INFO] [PROGRESS] job=job-912dbee6 g=1, batch=64, accum=1, sps=11.105, loss=0.6983424195455848, acc=50.91743119266055
+2026-01-25 00:26:18,664 [INFO] [PROGRESS] job=job-bc4daa86 g=4, batch=64, accum=1, sps=3.152, loss=2.213805078125, acc=46.79
+2026-01-25 00:26:41,715 [INFO] [PROGRESS] job=job-0c8c1c5a g=1, batch=32, accum=1, sps=14.020, loss=0.6969830574245628, acc=50.91743119266055
+2026-01-25 00:27:08,042 [INFO] [PROGRESS] job=job-bed9de98 g=1, batch=64, accum=1, sps=5.411, loss=0.019354124450683595, acc=99.43
+2026-01-25 00:27:45,631 [INFO] [PROGRESS] job=job-912dbee6 g=1, batch=64, accum=1, sps=10.779, loss=0.697616717137328, acc=50.91743119266055
+2026-01-25 00:28:29,586 [INFO] [PROGRESS] job=job-bc4daa86 g=4, batch=64, accum=1, sps=3.098, loss=2.186141796875, acc=48.24
+2026-01-25 00:28:36,565 [INFO] [enqueue job=job-a5efdded, g_target=1] queue=1 active_jobs=4 | clusterA: total=4 busy=3 idle=1 | clusterB: total=4 busy=4 idle=0
+2026-01-25 00:28:39,316 [INFO] [LUCID] Launched job-a5efdded on ['node_d']
+2026-01-25 00:29:18,591 [INFO] [PROGRESS] job=job-0c8c1c5a g=1, batch=32, accum=1, sps=13.753, loss=0.6984938175306408, acc=50.91743119266055
+2026-01-25 00:29:30,225 [INFO] [PROGRESS] job=job-912dbee6 g=1, batch=64, accum=1, sps=10.431, loss=0.6994185841411625, acc=50.91743119266055
+2026-01-25 00:29:39,329 [INFO] [LUCID-PROFILE] Job job-a5efdded Classifed -> SS=2 (Tiny/Med/Jumbo)
+2026-01-25 00:29:59,208 [INFO] [PROGRESS] job=job-a5efdded g=1, batch=32, accum=1, sps=23.732, loss=3.7058734375, acc=13.01
+2026-01-25 00:30:11,751 [INFO] [PROGRESS] job=job-bed9de98 g=1, batch=64, accum=1, sps=5.421, loss=0.019182400512695312, acc=99.37
+2026-01-25 00:30:38,766 [INFO] [PROGRESS] job=job-bc4daa86 g=4, batch=64, accum=1, sps=3.143, loss=2.114837890625, acc=49.05
+2026-01-25 00:31:12,886 [INFO] [PROGRESS] job=job-a5efdded g=1, batch=32, accum=1, sps=23.444, loss=3.2646544921875, acc=20.75
+2026-01-25 00:31:17,311 [INFO] [PROGRESS] job=job-912dbee6 g=1, batch=64, accum=1, sps=10.225, loss=0.6967159586215238, acc=50.91743119266055
+2026-01-25 00:31:59,608 [INFO] [PROGRESS] job=job-0c8c1c5a g=1, batch=32, accum=1, sps=13.425, loss=0.6976799921158257, acc=50.91743119266055
+2026-01-25 00:32:08,142 [INFO] [finish job=job-0c8c1c5a status=FINISHED exit_code=0] queue=0 active_jobs=4 | clusterA: total=4 busy=3 idle=1 | clusterB: total=4 busy=4 idle=0
+2026-01-25 00:32:23,062 [INFO] [enqueue job=job-e97fe704, g_target=1] queue=1 active_jobs=4 | clusterA: total=4 busy=3 idle=1 | clusterB: total=4 busy=4 idle=0
+2026-01-25 00:32:24,456 [INFO] [PROGRESS] job=job-a5efdded g=1, batch=32, accum=1, sps=24.109, loss=2.9571271484375, acc=27.15
+2026-01-25 00:32:24,479 [INFO] [LUCID] Launched job-e97fe704 on ['node_a']
+2026-01-25 00:32:48,698 [INFO] [PROGRESS] job=job-bc4daa86 g=4, batch=64, accum=1, sps=3.123, loss=2.083686328125, acc=50.06
+2026-01-25 00:33:04,602 [INFO] [PROGRESS] job=job-912dbee6 g=1, batch=64, accum=1, sps=10.203, loss=0.6983379399010895, acc=50.91743119266055
+2026-01-25 00:33:19,486 [INFO] [PROGRESS] job=job-bed9de98 g=1, batch=64, accum=1, sps=5.315, loss=0.02064939727783203, acc=99.36
+2026-01-25 00:33:24,495 [INFO] [LUCID-PROFILE] Job job-e97fe704 Classifed -> SS=2 (Tiny/Med/Jumbo)
+2026-01-25 00:33:37,965 [INFO] [PROGRESS] job=job-a5efdded g=1, batch=32, accum=1, sps=23.463, loss=2.7330123046875, acc=30.13
+2026-01-25 00:33:43,370 [INFO] [PROGRESS] job=job-e97fe704 g=1, batch=32, accum=1, sps=24.306, loss=3.721555078125, acc=12.87
+2026-01-25 00:34:52,252 [INFO] [PROGRESS] job=job-a5efdded g=1, batch=32, accum=1, sps=23.244, loss=2.42870625, acc=36.81
+2026-01-25 00:34:53,222 [INFO] [PROGRESS] job=job-912dbee6 g=1, batch=64, accum=1, sps=10.057, loss=0.6973900751236382, acc=50.91743119266055
+2026-01-25 00:34:59,353 [INFO] [PROGRESS] job=job-bc4daa86 g=4, batch=64, accum=1, sps=3.106, loss=2.0364435546875, acc=50.88
+2026-01-25 00:34:59,404 [INFO] [PROGRESS] job=job-e97fe704 g=1, batch=32, accum=1, sps=22.589, loss=3.283606640625, acc=20.39
+2026-01-25 00:36:06,812 [INFO] [PROGRESS] job=job-a5efdded g=1, batch=32, accum=1, sps=23.180, loss=2.3290466796875, acc=39.59
+2026-01-25 00:36:13,832 [INFO] [PROGRESS] job=job-e97fe704 g=1, batch=32, accum=1, sps=23.281, loss=2.954556640625, acc=27.07
+2026-01-25 00:36:28,060 [INFO] [PROGRESS] job=job-bed9de98 g=1, batch=64, accum=1, sps=5.290, loss=0.024231863403320314, acc=99.34
+2026-01-25 00:36:39,206 [INFO] [PROGRESS] job=job-912dbee6 g=1, batch=64, accum=1, sps=10.322, loss=0.6987918538784762, acc=50.91743119266055
+2026-01-25 00:37:09,919 [INFO] [PROGRESS] job=job-bc4daa86 g=4, batch=64, accum=1, sps=3.106, loss=1.9660146484375, acc=52.7
+2026-01-25 00:37:20,881 [INFO] [PROGRESS] job=job-a5efdded g=1, batch=32, accum=1, sps=23.375, loss=2.10380234375, acc=44.48
+2026-01-25 00:37:28,405 [INFO] [PROGRESS] job=job-e97fe704 g=1, batch=32, accum=1, sps=23.180, loss=2.7170701171875, acc=31.9
+2026-01-25 00:38:27,444 [INFO] [PROGRESS] job=job-912dbee6 g=1, batch=64, accum=1, sps=10.091, loss=0.6975773102646574, acc=50.91743119266055
+2026-01-25 00:38:34,668 [INFO] [PROGRESS] job=job-a5efdded g=1, batch=32, accum=1, sps=23.356, loss=2.0928046875, acc=45.37
+2026-01-25 00:38:36,075 [INFO] [finish job=job-912dbee6 status=FINISHED exit_code=0] queue=0 active_jobs=4 | clusterA: total=4 busy=3 idle=1 | clusterB: total=4 busy=4 idle=0
+2026-01-25 00:38:37,459 [INFO] [enqueue job=job-c1887bb6, g_target=1] queue=1 active_jobs=4 | clusterA: total=4 busy=3 idle=1 | clusterB: total=4 busy=4 idle=0
+2026-01-25 00:38:39,693 [INFO] [LUCID] Launched job-c1887bb6 on ['node_c']
+2026-01-25 00:38:42,802 [INFO] [PROGRESS] job=job-e97fe704 g=1, batch=32, accum=1, sps=23.178, loss=2.4982095703125, acc=35.75
+2026-01-25 00:39:20,411 [INFO] [PROGRESS] job=job-bc4daa86 g=4, batch=64, accum=1, sps=3.124, loss=1.9892775390625, acc=51.96
+2026-01-25 00:39:39,704 [INFO] [LUCID-PROFILE] Job job-c1887bb6 Classifed -> SS=2 (Tiny/Med/Jumbo)
+2026-01-25 00:39:39,737 [INFO] [PROGRESS] job=job-bed9de98 g=1, batch=64, accum=1, sps=5.188, loss=0.02282653503417969, acc=99.35
+2026-01-25 00:39:48,578 [INFO] [PROGRESS] job=job-a5efdded g=1, batch=32, accum=1, sps=23.396, loss=2.0298443359375, acc=47.87
+2026-01-25 00:39:56,631 [INFO] [PROGRESS] job=job-e97fe704 g=1, batch=32, accum=1, sps=23.440, loss=2.3089759765625, acc=39.83
+2026-01-25 00:40:37,368 [INFO] [PROGRESS] job=job-c1887bb6 g=1, batch=64, accum=1, sps=10.191, loss=0.698182902204881, acc=50.91743119266055
+2026-01-25 00:41:00,589 [INFO] [PROGRESS] job=job-a5efdded g=1, batch=32, accum=1, sps=24.135, loss=1.8625369140625, acc=50.6
+2026-01-25 00:41:10,443 [INFO] [PROGRESS] job=job-e97fe704 g=1, batch=32, accum=1, sps=23.617, loss=2.1673005859375, acc=43.21
+2026-01-25 00:41:29,434 [INFO] [PROGRESS] job=job-bc4daa86 g=4, batch=64, accum=1, sps=3.138, loss=1.975284375, acc=53.02
+2026-01-25 00:42:14,088 [INFO] [PROGRESS] job=job-a5efdded g=1, batch=32, accum=1, sps=23.555, loss=1.758071484375, acc=53.31
+2026-01-25 00:42:22,331 [INFO] [PROGRESS] job=job-c1887bb6 g=1, batch=64, accum=1, sps=10.227, loss=0.6980702111480432, acc=50.91743119266055
+2026-01-25 00:42:24,381 [INFO] [PROGRESS] job=job-e97fe704 g=1, batch=32, accum=1, sps=23.366, loss=2.055584375, acc=46.26
+2026-01-25 00:42:41,989 [INFO] [PROGRESS] job=job-bed9de98 g=1, batch=64, accum=1, sps=5.479, loss=0.01320982208251953, acc=99.58
+2026-01-25 00:43:28,099 [INFO] [PROGRESS] job=job-a5efdded g=1, batch=32, accum=1, sps=23.349, loss=1.7182998046875, acc=54.22
+2026-01-25 00:43:38,867 [INFO] [PROGRESS] job=job-e97fe704 g=1, batch=32, accum=1, sps=23.418, loss=1.9606173828125, acc=47.86
+2026-01-25 00:43:40,192 [INFO] [PROGRESS] job=job-bc4daa86 g=4, batch=64, accum=1, sps=3.101, loss=1.884437109375, acc=54.2
+2026-01-25 00:44:09,425 [INFO] [PROGRESS] job=job-c1887bb6 g=1, batch=64, accum=1, sps=10.239, loss=0.6973108414116256, acc=50.91743119266055
+2026-01-25 00:44:44,327 [INFO] [PROGRESS] job=job-a5efdded g=1, batch=32, accum=1, sps=22.803, loss=1.6434513671875, acc=55.42
+2026-01-25 00:44:51,954 [INFO] [PROGRESS] job=job-e97fe704 g=1, batch=32, accum=1, sps=23.661, loss=1.8728109375, acc=50.4
+2026-01-25 00:45:49,270 [INFO] [PROGRESS] job=job-bc4daa86 g=4, batch=64, accum=1, sps=3.171, loss=1.8506875, acc=55.02
+2026-01-25 00:45:52,904 [INFO] [PROGRESS] job=job-bed9de98 g=1, batch=64, accum=1, sps=5.221, loss=0.01620444030761719, acc=99.57
+2026-01-25 00:45:54,094 [INFO] [finish job=job-bc4daa86 status=FINISHED exit_code=0] queue=0 active_jobs=4 | clusterA: total=4 busy=4 idle=0 | clusterB: total=4 busy=0 idle=4
+2026-01-25 00:45:54,254 [INFO] [PROGRESS] job=job-c1887bb6 g=1, batch=64, accum=1, sps=10.438, loss=0.6971901009935851, acc=50.91743119266055
+2026-01-25 00:45:56,198 [INFO] [finish job=job-bed9de98 status=FINISHED exit_code=0] queue=0 active_jobs=3 | clusterA: total=4 busy=3 idle=1 | clusterB: total=4 busy=0 idle=4
+2026-01-25 00:46:00,558 [INFO] [PROGRESS] job=job-a5efdded g=1, batch=32, accum=1, sps=22.592, loss=1.58677939453125, acc=56.98
+2026-01-25 00:46:04,326 [INFO] [PROGRESS] job=job-e97fe704 g=1, batch=32, accum=1, sps=23.813, loss=1.8958775390625, acc=51.35
+2026-01-25 00:47:13,841 [INFO] [PROGRESS] job=job-a5efdded g=1, batch=32, accum=1, sps=23.487, loss=1.60025615234375, acc=57.41
+2026-01-25 00:47:15,829 [INFO] [PROGRESS] job=job-e97fe704 g=1, batch=32, accum=1, sps=24.151, loss=1.7822478515625, acc=53.29
+2026-01-25 00:47:39,799 [INFO] [PROGRESS] job=job-c1887bb6 g=1, batch=64, accum=1, sps=10.367, loss=0.696856997428684, acc=50.91743119266055
+2026-01-25 00:48:25,236 [INFO] [PROGRESS] job=job-a5efdded g=1, batch=32, accum=1, sps=24.273, loss=1.5505388671875, acc=58.23
+2026-01-25 00:48:27,309 [INFO] [PROGRESS] job=job-e97fe704 g=1, batch=32, accum=1, sps=24.230, loss=1.6427634765625, acc=55.46
+2026-01-25 00:49:24,801 [INFO] [PROGRESS] job=job-c1887bb6 g=1, batch=64, accum=1, sps=10.397, loss=0.6975990785371273, acc=50.91743119266055
+2026-01-25 00:49:38,464 [INFO] [PROGRESS] job=job-a5efdded g=1, batch=32, accum=1, sps=23.602, loss=1.47818984375, acc=59.56
+2026-01-25 00:49:40,903 [INFO] [PROGRESS] job=job-e97fe704 g=1, batch=32, accum=1, sps=23.462, loss=1.757458984375, acc=55.9
+2026-01-25 00:49:51,138 [INFO] [enqueue job=job-ab53cbbb, g_target=1] queue=1 active_jobs=3 | clusterA: total=4 busy=3 idle=1 | clusterB: total=4 busy=0 idle=4
+2026-01-25 00:49:54,996 [INFO] [LUCID] Launched job-ab53cbbb on ['node_b']
+2026-01-25 00:50:53,805 [INFO] [PROGRESS] job=job-a5efdded g=1, batch=32, accum=1, sps=22.961, loss=1.5278994140625, acc=59.61
+2026-01-25 00:50:54,187 [INFO] [PROGRESS] job=job-e97fe704 g=1, batch=32, accum=1, sps=23.715, loss=1.6261890625, acc=56.47
+2026-01-25 00:50:55,009 [INFO] [LUCID-PROFILE] Job job-ab53cbbb Classifed -> SS=2 (Tiny/Med/Jumbo)
+2026-01-25 00:51:12,410 [INFO] [PROGRESS] job=job-c1887bb6 g=1, batch=64, accum=1, sps=10.163, loss=0.6959434299294008, acc=50.91743119266055
+2026-01-25 00:51:57,088 [INFO] [PROGRESS] job=job-ab53cbbb g=1, batch=64, accum=1, sps=7.517, loss=1.6874408203125, acc=39.54
+2026-01-25 00:52:07,158 [INFO] [PROGRESS] job=job-e97fe704 g=1, batch=32, accum=1, sps=23.632, loss=1.652615625, acc=57.13
+2026-01-25 00:52:08,326 [INFO] [PROGRESS] job=job-a5efdded g=1, batch=32, accum=1, sps=23.113, loss=1.6445798828125, acc=60.0
+2026-01-25 00:52:59,398 [INFO] [PROGRESS] job=job-c1887bb6 g=1, batch=64, accum=1, sps=10.230, loss=0.697458039729967, acc=50.91743119266055
+2026-01-25 00:53:20,573 [INFO] [PROGRESS] job=job-e97fe704 g=1, batch=32, accum=1, sps=23.618, loss=1.9495703125, acc=57.98
+2026-01-25 00:53:23,507 [INFO] [PROGRESS] job=job-a5efdded g=1, batch=32, accum=1, sps=23.037, loss=1.43151162109375, acc=61.19
+2026-01-25 00:53:25,792 [INFO] [finish job=job-a5efdded status=FINISHED exit_code=0] queue=0 active_jobs=3 | clusterA: total=4 busy=3 idle=1 | clusterB: total=4 busy=0 idle=4
+2026-01-25 00:53:52,391 [INFO] [PROGRESS] job=job-ab53cbbb g=1, batch=64, accum=1, sps=7.452, loss=1.3842048828125, acc=49.01
+2026-01-25 00:54:31,328 [INFO] [PROGRESS] job=job-e97fe704 g=1, batch=32, accum=1, sps=24.397, loss=1.50773388671875, acc=59.69
+2026-01-25 00:54:43,037 [INFO] [PROGRESS] job=job-c1887bb6 g=1, batch=64, accum=1, sps=10.560, loss=0.6971817716546015, acc=50.91743119266055
+2026-01-25 00:55:41,547 [INFO] [PROGRESS] job=job-e97fe704 g=1, batch=32, accum=1, sps=24.623, loss=1.5188091796875, acc=59.29
+2026-01-25 00:55:48,986 [INFO] [PROGRESS] job=job-ab53cbbb g=1, batch=64, accum=1, sps=7.389, loss=1.3725201171875, acc=54.71
+2026-01-25 00:56:25,753 [INFO] [PROGRESS] job=job-c1887bb6 g=1, batch=64, accum=1, sps=10.643, loss=0.6981619038713087, acc=50.91743119266055
+2026-01-25 00:56:53,253 [INFO] [PROGRESS] job=job-e97fe704 g=1, batch=32, accum=1, sps=24.109, loss=1.56125869140625, acc=60.59
+2026-01-25 00:56:56,147 [INFO] [finish job=job-e97fe704 status=FINISHED exit_code=0] queue=0 active_jobs=2 | clusterA: total=4 busy=2 idle=2 | clusterB: total=4 busy=0 idle=4
+2026-01-25 00:57:44,611 [INFO] [PROGRESS] job=job-ab53cbbb g=1, batch=64, accum=1, sps=7.453, loss=1.08194990234375, acc=61.28
+2026-01-25 00:58:05,702 [INFO] [PROGRESS] job=job-c1887bb6 g=1, batch=64, accum=1, sps=10.933, loss=0.6980185552474556, acc=50.91743119266055
+2026-01-25 00:59:40,367 [INFO] [PROGRESS] job=job-ab53cbbb g=1, batch=64, accum=1, sps=7.449, loss=0.92713681640625, acc=66.72
+2026-01-25 00:59:48,551 [INFO] [PROGRESS] job=job-c1887bb6 g=1, batch=64, accum=1, sps=10.605, loss=0.6975367134864178, acc=50.91743119266055
+2026-01-25 01:01:25,301 [INFO] [PROGRESS] job=job-c1887bb6 g=1, batch=64, accum=1, sps=11.317, loss=0.6965327831583286, acc=50.91743119266055
+2026-01-25 01:01:35,477 [INFO] [PROGRESS] job=job-ab53cbbb g=1, batch=64, accum=1, sps=7.490, loss=0.90807109375, acc=69.11
+2026-01-25 01:03:05,865 [INFO] [PROGRESS] job=job-c1887bb6 g=1, batch=64, accum=1, sps=10.904, loss=0.6977225487385321, acc=50.91743119266055
+2026-01-25 01:03:11,619 [INFO] [enqueue job=job-905f9080, g_target=1] queue=1 active_jobs=2 | clusterA: total=4 busy=2 idle=2 | clusterB: total=4 busy=0 idle=4
+2026-01-25 01:03:15,295 [INFO] [LUCID] Launched job-905f9080 on ['node_a']
+2026-01-25 01:03:30,346 [INFO] [PROGRESS] job=job-ab53cbbb g=1, batch=64, accum=1, sps=7.513, loss=0.770746044921875, acc=73.07
+2026-01-25 01:04:15,307 [INFO] [LUCID-PROFILE] Job job-905f9080 Classifed -> SS=2 (Tiny/Med/Jumbo)
+2026-01-25 01:04:46,021 [INFO] [PROGRESS] job=job-c1887bb6 g=1, batch=64, accum=1, sps=10.905, loss=0.6975826298424957, acc=50.91743119266055
+2026-01-25 01:05:27,084 [INFO] [PROGRESS] job=job-ab53cbbb g=1, batch=64, accum=1, sps=7.371, loss=0.71356142578125, acc=75.77
+2026-01-25 01:06:27,064 [INFO] [PROGRESS] job=job-c1887bb6 g=1, batch=64, accum=1, sps=10.813, loss=0.6974156230961511, acc=50.91743119266055
+2026-01-25 01:07:23,072 [INFO] [PROGRESS] job=job-ab53cbbb g=1, batch=64, accum=1, sps=7.416, loss=0.68818515625, acc=76.53
+2026-01-25 01:08:08,614 [INFO] [PROGRESS] job=job-c1887bb6 g=1, batch=64, accum=1, sps=10.790, loss=0.698133486126541, acc=50.91743119266055
+2026-01-25 01:08:31,969 [INFO] [PROGRESS] job=job-905f9080 g=1, batch=16, accum=1, sps=13.889, loss=0.699185012677394, acc=50.91743119266055
+2026-01-25 01:09:18,646 [INFO] [PROGRESS] job=job-ab53cbbb g=1, batch=64, accum=1, sps=7.445, loss=0.60975732421875, acc=78.43
+2026-01-25 01:09:50,619 [INFO] [PROGRESS] job=job-c1887bb6 g=1, batch=64, accum=1, sps=10.740, loss=0.6970076954692875, acc=50.91743119266055
+2026-01-25 01:11:03,382 [INFO] [enqueue job=job-f169d782, g_target=1] queue=1 active_jobs=3 | clusterA: total=4 busy=3 idle=1 | clusterB: total=4 busy=0 idle=4
+2026-01-25 01:11:05,494 [INFO] [LUCID] Launched job-f169d782 on ['node_d']
+2026-01-25 01:11:09,370 [INFO] [finish job=job-f169d782 status=FAILED exit_code=2] queue=0 active_jobs=3 | clusterA: total=4 busy=3 idle=1 | clusterB: total=4 busy=0 idle=4
+2026-01-25 01:11:11,548 [INFO] [PROGRESS] job=job-ab53cbbb g=1, batch=64, accum=1, sps=7.654, loss=0.68769599609375, acc=78.74
+2026-01-25 01:11:31,591 [INFO] [PROGRESS] job=job-c1887bb6 g=1, batch=64, accum=1, sps=10.856, loss=0.6970669107699613, acc=50.91743119266055
+2026-01-25 01:12:14,482 [INFO] [enqueue job=job-637861c9, g_target=4] queue=1 active_jobs=3 | clusterA: total=4 busy=3 idle=1 | clusterB: total=4 busy=0 idle=4
+2026-01-25 01:12:15,761 [INFO] [LUCID] Launched job-637861c9 on ['node_e', 'node_f', 'node_g', 'node_h']
+2026-01-25 01:13:03,861 [INFO] [PROGRESS] job=job-ab53cbbb g=1, batch=64, accum=1, sps=7.697, loss=0.53174443359375, acc=81.47
+2026-01-25 01:13:12,798 [INFO] [PROGRESS] job=job-c1887bb6 g=1, batch=64, accum=1, sps=10.832, loss=0.6979092939184346, acc=50.91743119266055
+2026-01-25 01:13:15,772 [INFO] [LUCID-PROFILE] Job job-637861c9 Classifed -> SS=2 (Tiny/Med/Jumbo)
+2026-01-25 01:13:17,563 [INFO] [finish job=job-c1887bb6 status=FINISHED exit_code=0] queue=0 active_jobs=3 | clusterA: total=4 busy=2 idle=2 | clusterB: total=4 busy=4 idle=0
+2026-01-25 01:13:35,290 [INFO] [PROGRESS] job=job-905f9080 g=1, batch=16, accum=1, sps=13.968, loss=0.6984007249184705, acc=50.91743119266055
+2026-01-25 01:14:31,151 [INFO] [enqueue job=job-6487e494, g_target=1] queue=1 active_jobs=3 | clusterA: total=4 busy=2 idle=2 | clusterB: total=4 busy=4 idle=0
+2026-01-25 01:14:35,881 [INFO] [LUCID] Launched job-6487e494 on ['node_c']
+2026-01-25 01:14:38,561 [INFO] [PROGRESS] job=job-637861c9 g=4, batch=64, accum=1, sps=3.125, loss=4.145869921875, acc=11.37
+2026-01-25 01:14:57,607 [INFO] [PROGRESS] job=job-ab53cbbb g=1, batch=64, accum=1, sps=7.579, loss=0.498834228515625, acc=82.87
+2026-01-25 01:15:35,890 [INFO] [LUCID-PROFILE] Job job-6487e494 Classifed -> SS=2 (Tiny/Med/Jumbo)
+2026-01-25 01:16:39,712 [INFO] [enqueue job=job-9dc1ae5b, g_target=1] queue=1 active_jobs=4 | clusterA: total=4 busy=3 idle=1 | clusterB: total=4 busy=4 idle=0
+2026-01-25 01:16:40,990 [INFO] [LUCID] Launched job-9dc1ae5b on ['node_d']
+2026-01-25 01:16:47,608 [INFO] [PROGRESS] job=job-637861c9 g=4, batch=64, accum=1, sps=3.147, loss=3.69008515625, acc=18.4
+2026-01-25 01:16:50,423 [INFO] [PROGRESS] job=job-ab53cbbb g=1, batch=64, accum=1, sps=7.632, loss=0.5976724609375, acc=81.73
+2026-01-25 01:17:24,373 [INFO] [enqueue job=job-d0e41384, g_target=0] queue=1 active_jobs=5 | clusterA: total=4 busy=4 idle=0 | clusterB: total=4 busy=4 idle=0
+2026-01-25 01:17:41,010 [INFO] [LUCID-PROFILE] Job job-9dc1ae5b Classifed -> SS=2 (Tiny/Med/Jumbo)
+2026-01-25 01:17:57,420 [INFO] [PROGRESS] job=job-6487e494 g=1, batch=64, accum=1, sps=5.032, loss=0.052872979736328124, acc=98.47
+2026-01-25 01:18:44,435 [INFO] [PROGRESS] job=job-905f9080 g=1, batch=16, accum=1, sps=13.773, loss=0.6980883397093607, acc=50.91743119266055
+2026-01-25 01:18:47,025 [INFO] [PROGRESS] job=job-ab53cbbb g=1, batch=64, accum=1, sps=7.429, loss=0.470622265625, acc=84.3
+2026-01-25 01:18:56,666 [INFO] [PROGRESS] job=job-637861c9 g=4, batch=64, accum=1, sps=3.146, loss=3.36546953125, acc=24.16
+2026-01-25 01:18:58,799 [INFO] [enqueue job=job-9edf0aaf, g_target=0] queue=2 active_jobs=5 | clusterA: total=4 busy=4 idle=0 | clusterB: total=4 busy=4 idle=0
+2026-01-25 01:20:42,570 [INFO] [PROGRESS] job=job-ab53cbbb g=1, batch=64, accum=1, sps=7.450, loss=0.463749462890625, acc=84.22
+2026-01-25 01:21:05,899 [INFO] [PROGRESS] job=job-637861c9 g=4, batch=64, accum=1, sps=3.154, loss=2.9661146484375, acc=30.12
+2026-01-25 01:21:21,806 [INFO] [PROGRESS] job=job-6487e494 g=1, batch=64, accum=1, sps=4.828, loss=0.05882166748046875, acc=98.16
+2026-01-25 01:22:08,322 [INFO] [PROGRESS] job=job-9dc1ae5b g=1, batch=16, accum=1, sps=13.435, loss=0.696590178603426, acc=50.91743119266055
+2026-01-25 01:22:39,611 [INFO] [PROGRESS] job=job-ab53cbbb g=1, batch=64, accum=1, sps=7.432, loss=0.439588916015625, acc=85.19
+2026-01-25 01:23:16,412 [INFO] [PROGRESS] job=job-637861c9 g=4, batch=64, accum=1, sps=3.133, loss=2.85574453125, acc=32.48
+2026-01-25 01:23:58,161 [INFO] [PROGRESS] job=job-905f9080 g=1, batch=16, accum=1, sps=13.581, loss=0.6978741567069238, acc=50.91743119266055
+2026-01-25 01:24:36,201 [INFO] [PROGRESS] job=job-ab53cbbb g=1, batch=64, accum=1, sps=7.436, loss=0.4151478515625, acc=85.65
+2026-01-25 01:24:46,669 [INFO] [PROGRESS] job=job-6487e494 g=1, batch=64, accum=1, sps=4.831, loss=0.04447452392578125, acc=98.59
+2026-01-25 01:25:25,148 [INFO] [PROGRESS] job=job-637861c9 g=4, batch=64, accum=1, sps=3.149, loss=2.6839314453125, acc=36.17
+2026-01-25 01:26:33,014 [INFO] [PROGRESS] job=job-ab53cbbb g=1, batch=64, accum=1, sps=7.402, loss=0.3938345458984375, acc=86.34
+2026-01-25 01:27:24,438 [INFO] [PROGRESS] job=job-9dc1ae5b g=1, batch=16, accum=1, sps=13.403, loss=0.697914053540711, acc=50.91743119266055
+2026-01-25 01:27:35,349 [INFO] [PROGRESS] job=job-637861c9 g=4, batch=64, accum=1, sps=3.125, loss=2.62680625, acc=37.68
+2026-01-25 01:27:56,811 [INFO] [enqueue job=job-3b165a85, g_target=0] queue=3 active_jobs=5 | clusterA: total=4 busy=4 idle=0 | clusterB: total=4 busy=4 idle=0
+2026-01-25 01:28:12,757 [INFO] [PROGRESS] job=job-6487e494 g=1, batch=64, accum=1, sps=4.804, loss=0.034219198608398435, acc=99.0
+2026-01-25 01:28:29,089 [INFO] [PROGRESS] job=job-ab53cbbb g=1, batch=64, accum=1, sps=7.440, loss=0.4068528076171875, acc=85.96
+2026-01-25 01:28:32,469 [INFO] [finish job=job-ab53cbbb status=FINISHED exit_code=0] queue=3 active_jobs=4 | clusterA: total=4 busy=3 idle=1 | clusterB: total=4 busy=4 idle=0
+2026-01-25 01:28:36,302 [INFO] [LUCID] Launched job-d0e41384 on ['node_b']
+2026-01-25 01:28:39,879 [INFO] [finish job=job-d0e41384 status=FAILED exit_code=2] queue=2 active_jobs=4 | clusterA: total=4 busy=3 idle=1 | clusterB: total=4 busy=4 idle=0
+2026-01-25 01:28:41,389 [INFO] [LUCID] Launched job-9edf0aaf on ['node_b']
+2026-01-25 01:29:09,882 [INFO] [PROGRESS] job=job-905f9080 g=1, batch=16, accum=1, sps=13.661, loss=0.6961677621263976, acc=50.91743119266055
+2026-01-25 01:29:41,402 [INFO] [LUCID-PROFILE] Job job-9edf0aaf Classifed -> SS=2 (Tiny/Med/Jumbo)
+2026-01-25 01:29:45,366 [INFO] [PROGRESS] job=job-637861c9 g=4, batch=64, accum=1, sps=3.128, loss=2.469715625, acc=41.5
+2026-01-25 01:31:36,182 [INFO] [PROGRESS] job=job-6487e494 g=1, batch=64, accum=1, sps=4.875, loss=0.026891653442382812, acc=99.23
+2026-01-25 01:31:44,232 [INFO] [PROGRESS] job=job-9edf0aaf g=1, batch=64, accum=1, sps=5.607, loss=0.04160492553710937, acc=98.8
+2026-01-25 01:31:54,576 [INFO] [PROGRESS] job=job-637861c9 g=4, batch=64, accum=1, sps=3.139, loss=2.3392396484375, acc=43.69
+2026-01-25 01:32:43,648 [INFO] [PROGRESS] job=job-9dc1ae5b g=1, batch=16, accum=1, sps=13.342, loss=0.6962640744830491, acc=50.91743119266055
+2026-01-25 01:34:03,437 [INFO] [PROGRESS] job=job-637861c9 g=4, batch=64, accum=1, sps=3.153, loss=2.3703986328125, acc=43.39
+2026-01-25 01:34:19,527 [INFO] [PROGRESS] job=job-905f9080 g=1, batch=16, accum=1, sps=13.767, loss=0.6975596016700115, acc=50.91743119266055
+2026-01-25 01:34:51,653 [INFO] [PROGRESS] job=job-9edf0aaf g=1, batch=64, accum=1, sps=5.301, loss=0.03917372741699219, acc=98.85
+2026-01-25 01:34:59,722 [INFO] [PROGRESS] job=job-6487e494 g=1, batch=64, accum=1, sps=4.862, loss=0.02479553527832031, acc=99.22
+2026-01-25 01:36:12,458 [INFO] [PROGRESS] job=job-637861c9 g=4, batch=64, accum=1, sps=3.146, loss=2.19124140625, acc=46.74
+2026-01-25 01:36:45,101 [INFO] [enqueue job=job-a36a8510, g_target=0] queue=2 active_jobs=5 | clusterA: total=4 busy=4 idle=0 | clusterB: total=4 busy=4 idle=0
+2026-01-25 01:37:57,578 [INFO] [PROGRESS] job=job-9edf0aaf g=1, batch=64, accum=1, sps=5.372, loss=0.02490679168701172, acc=99.23
+2026-01-25 01:38:02,057 [INFO] [PROGRESS] job=job-9dc1ae5b g=1, batch=16, accum=1, sps=13.370, loss=0.6967005598435708, acc=50.91743119266055
+2026-01-25 01:38:21,795 [INFO] [PROGRESS] job=job-637861c9 g=4, batch=64, accum=1, sps=3.137, loss=2.171619140625, acc=47.83
+2026-01-25 01:38:26,132 [INFO] [PROGRESS] job=job-6487e494 g=1, batch=64, accum=1, sps=4.788, loss=0.022290740966796875, acc=99.28
+2026-01-25 01:39:32,972 [INFO] [PROGRESS] job=job-905f9080 g=1, batch=16, accum=1, sps=13.593, loss=0.6967134388214952, acc=50.91743119266055
+2026-01-25 01:40:30,906 [INFO] [PROGRESS] job=job-637861c9 g=4, batch=64, accum=1, sps=3.136, loss=2.03210234375, acc=50.22
+2026-01-25 01:41:05,342 [INFO] [PROGRESS] job=job-9edf0aaf g=1, batch=64, accum=1, sps=5.317, loss=0.019085977172851563, acc=99.43
+2026-01-25 01:41:51,796 [INFO] [PROGRESS] job=job-6487e494 g=1, batch=64, accum=1, sps=4.822, loss=0.021084671020507813, acc=99.32
+2026-01-25 01:42:07,011 [INFO] [enqueue job=job-8c9e2e59, g_target=0] queue=3 active_jobs=5 | clusterA: total=4 busy=4 idle=0 | clusterB: total=4 busy=4 idle=0
+2026-01-25 01:42:40,707 [INFO] [PROGRESS] job=job-637861c9 g=4, batch=64, accum=1, sps=3.129, loss=2.0221201171875, acc=50.42
+2026-01-25 01:43:15,905 [INFO] [PROGRESS] job=job-9dc1ae5b g=1, batch=16, accum=1, sps=13.572, loss=0.6964618087908544, acc=50.91743119266055
+2026-01-25 01:44:12,661 [INFO] [PROGRESS] job=job-9edf0aaf g=1, batch=64, accum=1, sps=5.315, loss=0.028878982543945313, acc=99.07
+2026-01-25 01:44:44,457 [INFO] [PROGRESS] job=job-905f9080 g=1, batch=16, accum=1, sps=13.676, loss=0.6973292499507239, acc=50.91743119266055
+2026-01-25 01:44:50,501 [INFO] [PROGRESS] job=job-637861c9 g=4, batch=64, accum=1, sps=3.118, loss=2.0003255859375, acc=51.17
+2026-01-25 01:45:03,732 [INFO] [enqueue job=job-8b464409, g_target=0] queue=4 active_jobs=5 | clusterA: total=4 busy=4 idle=0 | clusterB: total=4 busy=4 idle=0
+2026-01-25 01:45:14,695 [INFO] [PROGRESS] job=job-6487e494 g=1, batch=64, accum=1, sps=4.877, loss=0.0393831298828125, acc=98.79
+2026-01-25 01:45:24,146 [INFO] [enqueue job=job-480471dc, g_target=0] queue=5 active_jobs=5 | clusterA: total=4 busy=4 idle=0 | clusterB: total=4 busy=4 idle=0
+2026-01-25 01:47:00,002 [INFO] [PROGRESS] job=job-637861c9 g=4, batch=64, accum=1, sps=3.129, loss=1.9835115234375, acc=52.08
+2026-01-25 01:47:18,031 [INFO] [PROGRESS] job=job-9edf0aaf g=1, batch=64, accum=1, sps=5.375, loss=0.03327692565917969, acc=99.11
+2026-01-25 01:48:17,165 [INFO] [enqueue job=job-581da131, g_target=0] queue=6 active_jobs=5 | clusterA: total=4 busy=4 idle=0 | clusterB: total=4 busy=4 idle=0
+2026-01-25 01:48:38,071 [INFO] [PROGRESS] job=job-9dc1ae5b g=1, batch=16, accum=1, sps=13.219, loss=0.697063341053254, acc=50.91743119266055
+2026-01-25 01:48:38,432 [INFO] [PROGRESS] job=job-6487e494 g=1, batch=64, accum=1, sps=4.857, loss=0.01951316833496094, acc=99.35
+2026-01-25 01:49:09,314 [INFO] [PROGRESS] job=job-637861c9 g=4, batch=64, accum=1, sps=3.149, loss=1.944953515625, acc=52.68
+2026-01-25 01:49:56,735 [INFO] [PROGRESS] job=job-905f9080 g=1, batch=16, accum=1, sps=13.650, loss=0.6962350267882741, acc=50.91743119266055
+2026-01-25 01:50:24,684 [INFO] [PROGRESS] job=job-9edf0aaf g=1, batch=64, accum=1, sps=5.333, loss=0.2671661865234375, acc=92.76
+2026-01-25 01:50:40,064 [INFO] [enqueue job=job-ef297406, g_target=0] queue=7 active_jobs=5 | clusterA: total=4 busy=4 idle=0 | clusterB: total=4 busy=4 idle=0
+2026-01-25 01:51:17,676 [INFO] [PROGRESS] job=job-637861c9 g=4, batch=64, accum=1, sps=3.154, loss=1.913275, acc=53.48
+2026-01-25 01:52:04,635 [INFO] [PROGRESS] job=job-6487e494 g=1, batch=64, accum=1, sps=4.800, loss=0.017758462524414063, acc=99.45
+2026-01-25 01:53:28,168 [INFO] [PROGRESS] job=job-637861c9 g=4, batch=64, accum=1, sps=3.103, loss=1.90981640625, acc=54.04
+2026-01-25 01:53:28,783 [INFO] [PROGRESS] job=job-9edf0aaf g=1, batch=64, accum=1, sps=5.417, loss=0.018467709350585938, acc=99.44
+2026-01-25 01:53:53,823 [INFO] [PROGRESS] job=job-9dc1ae5b g=1, batch=16, accum=1, sps=13.491, loss=0.6965486718973982, acc=50.91743119266055
+2026-01-25 01:55:09,330 [INFO] [PROGRESS] job=job-905f9080 g=1, batch=16, accum=1, sps=13.631, loss=0.6975354535864033, acc=50.91743119266055
+2026-01-25 01:55:30,162 [INFO] [PROGRESS] job=job-6487e494 g=1, batch=64, accum=1, sps=4.816, loss=0.019287391662597655, acc=99.37
+2026-01-25 01:55:37,531 [INFO] [PROGRESS] job=job-637861c9 g=4, batch=64, accum=1, sps=3.140, loss=1.88675234375, acc=54.63
+2026-01-25 01:55:40,468 [INFO] [finish job=job-637861c9 status=FINISHED exit_code=0] queue=7 active_jobs=4 | clusterA: total=4 busy=4 idle=0 | clusterB: total=4 busy=0 idle=4
+2026-01-25 01:55:42,066 [INFO] [LUCID] Launched job-a36a8510 on ['node_f']
+2026-01-25 01:55:42,066 [INFO] [LUCID] Launched job-3b165a85 on ['node_e']
+2026-01-25 01:55:42,071 [INFO] [LUCID] Launched job-480471dc on ['node_h']
+2026-01-25 01:55:42,090 [INFO] [LUCID] Launched job-8c9e2e59 on ['node_g']
+2026-01-25 01:55:50,298 [INFO] [finish job=job-8c9e2e59 status=FAILED exit_code=2] queue=3 active_jobs=7 | clusterA: total=4 busy=4 idle=0 | clusterB: total=4 busy=3 idle=1
+2026-01-25 01:55:52,219 [INFO] [LUCID] Launched job-581da131 on ['node_g']
+2026-01-25 01:56:37,135 [INFO] [PROGRESS] job=job-9edf0aaf g=1, batch=64, accum=1, sps=5.290, loss=0.020433059692382814, acc=99.25
+2026-01-25 01:56:42,229 [INFO] [LUCID-PROFILE] Job job-a36a8510 Classifed -> SS=2 (Tiny/Med/Jumbo)
+2026-01-25 01:56:42,230 [INFO] [LUCID-PROFILE] Job job-3b165a85 Classifed -> SS=2 (Tiny/Med/Jumbo)
+2026-01-25 01:56:42,230 [INFO] [LUCID-PROFILE] Job job-480471dc Classifed -> SS=2 (Tiny/Med/Jumbo)
+2026-01-25 01:56:52,232 [INFO] [LUCID-PROFILE] Job job-581da131 Classifed -> SS=2 (Tiny/Med/Jumbo)
+2026-01-25 01:56:55,913 [INFO] [enqueue job=job-a7e63aa2, g_target=0] queue=3 active_jobs=8 | clusterA: total=4 busy=4 idle=0 | clusterB: total=4 busy=4 idle=0
+2026-01-25 01:57:58,378 [INFO] [PROGRESS] job=job-480471dc g=1, batch=64, accum=1, sps=9.369, loss=0.6973882552680619, acc=50.91743119266055
+2026-01-25 01:58:05,624 [INFO] [PROGRESS] job=job-a36a8510 g=1, batch=64, accum=1, sps=6.289, loss=1.7413560546875, acc=37.59
+2026-01-25 01:58:54,939 [INFO] [PROGRESS] job=job-6487e494 g=1, batch=64, accum=1, sps=4.829, loss=0.03086796875, acc=99.1
+2026-01-25 01:59:10,175 [INFO] [PROGRESS] job=job-9dc1ae5b g=1, batch=16, accum=1, sps=13.469, loss=0.697977118535873, acc=50.91743119266055
+2026-01-25 01:59:26,724 [INFO] [PROGRESS] job=job-3b165a85 g=1, batch=64, accum=1, sps=4.523, loss=0.09106813354492188, acc=97.33
+2026-01-25 01:59:45,190 [INFO] [PROGRESS] job=job-9edf0aaf g=1, batch=64, accum=1, sps=5.293, loss=0.020562480163574218, acc=99.37
+2026-01-25 01:59:53,034 [INFO] [PROGRESS] job=job-480471dc g=1, batch=64, accum=1, sps=9.451, loss=0.6964562792296803, acc=50.91743119266055
+2026-01-25 02:00:21,976 [INFO] [PROGRESS] job=job-905f9080 g=1, batch=16, accum=1, sps=13.625, loss=0.6984179435519997, acc=50.91743119266055
+2026-01-25 02:00:24,792 [INFO] [PROGRESS] job=job-a36a8510 g=1, batch=64, accum=1, sps=6.269, loss=1.2509408203125, acc=53.63
+2026-01-25 02:00:30,330 [INFO] [enqueue job=job-cd691b74, g_target=0] queue=4 active_jobs=8 | clusterA: total=4 busy=4 idle=0 | clusterB: total=4 busy=4 idle=0
+2026-01-25 02:01:31,432 [INFO] [enqueue job=job-b175a99b, g_target=0] queue=5 active_jobs=8 | clusterA: total=4 busy=4 idle=0 | clusterB: total=4 busy=4 idle=0
+2026-01-25 02:01:48,986 [INFO] [PROGRESS] job=job-480471dc g=1, batch=64, accum=1, sps=9.415, loss=0.6976036281760679, acc=50.91743119266055
+2026-01-25 02:02:08,496 [INFO] [enqueue job=job-71b0f6c1, g_target=0] queue=6 active_jobs=8 | clusterA: total=4 busy=4 idle=0 | clusterB: total=4 busy=4 idle=0
+2026-01-25 02:02:11,839 [INFO] [PROGRESS] job=job-6487e494 g=1, batch=64, accum=1, sps=5.032, loss=0.019953460693359376, acc=99.35
+2026-01-25 02:02:40,797 [INFO] [PROGRESS] job=job-a36a8510 g=1, batch=64, accum=1, sps=6.271, loss=1.223701953125, acc=56.17
+2026-01-25 02:02:45,867 [INFO] [PROGRESS] job=job-581da131 g=1, batch=16, accum=1, sps=10.632, loss=0.6979545803245054, acc=50.91743119266055
+2026-01-25 02:02:52,036 [INFO] [PROGRESS] job=job-9edf0aaf g=1, batch=64, accum=1, sps=5.333, loss=0.023613714599609373, acc=99.2
+2026-01-25 02:03:08,125 [INFO] [PROGRESS] job=job-3b165a85 g=1, batch=64, accum=1, sps=4.488, loss=0.04104994201660156, acc=98.79
+2026-01-25 02:03:43,941 [INFO] [PROGRESS] job=job-480471dc g=1, batch=64, accum=1, sps=9.490, loss=0.6973686568233946, acc=50.91743119266055
+2026-01-25 02:04:24,885 [INFO] [PROGRESS] job=job-9dc1ae5b g=1, batch=16, accum=1, sps=13.535, loss=0.699176053388403, acc=50.91743119266055
+2026-01-25 02:04:57,467 [INFO] [PROGRESS] job=job-a36a8510 g=1, batch=64, accum=1, sps=6.279, loss=1.13910234375, acc=61.16
+2026-01-25 02:05:30,635 [INFO] [PROGRESS] job=job-6487e494 g=1, batch=64, accum=1, sps=4.988, loss=0.01413229522705078, acc=99.59
+2026-01-25 02:05:34,556 [INFO] [PROGRESS] job=job-905f9080 g=1, batch=16, accum=1, sps=13.641, loss=0.6976919611659619, acc=50.91743119266055
+2026-01-25 02:05:39,768 [INFO] [PROGRESS] job=job-480471dc g=1, batch=64, accum=1, sps=9.423, loss=0.6985868401483658, acc=50.91743119266055
+2026-01-25 02:05:57,632 [INFO] [PROGRESS] job=job-9edf0aaf g=1, batch=64, accum=1, sps=5.404, loss=0.020004107666015625, acc=99.39
+2026-01-25 02:06:50,285 [INFO] [PROGRESS] job=job-3b165a85 g=1, batch=64, accum=1, sps=4.480, loss=0.031738156127929684, acc=99.02
+2026-01-25 02:07:13,639 [INFO] [PROGRESS] job=job-a36a8510 g=1, batch=64, accum=1, sps=6.267, loss=0.925653515625, acc=67.47
+2026-01-25 02:07:35,376 [INFO] [PROGRESS] job=job-480471dc g=1, batch=64, accum=1, sps=9.452, loss=0.6971152069371774, acc=50.91743119266055
+2026-01-25 02:08:48,713 [INFO] [PROGRESS] job=job-6487e494 g=1, batch=64, accum=1, sps=5.004, loss=0.028221914672851563, acc=99.27
+2026-01-25 02:09:05,347 [INFO] [PROGRESS] job=job-9edf0aaf g=1, batch=64, accum=1, sps=5.305, loss=0.020703514099121093, acc=99.39
+2026-01-25 02:09:25,243 [INFO] [PROGRESS] job=job-581da131 g=1, batch=16, accum=1, sps=10.661, loss=0.6971805817490324, acc=50.91743119266055
+2026-01-25 02:09:29,351 [INFO] [PROGRESS] job=job-a36a8510 g=1, batch=64, accum=1, sps=6.278, loss=0.78608505859375, acc=72.23
+2026-01-25 02:09:30,212 [INFO] [PROGRESS] job=job-480471dc g=1, batch=64, accum=1, sps=9.502, loss=0.6990194058199541, acc=50.91743119266055
+2026-01-25 02:09:41,352 [INFO] [PROGRESS] job=job-9dc1ae5b g=1, batch=16, accum=1, sps=13.467, loss=0.6981299164098337, acc=50.91743119266055
+2026-01-25 02:10:34,628 [INFO] [PROGRESS] job=job-3b165a85 g=1, batch=64, accum=1, sps=4.475, loss=0.0281193115234375, acc=98.99
+2026-01-25 02:10:37,891 [INFO] [PROGRESS] job=job-905f9080 g=1, batch=16, accum=1, sps=14.053, loss=0.6980056762695312, acc=50.91743119266055
+2026-01-25 02:11:26,631 [INFO] [PROGRESS] job=job-480471dc g=1, batch=64, accum=1, sps=9.388, loss=0.6976552140822104, acc=50.91743119266055
+2026-01-25 02:11:44,931 [INFO] [PROGRESS] job=job-a36a8510 g=1, batch=64, accum=1, sps=6.302, loss=0.6857912109375, acc=76.11
+2026-01-25 02:12:11,516 [INFO] [PROGRESS] job=job-9edf0aaf g=1, batch=64, accum=1, sps=5.352, loss=0.02413219299316406, acc=99.23
+2026-01-25 02:12:14,166 [INFO] [PROGRESS] job=job-6487e494 g=1, batch=64, accum=1, sps=4.823, loss=0.017157638549804687, acc=99.49
+2026-01-25 02:13:22,329 [INFO] [PROGRESS] job=job-480471dc g=1, batch=64, accum=1, sps=9.450, loss=0.6975208947417932, acc=50.91743119266055
+2026-01-25 02:14:01,379 [INFO] [PROGRESS] job=job-a36a8510 g=1, batch=64, accum=1, sps=6.266, loss=0.650022314453125, acc=77.42
+2026-01-25 02:14:17,459 [INFO] [PROGRESS] job=job-3b165a85 g=1, batch=64, accum=1, sps=4.473, loss=0.024769610595703127, acc=99.18
+2026-01-25 02:14:52,464 [INFO] [PROGRESS] job=job-9dc1ae5b g=1, batch=16, accum=1, sps=13.701, loss=0.69608124899208, acc=50.91743119266055
+2026-01-25 02:15:01,248 [INFO] [enqueue job=job-bb497318, g_target=0] queue=7 active_jobs=8 | clusterA: total=4 busy=4 idle=0 | clusterB: total=4 busy=4 idle=0
+2026-01-25 02:15:17,731 [INFO] [PROGRESS] job=job-480471dc g=1, batch=64, accum=1, sps=9.428, loss=0.6974587396744194, acc=50.91743119266055
+2026-01-25 02:15:18,087 [INFO] [PROGRESS] job=job-9edf0aaf g=1, batch=64, accum=1, sps=5.335, loss=0.018675210571289062, acc=99.39
+2026-01-25 02:15:41,203 [INFO] [PROGRESS] job=job-6487e494 g=1, batch=64, accum=1, sps=4.781, loss=0.01718935546875, acc=99.42
+2026-01-25 02:15:50,084 [INFO] [PROGRESS] job=job-905f9080 g=1, batch=16, accum=1, sps=13.647, loss=0.698623797215453, acc=50.91743119266055
+2026-01-25 02:16:01,069 [INFO] [enqueue job=job-10032708, g_target=0] queue=8 active_jobs=8 | clusterA: total=4 busy=4 idle=0 | clusterB: total=4 busy=4 idle=0
+2026-01-25 02:16:03,387 [INFO] [PROGRESS] job=job-581da131 g=1, batch=16, accum=1, sps=10.691, loss=0.6932139965372348, acc=50.91743119266055
+2026-01-25 02:16:18,086 [INFO] [PROGRESS] job=job-a36a8510 g=1, batch=64, accum=1, sps=6.275, loss=0.64736474609375, acc=78.01
+2026-01-25 02:16:46,902 [INFO] [enqueue job=job-8ee53bd9, g_target=0] queue=9 active_jobs=8 | clusterA: total=4 busy=4 idle=0 | clusterB: total=4 busy=4 idle=0
+2026-01-25 02:17:13,582 [INFO] [PROGRESS] job=job-480471dc g=1, batch=64, accum=1, sps=9.501, loss=0.6979432412243765, acc=50.91743119266055
+2026-01-25 02:18:02,439 [INFO] [PROGRESS] job=job-3b165a85 g=1, batch=64, accum=1, sps=4.485, loss=0.034085714721679684, acc=98.89
+2026-01-25 02:18:26,946 [INFO] [PROGRESS] job=job-9edf0aaf g=1, batch=64, accum=1, sps=5.277, loss=0.01972827911376953, acc=99.46
+2026-01-25 02:18:37,384 [INFO] [PROGRESS] job=job-a36a8510 g=1, batch=64, accum=1, sps=6.278, loss=0.647012353515625, acc=77.7
+2026-01-25 02:19:07,565 [INFO] [PROGRESS] job=job-6487e494 g=1, batch=64, accum=1, sps=4.803, loss=0.01588306427001953, acc=99.48
+2026-01-25 02:19:08,395 [INFO] [PROGRESS] job=job-480471dc g=1, batch=64, accum=1, sps=9.498, loss=0.6978554681900444, acc=50.91743119266055
+2026-01-25 02:20:08,751 [INFO] [PROGRESS] job=job-9dc1ae5b g=1, batch=16, accum=1, sps=13.463, loss=0.6968694564399369, acc=50.91743119266055
+2026-01-25 02:20:54,004 [INFO] [PROGRESS] job=job-a36a8510 g=1, batch=64, accum=1, sps=6.270, loss=0.591926123046875, acc=80.05
+2026-01-25 02:21:01,532 [INFO] [PROGRESS] job=job-905f9080 g=1, batch=16, accum=1, sps=13.697, loss=0.6979946171471832, acc=50.91743119266055
+2026-01-25 02:21:03,684 [INFO] [PROGRESS] job=job-480471dc g=1, batch=64, accum=1, sps=9.447, loss=0.6978123516117761, acc=50.91743119266055
+2026-01-25 02:21:34,855 [INFO] [PROGRESS] job=job-9edf0aaf g=1, batch=64, accum=1, sps=5.321, loss=0.017575169372558593, acc=99.43
+2026-01-25 02:21:44,894 [INFO] [PROGRESS] job=job-3b165a85 g=1, batch=64, accum=1, sps=4.474, loss=0.024312065124511718, acc=99.16
+2026-01-25 02:21:57,059 [INFO] [enqueue job=job-79e1760a, g_target=0] queue=10 active_jobs=8 | clusterA: total=4 busy=4 idle=0 | clusterB: total=4 busy=4 idle=0
+2026-01-25 02:22:32,126 [INFO] [PROGRESS] job=job-6487e494 g=1, batch=64, accum=1, sps=4.834, loss=0.02369799346923828, acc=99.3
+2026-01-25 02:22:37,545 [INFO] [finish job=job-6487e494 status=FINISHED exit_code=0] queue=10 active_jobs=7 | clusterA: total=4 busy=3 idle=1 | clusterB: total=4 busy=4 idle=0
+2026-01-25 02:22:37,712 [INFO] [LUCID] Launched job-a7e63aa2 on ['node_c']
+2026-01-25 02:22:42,949 [INFO] [PROGRESS] job=job-581da131 g=1, batch=16, accum=1, sps=10.645, loss=0.6978606477789923, acc=50.91743119266055
+2026-01-25 02:22:59,064 [INFO] [PROGRESS] job=job-480471dc g=1, batch=64, accum=1, sps=9.527, loss=0.6990543330481293, acc=50.91743119266055
+2026-01-25 02:23:10,518 [INFO] [PROGRESS] job=job-a36a8510 g=1, batch=64, accum=1, sps=6.283, loss=0.476980224609375, acc=83.57
+2026-01-25 02:23:37,725 [INFO] [LUCID-PROFILE] Job job-a7e63aa2 Classifed -> SS=2 (Tiny/Med/Jumbo)
+2026-01-25 02:24:44,500 [INFO] [PROGRESS] job=job-9edf0aaf g=1, batch=64, accum=1, sps=5.253, loss=0.025362548828125, acc=99.23
+2026-01-25 02:24:54,814 [INFO] [PROGRESS] job=job-480471dc g=1, batch=64, accum=1, sps=9.483, loss=0.696800021950258, acc=50.91743119266055
+2026-01-25 02:25:18,016 [INFO] [PROGRESS] job=job-9dc1ae5b g=1, batch=16, accum=1, sps=13.775, loss=0.6971017680036913, acc=50.91743119266055
+2026-01-25 02:25:27,496 [INFO] [PROGRESS] job=job-3b165a85 g=1, batch=64, accum=1, sps=4.482, loss=0.016539334106445314, acc=99.43
+2026-01-25 02:25:27,559 [INFO] [PROGRESS] job=job-a36a8510 g=1, batch=64, accum=1, sps=6.280, loss=0.550425732421875, acc=80.9
+2026-01-25 02:25:46,211 [INFO] [enqueue job=job-0caedf57, g_target=0] queue=10 active_jobs=8 | clusterA: total=4 busy=4 idle=0 | clusterB: total=4 busy=4 idle=0
+2026-01-25 02:25:58,881 [INFO] [PROGRESS] job=job-a7e63aa2 g=1, batch=64, accum=1, sps=5.054, loss=0.04574627685546875, acc=98.64
+2026-01-25 02:26:12,467 [INFO] [PROGRESS] job=job-905f9080 g=1, batch=16, accum=1, sps=13.700, loss=0.6999277937302896, acc=50.91743119266055
+2026-01-25 02:26:24,312 [INFO] [enqueue job=job-060f6497, g_target=0] queue=11 active_jobs=8 | clusterA: total=4 busy=4 idle=0 | clusterB: total=4 busy=4 idle=0
+2026-01-25 02:26:49,863 [INFO] [PROGRESS] job=job-480471dc g=1, batch=64, accum=1, sps=9.483, loss=0.6986584444658472, acc=50.91743119266055
+2026-01-25 02:27:43,799 [INFO] [PROGRESS] job=job-a36a8510 g=1, batch=64, accum=1, sps=6.276, loss=0.4710767578125, acc=84.07
+2026-01-25 02:27:56,177 [INFO] [PROGRESS] job=job-9edf0aaf g=1, batch=64, accum=1, sps=5.186, loss=0.020872853088378905, acc=99.36
+2026-01-25 02:28:44,060 [INFO] [PROGRESS] job=job-480471dc g=1, batch=64, accum=1, sps=9.526, loss=0.6976939210104286, acc=50.91743119266055
+2026-01-25 02:29:10,183 [INFO] [PROGRESS] job=job-3b165a85 g=1, batch=64, accum=1, sps=4.468, loss=0.019682069396972656, acc=99.37
+2026-01-25 02:29:16,712 [INFO] [enqueue job=job-074c0067, g_target=0] queue=12 active_jobs=8 | clusterA: total=4 busy=4 idle=0 | clusterB: total=4 busy=4 idle=0
+2026-01-25 02:29:20,061 [INFO] [PROGRESS] job=job-a7e63aa2 g=1, batch=64, accum=1, sps=4.920, loss=0.037774066162109377, acc=98.78
+2026-01-25 02:29:20,488 [INFO] [PROGRESS] job=job-581da131 g=1, batch=16, accum=1, sps=10.689, loss=0.6973510182231938, acc=50.91743119266055
+2026-01-25 02:29:59,714 [INFO] [enqueue job=job-684228cc, g_target=0] queue=13 active_jobs=8 | clusterA: total=4 busy=4 idle=0 | clusterB: total=4 busy=4 idle=0
+2026-01-25 02:30:02,663 [INFO] [PROGRESS] job=job-a36a8510 g=1, batch=64, accum=1, sps=6.275, loss=0.473374267578125, acc=84.11
+2026-01-25 02:30:36,543 [INFO] [PROGRESS] job=job-9dc1ae5b g=1, batch=16, accum=1, sps=13.368, loss=0.6966524036652452, acc=50.91743119266055
+2026-01-25 02:30:38,408 [INFO] [PROGRESS] job=job-480471dc g=1, batch=64, accum=1, sps=9.550, loss=0.6979924473193807, acc=50.91743119266055
+2026-01-25 02:31:06,591 [INFO] [PROGRESS] job=job-9edf0aaf g=1, batch=64, accum=1, sps=5.240, loss=0.017308956909179687, acc=99.5
+2026-01-25 02:31:10,132 [INFO] [finish job=job-9edf0aaf status=FINISHED exit_code=0] queue=13 active_jobs=7 | clusterA: total=4 busy=3 idle=1 | clusterB: total=4 busy=4 idle=0
+2026-01-25 02:31:12,927 [INFO] [LUCID] Launched job-cd691b74 on ['node_b']
+2026-01-25 02:31:17,647 [INFO] [PROGRESS] job=job-905f9080 g=1, batch=16, accum=1, sps=13.959, loss=0.6980231748808414, acc=50.91743119266055
+2026-01-25 02:32:12,943 [INFO] [LUCID-PROFILE] Job job-cd691b74 Classifed -> SS=2 (Tiny/Med/Jumbo)
+2026-01-25 02:32:20,483 [INFO] [PROGRESS] job=job-a36a8510 g=1, batch=64, accum=1, sps=6.271, loss=0.433487841796875, acc=85.06
+2026-01-25 02:32:33,473 [INFO] [PROGRESS] job=job-480471dc g=1, batch=64, accum=1, sps=9.436, loss=0.6978067520561568, acc=50.91743119266055
+2026-01-25 02:32:44,024 [INFO] [PROGRESS] job=job-a7e63aa2 g=1, batch=64, accum=1, sps=4.859, loss=0.02991353759765625, acc=99.13
+2026-01-25 02:32:52,892 [INFO] [PROGRESS] job=job-3b165a85 g=1, batch=64, accum=1, sps=4.463, loss=0.024068284606933592, acc=99.29
+2026-01-25 02:34:14,427 [INFO] [PROGRESS] job=job-cd691b74 g=1, batch=64, accum=1, sps=5.636, loss=0.04901085815429688, acc=98.5
+2026-01-25 02:34:28,230 [INFO] [PROGRESS] job=job-480471dc g=1, batch=64, accum=1, sps=9.458, loss=0.6992469577614321, acc=50.91743119266055
+2026-01-25 02:34:36,271 [INFO] [finish job=job-480471dc status=FINISHED exit_code=0] queue=12 active_jobs=7 | clusterA: total=4 busy=4 idle=0 | clusterB: total=4 busy=3 idle=1
+2026-01-25 02:34:38,075 [INFO] [LUCID] Launched job-b175a99b on ['node_h']
+2026-01-25 02:34:40,059 [INFO] [PROGRESS] job=job-a36a8510 g=1, batch=64, accum=1, sps=6.270, loss=0.447345166015625, acc=84.7
+2026-01-25 02:35:38,088 [INFO] [LUCID-PROFILE] Job job-b175a99b Classifed -> SS=2 (Tiny/Med/Jumbo)
+2026-01-25 02:35:51,414 [INFO] [PROGRESS] job=job-9dc1ae5b g=1, batch=16, accum=1, sps=13.537, loss=0.698135235987672, acc=50.91743119266055
+2026-01-25 02:35:52,098 [INFO] [PROGRESS] job=job-581da131 g=1, batch=16, accum=1, sps=10.852, loss=0.6988785070016843, acc=50.91743119266055
+2026-01-25 02:36:06,629 [INFO] [PROGRESS] job=job-a7e63aa2 g=1, batch=64, accum=1, sps=4.895, loss=0.03191860961914063, acc=99.1
+2026-01-25 02:36:30,511 [INFO] [PROGRESS] job=job-905f9080 g=1, batch=16, accum=1, sps=13.616, loss=0.6987509071280104, acc=50.91743119266055
+2026-01-25 02:36:34,414 [INFO] [PROGRESS] job=job-3b165a85 g=1, batch=64, accum=1, sps=4.492, loss=0.028852716064453124, acc=99.1
+2026-01-25 02:36:56,279 [INFO] [PROGRESS] job=job-a36a8510 g=1, batch=64, accum=1, sps=6.286, loss=0.4071281005859375, acc=85.84
+2026-01-25 02:37:19,501 [INFO] [PROGRESS] job=job-cd691b74 g=1, batch=64, accum=1, sps=5.360, loss=0.04068831787109375, acc=98.82
+2026-01-25 02:38:03,623 [INFO] [enqueue job=job-0c240513, g_target=0] queue=12 active_jobs=8 | clusterA: total=4 busy=4 idle=0 | clusterB: total=4 busy=4 idle=0
+2026-01-25 02:38:23,122 [INFO] [PROGRESS] job=job-b175a99b g=1, batch=32, accum=1, sps=10.823, loss=0.6976756524602208, acc=50.91743119266055
+2026-01-25 02:39:12,785 [INFO] [PROGRESS] job=job-a36a8510 g=1, batch=64, accum=1, sps=6.252, loss=0.4092352294921875, acc=86.16
+2026-01-25 02:39:29,529 [INFO] [PROGRESS] job=job-a7e63aa2 g=1, batch=64, accum=1, sps=4.887, loss=0.04917848510742188, acc=98.54
+2026-01-25 02:39:31,646 [INFO] [enqueue job=job-5de6d07d, g_target=0] queue=13 active_jobs=8 | clusterA: total=4 busy=4 idle=0 | clusterB: total=4 busy=4 idle=0
+2026-01-25 02:40:16,469 [INFO] [PROGRESS] job=job-3b165a85 g=1, batch=64, accum=1, sps=4.477, loss=0.015549758911132812, acc=99.45
+2026-01-25 02:40:24,469 [INFO] [PROGRESS] job=job-cd691b74 g=1, batch=64, accum=1, sps=5.376, loss=0.0661964599609375, acc=97.97
+2026-01-25 02:41:07,136 [INFO] [PROGRESS] job=job-9dc1ae5b g=1, batch=16, accum=1, sps=13.490, loss=0.6971466344430906, acc=50.91743119266055
+2026-01-25 02:41:29,978 [INFO] [PROGRESS] job=job-a36a8510 g=1, batch=64, accum=1, sps=6.252, loss=0.43658857421875, acc=84.81
+2026-01-25 02:41:31,134 [INFO] [finish job=job-a36a8510 status=FINISHED exit_code=0] queue=13 active_jobs=7 | clusterA: total=4 busy=4 idle=0 | clusterB: total=4 busy=3 idle=1
+2026-01-25 02:41:33,267 [INFO] [LUCID] Launched job-71b0f6c1 on ['node_f']
+2026-01-25 02:41:37,620 [INFO] [finish job=job-71b0f6c1 status=FAILED exit_code=2] queue=12 active_jobs=7 | clusterA: total=4 busy=4 idle=0 | clusterB: total=4 busy=3 idle=1
+2026-01-25 02:41:38,365 [INFO] [LUCID] Launched job-bb497318 on ['node_f']
+2026-01-25 02:41:40,802 [INFO] [PROGRESS] job=job-b175a99b g=1, batch=32, accum=1, sps=10.850, loss=0.6975311839252437, acc=50.91743119266055
+2026-01-25 02:41:41,424 [INFO] [finish job=job-bb497318 status=FAILED exit_code=2] queue=11 active_jobs=7 | clusterA: total=4 busy=4 idle=0 | clusterB: total=4 busy=3 idle=1
+2026-01-25 02:41:43,442 [INFO] [LUCID] Launched job-10032708 on ['node_f']
+2026-01-25 02:41:44,409 [INFO] [PROGRESS] job=job-905f9080 g=1, batch=16, accum=1, sps=13.581, loss=0.6968283697005806, acc=50.91743119266055
+2026-01-25 02:41:46,520 [INFO] [finish job=job-10032708 status=FAILED exit_code=2] queue=10 active_jobs=7 | clusterA: total=4 busy=4 idle=0 | clusterB: total=4 busy=3 idle=1
+2026-01-25 02:41:48,700 [INFO] [LUCID] Launched job-8ee53bd9 on ['node_f']
+2026-01-25 02:42:47,938 [INFO] [PROGRESS] job=job-581da131 g=1, batch=16, accum=1, sps=10.208, loss=0.6981380357654816, acc=50.91743119266055
+2026-01-25 02:42:48,713 [INFO] [LUCID-PROFILE] Job job-8ee53bd9 Classifed -> SS=2 (Tiny/Med/Jumbo)
+2026-01-25 02:42:54,758 [INFO] [PROGRESS] job=job-a7e63aa2 g=1, batch=64, accum=1, sps=4.831, loss=0.033245751953125, acc=98.86
+2026-01-25 02:43:29,254 [INFO] [PROGRESS] job=job-cd691b74 g=1, batch=64, accum=1, sps=5.399, loss=0.031054043579101562, acc=99.04
+2026-01-25 02:44:00,455 [INFO] [PROGRESS] job=job-3b165a85 g=1, batch=64, accum=1, sps=4.463, loss=0.020098358154296874, acc=99.43
+2026-01-25 02:45:27,898 [INFO] [PROGRESS] job=job-b175a99b g=1, batch=32, accum=1, sps=9.430, loss=0.7073026184641987, acc=50.91743119266055
+2026-01-25 02:45:31,112 [INFO] [PROGRESS] job=job-8ee53bd9 g=1, batch=32, accum=1, sps=10.113, loss=0.6977245785774441, acc=50.91743119266055
+2026-01-25 02:46:16,542 [INFO] [PROGRESS] job=job-9dc1ae5b g=1, batch=16, accum=1, sps=13.771, loss=0.697286553339127, acc=50.91743119266055
+2026-01-25 02:46:18,083 [INFO] [PROGRESS] job=job-a7e63aa2 g=1, batch=64, accum=1, sps=4.876, loss=0.029908514404296874, acc=99.12
+2026-01-25 02:46:34,965 [INFO] [PROGRESS] job=job-cd691b74 g=1, batch=64, accum=1, sps=5.362, loss=0.02112142333984375, acc=99.31
+2026-01-25 02:46:59,160 [INFO] [PROGRESS] job=job-905f9080 g=1, batch=16, accum=1, sps=13.537, loss=0.6986455654879229, acc=50.91743119266055
+2026-01-25 02:47:04,845 [INFO] [finish job=job-905f9080 status=FINISHED exit_code=0] queue=9 active_jobs=7 | clusterA: total=4 busy=3 idle=1 | clusterB: total=4 busy=4 idle=0
+2026-01-25 02:47:08,898 [INFO] [LUCID] Launched job-0caedf57 on ['node_a']
+2026-01-25 02:47:44,789 [INFO] [PROGRESS] job=job-3b165a85 g=1, batch=64, accum=1, sps=4.438, loss=0.020833340454101564, acc=99.24
+2026-01-25 02:48:00,642 [INFO] [PROGRESS] job=job-0caedf57 g=1, batch=128, accum=1, sps=10.307, loss=3.800534375, acc=10.64
+2026-01-25 02:48:08,914 [INFO] [LUCID-PROFILE] Job job-0caedf57 Classifed -> SS=2 (Tiny/Med/Jumbo)
+2026-01-25 02:48:43,862 [INFO] [PROGRESS] job=job-0caedf57 g=1, batch=128, accum=1, sps=10.617, loss=3.444590234375, acc=18.27
+2026-01-25 02:49:08,769 [INFO] [PROGRESS] job=job-8ee53bd9 g=1, batch=32, accum=1, sps=10.078, loss=0.6988283909788919, acc=50.91743119266055
+2026-01-25 02:49:16,621 [INFO] [PROGRESS] job=job-b175a99b g=1, batch=32, accum=1, sps=9.354, loss=0.6957788029941944, acc=50.91743119266055
+2026-01-25 02:49:27,496 [INFO] [PROGRESS] job=job-0caedf57 g=1, batch=128, accum=1, sps=10.600, loss=3.1100333984375, acc=22.84
+2026-01-25 02:49:43,875 [INFO] [PROGRESS] job=job-a7e63aa2 g=1, batch=64, accum=1, sps=4.833, loss=0.023478643798828126, acc=99.17
+2026-01-25 02:49:45,160 [INFO] [PROGRESS] job=job-cd691b74 g=1, batch=64, accum=1, sps=5.239, loss=0.029772543334960936, acc=99.13
+2026-01-25 02:50:11,110 [INFO] [PROGRESS] job=job-0caedf57 g=1, batch=128, accum=1, sps=10.625, loss=2.75642890625, acc=30.42
+2026-01-25 02:50:41,563 [INFO] [PROGRESS] job=job-581da131 g=1, batch=16, accum=1, sps=8.969, loss=0.6983036426229214, acc=50.91743119266055
+2026-01-25 02:50:54,447 [INFO] [PROGRESS] job=job-0caedf57 g=1, batch=128, accum=1, sps=10.625, loss=2.4473794921875, acc=36.88
+2026-01-25 02:51:28,819 [INFO] [PROGRESS] job=job-3b165a85 g=1, batch=64, accum=1, sps=4.431, loss=0.013365628051757813, acc=99.59
+2026-01-25 02:51:37,831 [INFO] [PROGRESS] job=job-0caedf57 g=1, batch=128, accum=1, sps=10.641, loss=2.212085546875, acc=40.99
+2026-01-25 02:51:38,202 [INFO] [PROGRESS] job=job-9dc1ae5b g=1, batch=16, accum=1, sps=13.259, loss=0.6963738257731866, acc=50.91743119266055
+2026-01-25 02:52:20,852 [INFO] [PROGRESS] job=job-0caedf57 g=1, batch=128, accum=1, sps=10.814, loss=2.119376171875, acc=43.18
+2026-01-25 02:52:39,147 [INFO] [PROGRESS] job=job-8ee53bd9 g=1, batch=32, accum=1, sps=10.164, loss=0.6986058786374714, acc=50.91743119266055
+2026-01-25 02:52:56,389 [INFO] [PROGRESS] job=job-cd691b74 g=1, batch=64, accum=1, sps=5.220, loss=0.022184031677246092, acc=99.25
+2026-01-25 02:53:04,556 [INFO] [PROGRESS] job=job-0caedf57 g=1, batch=128, accum=1, sps=10.606, loss=1.966509375, acc=47.25
+2026-01-25 02:53:05,219 [INFO] [PROGRESS] job=job-b175a99b g=1, batch=32, accum=1, sps=9.381, loss=0.6998762778185923, acc=50.91743119266055
+2026-01-25 02:53:09,134 [INFO] [PROGRESS] job=job-a7e63aa2 g=1, batch=64, accum=1, sps=4.831, loss=0.029348873901367187, acc=99.1
+2026-01-25 02:53:27,848 [INFO] [enqueue job=job-4a012ee5, g_target=0] queue=9 active_jobs=8 | clusterA: total=4 busy=4 idle=0 | clusterB: total=4 busy=4 idle=0
+2026-01-25 02:53:48,320 [INFO] [PROGRESS] job=job-0caedf57 g=1, batch=128, accum=1, sps=10.605, loss=1.7988974609375, acc=51.0
+2026-01-25 02:54:32,168 [INFO] [PROGRESS] job=job-0caedf57 g=1, batch=128, accum=1, sps=10.566, loss=1.7235583984375, acc=52.87
+2026-01-25 02:55:12,946 [INFO] [PROGRESS] job=job-3b165a85 g=1, batch=64, accum=1, sps=4.435, loss=0.016351463317871094, acc=99.5
+2026-01-25 02:55:15,797 [INFO] [PROGRESS] job=job-0caedf57 g=1, batch=128, accum=1, sps=10.585, loss=1.6281740234375, acc=55.94
+2026-01-25 02:55:59,561 [INFO] [PROGRESS] job=job-0caedf57 g=1, batch=128, accum=1, sps=10.639, loss=1.569239453125, acc=57.36
+2026-01-25 02:56:11,357 [INFO] [PROGRESS] job=job-cd691b74 g=1, batch=64, accum=1, sps=5.098, loss=0.025617196655273438, acc=99.12
+2026-01-25 02:56:12,081 [INFO] [PROGRESS] job=job-8ee53bd9 g=1, batch=32, accum=1, sps=10.100, loss=0.698075950692553, acc=50.91743119266055
+2026-01-25 02:56:32,828 [INFO] [PROGRESS] job=job-a7e63aa2 g=1, batch=64, accum=1, sps=4.869, loss=0.017490171813964842, acc=99.51
+2026-01-25 02:56:42,991 [INFO] [PROGRESS] job=job-0caedf57 g=1, batch=128, accum=1, sps=10.636, loss=1.47983564453125, acc=58.98
+2026-01-25 02:56:54,593 [INFO] [PROGRESS] job=job-b175a99b g=1, batch=32, accum=1, sps=9.415, loss=0.6961449439372491, acc=50.91743119266055
+2026-01-25 02:57:02,634 [INFO] [PROGRESS] job=job-9dc1ae5b g=1, batch=16, accum=1, sps=13.134, loss=0.6981404155766199, acc=50.91743119266055
+2026-01-25 02:57:26,706 [INFO] [PROGRESS] job=job-0caedf57 g=1, batch=128, accum=1, sps=10.605, loss=1.45198701171875, acc=59.76
+2026-01-25 02:58:10,625 [INFO] [PROGRESS] job=job-0caedf57 g=1, batch=128, accum=1, sps=10.585, loss=1.34456982421875, acc=62.59
+2026-01-25 02:58:31,075 [INFO] [PROGRESS] job=job-581da131 g=1, batch=16, accum=1, sps=9.040, loss=0.6986228872876649, acc=50.91743119266055
+2026-01-25 02:58:54,194 [INFO] [PROGRESS] job=job-0caedf57 g=1, batch=128, accum=1, sps=10.587, loss=1.3407193359375, acc=62.48
+2026-01-25 02:58:56,735 [INFO] [PROGRESS] job=job-3b165a85 g=1, batch=64, accum=1, sps=4.445, loss=0.012507733154296876, acc=99.56
+2026-01-25 02:59:24,789 [INFO] [PROGRESS] job=job-cd691b74 g=1, batch=64, accum=1, sps=5.140, loss=0.023403205871582032, acc=99.23
+2026-01-25 02:59:38,359 [INFO] [PROGRESS] job=job-0caedf57 g=1, batch=128, accum=1, sps=10.537, loss=1.39742421875, acc=61.85
+2026-01-25 02:59:43,830 [INFO] [PROGRESS] job=job-8ee53bd9 g=1, batch=32, accum=1, sps=10.190, loss=0.6989242833688718, acc=50.91743119266055
+2026-01-25 02:59:55,814 [INFO] [PROGRESS] job=job-a7e63aa2 g=1, batch=64, accum=1, sps=4.886, loss=0.017771368408203123, acc=99.47
+2026-01-25 03:00:22,299 [INFO] [PROGRESS] job=job-0caedf57 g=1, batch=128, accum=1, sps=10.579, loss=1.29885380859375, acc=63.64
+2026-01-25 03:00:44,049 [INFO] [PROGRESS] job=job-b175a99b g=1, batch=32, accum=1, sps=9.351, loss=0.6967440963885106, acc=50.91743119266055
+2026-01-25 03:01:05,688 [INFO] [PROGRESS] job=job-0caedf57 g=1, batch=128, accum=1, sps=10.674, loss=1.24725751953125, acc=65.44
+2026-01-25 03:01:24,670 [INFO] [enqueue job=job-247cc80e, g_target=0] queue=10 active_jobs=8 | clusterA: total=4 busy=4 idle=0 | clusterB: total=4 busy=4 idle=0
+2026-01-25 03:01:49,318 [INFO] [PROGRESS] job=job-0caedf57 g=1, batch=128, accum=1, sps=10.635, loss=1.309073046875, acc=63.78
+2026-01-25 03:01:52,062 [INFO] [finish job=job-0caedf57 status=FINISHED exit_code=0] queue=10 active_jobs=7 | clusterA: total=4 busy=3 idle=1 | clusterB: total=4 busy=4 idle=0
+2026-01-25 03:01:54,198 [INFO] [LUCID] Launched job-060f6497 on ['node_a']
+2026-01-25 03:01:57,680 [INFO] [finish job=job-060f6497 status=FAILED exit_code=2] queue=9 active_jobs=7 | clusterA: total=4 busy=3 idle=1 | clusterB: total=4 busy=4 idle=0
+2026-01-25 03:01:59,300 [INFO] [LUCID] Launched job-684228cc on ['node_a']
+2026-01-25 03:02:25,246 [INFO] [PROGRESS] job=job-9dc1ae5b g=1, batch=16, accum=1, sps=13.204, loss=0.696818640472692, acc=50.91743119266055
+2026-01-25 03:02:33,764 [INFO] [finish job=job-9dc1ae5b status=FINISHED exit_code=0] queue=8 active_jobs=7 | clusterA: total=4 busy=3 idle=1 | clusterB: total=4 busy=4 idle=0
+2026-01-25 03:02:34,419 [INFO] [LUCID] Launched job-0c240513 on ['node_d']
+2026-01-25 03:02:35,988 [INFO] [PROGRESS] job=job-cd691b74 g=1, batch=64, accum=1, sps=5.205, loss=0.01626021728515625, acc=99.49
+2026-01-25 03:02:40,659 [INFO] [PROGRESS] job=job-3b165a85 g=1, batch=64, accum=1, sps=4.439, loss=0.012817591857910156, acc=99.58
+2026-01-25 03:02:59,425 [INFO] [LUCID-PROFILE] Job job-684228cc Classifed -> SS=2 (Tiny/Med/Jumbo)
+2026-01-25 03:03:16,790 [INFO] [PROGRESS] job=job-8ee53bd9 g=1, batch=32, accum=1, sps=10.146, loss=0.6976389753709146, acc=50.91743119266055
+2026-01-25 03:03:19,908 [INFO] [PROGRESS] job=job-a7e63aa2 g=1, batch=64, accum=1, sps=4.855, loss=0.0226895751953125, acc=99.26
+2026-01-25 03:03:34,433 [INFO] [LUCID-PROFILE] Job job-0c240513 Classifed -> SS=2 (Tiny/Med/Jumbo)
+2026-01-25 03:03:55,478 [INFO] [PROGRESS] job=job-684228cc g=1, batch=128, accum=1, sps=3.934, loss=4.569542578125, acc=36.64
+2026-01-25 03:04:33,723 [INFO] [PROGRESS] job=job-b175a99b g=1, batch=32, accum=1, sps=9.337, loss=0.6986006290540783, acc=50.91743119266055
+2026-01-25 03:05:25,156 [INFO] [PROGRESS] job=job-0c240513 g=1, batch=32, accum=1, sps=13.479, loss=0.6984771588526735, acc=50.91743119266055
+2026-01-25 03:05:40,553 [INFO] [PROGRESS] job=job-cd691b74 g=1, batch=64, accum=1, sps=5.400, loss=0.01854790954589844, acc=99.43
+2026-01-25 03:05:43,928 [INFO] [PROGRESS] job=job-684228cc g=1, batch=128, accum=1, sps=3.964, loss=1.60936796875, acc=48.41
+2026-01-25 03:06:20,565 [INFO] [PROGRESS] job=job-581da131 g=1, batch=16, accum=1, sps=9.044, loss=0.6979007545961152, acc=50.91743119266055
+2026-01-25 03:06:25,764 [INFO] [PROGRESS] job=job-3b165a85 g=1, batch=64, accum=1, sps=4.429, loss=0.014822476196289062, acc=99.56
+2026-01-25 03:06:44,800 [INFO] [PROGRESS] job=job-a7e63aa2 g=1, batch=64, accum=1, sps=4.831, loss=0.02022085723876953, acc=99.29
+2026-01-25 03:06:48,751 [INFO] [PROGRESS] job=job-8ee53bd9 g=1, batch=32, accum=1, sps=10.191, loss=0.6977888334781752, acc=50.91743119266055
+2026-01-25 03:07:32,709 [INFO] [PROGRESS] job=job-684228cc g=1, batch=128, accum=1, sps=3.983, loss=1.3155671875, acc=53.8
+2026-01-25 03:08:05,762 [INFO] [PROGRESS] job=job-0c240513 g=1, batch=32, accum=1, sps=13.280, loss=0.6981359359321244, acc=50.91743119266055
+2026-01-25 03:08:22,551 [INFO] [PROGRESS] job=job-b175a99b g=1, batch=32, accum=1, sps=9.357, loss=0.696699439932447, acc=50.91743119266055
+2026-01-25 03:08:47,566 [INFO] [PROGRESS] job=job-cd691b74 g=1, batch=64, accum=1, sps=5.324, loss=0.019110263061523438, acc=99.42
+2026-01-25 03:09:21,918 [INFO] [PROGRESS] job=job-684228cc g=1, batch=128, accum=1, sps=3.972, loss=1.00189921875, acc=64.78
+2026-01-25 03:10:08,179 [INFO] [PROGRESS] job=job-a7e63aa2 g=1, batch=64, accum=1, sps=4.867, loss=0.01893685760498047, acc=99.37
+2026-01-25 03:10:12,791 [INFO] [PROGRESS] job=job-3b165a85 g=1, batch=64, accum=1, sps=4.447, loss=0.01921405944824219, acc=99.4
+2026-01-25 03:10:19,817 [INFO] [PROGRESS] job=job-8ee53bd9 g=1, batch=32, accum=1, sps=10.186, loss=0.6978722668569023, acc=50.91743119266055
+2026-01-25 03:10:19,908 [INFO] [finish job=job-3b165a85 status=FINISHED exit_code=0] queue=7 active_jobs=7 | clusterA: total=4 busy=4 idle=0 | clusterB: total=4 busy=3 idle=1
+2026-01-25 03:10:24,620 [INFO] [LUCID] Launched job-5de6d07d on ['node_e']
+2026-01-25 03:10:47,765 [INFO] [PROGRESS] job=job-0c240513 g=1, batch=32, accum=1, sps=13.295, loss=0.6974654591411625, acc=50.91743119266055
+2026-01-25 03:11:11,086 [INFO] [PROGRESS] job=job-684228cc g=1, batch=128, accum=1, sps=3.975, loss=0.8958802734375, acc=68.13
+2026-01-25 03:11:24,650 [INFO] [LUCID-PROFILE] Job job-5de6d07d Classifed -> SS=2 (Tiny/Med/Jumbo)
+2026-01-25 03:11:48,467 [INFO] [enqueue job=job-18e8894a, g_target=0] queue=7 active_jobs=8 | clusterA: total=4 busy=4 idle=0 | clusterB: total=4 busy=4 idle=0
+2026-01-25 03:11:51,560 [INFO] [PROGRESS] job=job-cd691b74 g=1, batch=64, accum=1, sps=5.407, loss=0.013891744995117188, acc=99.58
+2026-01-25 03:12:25,325 [INFO] [PROGRESS] job=job-b175a99b g=1, batch=32, accum=1, sps=8.812, loss=0.697858827923416, acc=50.91743119266055
+2026-01-25 03:12:58,826 [INFO] [PROGRESS] job=job-684228cc g=1, batch=128, accum=1, sps=4.019, loss=0.9032263671875, acc=68.89
+2026-01-25 03:12:59,940 [INFO] [PROGRESS] job=job-5de6d07d g=1, batch=64, accum=1, sps=7.536, loss=0.6977809941003082, acc=50.91743119266055
+2026-01-25 03:13:30,770 [INFO] [PROGRESS] job=job-0c240513 g=1, batch=32, accum=1, sps=13.224, loss=0.6977329079164277, acc=50.91743119266055
+2026-01-25 03:13:31,870 [INFO] [PROGRESS] job=job-a7e63aa2 g=1, batch=64, accum=1, sps=4.867, loss=0.0188968017578125, acc=99.35
+2026-01-25 03:14:22,567 [INFO] [PROGRESS] job=job-8ee53bd9 g=1, batch=32, accum=1, sps=8.798, loss=0.6982636058002437, acc=50.91743119266055
+2026-01-25 03:14:39,899 [INFO] [PROGRESS] job=job-581da131 g=1, batch=16, accum=1, sps=8.499, loss=0.6969562495520355, acc=50.91743119266055
+2026-01-25 03:14:47,519 [INFO] [PROGRESS] job=job-684228cc g=1, batch=128, accum=1, sps=3.985, loss=0.810313671875, acc=72.2
+2026-01-25 03:14:56,950 [INFO] [PROGRESS] job=job-cd691b74 g=1, batch=64, accum=1, sps=5.374, loss=0.016286279296875, acc=99.5
+2026-01-25 03:15:20,308 [INFO] [PROGRESS] job=job-5de6d07d g=1, batch=64, accum=1, sps=7.697, loss=0.6959297110181336, acc=50.91743119266055
+2026-01-25 03:16:00,018 [INFO] [enqueue job=job-8a09bcda, g_target=0] queue=8 active_jobs=8 | clusterA: total=4 busy=4 idle=0 | clusterB: total=4 busy=4 idle=0
+2026-01-25 03:16:13,832 [INFO] [PROGRESS] job=job-0c240513 g=1, batch=32, accum=1, sps=13.278, loss=0.6974646892022649, acc=50.91743119266055
+2026-01-25 03:16:37,310 [INFO] [PROGRESS] job=job-684228cc g=1, batch=128, accum=1, sps=3.964, loss=0.73905810546875, acc=74.18
+2026-01-25 03:16:46,602 [INFO] [PROGRESS] job=job-b175a99b g=1, batch=32, accum=1, sps=8.159, loss=0.6988939757740825, acc=50.91743119266055
+2026-01-25 03:16:55,428 [INFO] [PROGRESS] job=job-a7e63aa2 g=1, batch=64, accum=1, sps=4.885, loss=0.019038059997558594, acc=99.48
+2026-01-25 03:17:43,837 [INFO] [PROGRESS] job=job-5de6d07d g=1, batch=64, accum=1, sps=7.526, loss=0.6976761424213375, acc=50.91743119266055
+2026-01-25 03:18:03,548 [INFO] [PROGRESS] job=job-cd691b74 g=1, batch=64, accum=1, sps=5.334, loss=0.018015255737304687, acc=99.43
+2026-01-25 03:18:26,164 [INFO] [PROGRESS] job=job-684228cc g=1, batch=128, accum=1, sps=3.976, loss=0.624540576171875, acc=78.43
+2026-01-25 03:18:28,449 [INFO] [PROGRESS] job=job-8ee53bd9 g=1, batch=32, accum=1, sps=8.714, loss=0.6971640630599556, acc=50.91743119266055
+2026-01-25 03:18:56,709 [INFO] [PROGRESS] job=job-0c240513 g=1, batch=32, accum=1, sps=13.235, loss=0.6980122557473839, acc=50.91743119266055
+2026-01-25 03:20:05,332 [INFO] [PROGRESS] job=job-5de6d07d g=1, batch=64, accum=1, sps=7.635, loss=0.6975390233031107, acc=50.91743119266055
+2026-01-25 03:20:13,308 [INFO] [PROGRESS] job=job-684228cc g=1, batch=128, accum=1, sps=4.057, loss=0.650618798828125, acc=79.71
+2026-01-25 03:20:17,608 [INFO] [PROGRESS] job=job-a7e63aa2 g=1, batch=64, accum=1, sps=4.915, loss=0.01880160369873047, acc=99.51
+2026-01-25 03:20:37,126 [INFO] [enqueue job=job-70fc9962, g_target=0] queue=9 active_jobs=8 | clusterA: total=4 busy=4 idle=0 | clusterB: total=4 busy=4 idle=0
+2026-01-25 03:21:06,994 [INFO] [PROGRESS] job=job-b175a99b g=1, batch=32, accum=1, sps=8.214, loss=0.698078820464808, acc=50.91743119266055
+2026-01-25 03:21:08,897 [INFO] [PROGRESS] job=job-cd691b74 g=1, batch=64, accum=1, sps=5.371, loss=0.01648411865234375, acc=99.39
+2026-01-25 03:21:35,625 [INFO] [PROGRESS] job=job-0c240513 g=1, batch=32, accum=1, sps=13.571, loss=0.6983163116175101, acc=50.91743119266055
+2026-01-25 03:22:02,811 [INFO] [PROGRESS] job=job-684228cc g=1, batch=128, accum=1, sps=3.962, loss=0.59675498046875, acc=79.19
+2026-01-25 03:22:27,476 [INFO] [PROGRESS] job=job-5de6d07d g=1, batch=64, accum=1, sps=7.616, loss=0.6990749114150301, acc=50.91743119266055
+2026-01-25 03:22:34,900 [INFO] [PROGRESS] job=job-8ee53bd9 g=1, batch=32, accum=1, sps=8.666, loss=0.6980438232421875, acc=50.91743119266055
+2026-01-25 03:23:28,133 [INFO] [PROGRESS] job=job-581da131 g=1, batch=16, accum=1, sps=8.035, loss=0.6985465933423524, acc=50.91743119266055
+2026-01-25 03:23:41,681 [INFO] [PROGRESS] job=job-a7e63aa2 g=1, batch=64, accum=1, sps=4.856, loss=0.023077552795410156, acc=99.26
+2026-01-25 03:23:51,911 [INFO] [PROGRESS] job=job-684228cc g=1, batch=128, accum=1, sps=3.981, loss=0.56145830078125, acc=80.49
+2026-01-25 03:24:14,944 [INFO] [PROGRESS] job=job-cd691b74 g=1, batch=64, accum=1, sps=5.357, loss=0.01962473602294922, acc=99.45
+2026-01-25 03:24:18,164 [INFO] [PROGRESS] job=job-0c240513 g=1, batch=32, accum=1, sps=13.285, loss=0.6986588644325187, acc=50.91743119266055
+2026-01-25 03:24:50,156 [INFO] [PROGRESS] job=job-5de6d07d g=1, batch=64, accum=1, sps=7.674, loss=0.6991272672600702, acc=50.91743119266055
+2026-01-25 03:25:28,002 [INFO] [PROGRESS] job=job-b175a99b g=1, batch=32, accum=1, sps=8.196, loss=0.6979601098856795, acc=50.91743119266055
+2026-01-25 03:25:40,747 [INFO] [PROGRESS] job=job-684228cc g=1, batch=128, accum=1, sps=3.984, loss=0.52897529296875, acc=81.83
+2026-01-25 03:26:44,626 [INFO] [PROGRESS] job=job-8ee53bd9 g=1, batch=32, accum=1, sps=8.694, loss=0.6977364076386898, acc=50.91743119266055
+2026-01-25 03:27:01,447 [INFO] [PROGRESS] job=job-0c240513 g=1, batch=32, accum=1, sps=13.258, loss=0.6979972069416571, acc=50.91743119266055
+2026-01-25 03:27:02,959 [INFO] [PROGRESS] job=job-a7e63aa2 g=1, batch=64, accum=1, sps=4.926, loss=0.017705770874023436, acc=99.44
+2026-01-25 03:27:11,968 [INFO] [PROGRESS] job=job-5de6d07d g=1, batch=64, accum=1, sps=7.619, loss=0.6987447476168291, acc=50.91743119266055
+2026-01-25 03:27:22,590 [INFO] [PROGRESS] job=job-cd691b74 g=1, batch=64, accum=1, sps=5.297, loss=0.012966465759277344, acc=99.62
+2026-01-25 03:27:29,595 [INFO] [PROGRESS] job=job-684228cc g=1, batch=128, accum=1, sps=3.993, loss=0.492363623046875, acc=83.01
+2026-01-25 03:29:18,545 [INFO] [PROGRESS] job=job-684228cc g=1, batch=128, accum=1, sps=3.975, loss=0.457191796875, acc=84.26
+2026-01-25 03:29:33,368 [INFO] [PROGRESS] job=job-5de6d07d g=1, batch=64, accum=1, sps=7.616, loss=0.6985745911204487, acc=50.91743119266055
+2026-01-25 03:29:43,942 [INFO] [PROGRESS] job=job-0c240513 g=1, batch=32, accum=1, sps=13.302, loss=0.6966995099268922, acc=50.91743119266055
+2026-01-25 03:29:49,984 [INFO] [PROGRESS] job=job-b175a99b g=1, batch=32, accum=1, sps=8.171, loss=0.69620478918793, acc=50.91743119266055
+2026-01-25 03:30:23,146 [INFO] [PROGRESS] job=job-a7e63aa2 g=1, batch=64, accum=1, sps=4.966, loss=0.013588774108886719, acc=99.62
+2026-01-25 03:30:25,083 [INFO] [finish job=job-a7e63aa2 status=FINISHED exit_code=0] queue=9 active_jobs=7 | clusterA: total=4 busy=3 idle=1 | clusterB: total=4 busy=4 idle=0
+2026-01-25 03:30:28,632 [INFO] [PROGRESS] job=job-cd691b74 g=1, batch=64, accum=1, sps=5.353, loss=0.01335264892578125, acc=99.54
+2026-01-25 03:30:30,068 [INFO] [LUCID] Launched job-4a012ee5 on ['node_c']
+2026-01-25 03:30:50,976 [INFO] [PROGRESS] job=job-8ee53bd9 g=1, batch=32, accum=1, sps=8.721, loss=0.6970670507588518, acc=50.91743119266055
+2026-01-25 03:31:07,403 [INFO] [PROGRESS] job=job-684228cc g=1, batch=128, accum=1, sps=3.979, loss=0.46604638671875, acc=83.8
+2026-01-25 03:31:17,469 [INFO] [enqueue job=job-7823784b, g_target=0] queue=9 active_jobs=8 | clusterA: total=4 busy=4 idle=0 | clusterB: total=4 busy=4 idle=0
+2026-01-25 03:31:30,086 [INFO] [LUCID-PROFILE] Job job-4a012ee5 Classifed -> SS=2 (Tiny/Med/Jumbo)
+2026-01-25 03:31:58,185 [INFO] [PROGRESS] job=job-5de6d07d g=1, batch=64, accum=1, sps=7.603, loss=0.6982557664223767, acc=50.91743119266055
+2026-01-25 03:32:22,716 [INFO] [PROGRESS] job=job-581da131 g=1, batch=16, accum=1, sps=7.940, loss=0.6960004754022721, acc=50.91743119266055
+2026-01-25 03:32:26,621 [INFO] [PROGRESS] job=job-0c240513 g=1, batch=32, accum=1, sps=13.267, loss=0.6984504209745914, acc=50.91743119266055
+2026-01-25 03:32:56,454 [INFO] [PROGRESS] job=job-684228cc g=1, batch=128, accum=1, sps=3.975, loss=0.45241455078125, acc=84.41
+2026-01-25 03:33:08,638 [INFO] [PROGRESS] job=job-4a012ee5 g=1, batch=32, accum=1, sps=11.034, loss=1.600715234375, acc=42.49
+2026-01-25 03:33:33,940 [INFO] [enqueue job=job-9295e00b, g_target=0] queue=10 active_jobs=8 | clusterA: total=4 busy=4 idle=0 | clusterB: total=4 busy=4 idle=0
+2026-01-25 03:33:34,039 [INFO] [PROGRESS] job=job-cd691b74 g=1, batch=64, accum=1, sps=5.375, loss=0.020221058654785157, acc=99.31
+2026-01-25 03:33:38,665 [INFO] [finish job=job-cd691b74 status=FINISHED exit_code=0] queue=10 active_jobs=7 | clusterA: total=4 busy=3 idle=1 | clusterB: total=4 busy=4 idle=0
+2026-01-25 03:33:40,207 [INFO] [LUCID] Launched job-247cc80e on ['node_b']
+2026-01-25 03:34:12,516 [INFO] [PROGRESS] job=job-b175a99b g=1, batch=32, accum=1, sps=8.146, loss=0.6989216235799527, acc=50.91743119266055
+2026-01-25 03:34:25,256 [INFO] [PROGRESS] job=job-5de6d07d g=1, batch=64, accum=1, sps=7.568, loss=0.6979409314076835, acc=50.91743119266055
+2026-01-25 03:34:40,221 [INFO] [LUCID-PROFILE] Job job-247cc80e Classifed -> SS=2 (Tiny/Med/Jumbo)
+2026-01-25 03:34:44,860 [INFO] [enqueue job=job-68cc5887, g_target=0] queue=10 active_jobs=8 | clusterA: total=4 busy=4 idle=0 | clusterB: total=4 busy=4 idle=0
+2026-01-25 03:34:45,484 [INFO] [PROGRESS] job=job-684228cc g=1, batch=128, accum=1, sps=3.979, loss=0.428397216796875, acc=84.93
+2026-01-25 03:34:53,737 [INFO] [PROGRESS] job=job-8ee53bd9 g=1, batch=32, accum=1, sps=8.785, loss=0.6985977592818234, acc=50.91743119266055
+2026-01-25 03:35:10,452 [INFO] [PROGRESS] job=job-0c240513 g=1, batch=32, accum=1, sps=13.158, loss=0.6968602871676104, acc=50.91743119266055
+2026-01-25 03:35:39,919 [INFO] [PROGRESS] job=job-4a012ee5 g=1, batch=32, accum=1, sps=11.043, loss=1.4779978515625, acc=49.1
+2026-01-25 03:36:11,089 [INFO] [enqueue job=job-45e125db, g_target=0] queue=11 active_jobs=8 | clusterA: total=4 busy=4 idle=0 | clusterB: total=4 busy=4 idle=0
+2026-01-25 03:36:34,702 [INFO] [PROGRESS] job=job-684228cc g=1, batch=128, accum=1, sps=3.961, loss=0.454850244140625, acc=84.08
+2026-01-25 03:36:47,042 [INFO] [PROGRESS] job=job-247cc80e g=1, batch=64, accum=1, sps=5.482, loss=0.04961194458007812, acc=98.26
+2026-01-25 03:36:49,118 [INFO] [PROGRESS] job=job-5de6d07d g=1, batch=64, accum=1, sps=7.633, loss=0.6985917397595327, acc=50.91743119266055
+2026-01-25 03:37:55,441 [INFO] [PROGRESS] job=job-0c240513 g=1, batch=32, accum=1, sps=13.086, loss=0.6974643392300387, acc=50.91743119266055
+2026-01-25 03:38:15,108 [INFO] [PROGRESS] job=job-4a012ee5 g=1, batch=32, accum=1, sps=10.855, loss=1.20345634765625, acc=58.04
+2026-01-25 03:38:22,758 [INFO] [PROGRESS] job=job-684228cc g=1, batch=128, accum=1, sps=4.018, loss=0.460149658203125, acc=84.0
+2026-01-25 03:38:29,153 [INFO] [finish job=job-684228cc status=FINISHED exit_code=0] queue=11 active_jobs=7 | clusterA: total=4 busy=3 idle=1 | clusterB: total=4 busy=4 idle=0
+2026-01-25 03:38:30,379 [INFO] [LUCID] Launched job-18e8894a on ['node_a']
+2026-01-25 03:38:32,260 [INFO] [PROGRESS] job=job-b175a99b g=1, batch=32, accum=1, sps=8.215, loss=0.697602788242725, acc=50.91743119266055
+2026-01-25 03:38:58,399 [INFO] [enqueue job=job-fcfba421, g_target=0] queue=11 active_jobs=8 | clusterA: total=4 busy=4 idle=0 | clusterB: total=4 busy=4 idle=0
+2026-01-25 03:38:59,497 [INFO] [PROGRESS] job=job-8ee53bd9 g=1, batch=32, accum=1, sps=8.686, loss=0.697343808795334, acc=50.91743119266055
+2026-01-25 03:39:10,282 [INFO] [PROGRESS] job=job-5de6d07d g=1, batch=64, accum=1, sps=7.632, loss=0.6972824236668578, acc=50.91743119266055
+2026-01-25 03:39:30,391 [INFO] [LUCID-PROFILE] Job job-18e8894a Classifed -> SS=2 (Tiny/Med/Jumbo)
+2026-01-25 03:39:42,372 [INFO] [enqueue job=job-db1ed076, g_target=0] queue=12 active_jobs=8 | clusterA: total=4 busy=4 idle=0 | clusterB: total=4 busy=4 idle=0
+2026-01-25 03:39:52,245 [INFO] [PROGRESS] job=job-247cc80e g=1, batch=64, accum=1, sps=5.369, loss=0.030564248657226564, acc=99.06
+2026-01-25 03:40:05,107 [INFO] [PROGRESS] job=job-18e8894a g=1, batch=64, accum=1, sps=13.157, loss=0.701862160218965, acc=50.91743119266055
+2026-01-25 03:40:36,900 [INFO] [enqueue job=job-604d074d, g_target=0] queue=13 active_jobs=8 | clusterA: total=4 busy=4 idle=0 | clusterB: total=4 busy=4 idle=0
+2026-01-25 03:40:37,443 [INFO] [PROGRESS] job=job-0c240513 g=1, batch=32, accum=1, sps=13.305, loss=0.698514815864213, acc=50.91743119266055
+2026-01-25 03:40:53,105 [INFO] [PROGRESS] job=job-4a012ee5 g=1, batch=32, accum=1, sps=10.631, loss=1.06677236328125, acc=61.98
+2026-01-25 03:41:15,373 [INFO] [PROGRESS] job=job-581da131 g=1, batch=16, accum=1, sps=7.958, loss=0.6965861189256021, acc=50.91743119266055
+2026-01-25 03:41:28,217 [INFO] [PROGRESS] job=job-18e8894a g=1, batch=64, accum=1, sps=12.969, loss=0.6994990077587443, acc=50.91743119266055
+2026-01-25 03:41:32,584 [INFO] [PROGRESS] job=job-5de6d07d g=1, batch=64, accum=1, sps=7.706, loss=0.6975402132086798, acc=50.91743119266055
+2026-01-25 03:42:53,227 [INFO] [PROGRESS] job=job-18e8894a g=1, batch=64, accum=1, sps=12.968, loss=0.6996498457882383, acc=50.91743119266055
+2026-01-25 03:42:53,519 [INFO] [PROGRESS] job=job-b175a99b g=1, batch=32, accum=1, sps=8.201, loss=0.6990447438091313, acc=50.91743119266055
+2026-01-25 03:43:00,115 [INFO] [PROGRESS] job=job-247cc80e g=1, batch=64, accum=1, sps=5.318, loss=0.02156539764404297, acc=99.33
+2026-01-25 03:43:05,514 [INFO] [PROGRESS] job=job-8ee53bd9 g=1, batch=32, accum=1, sps=8.782, loss=0.6964578891019209, acc=50.91743119266055
+2026-01-25 03:43:11,417 [INFO] [enqueue job=job-5c5e00dd, g_target=0] queue=14 active_jobs=8 | clusterA: total=4 busy=4 idle=0 | clusterB: total=4 busy=4 idle=0
+2026-01-25 03:43:19,198 [INFO] [PROGRESS] job=job-0c240513 g=1, batch=32, accum=1, sps=13.331, loss=0.6974744184301533, acc=50.91743119266055
+2026-01-25 03:43:28,411 [INFO] [PROGRESS] job=job-4a012ee5 g=1, batch=32, accum=1, sps=10.819, loss=0.94462958984375, acc=67.02
+2026-01-25 03:43:56,206 [INFO] [PROGRESS] job=job-5de6d07d g=1, batch=64, accum=1, sps=7.650, loss=0.6975612815366973, acc=50.91743119266055
+2026-01-25 03:44:18,907 [INFO] [PROGRESS] job=job-18e8894a g=1, batch=64, accum=1, sps=12.891, loss=0.6977406772998495, acc=50.91743119266055
+2026-01-25 03:45:42,862 [INFO] [PROGRESS] job=job-18e8894a g=1, batch=64, accum=1, sps=13.128, loss=0.6969332913739965, acc=50.91743119266055
+2026-01-25 03:46:02,695 [INFO] [PROGRESS] job=job-0c240513 g=1, batch=32, accum=1, sps=13.214, loss=0.6989413620135106, acc=50.91743119266055
+2026-01-25 03:46:04,912 [INFO] [PROGRESS] job=job-4a012ee5 g=1, batch=32, accum=1, sps=10.750, loss=0.8081013671875, acc=71.41
+2026-01-25 03:46:09,573 [INFO] [PROGRESS] job=job-247cc80e g=1, batch=64, accum=1, sps=5.264, loss=0.02458385467529297, acc=99.16
+2026-01-25 03:46:19,200 [INFO] [PROGRESS] job=job-5de6d07d g=1, batch=64, accum=1, sps=7.599, loss=0.6968804455678398, acc=50.91743119266055
+2026-01-25 03:47:06,255 [INFO] [PROGRESS] job=job-18e8894a g=1, batch=64, accum=1, sps=13.218, loss=0.6982140497330132, acc=50.91743119266055
+2026-01-25 03:47:12,301 [INFO] [PROGRESS] job=job-b175a99b g=1, batch=32, accum=1, sps=8.279, loss=0.6976475846876792, acc=50.91743119266055
+2026-01-25 03:47:14,787 [INFO] [PROGRESS] job=job-8ee53bd9 g=1, batch=32, accum=1, sps=8.672, loss=0.6970876991201979, acc=50.91743119266055
+2026-01-25 03:48:32,448 [INFO] [PROGRESS] job=job-18e8894a g=1, batch=64, accum=1, sps=12.748, loss=0.6979655694524083, acc=50.91743119266055
+2026-01-25 03:48:40,114 [INFO] [PROGRESS] job=job-5de6d07d g=1, batch=64, accum=1, sps=7.671, loss=0.697271434538955, acc=50.91743119266055
+2026-01-25 03:48:42,686 [INFO] [PROGRESS] job=job-4a012ee5 g=1, batch=32, accum=1, sps=10.697, loss=0.768246826171875, acc=73.06
+2026-01-25 03:48:45,664 [INFO] [PROGRESS] job=job-0c240513 g=1, batch=32, accum=1, sps=13.271, loss=0.6980048363361884, acc=50.91743119266055
+2026-01-25 03:49:16,352 [INFO] [PROGRESS] job=job-247cc80e g=1, batch=64, accum=1, sps=5.326, loss=0.04544735717773438, acc=98.57
+2026-01-25 03:49:57,915 [INFO] [PROGRESS] job=job-18e8894a g=1, batch=64, accum=1, sps=12.866, loss=0.6977226187329774, acc=50.91743119266055
+2026-01-25 03:50:03,138 [INFO] [PROGRESS] job=job-581da131 g=1, batch=16, accum=1, sps=8.055, loss=0.6990189858532827, acc=50.91743119266055
+2026-01-25 03:51:00,903 [INFO] [PROGRESS] job=job-5de6d07d g=1, batch=64, accum=1, sps=7.658, loss=0.6977508264944094, acc=50.91743119266055
+2026-01-25 03:51:18,208 [INFO] [PROGRESS] job=job-4a012ee5 g=1, batch=32, accum=1, sps=10.827, loss=0.708020751953125, acc=75.88
+2026-01-25 03:51:19,760 [INFO] [PROGRESS] job=job-8ee53bd9 g=1, batch=32, accum=1, sps=8.719, loss=0.6971792518545729, acc=50.91743119266055
+2026-01-25 03:51:20,636 [INFO] [PROGRESS] job=job-18e8894a g=1, batch=64, accum=1, sps=13.338, loss=0.699428313369051, acc=50.91743119266055
+2026-01-25 03:51:24,293 [INFO] [PROGRESS] job=job-0c240513 g=1, batch=32, accum=1, sps=13.615, loss=0.6992535372392847, acc=50.91743119266055
+2026-01-25 03:51:32,393 [INFO] [PROGRESS] job=job-b175a99b g=1, batch=32, accum=1, sps=8.240, loss=0.6988080225953268, acc=50.91743119266055
+2026-01-25 03:52:22,881 [INFO] [PROGRESS] job=job-247cc80e g=1, batch=64, accum=1, sps=5.349, loss=0.025077349853515625, acc=99.24
+2026-01-25 03:52:46,383 [INFO] [PROGRESS] job=job-18e8894a g=1, batch=64, accum=1, sps=12.897, loss=0.6984549706135321, acc=50.91743119266055
+2026-01-25 03:53:20,819 [INFO] [PROGRESS] job=job-5de6d07d g=1, batch=64, accum=1, sps=7.721, loss=0.6972507161831637, acc=50.91743119266055
+2026-01-25 03:53:52,885 [INFO] [PROGRESS] job=job-4a012ee5 g=1, batch=32, accum=1, sps=10.872, loss=0.604006298828125, acc=79.16
+2026-01-25 03:54:06,653 [INFO] [PROGRESS] job=job-0c240513 g=1, batch=32, accum=1, sps=13.287, loss=0.6983332502732583, acc=50.91743119266055
+2026-01-25 03:54:12,379 [INFO] [PROGRESS] job=job-18e8894a g=1, batch=64, accum=1, sps=12.809, loss=0.6979731288524943, acc=50.91743119266055
+2026-01-25 03:55:21,870 [INFO] [PROGRESS] job=job-247cc80e g=1, batch=64, accum=1, sps=5.581, loss=0.03505256042480469, acc=98.84
+2026-01-25 03:55:26,245 [INFO] [PROGRESS] job=job-8ee53bd9 g=1, batch=32, accum=1, sps=8.698, loss=0.6986385660433988, acc=50.91743119266055
+2026-01-25 03:55:35,129 [INFO] [PROGRESS] job=job-18e8894a g=1, batch=64, accum=1, sps=13.328, loss=0.6984214432742617, acc=50.91743119266055
+2026-01-25 03:55:41,153 [INFO] [PROGRESS] job=job-5de6d07d g=1, batch=64, accum=1, sps=7.703, loss=0.6979906274638045, acc=50.91743119266055
+2026-01-25 03:55:52,495 [INFO] [PROGRESS] job=job-b175a99b g=1, batch=32, accum=1, sps=8.213, loss=0.6974454407298237, acc=50.91743119266055
+2026-01-25 03:55:58,172 [INFO] [finish job=job-b175a99b status=FINISHED exit_code=0] queue=14 active_jobs=7 | clusterA: total=4 busy=4 idle=0 | clusterB: total=4 busy=3 idle=1
+2026-01-25 03:56:00,918 [INFO] [LUCID] Launched job-8a09bcda on ['node_h']
+2026-01-25 03:56:11,121 [INFO] [finish job=job-8a09bcda status=FAILED exit_code=2] queue=13 active_jobs=7 | clusterA: total=4 busy=4 idle=0 | clusterB: total=4 busy=3 idle=1
+2026-01-25 03:56:16,052 [INFO] [LUCID] Launched job-70fc9962 on ['node_h']
+2026-01-25 03:56:21,717 [INFO] [finish job=job-70fc9962 status=FAILED exit_code=2] queue=12 active_jobs=7 | clusterA: total=4 busy=4 idle=0 | clusterB: total=4 busy=3 idle=1
+2026-01-25 03:56:26,147 [INFO] [LUCID] Launched job-9295e00b on ['node_h']
+2026-01-25 03:56:29,168 [INFO] [PROGRESS] job=job-4a012ee5 g=1, batch=32, accum=1, sps=10.772, loss=0.58986943359375, acc=79.84
+2026-01-25 03:56:50,174 [INFO] [PROGRESS] job=job-0c240513 g=1, batch=32, accum=1, sps=13.189, loss=0.6966479240207497, acc=50.91743119266055
+2026-01-25 03:56:54,633 [INFO] [finish job=job-0c240513 status=FINISHED exit_code=0] queue=11 active_jobs=7 | clusterA: total=4 busy=3 idle=1 | clusterB: total=4 busy=4 idle=0
+2026-01-25 03:56:56,261 [INFO] [LUCID] Launched job-68cc5887 on ['node_d']
+2026-01-25 03:57:00,066 [INFO] [PROGRESS] job=job-18e8894a g=1, batch=64, accum=1, sps=12.958, loss=0.697112757131594, acc=50.91743119266055
+2026-01-25 03:57:26,270 [INFO] [LUCID-PROFILE] Job job-9295e00b Classifed -> SS=2 (Tiny/Med/Jumbo)
+2026-01-25 03:57:55,567 [INFO] [PROGRESS] job=job-5de6d07d g=1, batch=64, accum=1, sps=8.074, loss=0.6977951329782468, acc=50.91743119266055
+2026-01-25 03:57:56,277 [INFO] [LUCID-PROFILE] Job job-68cc5887 Classifed -> SS=2 (Tiny/Med/Jumbo)
+2026-01-25 03:58:01,182 [INFO] [finish job=job-5de6d07d status=FINISHED exit_code=0] queue=10 active_jobs=7 | clusterA: total=4 busy=4 idle=0 | clusterB: total=4 busy=3 idle=1
+2026-01-25 03:58:01,407 [INFO] [LUCID] Launched job-45e125db on ['node_e']
+2026-01-25 03:58:17,723 [INFO] [PROGRESS] job=job-247cc80e g=1, batch=64, accum=1, sps=5.693, loss=0.050571945190429686, acc=98.65
+2026-01-25 03:58:25,640 [INFO] [PROGRESS] job=job-18e8894a g=1, batch=64, accum=1, sps=12.864, loss=0.6977746946002366, acc=50.91743119266055
+2026-01-25 03:58:41,408 [INFO] [PROGRESS] job=job-581da131 g=1, batch=16, accum=1, sps=8.198, loss=0.6960475816639191, acc=50.91743119266055
+2026-01-25 03:59:01,423 [INFO] [LUCID-PROFILE] Job job-45e125db Classifed -> SS=2 (Tiny/Med/Jumbo)
+2026-01-25 03:59:04,352 [INFO] [PROGRESS] job=job-4a012ee5 g=1, batch=32, accum=1, sps=10.811, loss=0.526331103515625, acc=81.39
+2026-01-25 03:59:07,614 [INFO] [PROGRESS] job=job-45e125db g=1, batch=64, accum=1, sps=15.022, loss=3.773062890625, acc=11.94
+2026-01-25 03:59:08,329 [INFO] [PROGRESS] job=job-8ee53bd9 g=1, batch=32, accum=1, sps=9.646, loss=0.6985135559641987, acc=50.91743119266055
+2026-01-25 03:59:13,011 [INFO] [finish job=job-8ee53bd9 status=FINISHED exit_code=0] queue=9 active_jobs=7 | clusterA: total=4 busy=4 idle=0 | clusterB: total=4 busy=3 idle=1
+2026-01-25 03:59:16,523 [INFO] [LUCID] Launched job-fcfba421 on ['node_f']
+2026-01-25 03:59:45,281 [INFO] [PROGRESS] job=job-68cc5887 g=1, batch=32, accum=1, sps=13.576, loss=0.6994812991640983, acc=50.91743119266055
+2026-01-25 03:59:50,587 [INFO] [PROGRESS] job=job-18e8894a g=1, batch=64, accum=1, sps=12.975, loss=0.6975577818144352, acc=50.91743119266055
+2026-01-25 04:00:04,537 [INFO] [PROGRESS] job=job-45e125db g=1, batch=64, accum=1, sps=15.664, loss=3.380137109375, acc=18.92
+2026-01-25 04:00:16,557 [INFO] [LUCID-PROFILE] Job job-fcfba421 Classifed -> SS=2 (Tiny/Med/Jumbo)
+2026-01-25 04:00:18,886 [INFO] [PROGRESS] job=job-fcfba421 g=1, batch=128, accum=1, sps=8.132, loss=3.73944140625, acc=12.35
+2026-01-25 04:01:01,577 [INFO] [PROGRESS] job=job-45e125db g=1, batch=64, accum=1, sps=15.529, loss=3.0132548828125, acc=25.94
+2026-01-25 04:01:12,602 [INFO] [PROGRESS] job=job-fcfba421 g=1, batch=128, accum=1, sps=8.301, loss=3.378474609375, acc=19.2
+2026-01-25 04:01:15,078 [INFO] [PROGRESS] job=job-18e8894a g=1, batch=64, accum=1, sps=13.049, loss=0.6989524211358586, acc=50.91743119266055
+2026-01-25 04:01:22,993 [INFO] [PROGRESS] job=job-247cc80e g=1, batch=64, accum=1, sps=5.384, loss=0.019341854858398438, acc=99.45
+2026-01-25 04:01:40,410 [INFO] [PROGRESS] job=job-4a012ee5 g=1, batch=32, accum=1, sps=10.787, loss=0.5286669921875, acc=81.84
+2026-01-25 04:01:58,623 [INFO] [PROGRESS] job=job-45e125db g=1, batch=64, accum=1, sps=15.599, loss=2.7261875, acc=30.98
+2026-01-25 04:02:06,184 [INFO] [PROGRESS] job=job-fcfba421 g=1, batch=128, accum=1, sps=8.324, loss=2.9302802734375, acc=27.0
+2026-01-25 04:02:26,329 [INFO] [PROGRESS] job=job-68cc5887 g=1, batch=32, accum=1, sps=13.232, loss=0.6964723779520857, acc=50.91743119266055
+2026-01-25 04:02:39,182 [INFO] [PROGRESS] job=job-18e8894a g=1, batch=64, accum=1, sps=13.094, loss=0.698032624130949, acc=50.91743119266055
+2026-01-25 04:02:56,106 [INFO] [PROGRESS] job=job-45e125db g=1, batch=64, accum=1, sps=15.432, loss=2.3877220703125, acc=37.13
+2026-01-25 04:02:59,954 [INFO] [PROGRESS] job=job-fcfba421 g=1, batch=128, accum=1, sps=8.305, loss=2.7570775390625, acc=30.37
+2026-01-25 04:03:52,467 [INFO] [PROGRESS] job=job-9295e00b g=1, batch=16, accum=1, sps=9.957, loss=0.6998590591850631, acc=50.91743119266055
+2026-01-25 04:03:53,702 [INFO] [PROGRESS] job=job-45e125db g=1, batch=64, accum=1, sps=15.496, loss=2.1383294921875, acc=42.76
+2026-01-25 04:03:54,222 [INFO] [PROGRESS] job=job-fcfba421 g=1, batch=128, accum=1, sps=8.300, loss=2.382072265625, acc=37.81
+2026-01-25 04:04:04,113 [INFO] [PROGRESS] job=job-18e8894a g=1, batch=64, accum=1, sps=13.005, loss=0.6981517546767488, acc=50.91743119266055
+2026-01-25 04:04:15,581 [INFO] [PROGRESS] job=job-4a012ee5 g=1, batch=32, accum=1, sps=10.836, loss=0.49736025390625, acc=82.87
+2026-01-25 04:04:30,364 [INFO] [PROGRESS] job=job-247cc80e g=1, batch=64, accum=1, sps=5.323, loss=0.047311474609375, acc=98.72
+2026-01-25 04:04:47,925 [INFO] [PROGRESS] job=job-fcfba421 g=1, batch=128, accum=1, sps=8.327, loss=2.1566244140625, acc=42.77
+2026-01-25 04:04:50,718 [INFO] [PROGRESS] job=job-45e125db g=1, batch=64, accum=1, sps=15.543, loss=2.0139109375, acc=45.62
+2026-01-25 04:05:04,234 [INFO] [PROGRESS] job=job-68cc5887 g=1, batch=32, accum=1, sps=13.657, loss=0.6975604416033544, acc=50.91743119266055
+2026-01-25 04:05:30,013 [INFO] [PROGRESS] job=job-18e8894a g=1, batch=64, accum=1, sps=12.868, loss=0.6993627285738604, acc=50.91743119266055
+2026-01-25 04:05:41,709 [INFO] [PROGRESS] job=job-fcfba421 g=1, batch=128, accum=1, sps=8.273, loss=2.014025390625, acc=45.29
+2026-01-25 04:05:48,385 [INFO] [PROGRESS] job=job-45e125db g=1, batch=64, accum=1, sps=15.458, loss=1.8355634765625, acc=50.35
+2026-01-25 04:05:59,403 [INFO] [PROGRESS] job=job-581da131 g=1, batch=16, accum=1, sps=9.699, loss=0.6981967611050387, acc=50.91743119266055
+2026-01-25 04:06:35,603 [INFO] [PROGRESS] job=job-fcfba421 g=1, batch=128, accum=1, sps=8.304, loss=1.8461814453125, acc=49.73
+2026-01-25 04:06:45,743 [INFO] [PROGRESS] job=job-45e125db g=1, batch=64, accum=1, sps=15.615, loss=1.7697701171875, acc=51.64
+2026-01-25 04:06:53,417 [INFO] [PROGRESS] job=job-4a012ee5 g=1, batch=32, accum=1, sps=10.621, loss=0.50167822265625, acc=82.78
+2026-01-25 04:06:54,912 [INFO] [PROGRESS] job=job-18e8894a g=1, batch=64, accum=1, sps=12.989, loss=0.6978366396842747, acc=50.91743119266055
+2026-01-25 04:06:59,781 [INFO] [finish job=job-18e8894a status=FINISHED exit_code=0] queue=8 active_jobs=7 | clusterA: total=4 busy=3 idle=1 | clusterB: total=4 busy=4 idle=0
+2026-01-25 04:07:01,847 [INFO] [LUCID] Launched job-db1ed076 on ['node_a']
+2026-01-25 04:07:29,618 [INFO] [PROGRESS] job=job-fcfba421 g=1, batch=128, accum=1, sps=8.281, loss=1.8375314453125, acc=50.23
+2026-01-25 04:07:37,240 [INFO] [PROGRESS] job=job-247cc80e g=1, batch=64, accum=1, sps=5.332, loss=0.025048739624023438, acc=99.17
+2026-01-25 04:07:42,961 [INFO] [PROGRESS] job=job-45e125db g=1, batch=64, accum=1, sps=15.524, loss=1.6386734375, acc=55.03
+2026-01-25 04:07:46,748 [INFO] [PROGRESS] job=job-68cc5887 g=1, batch=32, accum=1, sps=13.271, loss=0.698617707698717, acc=50.91743119266055
+2026-01-25 04:08:01,862 [INFO] [LUCID-PROFILE] Job job-db1ed076 Classifed -> SS=2 (Tiny/Med/Jumbo)
+2026-01-25 04:08:23,712 [INFO] [PROGRESS] job=job-fcfba421 g=1, batch=128, accum=1, sps=8.302, loss=1.7927724609375, acc=51.91
+2026-01-25 04:08:40,114 [INFO] [PROGRESS] job=job-45e125db g=1, batch=64, accum=1, sps=15.509, loss=1.59393984375, acc=56.62
+2026-01-25 04:09:17,748 [INFO] [PROGRESS] job=job-fcfba421 g=1, batch=128, accum=1, sps=8.302, loss=1.61212880859375, acc=54.92
+2026-01-25 04:09:27,185 [INFO] [PROGRESS] job=job-4a012ee5 g=1, batch=32, accum=1, sps=10.930, loss=0.5053828125, acc=83.05
+2026-01-25 04:09:37,332 [INFO] [PROGRESS] job=job-45e125db g=1, batch=64, accum=1, sps=15.545, loss=1.52951708984375, acc=57.82
+2026-01-25 04:09:53,483 [INFO] [PROGRESS] job=job-db1ed076 g=1, batch=32, accum=1, sps=13.306, loss=0.6974231824962371, acc=50.91743119266055
+2026-01-25 04:10:13,667 [INFO] [PROGRESS] job=job-fcfba421 g=1, batch=128, accum=1, sps=8.294, loss=1.48336318359375, acc=58.31
+2026-01-25 04:10:28,924 [INFO] [PROGRESS] job=job-68cc5887 g=1, batch=32, accum=1, sps=13.297, loss=0.6985913197928613, acc=50.91743119266055
+2026-01-25 04:10:35,148 [INFO] [PROGRESS] job=job-45e125db g=1, batch=64, accum=1, sps=15.375, loss=1.50915625, acc=58.89
+2026-01-25 04:10:35,355 [INFO] [PROGRESS] job=job-9295e00b g=1, batch=16, accum=1, sps=10.562, loss=0.6993653883627795, acc=50.91743119266055
+2026-01-25 04:10:43,348 [INFO] [PROGRESS] job=job-247cc80e g=1, batch=64, accum=1, sps=5.351, loss=0.022808917236328125, acc=99.35
+2026-01-25 04:11:07,520 [INFO] [PROGRESS] job=job-fcfba421 g=1, batch=128, accum=1, sps=8.332, loss=1.50295751953125, acc=58.84
+2026-01-25 04:11:32,469 [INFO] [PROGRESS] job=job-45e125db g=1, batch=64, accum=1, sps=15.509, loss=1.45517431640625, acc=59.95
+2026-01-25 04:12:01,612 [INFO] [PROGRESS] job=job-fcfba421 g=1, batch=128, accum=1, sps=8.320, loss=1.46939169921875, acc=59.01
+2026-01-25 04:12:02,972 [INFO] [PROGRESS] job=job-4a012ee5 g=1, batch=32, accum=1, sps=10.794, loss=0.442057861328125, acc=84.92
+2026-01-25 04:12:29,736 [INFO] [PROGRESS] job=job-45e125db g=1, batch=64, accum=1, sps=15.449, loss=1.4577453125, acc=60.54
+2026-01-25 04:12:37,333 [INFO] [PROGRESS] job=job-db1ed076 g=1, batch=32, accum=1, sps=13.008, loss=0.7328324624157827, acc=50.91743119266055
+2026-01-25 04:12:55,873 [INFO] [PROGRESS] job=job-fcfba421 g=1, batch=128, accum=1, sps=8.303, loss=1.40436484375, acc=60.92
+2026-01-25 04:13:11,537 [INFO] [PROGRESS] job=job-68cc5887 g=1, batch=32, accum=1, sps=13.275, loss=0.6967329672717173, acc=50.91743119266055
+2026-01-25 04:13:13,219 [INFO] [PROGRESS] job=job-581da131 g=1, batch=16, accum=1, sps=9.783, loss=0.6972854334280032, acc=50.91743119266055
+2026-01-25 04:13:27,006 [INFO] [PROGRESS] job=job-45e125db g=1, batch=64, accum=1, sps=15.526, loss=1.4113927734375, acc=60.77
+2026-01-25 04:13:49,860 [INFO] [PROGRESS] job=job-247cc80e g=1, batch=64, accum=1, sps=5.345, loss=0.018841361999511717, acc=99.46
+2026-01-25 04:13:52,294 [INFO] [PROGRESS] job=job-fcfba421 g=1, batch=128, accum=1, sps=8.339, loss=1.34262041015625, acc=62.15
+2026-01-25 04:14:26,524 [INFO] [PROGRESS] job=job-45e125db g=1, batch=64, accum=1, sps=15.379, loss=1.36014873046875, acc=62.05
+2026-01-25 04:14:38,255 [INFO] [PROGRESS] job=job-4a012ee5 g=1, batch=32, accum=1, sps=10.838, loss=0.42347099609375, acc=85.62
+2026-01-25 04:14:46,428 [INFO] [PROGRESS] job=job-fcfba421 g=1, batch=128, accum=1, sps=8.333, loss=1.31595634765625, acc=62.94
+2026-01-25 04:15:21,165 [INFO] [PROGRESS] job=job-db1ed076 g=1, batch=32, accum=1, sps=13.170, loss=0.696845658328555, acc=50.91743119266055
+2026-01-25 04:15:27,314 [INFO] [PROGRESS] job=job-45e125db g=1, batch=64, accum=1, sps=15.502, loss=1.3053353515625, acc=63.97
+2026-01-25 04:15:41,195 [INFO] [PROGRESS] job=job-fcfba421 g=1, batch=128, accum=1, sps=8.262, loss=1.31668681640625, acc=63.23
+2026-01-25 04:15:52,198 [INFO] [PROGRESS] job=job-68cc5887 g=1, batch=32, accum=1, sps=13.413, loss=0.6975509923532468, acc=50.91743119266055
+2026-01-25 04:16:24,858 [INFO] [PROGRESS] job=job-45e125db g=1, batch=64, accum=1, sps=15.511, loss=1.30055390625, acc=63.58
+2026-01-25 04:16:34,979 [INFO] [PROGRESS] job=job-fcfba421 g=1, batch=128, accum=1, sps=8.331, loss=1.26135302734375, acc=64.94
+2026-01-25 04:16:57,557 [INFO] [PROGRESS] job=job-247cc80e g=1, batch=64, accum=1, sps=5.307, loss=0.019312736511230468, acc=99.41
+2026-01-25 04:17:14,335 [INFO] [PROGRESS] job=job-4a012ee5 g=1, batch=32, accum=1, sps=10.762, loss=0.5249958984375, acc=81.88
+2026-01-25 04:17:18,111 [INFO] [PROGRESS] job=job-9295e00b g=1, batch=16, accum=1, sps=10.558, loss=0.6998290315680548, acc=50.91743119266055
+2026-01-25 04:17:22,314 [INFO] [PROGRESS] job=job-45e125db g=1, batch=64, accum=1, sps=15.487, loss=1.29038291015625, acc=64.21
+2026-01-25 04:17:23,265 [INFO] [finish job=job-45e125db status=FINISHED exit_code=0] queue=7 active_jobs=7 | clusterA: total=4 busy=4 idle=0 | clusterB: total=4 busy=3 idle=1
+2026-01-25 04:17:27,090 [INFO] [LUCID] Launched job-5c5e00dd on ['node_e']
+2026-01-25 04:17:28,700 [INFO] [PROGRESS] job=job-fcfba421 g=1, batch=128, accum=1, sps=8.308, loss=1.26630693359375, acc=64.39
+2026-01-25 04:17:35,043 [INFO] [finish job=job-fcfba421 status=FINISHED exit_code=0] queue=6 active_jobs=7 | clusterA: total=4 busy=4 idle=0 | clusterB: total=4 busy=3 idle=1
+2026-01-25 04:18:06,633 [INFO] [PROGRESS] job=job-db1ed076 g=1, batch=32, accum=1, sps=13.025, loss=0.6994779394307268, acc=50.91743119266055
+2026-01-25 04:18:27,104 [INFO] [LUCID-PROFILE] Job job-5c5e00dd Classifed -> SS=2 (Tiny/Med/Jumbo)
+2026-01-25 04:18:30,078 [INFO] [PROGRESS] job=job-68cc5887 g=1, batch=32, accum=1, sps=13.659, loss=0.69750829574165, acc=50.91743119266055
+2026-01-25 04:18:31,907 [INFO] [PROGRESS] job=job-5c5e00dd g=1, batch=64, accum=1, sps=15.496, loss=3.759896484375, acc=11.77
+2026-01-25 04:19:27,722 [INFO] [PROGRESS] job=job-5c5e00dd g=1, batch=64, accum=1, sps=15.866, loss=3.354886328125, acc=18.95
+2026-01-25 04:19:51,526 [INFO] [PROGRESS] job=job-4a012ee5 g=1, batch=32, accum=1, sps=10.688, loss=0.411943994140625, acc=85.58
+2026-01-25 04:20:03,953 [INFO] [PROGRESS] job=job-247cc80e g=1, batch=64, accum=1, sps=5.341, loss=0.021816262817382814, acc=99.4
+2026-01-25 04:20:15,200 [INFO] [PROGRESS] job=job-581da131 g=1, batch=16, accum=1, sps=10.065, loss=0.6980630717146288, acc=50.91743119266055
+2026-01-25 04:20:23,810 [INFO] [PROGRESS] job=job-5c5e00dd g=1, batch=64, accum=1, sps=15.821, loss=3.024312890625, acc=25.28
+2026-01-25 04:20:54,198 [INFO] [PROGRESS] job=job-db1ed076 g=1, batch=32, accum=1, sps=12.844, loss=0.6991052190098194, acc=50.91743119266055
+2026-01-25 04:21:13,307 [INFO] [PROGRESS] job=job-68cc5887 g=1, batch=32, accum=1, sps=13.190, loss=0.6983056024673882, acc=50.91743119266055
+2026-01-25 04:21:20,268 [INFO] [PROGRESS] job=job-5c5e00dd g=1, batch=64, accum=1, sps=15.880, loss=2.697310546875, acc=31.2
+2026-01-25 04:22:17,799 [INFO] [PROGRESS] job=job-5c5e00dd g=1, batch=64, accum=1, sps=15.814, loss=2.4311287109375, acc=36.82
+2026-01-25 04:22:28,299 [INFO] [PROGRESS] job=job-4a012ee5 g=1, batch=32, accum=1, sps=10.689, loss=0.445619091796875, acc=84.89
+2026-01-25 04:22:33,781 [INFO] [finish job=job-4a012ee5 status=FINISHED exit_code=0] queue=6 active_jobs=6 | clusterA: total=4 busy=3 idle=1 | clusterB: total=4 busy=3 idle=1
+2026-01-25 04:23:07,750 [INFO] [PROGRESS] job=job-247cc80e g=1, batch=64, accum=1, sps=5.446, loss=0.02231119079589844, acc=99.28
+2026-01-25 04:23:13,839 [INFO] [PROGRESS] job=job-5c5e00dd g=1, batch=64, accum=1, sps=15.837, loss=2.1726505859375, acc=42.2
+2026-01-25 04:23:34,855 [INFO] [PROGRESS] job=job-db1ed076 g=1, batch=32, accum=1, sps=13.419, loss=0.696513464691442, acc=50.91743119266055
+2026-01-25 04:23:35,500 [INFO] [PROGRESS] job=job-9295e00b g=1, batch=16, accum=1, sps=11.291, loss=0.6990570628314937, acc=50.91743119266055
+2026-01-25 04:23:53,696 [INFO] [PROGRESS] job=job-68cc5887 g=1, batch=32, accum=1, sps=13.438, loss=0.6930410402630447, acc=50.91743119266055
+2026-01-25 04:24:09,501 [INFO] [PROGRESS] job=job-5c5e00dd g=1, batch=64, accum=1, sps=15.880, loss=1.9488439453125, acc=47.16
+2026-01-25 04:25:05,403 [INFO] [PROGRESS] job=job-5c5e00dd g=1, batch=64, accum=1, sps=15.834, loss=1.877416015625, acc=48.89
+2026-01-25 04:26:01,005 [INFO] [PROGRESS] job=job-5c5e00dd g=1, batch=64, accum=1, sps=15.827, loss=1.7866923828125, acc=51.56
+2026-01-25 04:26:16,842 [INFO] [PROGRESS] job=job-247cc80e g=1, batch=64, accum=1, sps=5.257, loss=0.013800736999511719, acc=99.46
+2026-01-25 04:26:21,444 [INFO] [PROGRESS] job=job-db1ed076 g=1, batch=32, accum=1, sps=12.909, loss=0.6968255699227709, acc=50.91743119266055
+2026-01-25 04:26:30,062 [INFO] [PROGRESS] job=job-68cc5887 g=1, batch=32, accum=1, sps=13.796, loss=0.6990404741479717, acc=50.91743119266055
+2026-01-25 04:26:56,878 [INFO] [PROGRESS] job=job-5c5e00dd g=1, batch=64, accum=1, sps=15.845, loss=1.651643359375, acc=54.48
+2026-01-25 04:26:59,421 [INFO] [PROGRESS] job=job-581da131 g=1, batch=16, accum=1, sps=10.519, loss=0.6975081557527595, acc=50.91743119266055
+2026-01-25 04:27:03,070 [INFO] [finish job=job-581da131 status=FINISHED exit_code=0] queue=6 active_jobs=5 | clusterA: total=4 busy=3 idle=1 | clusterB: total=4 busy=2 idle=2
+2026-01-25 04:27:51,241 [INFO] [PROGRESS] job=job-5c5e00dd g=1, batch=64, accum=1, sps=16.261, loss=1.5866294921875, acc=56.07
+2026-01-25 04:28:45,679 [INFO] [PROGRESS] job=job-5c5e00dd g=1, batch=64, accum=1, sps=16.282, loss=1.50725048828125, acc=58.1
+2026-01-25 04:29:04,180 [INFO] [PROGRESS] job=job-db1ed076 g=1, batch=32, accum=1, sps=13.245, loss=0.6984492310690223, acc=50.91743119266055
+2026-01-25 04:29:04,264 [INFO] [PROGRESS] job=job-68cc5887 g=1, batch=32, accum=1, sps=13.969, loss=0.6976596237322606, acc=50.91743119266055
+2026-01-25 04:29:15,911 [INFO] [PROGRESS] job=job-9295e00b g=1, batch=16, accum=1, sps=12.505, loss=0.6994804592307554, acc=50.91743119266055
+2026-01-25 04:29:20,745 [INFO] [PROGRESS] job=job-247cc80e g=1, batch=64, accum=1, sps=5.437, loss=0.02574043884277344, acc=99.24
+2026-01-25 04:29:40,400 [INFO] [PROGRESS] job=job-5c5e00dd g=1, batch=64, accum=1, sps=16.269, loss=1.454839453125, acc=59.59
+2026-01-25 04:30:34,624 [INFO] [PROGRESS] job=job-5c5e00dd g=1, batch=64, accum=1, sps=16.348, loss=1.43728017578125, acc=60.85
+2026-01-25 04:31:28,800 [INFO] [PROGRESS] job=job-5c5e00dd g=1, batch=64, accum=1, sps=16.383, loss=1.35653759765625, acc=62.03
+2026-01-25 04:31:41,419 [INFO] [PROGRESS] job=job-db1ed076 g=1, batch=32, accum=1, sps=13.837, loss=0.6965936783256881, acc=50.91743119266055
+2026-01-25 04:31:41,969 [INFO] [PROGRESS] job=job-68cc5887 g=1, batch=32, accum=1, sps=13.781, loss=0.6978159213284834, acc=50.91743119266055
+2026-01-25 04:32:22,794 [INFO] [PROGRESS] job=job-5c5e00dd g=1, batch=64, accum=1, sps=16.363, loss=1.29979560546875, acc=63.1
+2026-01-25 04:32:28,829 [INFO] [PROGRESS] job=job-247cc80e g=1, batch=64, accum=1, sps=5.283, loss=0.035025381469726564, acc=99.0
+2026-01-25 04:33:16,649 [INFO] [PROGRESS] job=job-5c5e00dd g=1, batch=64, accum=1, sps=16.447, loss=1.3265625, acc=63.11
+2026-01-25 04:34:07,315 [INFO] [PROGRESS] job=job-9295e00b g=1, batch=16, accum=1, sps=14.663, loss=0.6985557626146789, acc=50.91743119266055
+2026-01-25 04:34:10,881 [INFO] [PROGRESS] job=job-5c5e00dd g=1, batch=64, accum=1, sps=16.386, loss=1.28708525390625, acc=64.56
+2026-01-25 04:34:20,297 [INFO] [PROGRESS] job=job-68cc5887 g=1, batch=32, accum=1, sps=13.751, loss=0.6972936227780964, acc=50.91743119266055
+2026-01-25 04:34:24,766 [INFO] [PROGRESS] job=job-db1ed076 g=1, batch=32, accum=1, sps=13.286, loss=0.6974209426739894, acc=50.91743119266055
+2026-01-25 04:35:05,234 [INFO] [PROGRESS] job=job-5c5e00dd g=1, batch=64, accum=1, sps=16.309, loss=1.265578515625, acc=64.11
+2026-01-25 04:35:34,141 [INFO] [PROGRESS] job=job-247cc80e g=1, batch=64, accum=1, sps=5.368, loss=0.01772861633300781, acc=99.39
+2026-01-25 04:35:39,920 [INFO] [finish job=job-247cc80e status=FINISHED exit_code=0] queue=6 active_jobs=4 | clusterA: total=4 busy=2 idle=2 | clusterB: total=4 busy=2 idle=2
+2026-01-25 04:35:59,851 [INFO] [PROGRESS] job=job-5c5e00dd g=1, batch=64, accum=1, sps=16.152, loss=1.26093154296875, acc=65.32
+2026-01-25 04:36:03,158 [INFO] [finish job=job-5c5e00dd status=FINISHED exit_code=0] queue=6 active_jobs=3 | clusterA: total=4 busy=2 idle=2 | clusterB: total=4 busy=1 idle=3
+2026-01-25 04:36:53,268 [INFO] [PROGRESS] job=job-68cc5887 g=1, batch=32, accum=1, sps=14.117, loss=0.698497667225129, acc=50.91743119266055
+2026-01-25 04:37:04,002 [INFO] [PROGRESS] job=job-db1ed076 g=1, batch=32, accum=1, sps=13.600, loss=0.6965395726195169, acc=50.91743119266055
+2026-01-25 04:38:53,519 [INFO] [PROGRESS] job=job-9295e00b g=1, batch=16, accum=1, sps=14.928, loss=0.6991556150103928, acc=50.91743119266055
+2026-01-25 04:39:28,427 [INFO] [PROGRESS] job=job-68cc5887 g=1, batch=32, accum=1, sps=13.947, loss=0.6973559878288059, acc=50.91743119266055
+2026-01-25 04:39:42,187 [INFO] [PROGRESS] job=job-db1ed076 g=1, batch=32, accum=1, sps=13.663, loss=0.6973233704173237, acc=50.91743119266055
+2026-01-25 04:42:02,354 [INFO] [PROGRESS] job=job-68cc5887 g=1, batch=32, accum=1, sps=13.985, loss=0.6976342157486382, acc=50.91743119266055
+2026-01-25 04:42:17,911 [INFO] [PROGRESS] job=job-db1ed076 g=1, batch=32, accum=1, sps=13.838, loss=0.6969774578689435, acc=50.91743119266055
+2026-01-25 04:43:33,668 [INFO] [PROGRESS] job=job-9295e00b g=1, batch=16, accum=1, sps=15.227, loss=0.6975228545862601, acc=50.91743119266055
+2026-01-25 04:44:36,850 [INFO] [PROGRESS] job=job-68cc5887 g=1, batch=32, accum=1, sps=13.978, loss=0.6963909044178254, acc=50.91743119266055
+2026-01-25 04:44:54,346 [INFO] [PROGRESS] job=job-db1ed076 g=1, batch=32, accum=1, sps=13.772, loss=0.6976732026546373, acc=50.91743119266055
+2026-01-25 04:47:11,068 [INFO] [PROGRESS] job=job-68cc5887 g=1, batch=32, accum=1, sps=13.993, loss=0.6971730923433916, acc=50.91743119266055
+2026-01-25 04:47:27,009 [INFO] [PROGRESS] job=job-db1ed076 g=1, batch=32, accum=1, sps=14.170, loss=0.6986309366488676, acc=50.91743119266055
+2026-01-25 04:48:12,585 [INFO] [PROGRESS] job=job-9295e00b g=1, batch=16, accum=1, sps=15.252, loss=0.6961858206932697, acc=50.91743119266055
+2026-01-25 04:49:46,651 [INFO] [PROGRESS] job=job-68cc5887 g=1, batch=32, accum=1, sps=13.890, loss=0.6969022838347548, acc=50.91743119266055
+2026-01-25 04:49:54,796 [INFO] [finish job=job-68cc5887 status=FINISHED exit_code=0] queue=6 active_jobs=2 | clusterA: total=4 busy=1 idle=3 | clusterB: total=4 busy=1 idle=3
+2026-01-25 04:50:03,512 [INFO] [PROGRESS] job=job-db1ed076 g=1, batch=32, accum=1, sps=13.749, loss=0.6971728823600559, acc=50.91743119266055
+2026-01-25 04:52:39,729 [INFO] [PROGRESS] job=job-db1ed076 g=1, batch=32, accum=1, sps=13.784, loss=0.6975497324532325, acc=50.91743119266055
+2026-01-25 04:52:51,828 [INFO] [PROGRESS] job=job-9295e00b g=1, batch=16, accum=1, sps=15.283, loss=0.6973631972566657, acc=50.91743119266055
+2026-01-25 04:55:22,719 [INFO] [PROGRESS] job=job-db1ed076 g=1, batch=32, accum=1, sps=13.225, loss=0.6977700749668506, acc=50.91743119266055
+2026-01-25 04:57:31,429 [INFO] [PROGRESS] job=job-9295e00b g=1, batch=16, accum=1, sps=15.254, loss=0.6974576897577408, acc=50.91743119266055
+2026-01-25 04:58:00,951 [INFO] [PROGRESS] job=job-db1ed076 g=1, batch=32, accum=1, sps=13.660, loss=0.6984360021188718, acc=50.91743119266055
+2026-01-25 05:00:38,058 [INFO] [PROGRESS] job=job-db1ed076 g=1, batch=32, accum=1, sps=13.716, loss=0.6992613766171517, acc=50.91743119266055
+2026-01-25 05:00:43,636 [INFO] [finish job=job-db1ed076 status=FINISHED exit_code=0] queue=6 active_jobs=1 | clusterA: total=4 busy=0 idle=4 | clusterB: total=4 busy=1 idle=3
+2026-01-25 05:00:48,030 [INFO] [LUCID] Launched job-8b464409 on ['node_a', 'node_b', 'node_c', 'node_d']
+2026-01-25 05:01:48,042 [INFO] [LUCID-PROFILE] Job job-8b464409 Classifed -> SS=2 (Tiny/Med/Jumbo)
+2026-01-25 05:02:11,062 [INFO] [PROGRESS] job=job-9295e00b g=1, batch=16, accum=1, sps=15.251, loss=0.6967445863496273, acc=50.91743119266055
+2026-01-25 05:02:35,162 [INFO] [PROGRESS] job=job-8b464409 g=4, batch=64, accum=1, sps=4.061, loss=4.152541796875, acc=11.25
+2026-01-25 05:04:15,756 [INFO] [PROGRESS] job=job-8b464409 g=4, batch=64, accum=1, sps=4.025, loss=3.58245078125, acc=19.31
+2026-01-25 05:05:59,601 [INFO] [PROGRESS] job=job-8b464409 g=4, batch=64, accum=1, sps=3.907, loss=3.2715060546875, acc=24.74
+2026-01-25 05:06:50,672 [INFO] [PROGRESS] job=job-9295e00b g=1, batch=16, accum=1, sps=15.242, loss=0.6951528426704057, acc=50.91743119266055
+2026-01-25 05:07:42,553 [INFO] [PROGRESS] job=job-8b464409 g=4, batch=64, accum=1, sps=3.942, loss=3.050420703125, acc=29.14
+2026-01-25 05:09:24,394 [INFO] [PROGRESS] job=job-8b464409 g=4, batch=64, accum=1, sps=3.979, loss=2.7947453125, acc=34.38
+2026-01-25 05:11:06,773 [INFO] [PROGRESS] job=job-8b464409 g=4, batch=64, accum=1, sps=3.968, loss=2.61084453125, acc=38.34
+2026-01-25 05:11:30,276 [INFO] [PROGRESS] job=job-9295e00b g=1, batch=16, accum=1, sps=15.260, loss=0.698127676587586, acc=50.91743119266055
+2026-01-25 05:12:49,240 [INFO] [PROGRESS] job=job-8b464409 g=4, batch=64, accum=1, sps=3.969, loss=2.51335078125, acc=39.83
+2026-01-25 05:14:31,718 [INFO] [PROGRESS] job=job-8b464409 g=4, batch=64, accum=1, sps=3.969, loss=2.434454296875, acc=41.34
+2026-01-25 05:16:09,568 [INFO] [PROGRESS] job=job-9295e00b g=1, batch=16, accum=1, sps=15.242, loss=0.6988824966850631, acc=50.91743119266055
+2026-01-25 05:16:13,735 [INFO] [PROGRESS] job=job-8b464409 g=4, batch=64, accum=1, sps=3.979, loss=2.3701478515625, acc=42.56
+2026-01-25 05:17:57,132 [INFO] [PROGRESS] job=job-8b464409 g=4, batch=64, accum=1, sps=3.930, loss=2.250708984375, acc=45.7
+2026-01-25 05:19:40,040 [INFO] [PROGRESS] job=job-8b464409 g=4, batch=64, accum=1, sps=3.955, loss=2.16447890625, acc=48.17
+2026-01-25 05:20:49,953 [INFO] [PROGRESS] job=job-9295e00b g=1, batch=16, accum=1, sps=15.231, loss=0.7001921627499642, acc=50.91743119266055
+2026-01-25 05:21:24,435 [INFO] [PROGRESS] job=job-8b464409 g=4, batch=64, accum=1, sps=3.895, loss=2.1324501953125, acc=48.52
+2026-01-25 05:23:06,762 [INFO] [PROGRESS] job=job-8b464409 g=4, batch=64, accum=1, sps=3.971, loss=2.12121640625, acc=48.95
+2026-01-25 05:24:48,811 [INFO] [PROGRESS] job=job-8b464409 g=4, batch=64, accum=1, sps=3.980, loss=2.119028515625, acc=49.14
+2026-01-25 05:25:30,184 [INFO] [PROGRESS] job=job-9295e00b g=1, batch=16, accum=1, sps=15.213, loss=0.6971878611713375, acc=50.91743119266055
+2026-01-25 05:26:34,998 [INFO] [PROGRESS] job=job-8b464409 g=4, batch=64, accum=1, sps=3.824, loss=2.0218416015625, acc=51.15
+2026-01-25 05:28:19,723 [INFO] [PROGRESS] job=job-8b464409 g=4, batch=64, accum=1, sps=3.880, loss=1.99406640625, acc=51.85
+2026-01-25 05:30:04,051 [INFO] [PROGRESS] job=job-8b464409 g=4, batch=64, accum=1, sps=3.887, loss=1.92837890625, acc=53.61
+2026-01-25 05:30:10,191 [INFO] [PROGRESS] job=job-9295e00b g=1, batch=16, accum=1, sps=15.231, loss=0.6983371699621918, acc=50.91743119266055
+2026-01-25 05:31:48,229 [INFO] [PROGRESS] job=job-8b464409 g=4, batch=64, accum=1, sps=3.902, loss=1.9574736328125, acc=53.13
+2026-01-25 05:33:35,642 [INFO] [PROGRESS] job=job-8b464409 g=4, batch=64, accum=1, sps=3.774, loss=1.9656716796875, acc=53.94
+2026-01-25 05:34:46,229 [INFO] [PROGRESS] job=job-9295e00b g=1, batch=16, accum=1, sps=15.461, loss=0.7010142475093176, acc=50.91743119266055
+2026-01-25 05:35:20,184 [INFO] [PROGRESS] job=job-8b464409 g=4, batch=64, accum=1, sps=3.888, loss=1.93277109375, acc=53.9
+2026-01-25 05:35:22,183 [INFO] [finish job=job-8b464409 status=FINISHED exit_code=0] queue=5 active_jobs=1 | clusterA: total=4 busy=0 idle=4 | clusterB: total=4 busy=1 idle=3
+2026-01-25 05:35:23,677 [INFO] [LUCID] Launched job-ef297406 on ['node_a', 'node_b', 'node_c', 'node_d']
+2026-01-25 05:36:23,686 [INFO] [LUCID-PROFILE] Job job-ef297406 Classifed -> SS=2 (Tiny/Med/Jumbo)
+2026-01-25 05:37:09,012 [INFO] [PROGRESS] job=job-ef297406 g=4, batch=64, accum=1, sps=4.119, loss=4.107057421875, acc=12.2
+2026-01-25 05:38:49,377 [INFO] [PROGRESS] job=job-ef297406 g=4, batch=64, accum=1, sps=4.051, loss=3.58836015625, acc=19.7
+2026-01-25 05:39:26,230 [INFO] [PROGRESS] job=job-9295e00b g=1, batch=16, accum=1, sps=15.241, loss=0.6992578069004444, acc=50.91743119266055
+2026-01-25 05:39:32,408 [INFO] [finish job=job-9295e00b status=FINISHED exit_code=0] queue=4 active_jobs=1 | clusterA: total=4 busy=4 idle=0 | clusterB: total=4 busy=0 idle=4
+2026-01-25 05:39:34,012 [INFO] [LUCID] Launched job-79e1760a on ['node_e', 'node_f', 'node_g', 'node_h']
+2026-01-25 05:40:32,000 [INFO] [PROGRESS] job=job-ef297406 g=4, batch=64, accum=1, sps=3.951, loss=3.235122265625, acc=26.27
+2026-01-25 05:40:34,024 [INFO] [LUCID-PROFILE] Job job-79e1760a Classifed -> SS=2 (Tiny/Med/Jumbo)
+2026-01-25 05:42:01,287 [INFO] [PROGRESS] job=job-79e1760a g=4, batch=64, accum=1, sps=3.032, loss=4.351828515625, acc=9.71
+2026-01-25 05:42:11,739 [INFO] [PROGRESS] job=job-ef297406 g=4, batch=64, accum=1, sps=4.077, loss=2.961433984375, acc=31.22
+2026-01-25 05:43:55,668 [INFO] [PROGRESS] job=job-ef297406 g=4, batch=64, accum=1, sps=3.907, loss=2.8359681640625, acc=33.68
+2026-01-25 05:44:12,351 [INFO] [PROGRESS] job=job-79e1760a g=4, batch=64, accum=1, sps=3.099, loss=3.706322265625, acc=18.0
+2026-01-25 05:45:40,471 [INFO] [PROGRESS] job=job-ef297406 g=4, batch=64, accum=1, sps=3.874, loss=2.6211400390625, acc=37.7
+2026-01-25 05:46:25,394 [INFO] [PROGRESS] job=job-79e1760a g=4, batch=64, accum=1, sps=3.048, loss=3.374446484375, acc=23.38
+2026-01-25 05:47:24,619 [INFO] [PROGRESS] job=job-ef297406 g=4, batch=64, accum=1, sps=3.898, loss=2.53266015625, acc=39.05
+2026-01-25 05:48:38,831 [INFO] [PROGRESS] job=job-79e1760a g=4, batch=64, accum=1, sps=3.042, loss=3.07921796875, acc=28.57
+2026-01-25 05:49:08,892 [INFO] [PROGRESS] job=job-ef297406 g=4, batch=64, accum=1, sps=3.897, loss=2.4861787109375, acc=40.96
+2026-01-25 05:50:53,401 [INFO] [PROGRESS] job=job-79e1760a g=4, batch=64, accum=1, sps=3.017, loss=2.73282265625, acc=35.03
+2026-01-25 05:50:54,076 [INFO] [PROGRESS] job=job-ef297406 g=4, batch=64, accum=1, sps=3.856, loss=2.2933232421875, acc=44.2
+2026-01-25 05:52:39,217 [INFO] [PROGRESS] job=job-ef297406 g=4, batch=64, accum=1, sps=3.871, loss=2.2433337890625, acc=45.61
+2026-01-25 05:53:07,772 [INFO] [PROGRESS] job=job-79e1760a g=4, batch=64, accum=1, sps=3.020, loss=2.66680703125, acc=36.96
+2026-01-25 05:54:23,355 [INFO] [PROGRESS] job=job-ef297406 g=4, batch=64, accum=1, sps=3.903, loss=2.205835546875, acc=46.94
+2026-01-25 05:55:20,389 [INFO] [PROGRESS] job=job-79e1760a g=4, batch=64, accum=1, sps=3.067, loss=2.54555, acc=38.74
+2026-01-25 05:56:09,337 [INFO] [PROGRESS] job=job-ef297406 g=4, batch=64, accum=1, sps=3.838, loss=2.1576224609375, acc=47.22
+2026-01-25 05:57:33,812 [INFO] [PROGRESS] job=job-79e1760a g=4, batch=64, accum=1, sps=3.050, loss=2.4250353515625, acc=41.83
+2026-01-25 05:57:54,564 [INFO] [PROGRESS] job=job-ef297406 g=4, batch=64, accum=1, sps=3.854, loss=2.102696484375, acc=48.84
+2026-01-25 05:59:39,470 [INFO] [PROGRESS] job=job-ef297406 g=4, batch=64, accum=1, sps=3.866, loss=2.0796095703125, acc=50.23
+2026-01-25 05:59:48,745 [INFO] [PROGRESS] job=job-79e1760a g=4, batch=64, accum=1, sps=3.017, loss=2.3546005859375, acc=43.03
+2026-01-25 06:01:25,939 [INFO] [PROGRESS] job=job-ef297406 g=4, batch=64, accum=1, sps=3.822, loss=1.999096875, acc=51.47
+2026-01-25 06:02:01,917 [INFO] [PROGRESS] job=job-79e1760a g=4, batch=64, accum=1, sps=3.054, loss=2.2998783203125, acc=44.92
+2026-01-25 06:03:11,361 [INFO] [PROGRESS] job=job-ef297406 g=4, batch=64, accum=1, sps=3.857, loss=1.99296953125, acc=51.95
+2026-01-25 06:04:15,440 [INFO] [PROGRESS] job=job-79e1760a g=4, batch=64, accum=1, sps=3.044, loss=2.167409375, acc=47.46
+2026-01-25 06:04:55,644 [INFO] [PROGRESS] job=job-ef297406 g=4, batch=64, accum=1, sps=3.895, loss=1.9424703125, acc=53.12
+2026-01-25 06:06:29,115 [INFO] [PROGRESS] job=job-79e1760a g=4, batch=64, accum=1, sps=3.055, loss=2.1571494140625, acc=48.04
+2026-01-25 06:06:41,528 [INFO] [PROGRESS] job=job-ef297406 g=4, batch=64, accum=1, sps=3.845, loss=1.955936328125, acc=53.09
+2026-01-25 06:08:27,101 [INFO] [PROGRESS] job=job-ef297406 g=4, batch=64, accum=1, sps=3.849, loss=1.927421484375, acc=53.9
+2026-01-25 06:08:40,943 [INFO] [PROGRESS] job=job-79e1760a g=4, batch=64, accum=1, sps=3.069, loss=2.1483521484375, acc=48.0
+2026-01-25 06:10:11,772 [INFO] [PROGRESS] job=job-ef297406 g=4, batch=64, accum=1, sps=3.875, loss=1.891119140625, acc=55.18
+2026-01-25 06:10:15,551 [INFO] [finish job=job-ef297406 status=FINISHED exit_code=0] queue=3 active_jobs=1 | clusterA: total=4 busy=0 idle=4 | clusterB: total=4 busy=4 idle=0
+2026-01-25 06:10:19,607 [INFO] [LUCID] Launched job-074c0067 on ['node_a', 'node_b', 'node_c', 'node_d']
+2026-01-25 06:10:54,385 [INFO] [PROGRESS] job=job-79e1760a g=4, batch=64, accum=1, sps=3.055, loss=2.1229998046875, acc=48.63
+2026-01-25 06:11:19,619 [INFO] [LUCID-PROFILE] Job job-074c0067 Classifed -> SS=2 (Tiny/Med/Jumbo)
+2026-01-25 06:12:06,652 [INFO] [PROGRESS] job=job-074c0067 g=4, batch=64, accum=1, sps=4.108, loss=4.14066953125, acc=11.42
+2026-01-25 06:13:07,539 [INFO] [PROGRESS] job=job-79e1760a g=4, batch=64, accum=1, sps=3.090, loss=2.024826953125, acc=51.03
+2026-01-25 06:13:48,273 [INFO] [PROGRESS] job=job-074c0067 g=4, batch=64, accum=1, sps=3.992, loss=3.6382703125, acc=18.91
+2026-01-25 06:15:19,279 [INFO] [PROGRESS] job=job-79e1760a g=4, batch=64, accum=1, sps=3.091, loss=1.9732435546875, acc=52.48
+2026-01-25 06:15:29,663 [INFO] [PROGRESS] job=job-074c0067 g=4, batch=64, accum=1, sps=4.005, loss=3.44066953125, acc=23.51
+2026-01-25 06:17:12,961 [INFO] [PROGRESS] job=job-074c0067 g=4, batch=64, accum=1, sps=3.944, loss=2.9945234375, acc=30.67
+2026-01-25 06:17:31,504 [INFO] [PROGRESS] job=job-79e1760a g=4, batch=64, accum=1, sps=3.062, loss=1.975300390625, acc=52.21
+2026-01-25 06:18:56,673 [INFO] [PROGRESS] job=job-074c0067 g=4, batch=64, accum=1, sps=3.922, loss=2.77278125, acc=34.29
+2026-01-25 06:19:43,705 [INFO] [PROGRESS] job=job-79e1760a g=4, batch=64, accum=1, sps=3.098, loss=1.917458984375, acc=53.39
+2026-01-25 06:20:39,112 [INFO] [PROGRESS] job=job-074c0067 g=4, batch=64, accum=1, sps=3.978, loss=2.65075390625, acc=36.89
+2026-01-25 06:21:55,695 [INFO] [PROGRESS] job=job-79e1760a g=4, batch=64, accum=1, sps=3.080, loss=1.8845568359375, acc=53.91
+2026-01-25 06:22:20,756 [INFO] [PROGRESS] job=job-074c0067 g=4, batch=64, accum=1, sps=4.012, loss=2.55739296875, acc=39.21
+2026-01-25 06:24:02,325 [INFO] [PROGRESS] job=job-074c0067 g=4, batch=64, accum=1, sps=4.012, loss=2.4830240234375, acc=40.76
+2026-01-25 06:24:07,299 [INFO] [PROGRESS] job=job-79e1760a g=4, batch=64, accum=1, sps=3.094, loss=1.9514798828125, acc=53.05
+2026-01-25 06:24:07,919 [INFO] [finish job=job-79e1760a status=FINISHED exit_code=0] queue=2 active_jobs=1 | clusterA: total=4 busy=4 idle=0 | clusterB: total=4 busy=0 idle=4
+2026-01-25 06:24:09,993 [INFO] [LUCID] Launched job-7823784b on ['node_e', 'node_f', 'node_g', 'node_h']
+2026-01-25 06:25:10,002 [INFO] [LUCID-PROFILE] Job job-7823784b Classifed -> SS=2 (Tiny/Med/Jumbo)
+2026-01-25 06:25:45,358 [INFO] [PROGRESS] job=job-074c0067 g=4, batch=64, accum=1, sps=3.945, loss=2.34883671875, acc=43.26
+2026-01-25 06:26:39,152 [INFO] [PROGRESS] job=job-7823784b g=4, batch=64, accum=1, sps=3.058, loss=4.19735, acc=10.35
+2026-01-25 06:27:28,482 [INFO] [PROGRESS] job=job-074c0067 g=4, batch=64, accum=1, sps=3.937, loss=2.2652609375, acc=45.64
+2026-01-25 06:28:50,419 [INFO] [PROGRESS] job=job-7823784b g=4, batch=64, accum=1, sps=3.094, loss=3.649267578125, acc=18.45
+2026-01-25 06:29:13,704 [INFO] [PROGRESS] job=job-074c0067 g=4, batch=64, accum=1, sps=3.861, loss=2.284633984375, acc=45.68
+2026-01-25 06:31:00,031 [INFO] [PROGRESS] job=job-074c0067 g=4, batch=64, accum=1, sps=3.820, loss=2.2434986328125, acc=46.24
+2026-01-25 06:31:01,876 [INFO] [PROGRESS] job=job-7823784b g=4, batch=64, accum=1, sps=3.101, loss=3.23567578125, acc=25.97
+2026-01-25 06:32:44,647 [INFO] [PROGRESS] job=job-074c0067 g=4, batch=64, accum=1, sps=3.884, loss=2.097921484375, acc=49.2
+2026-01-25 06:33:12,610 [INFO] [PROGRESS] job=job-7823784b g=4, batch=64, accum=1, sps=3.106, loss=3.017334765625, acc=29.85
+2026-01-25 06:34:30,867 [INFO] [PROGRESS] job=job-074c0067 g=4, batch=64, accum=1, sps=3.825, loss=2.026389453125, acc=50.91
+2026-01-25 06:35:22,897 [INFO] [PROGRESS] job=job-7823784b g=4, batch=64, accum=1, sps=3.123, loss=2.7814716796875, acc=34.93
+2026-01-25 06:36:18,260 [INFO] [PROGRESS] job=job-074c0067 g=4, batch=64, accum=1, sps=3.796, loss=1.9736845703125, acc=51.72
+2026-01-25 06:37:33,007 [INFO] [PROGRESS] job=job-7823784b g=4, batch=64, accum=1, sps=3.115, loss=2.6431392578125, acc=37.16
+2026-01-25 06:38:06,089 [INFO] [PROGRESS] job=job-074c0067 g=4, batch=64, accum=1, sps=3.773, loss=2.01536484375, acc=51.71
+2026-01-25 06:39:42,008 [INFO] [PROGRESS] job=job-7823784b g=4, batch=64, accum=1, sps=3.155, loss=2.557171484375, acc=39.41
+2026-01-25 06:39:48,076 [INFO] [PROGRESS] job=job-074c0067 g=4, batch=64, accum=1, sps=3.997, loss=1.958537109375, acc=52.92
+2026-01-25 06:41:35,478 [INFO] [PROGRESS] job=job-074c0067 g=4, batch=64, accum=1, sps=3.782, loss=1.978019921875, acc=52.92
+2026-01-25 06:41:53,116 [INFO] [PROGRESS] job=job-7823784b g=4, batch=64, accum=1, sps=3.100, loss=2.4490521484375, acc=41.67
+2026-01-25 06:43:23,176 [INFO] [PROGRESS] job=job-074c0067 g=4, batch=64, accum=1, sps=3.772, loss=1.9073876953125, acc=54.4
+2026-01-25 06:44:04,119 [INFO] [PROGRESS] job=job-7823784b g=4, batch=64, accum=1, sps=3.125, loss=2.3556771484375, acc=43.33
+2026-01-25 06:45:07,421 [INFO] [PROGRESS] job=job-074c0067 g=4, batch=64, accum=1, sps=3.892, loss=1.891541796875, acc=53.91
+2026-01-25 06:45:09,768 [INFO] [finish job=job-074c0067 status=FINISHED exit_code=0] queue=1 active_jobs=1 | clusterA: total=4 busy=0 idle=4 | clusterB: total=4 busy=4 idle=0
+2026-01-25 06:45:10,521 [INFO] [LUCID] Launched job-604d074d on ['node_a', 'node_b', 'node_c', 'node_d']
+2026-01-25 06:46:10,534 [INFO] [LUCID-PROFILE] Job job-604d074d Classifed -> SS=2 (Tiny/Med/Jumbo)
+2026-01-25 06:46:15,719 [INFO] [PROGRESS] job=job-7823784b g=4, batch=64, accum=1, sps=3.117, loss=2.26879140625, acc=44.81
+2026-01-25 06:46:56,552 [INFO] [PROGRESS] job=job-604d074d g=4, batch=64, accum=1, sps=4.126, loss=4.310425, acc=10.47
+2026-01-25 06:48:25,571 [INFO] [PROGRESS] job=job-7823784b g=4, batch=64, accum=1, sps=3.145, loss=2.1781375, acc=47.29
+2026-01-25 06:48:35,631 [INFO] [PROGRESS] job=job-604d074d g=4, batch=64, accum=1, sps=4.100, loss=3.62661484375, acc=18.87
+2026-01-25 06:50:17,001 [INFO] [PROGRESS] job=job-604d074d g=4, batch=64, accum=1, sps=4.013, loss=3.2536052734375, acc=25.36
+2026-01-25 06:50:35,135 [INFO] [PROGRESS] job=job-7823784b g=4, batch=64, accum=1, sps=3.127, loss=2.144407421875, acc=48.36
+2026-01-25 06:51:59,105 [INFO] [PROGRESS] job=job-604d074d g=4, batch=64, accum=1, sps=3.982, loss=3.1015037109375, acc=28.66
+2026-01-25 06:52:45,987 [INFO] [PROGRESS] job=job-7823784b g=4, batch=64, accum=1, sps=3.103, loss=2.104798828125, acc=48.96
+2026-01-25 06:53:39,142 [INFO] [PROGRESS] job=job-604d074d g=4, batch=64, accum=1, sps=4.066, loss=2.7575888671875, acc=35.32
+2026-01-25 06:54:54,710 [INFO] [PROGRESS] job=job-7823784b g=4, batch=64, accum=1, sps=3.152, loss=2.073521484375, acc=49.82
+2026-01-25 06:55:22,733 [INFO] [PROGRESS] job=job-604d074d g=4, batch=64, accum=1, sps=3.918, loss=2.7972087890625, acc=34.16
+2026-01-25 06:57:04,150 [INFO] [PROGRESS] job=job-7823784b g=4, batch=64, accum=1, sps=3.134, loss=2.012072265625, acc=51.22
+2026-01-25 06:57:06,623 [INFO] [PROGRESS] job=job-604d074d g=4, batch=64, accum=1, sps=3.920, loss=2.5242166015625, acc=40.15
+2026-01-25 06:58:48,826 [INFO] [PROGRESS] job=job-604d074d g=4, batch=64, accum=1, sps=3.973, loss=2.404571875, acc=42.04
+2026-01-25 06:59:14,994 [INFO] [PROGRESS] job=job-7823784b g=4, batch=64, accum=1, sps=3.155, loss=2.0281896484375, acc=51.58
+2026-01-25 07:00:31,016 [INFO] [PROGRESS] job=job-604d074d g=4, batch=64, accum=1, sps=3.984, loss=2.4465390625, acc=41.2
+2026-01-25 07:01:24,657 [INFO] [PROGRESS] job=job-7823784b g=4, batch=64, accum=1, sps=3.130, loss=1.95952265625, acc=52.61
+2026-01-25 07:02:14,593 [INFO] [PROGRESS] job=job-604d074d g=4, batch=64, accum=1, sps=3.922, loss=2.2487451171875, acc=45.55
+2026-01-25 07:03:34,635 [INFO] [PROGRESS] job=job-7823784b g=4, batch=64, accum=1, sps=3.122, loss=1.939398046875, acc=53.22
+2026-01-25 07:03:57,905 [INFO] [PROGRESS] job=job-604d074d g=4, batch=64, accum=1, sps=3.929, loss=2.196545703125, acc=46.91
+2026-01-25 07:05:42,511 [INFO] [PROGRESS] job=job-604d074d g=4, batch=64, accum=1, sps=3.880, loss=2.1488669921875, acc=48.0
+2026-01-25 07:05:44,496 [INFO] [PROGRESS] job=job-7823784b g=4, batch=64, accum=1, sps=3.121, loss=1.92958984375, acc=53.52
+2026-01-25 07:07:27,704 [INFO] [PROGRESS] job=job-604d074d g=4, batch=64, accum=1, sps=3.872, loss=2.117441796875, acc=48.89
+2026-01-25 07:07:54,764 [INFO] [PROGRESS] job=job-7823784b g=4, batch=64, accum=1, sps=3.114, loss=1.8702259765625, acc=54.37
+2026-01-25 07:07:56,808 [INFO] [finish job=job-7823784b status=FINISHED exit_code=0] queue=0 active_jobs=1 | clusterA: total=4 busy=4 idle=0 | clusterB: total=4 busy=0 idle=4
+2026-01-25 07:09:09,113 [INFO] [PROGRESS] job=job-604d074d g=4, batch=64, accum=1, sps=4.027, loss=2.11312109375, acc=49.71
+2026-01-25 07:10:55,092 [INFO] [PROGRESS] job=job-604d074d g=4, batch=64, accum=1, sps=3.834, loss=1.9979046875, acc=51.39
+2026-01-25 07:12:39,309 [INFO] [PROGRESS] job=job-604d074d g=4, batch=64, accum=1, sps=3.911, loss=1.9962763671875, acc=51.95
+2026-01-25 07:14:22,658 [INFO] [PROGRESS] job=job-604d074d g=4, batch=64, accum=1, sps=3.934, loss=2.02623359375, acc=51.38
+2026-01-25 07:16:08,446 [INFO] [PROGRESS] job=job-604d074d g=4, batch=64, accum=1, sps=3.852, loss=1.9567625, acc=53.03
+2026-01-25 07:17:55,135 [INFO] [PROGRESS] job=job-604d074d g=4, batch=64, accum=1, sps=3.807, loss=1.9338228515625, acc=53.65
+2026-01-25 07:19:36,908 [INFO] [PROGRESS] job=job-604d074d g=4, batch=64, accum=1, sps=3.997, loss=1.9016443359375, acc=54.11
+2026-01-25 07:19:38,606 [INFO] [finish job=job-604d074d status=FINISHED exit_code=0] queue=0 active_jobs=0 | clusterA: total=4 busy=0 idle=4 | clusterB: total=4 busy=0 idle=4
+2026-01-25 10:20:09,623 [INFO] Global Server Shutting Down.
