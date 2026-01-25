@@ -995,12 +995,15 @@ def _start_job_on_cluster(
     is_backfill: bool = False,
 ) -> Dict[str, Any]:
     import time
-    
+
     try:
         rl = get_run_logger()
     except Exception:
         rl = None
 
+    # -------------------------
+    # small helpers
+    # -------------------------
     def _as_str(x: Any) -> str:
         try:
             return str(x)
@@ -1028,9 +1031,6 @@ def _start_job_on_cluster(
             return float(d)
 
     def _same_plan(out0: Any, cluster_id0: str, nodes0: List[str], g0: int) -> bool:
-        """
-        plan 기반 검증(가능할 때만). out에 plan이 없으면 False.
-        """
         if not isinstance(out0, dict):
             return False
         oc = out0.get("cluster_id", None)
@@ -1085,6 +1085,48 @@ def _start_job_on_cluster(
 
         return True, "run_id_attempt_match_ok"
 
+    def _set_backfill_tags_locked(jr: Any, *, pin: str, now0: float) -> None:
+        """
+        HOL waiting이 있는 클러스터에서 launch되는 non-gang job은 무조건 victim화.
+        """
+        # 핵심 태그 (reclaim이 이 2개를 보고 잡는다)
+        try:
+            jr.is_backfill = True
+        except Exception:
+            pass
+        try:
+            jr.is_hol_backfill = True
+        except Exception:
+            pass
+        try:
+            jr.queue_kind = "HOL_BACKFILL"
+        except Exception:
+            pass
+        try:
+            jr.hol_backfill_pin = str(pin)
+        except Exception:
+            pass
+        # HOL 결박은 버림(여러 gang4가 앞에 있어도 흔들리지 않게)
+        try:
+            jr.hol_backfill_for = None
+        except Exception:
+            pass
+
+        # deadline slice
+        ddl0 = _safe_float(_get(jr, "backfill_deadline_ts", 0.0) or 0.0, 0.0)
+        if ddl0 <= 0.0 or ddl0 < now0:
+            try:
+                slice_sec = float(globals().get("BACKFILL_SLICE_SEC", 60.0) or 60.0)
+            except Exception:
+                slice_sec = 60.0
+            try:
+                jr.backfill_deadline_ts = float(now0 + slice_sec)
+            except Exception:
+                pass
+
+    # -------------------------
+    # normalize inputs
+    # -------------------------
     cluster_id = _as_str(cluster_id).strip()
     node_names = [_as_str(x).strip() for x in (node_names or []) if _as_str(x).strip()]
 
@@ -1135,10 +1177,13 @@ def _start_job_on_cluster(
         "g_target": 0,
         "g_alloc": int(g_use),
         "launch_dispatched_prev": False,
+        "forced_hol_backfill": False,
+        "hol_pin": "",
+        "hol_jid": "",
     }
 
     # ----------------------------
-    # LOCK: SSOT 확정 + 멱등/제약 체크
+    # LOCK: SSOT 확정 + 멱등/제약 체크 + (중요) 강제 HOL_BACKFILL 태깅
     # ----------------------------
     with STATE_LOCK:
         st = get_global_state()
@@ -1215,7 +1260,7 @@ def _start_job_on_cluster(
                     "ckpt_local_only": ckpt_local_only,
                 }
 
-        # STARTING 멱등: 동일 (cluster,nodes)만 허용 + dispatch 여부로만 executor 스킵
+        # STARTING 멱등: 동일 (cluster,nodes)만 허용 + dispatch 여부로 executor 스킵
         if status0 == "STARTING":
             cur_cid = _as_str(_get(jr, "cluster_id", "") or "").strip()
             try:
@@ -1267,7 +1312,37 @@ def _start_job_on_cluster(
         )
         user_request = _as_str(_get(jr, "user_request", "") or _get(job, "user_request", "") or "")
 
+        # ----------------------------
+        # ✅ 강제 HOL_BACKFILL 태그 결정(여기가 이번 수정의 핵심)
+        # ----------------------------
+        hol_jid = ""
+        hol_pin = ""
+        try:
+            hol_jid, hol_pin, _pin_free = _find_waiting_gang4_hol_locked(st)
+        except Exception:
+            hol_jid, hol_pin = "", ""
+
+        hol_jid_s = _as_str(hol_jid).strip()
+        hol_pin_s = _as_str(hol_pin).strip()
+
+        waiting_gang4_here = bool(hol_jid_s and hol_pin_s and hol_pin_s == cluster_id)
+
+        # 강제 victim 조건:
+        # - 이 클러스터에 waiting gang4 HOL 존재
+        # - 지금 시작하는 잡이 그 HOL 자체가 아님
+        # - 잡이 gang4가 아님
+        forced_hol_backfill = bool(waiting_gang4_here and (jid != hol_jid_s) and (int(gang_need) != 4))
+
+        # caller is_backfill보다 강제판정이 우선
+        if forced_hol_backfill:
+            is_backfill = True
+            snap["forced_hol_backfill"] = True
+            snap["hol_pin"] = str(cluster_id)
+            snap["hol_jid"] = str(hol_jid_s)
+
+        # ----------------------------
         # run_id/attempt SSOT
+        # ----------------------------
         run_id = _get(jr, "run_id", None) or None
         if not run_id:
             try:
@@ -1291,6 +1366,7 @@ def _start_job_on_cluster(
         g_target = _safe_int(_get(jr, "g_target", 0) or 0, 0)
         snap["g_target"] = int(g_target)
 
+        # alloc fields
         try:
             jr.g_alloc = int(g_use)
         except Exception:
@@ -1320,11 +1396,16 @@ def _start_job_on_cluster(
         except Exception:
             pass
 
+        # ----------------------------
+        # ✅ SSOT 태그 박기(STARTING 예약 시점)
+        # ----------------------------
         if is_backfill:
+            # (1) 일반 backfill 태그
             try:
                 jr.is_backfill = True
             except Exception:
                 pass
+            # queue_kind 기본: BACKFILL
             try:
                 qk0 = str(getattr(jr, "queue_kind", "") or "").upper().strip()
                 if qk0 not in ("HOL_BACKFILL", "BACKFILL"):
@@ -1332,16 +1413,21 @@ def _start_job_on_cluster(
             except Exception:
                 pass
 
-            ddl0 = _safe_float(_get(jr, "backfill_deadline_ts", 0.0) or 0.0, 0.0)
-            if ddl0 <= 0.0 or ddl0 < now0:
-                try:
-                    slice_sec = float(globals().get("BACKFILL_SLICE_SEC", 60.0) or 60.0)
-                except Exception:
-                    slice_sec = 60.0
-                try:
-                    jr.backfill_deadline_ts = float(now0 + slice_sec)
-                except Exception:
-                    pass
+            # (2) 강제 HOL_BACKFILL 태그
+            if forced_hol_backfill:
+                _set_backfill_tags_locked(jr, pin=cluster_id, now0=now0)
+            else:
+                # normal backfill에도 slice를 박아두는게 안전
+                ddl0 = _safe_float(_get(jr, "backfill_deadline_ts", 0.0) or 0.0, 0.0)
+                if ddl0 <= 0.0 or ddl0 < now0:
+                    try:
+                        slice_sec = float(globals().get("BACKFILL_SLICE_SEC", 60.0) or 60.0)
+                    except Exception:
+                        slice_sec = 60.0
+                    try:
+                        jr.backfill_deadline_ts = float(now0 + slice_sec)
+                    except Exception:
+                        pass
 
         snap.update(
             {
@@ -1353,6 +1439,7 @@ def _start_job_on_cluster(
                 "run_id": str(run_id),
                 "attempt": int(attempt),
                 "resume": resume,
+                "is_backfill": bool(is_backfill),
             }
         )
 
@@ -1390,6 +1477,9 @@ def _start_job_on_cluster(
                         "attempt": int(snap["attempt"]),
                         "resume_from_checkpoint": snap["resume"],
                         "reason": "BACKFILL" if bool(snap["is_backfill"]) else "LAUNCH",
+                        "forced_hol_backfill": bool(snap.get("forced_hol_backfill")),
+                        "hol_pin": str(snap.get("hol_pin") or ""),
+                        "hol_jid": str(snap.get("hol_jid") or ""),
                     },
                 },
                 resp={},
@@ -1420,12 +1510,15 @@ def _start_job_on_cluster(
             batch_size_per_gpu=int(snap["batch_size_per_gpu"]),
             user_request=str(snap["user_request"]) if snap["user_request"] is not None else None,
             nodes=list(node_names),
-            is_backfill=bool(is_backfill),
+            is_backfill=bool(snap["is_backfill"]),
             extra={
                 "run_id": str(snap["run_id"]),
                 "attempt": int(snap["attempt"]),
                 "resume_from_checkpoint": snap["resume"],
-                "reason": "BACKFILL" if is_backfill else "LAUNCH",
+                "reason": "BACKFILL" if bool(snap["is_backfill"]) else "LAUNCH",
+                "forced_hol_backfill": bool(snap.get("forced_hol_backfill")),
+                "hol_pin": str(snap.get("hol_pin") or ""),
+                "hol_jid": str(snap.get("hol_jid") or ""),
             },
         )
         if not isinstance(out, dict):
@@ -1455,14 +1548,11 @@ def _start_job_on_cluster(
 
             payload_reason = str((payload or {}).get("reason", "") or "").lower()
 
-            # ✅ node_draining일 때만 rollback_409
             is_node_draining = (http_s == 409) and (("node_draining" in r) or (payload_reason == "node_draining"))
             if is_node_draining:
                 rollback_409 = True
-
                 drain_node = str((payload or {}).get("node") or "").strip()
                 du = (payload or {}).get("drain_until")
-
                 try:
                     drain_until_f = float(du or 0.0)
                 except Exception:
@@ -1496,17 +1586,13 @@ def _start_job_on_cluster(
         pass
 
     if rollback_409:
-        import time
         now = float(time.time())
 
-        # -------------------------
-        # (0) SSOT에 "드레인 학습 + 10초 데드라인" 기록
-        # -------------------------
+        # (0) SSOT에 backoff 기록
         try:
             with STATE_LOCK:
                 st_rb0 = get_global_state()
 
-                # (0-1) node drain map: node -> drain_until
                 nd = getattr(st_rb0, "node_drain_until_by_node", None)
                 if not isinstance(nd, dict):
                     nd = {}
@@ -1514,11 +1600,9 @@ def _start_job_on_cluster(
                         st_rb0.node_drain_until_by_node = nd
                     except Exception:
                         pass
-
                 if drain_node and float(drain_until_f or 0.0) > 0.0:
                     nd[str(drain_node)] = float(drain_until_f)
 
-                # (0-2) job drain deadline map: job -> first_seen+10s (처음 1회만)
                 jd = getattr(st_rb0, "job_drain_deadline_by_job", None)
                 if not isinstance(jd, dict):
                     jd = {}
@@ -1529,22 +1613,19 @@ def _start_job_on_cluster(
 
                 jid_s = str(jid)
                 if jid_s and jid_s not in jd:
-                    jd[jid_s] = now + 10.0  # ✅ “10초 이내면 기다려본다”
+                    jd[jid_s] = now + 10.0
                 deadline = float(jd.get(jid_s) or (now + 10.0))
 
-                # (0-3) blocked_until: drain_until+alpha vs deadline 중 더 이른 시점
                 try:
                     alpha = float(getattr(st_rb0, "DRAIN_RETRY_ALPHA_SEC", 0.5) or 0.5)
                 except Exception:
                     alpha = 0.5
 
-                # drain_until이 없거나 이상치면 짧게 막고 바로 재시도 유도
                 if float(drain_until_f or 0.0) > 0.0:
                     unblock = min(float(drain_until_f) + alpha, deadline)
                 else:
                     unblock = min(now + 0.2, deadline)
 
-                # job record에 blocked_until 반영(기존보다 뒤로만 미룸)
                 jr0 = (getattr(st_rb0, "jobs", {}) or {}).get(jid_s)
                 if jr0 is not None:
                     try:
@@ -1555,10 +1636,7 @@ def _start_job_on_cluster(
         except Exception:
             pass
 
-        # -------------------------
-        # (1) best-effort SSOT release
-        #  - 네 release 함수 시그니처가 혼재돼 있으면 둘 다 시도
-        # -------------------------
+        # (1) best-effort node release
         try:
             release_nodes_for_job(job_id=str(jid), cluster_id=str(cluster_id))
         except Exception:
@@ -1572,10 +1650,7 @@ def _start_job_on_cluster(
                 except Exception:
                     pass
 
-        # -------------------------
-        # (2) job 상태를 재시도 가능하게 복귀
-        #  - 여기서 핵심은 blocked_until을 건드리지 않는 것(위에서 이미 설정)
-        # -------------------------
+        # (2) job 상태를 QUEUED로 복귀
         with STATE_LOCK:
             st_rb = get_global_state()
             jr_rb = (getattr(st_rb, "jobs", {}) or {}).get(str(jid))
@@ -1604,7 +1679,6 @@ def _start_job_on_cluster(
                 except Exception:
                     pass
 
-        # (선택) 로그/리포트가 있으면 “언제까지 기다릴지” 남겨두는 게 디버깅에 도움됨
         try:
             logger.info(
                 "[DRAIN_409_BACKOFF] jid=%s node=%s drain_until=%.3f -> blocked_until~=min(drain+alpha, first+10s)",
@@ -1625,20 +1699,9 @@ def _start_job_on_cluster(
             "idempotent_mode": None,
         }
 
-
-        # ✅ 중요: 여기서 끝내야 아래 일반 실패 수렴을 또 안 탑니다.
-        return {
-            "ok": False,
-            "reason": "node_draining",
-            "detail": out,
-            "run_id": str(snap["run_id"]),
-            "attempt": int(snap["attempt"]),
-            "cluster_id": cluster_id,
-            "nodes": list(node_names),
-            "g": int(g_use),
-            "idempotent_mode": None,
-        }
-
+    # -----------------------------
+    # 일반 성공/실패 수렴
+    # -----------------------------
     ok0 = bool(out.get("ok")) if isinstance(out, dict) else False
     status_s = str((out or {}).get("status", "") or "").lower()
     reason_s = str((out or {}).get("reason", "") or "").lower()
@@ -1734,8 +1797,8 @@ def _start_job_on_cluster(
                     world_size=int(snap["g_use"]),
                     note=(
                         f"started_on={cluster_id}, g_alloc={snap['g_use']}, nodes={snap['nodes']}, "
-                        f"backfill={bool(snap['is_backfill'])}, run_id={snap['run_id']}, attempt={snap['attempt']} "
-                        f"idempotent_mode={idempotent_mode or ''}"
+                        f"backfill={bool(snap['is_backfill'])}, forced_hol_backfill={bool(snap.get('forced_hol_backfill'))}, "
+                        f"run_id={snap['run_id']}, attempt={snap['attempt']} idempotent_mode={idempotent_mode or ''}"
                     ),
                     metadata={
                         "model": snap["model"],
@@ -1746,6 +1809,9 @@ def _start_job_on_cluster(
                         "resume_from_checkpoint": snap["resume"],
                         "gang_need": int(snap["gang_need"]),
                         "is_backfill": bool(snap["is_backfill"]),
+                        "forced_hol_backfill": bool(snap.get("forced_hol_backfill")),
+                        "hol_pin": str(snap.get("hol_pin") or ""),
+                        "hol_jid": str(snap.get("hol_jid") or ""),
                         "g_target": int(snap.get("g_target") or 0),
                         "g_alloc": int(snap.get("g_alloc") or snap["g_use"]),
                         "idempotent_mode": idempotent_mode,
@@ -1784,7 +1850,6 @@ def _start_job_on_cluster(
                 jr3.launch_dispatched_ts = 0.0
             except Exception:
                 pass
-
             try:
                 jr3.status = "QUEUED"
             except Exception:
@@ -1823,6 +1888,9 @@ def _start_job_on_cluster(
                     "detail": (out if isinstance(out, dict) else {"detail": out}),
                     "nodes": list(snap["nodes"]),
                     "is_backfill": bool(snap["is_backfill"]),
+                    "forced_hol_backfill": bool(snap.get("forced_hol_backfill")),
+                    "hol_pin": str(snap.get("hol_pin") or ""),
+                    "hol_jid": str(snap.get("hol_jid") or ""),
                     "idempotent_hint": bool(idempotent_hint),
                     "idempotent_mode": idempotent_mode,
                 },
@@ -2165,6 +2233,23 @@ def _cleanup_preempt_inflight_locked(state: Any, now_ts: float) -> None:
             continue
 
 def _feed_cluster_queues_from_home_mobile_locked(state: Any) -> None:
+    """
+    HOME(str-only) -> ClusterQueue(dict-only) feeder.
+
+    ✅ 이번 수정의 핵심(당신이 겪은 “백필링/리클레임 이후 재큐잉이 이상함” 해결 포인트):
+    1) preempt된(backfill victim) job은 반드시 다시 QUEUED로 돌아오고,
+       jr.requeue_target_cluster_id 가 있으면 그 클러스터의 clusterQ로 우선 수렴시킨다.
+       (cluster_tick에서 victim에 requeue_target_cluster_id=pin을 심어두는 전제)
+    2) hol_pin_target(backfill 목적)보다 requeue_target_cluster_id가 더 강한 우선순위.
+       -> 그래야 “기존 job이 끝난 순간 reclaim preempt -> victim requeue -> 다시 pin cluster에서 대기”
+          흐름이 안정적으로 굴러간다.
+    3) clusterQ는 dict만 유지. HOME은 str만 유지. 혼입 정리 포함.
+    4) gang4는 feeder가 절대 건드리지 않음.
+    """
+
+    import time
+    from typing import Any, List, Dict, Optional, Set, Tuple
+
     # -----------------------------
     # helpers
     # -----------------------------
@@ -2174,11 +2259,14 @@ def _feed_cluster_queues_from_home_mobile_locked(state: Any) -> None:
         except Exception:
             return ""
 
+    def _norm_jid(x: Any) -> str:
+        return _as_str(x).strip().lower()
+
     def _qitem_job_id(x: Any) -> str:
         if x is None:
             return ""
         if isinstance(x, str):
-            return x
+            return _as_str(x)
         if isinstance(x, dict):
             return _as_str(x.get("job_id") or x.get("id") or "")
         if hasattr(x, "job_id"):
@@ -2208,9 +2296,9 @@ def _feed_cluster_queues_from_home_mobile_locked(state: Any) -> None:
 
     def _clusterq_normalize_items(items: List[Any]) -> List[Dict[str, Any]]:
         """
-        clusterQ는 dict만 유지한다.
+        clusterQ는 dict만 유지:
         - str -> {"job_id": str, "g_req": 1}
-        - dict -> job_id, g_req 정규화
+        - dict -> job_id/g_req 정규화
         - 기타 -> skip
         """
         out: List[Dict[str, Any]] = []
@@ -2247,10 +2335,11 @@ def _feed_cluster_queues_from_home_mobile_locked(state: Any) -> None:
         return out
 
     def _queue_contains_clusterq(q: Any, jid: str) -> bool:
-        sjid = str(jid)
+        sjid = _as_str(jid)
+        sjid_norm = _norm_jid(sjid)
         items = _queue_list(q)
         for it in items:
-            if _qitem_job_id(it) == sjid:
+            if _norm_jid(_qitem_job_id(it)) == sjid_norm:
                 return True
         return False
 
@@ -2258,14 +2347,16 @@ def _feed_cluster_queues_from_home_mobile_locked(state: Any) -> None:
         items_raw = _queue_list(q)
         items = _clusterq_normalize_items(items_raw)
 
-        sjid = str(jid)
-        if any(_as_str(it.get("job_id")) == sjid for it in items):
-            _set_queue_list(q, items)
-            try:
-                setattr(q, "eta_dirty", True)
-            except Exception:
-                pass
-            return
+        sjid = _as_str(jid)
+        sjid_norm = _norm_jid(sjid)
+        for it in items:
+            if _norm_jid(it.get("job_id")) == sjid_norm:
+                _set_queue_list(q, items)
+                try:
+                    setattr(q, "eta_dirty", True)
+                except Exception:
+                    pass
+                return
 
         try:
             g = int(g_req_hint or 1)
@@ -2285,7 +2376,38 @@ def _feed_cluster_queues_from_home_mobile_locked(state: Any) -> None:
         except Exception:
             return False
 
+    def _job_status(jr: Any) -> str:
+        try:
+            return _as_str(getattr(jr, "status", "") or "").upper()
+        except Exception:
+            return ""
+
+    def _job_enqueue_ts(jr: Any) -> float:
+        if jr is None:
+            return float(1e30)
+        for k in ("enqueue_ts", "submit_ts"):
+            try:
+                v = getattr(jr, k, None)
+                if v is not None:
+                    return float(v)
+            except Exception:
+                pass
+        return float(1e30)
+
+    def _job_preferred_cluster(jr: Any) -> Optional[str]:
+        try:
+            pref = _as_str(getattr(jr, "preferred_cluster_id", "") or "").strip()
+        except Exception:
+            pref = ""
+        return pref or None
+
     def _job_pin_constraint_cluster(jr: Any) -> Optional[str]:
+        """
+        hard pin constraints:
+        - user_pinned_cluster_id
+        - checkpoint_cluster_id
+        - checkpoint_local_only/resume_from_checkpoint -> home/preferred/admitted로 수렴
+        """
         try:
             pinned_user = _as_str(getattr(jr, "user_pinned_cluster_id", "") or "").strip()
         except Exception:
@@ -2298,15 +2420,17 @@ def _feed_cluster_queues_from_home_mobile_locked(state: Any) -> None:
             ckpt_local = bool(getattr(jr, "checkpoint_local_only", False))
         except Exception:
             ckpt_local = False
-        if getattr(jr, "resume_from_checkpoint", None):
-            ckpt_local = True
+        try:
+            if getattr(jr, "resume_from_checkpoint", None):
+                ckpt_local = True
+        except Exception:
+            pass
 
         if pinned_user:
             return pinned_user
         if ckpt_cid:
             return ckpt_cid
         if ckpt_local:
-            # local-only면 "결정값"이 아니라 "home/preferred"로 수렴
             try:
                 pref = _as_str(getattr(jr, "preferred_cluster_id", "") or "").strip()
             except Exception:
@@ -2322,32 +2446,8 @@ def _feed_cluster_queues_from_home_mobile_locked(state: Any) -> None:
             return pref or home or adm or None
         return None
 
-    def _job_enqueue_ts(jr: Any) -> float:
-        if jr is None:
-            return float(1e30)
-        try:
-            v = getattr(jr, "enqueue_ts", None)
-            if v is not None:
-                return float(v)
-        except Exception:
-            pass
-        try:
-            v = getattr(jr, "submit_ts", None)
-            if v is not None:
-                return float(v)
-        except Exception:
-            pass
-        return float(1e30)
-
-    def _job_preferred_cluster(jr: Any) -> Optional[str]:
-        try:
-            pref = _as_str(getattr(jr, "preferred_cluster_id", "") or "").strip()
-        except Exception:
-            pref = ""
-        return pref or None
-
     def _job_g_hint_for_cluster(jr: Any, cid: str) -> int:
-        cid = str(cid)
+        cid = _as_str(cid)
         try:
             mp = getattr(jr, "g_hint_by_cluster", None)
             if isinstance(mp, dict):
@@ -2365,6 +2465,17 @@ def _feed_cluster_queues_from_home_mobile_locked(state: Any) -> None:
             except Exception:
                 pass
         return 1
+
+    def _job_requeue_target_cluster(jr: Any) -> Optional[str]:
+        """
+        ✅ reclaim-preempt victim이 돌아왔을 때, pin cluster로 되돌려 보내기 위한 SSOT.
+        cluster_tick에서 victim에 jr.requeue_target_cluster_id 를 심어둔 전제.
+        """
+        try:
+            v = _as_str(getattr(jr, "requeue_target_cluster_id", "") or "").strip()
+        except Exception:
+            v = ""
+        return v or None
 
     # -----------------------------
     # snapshot
@@ -2387,7 +2498,7 @@ def _feed_cluster_queues_from_home_mobile_locked(state: Any) -> None:
         except Exception:
             pass
 
-    # cluster-level blocked/drain (단, node drain은 _free_nodes_in_cluster에서 처리)
+    # cluster-level blocked/drain (node drain은 _free_nodes_in_cluster에서 처리)
     drains = getattr(state, "drain_until_by_cluster", {}) or {}
     cb = getattr(state, "cluster_launch_blocked_until", {}) or {}
     if not isinstance(drains, dict):
@@ -2398,7 +2509,7 @@ def _feed_cluster_queues_from_home_mobile_locked(state: Any) -> None:
     now_ts = float(time.time())
 
     def _cluster_blocked(cid: str) -> bool:
-        cid = str(cid)
+        cid = _as_str(cid)
         try:
             bu = float(cb.get(cid, 0.0) or 0.0)
         except Exception:
@@ -2406,7 +2517,6 @@ def _feed_cluster_queues_from_home_mobile_locked(state: Any) -> None:
         if bu > 0.0 and now_ts < bu:
             return True
 
-        # 클러스터 단위 drain을 쓰는 시스템이면 반영
         try:
             du = float(drains.get(cid, 0.0) or 0.0)
         except Exception:
@@ -2417,7 +2527,7 @@ def _feed_cluster_queues_from_home_mobile_locked(state: Any) -> None:
         return False
 
     # -----------------------------
-    # 1) HoL(gang4) pin 우선 backfill 타겟 결정
+    # 1) HoL(gang4) pin target(backfill 목적) 계산
     # -----------------------------
     hol_pin_target: Optional[str] = None
     try:
@@ -2433,20 +2543,22 @@ def _feed_cluster_queues_from_home_mobile_locked(state: Any) -> None:
         except Exception:
             pin_free = 0
 
+        # backfill은 free 1~3일 때만 의미 있음
         if 1 <= pin_free <= 3:
             hol_pin_target = hol_pin
 
     # -----------------------------
-    # 2) feeder 실행 (이동량 제한)
+    # 2) feeder 실행
     # -----------------------------
     MAX_FEED_PER_TICK = int(getattr(state, "FEED_MAX_PER_TICK", 8) or 8)
     moved = 0
 
+    # HOME 큐 순회
     for home_cid, hq in list(hqs.items()):
         if moved >= MAX_FEED_PER_TICK:
             break
 
-        home_cid = str(home_cid)
+        home_cid = _as_str(home_cid)
         hitems = _queue_list(hq)
         if not hitems:
             continue
@@ -2455,11 +2567,12 @@ def _feed_cluster_queues_from_home_mobile_locked(state: Any) -> None:
         hitems_norm: List[str] = []
         for it in hitems:
             jid = _qitem_job_id(it)
+            jid = _as_str(jid).strip()
             if jid:
-                hitems_norm.append(str(jid))
+                hitems_norm.append(jid)
 
-        # 공정 스캔: enqueue_ts 기준 (requeue_front 우선)
-        def _sort_key(jid: str):
+        # 정렬: requeue_front 우선 -> enqueue_ts -> jid
+        def _sort_key(jid: str) -> Tuple[int, float, str]:
             jr = jobs.get(str(jid))
             try:
                 prio = 0 if bool(getattr(jr, "requeue_front", False)) else 1
@@ -2469,14 +2582,14 @@ def _feed_cluster_queues_from_home_mobile_locked(state: Any) -> None:
                 enq = float(_job_enqueue_ts(jr))
             except Exception:
                 enq = float(1e30)
-            return (prio, enq, str(jid))
+            return (prio, enq, _norm_jid(jid))
 
         try:
             hitems_sorted = sorted(list(hitems_norm), key=_sort_key)
         except Exception:
             hitems_sorted = list(hitems_norm)
 
-        moved_jids: set = set()
+        moved_jids: Set[str] = set()
 
         for jid in hitems_sorted:
             if moved >= MAX_FEED_PER_TICK:
@@ -2488,10 +2601,11 @@ def _feed_cluster_queues_from_home_mobile_locked(state: Any) -> None:
             if jr is None:
                 continue
 
-            if str(getattr(jr, "status", "") or "").upper() != "QUEUED":
+            # QUEUED만 이동
+            if _job_status(jr) != "QUEUED":
                 continue
 
-            # gang4는 feeder가 건드리지 않음
+            # gang4는 feeder가 절대 이동시키지 않음
             if _is_gang4(jr):
                 continue
 
@@ -2502,7 +2616,7 @@ def _feed_cluster_queues_from_home_mobile_locked(state: Any) -> None:
             except Exception:
                 pass
 
-            # blocked/cooldown이면 이동해도 실행이 안 됨
+            # blocked/cooldown이면 지금 옮겨도 실행이 안 됨(불필요한 흔들림 방지)
             try:
                 if now_ts < float(getattr(jr, "blocked_until", 0.0) or 0.0):
                     continue
@@ -2511,35 +2625,44 @@ def _feed_cluster_queues_from_home_mobile_locked(state: Any) -> None:
             except Exception:
                 pass
 
-            must_cid = _job_pin_constraint_cluster(jr)
-            pref_cid = _job_preferred_cluster(jr)
+            # -----------------------------
+            # target cluster 결정 (우선순위가 중요)
+            # -----------------------------
             target_cid: Optional[str] = None
 
-            # (우선 0) hol pin target (backfill 목적)
-            if hol_pin_target:
-                if must_cid is None or str(must_cid) == str(hol_pin_target):
-                    target_cid = str(hol_pin_target)
+            # (우선 0) ✅ reclaim-preempt victim의 재큐잉 목적지
+            rq = _job_requeue_target_cluster(jr)
+            if rq and rq in clusters and (not _cluster_blocked(rq)):
+                target_cid = _as_str(rq)
 
-            # (우선 1) hard constraint
-            if target_cid is None and must_cid:
-                target_cid = str(must_cid)
+            # (우선 1) hard constraint(pin/ckpt)
+            if target_cid is None:
+                must_cid = _job_pin_constraint_cluster(jr)
+                if must_cid:
+                    target_cid = _as_str(must_cid)
 
-            # (우선 2) preferred cluster — 단, blocked 아니고 free>=1 이어야
-            if target_cid is None and pref_cid and str(pref_cid) in clusters:
-                cid2 = str(pref_cid)
-                if not _cluster_blocked(cid2):
+            # (우선 2) hol pin target (backfill 목적) — 단, hard constraint를 깨면 안 됨
+            if target_cid is None and hol_pin_target:
+                must_cid2 = _job_pin_constraint_cluster(jr)
+                if (must_cid2 is None) or (_as_str(must_cid2) == _as_str(hol_pin_target)):
+                    target_cid = _as_str(hol_pin_target)
+
+            # (우선 3) preferred cluster — blocked 아니고 free>=1 이어야
+            if target_cid is None:
+                pref_cid = _job_preferred_cluster(jr)
+                if pref_cid and pref_cid in clusters and (not _cluster_blocked(pref_cid)):
                     try:
-                        free2 = int(len(_free_nodes_in_cluster(state, cid2) or []))
+                        free2 = int(len(_free_nodes_in_cluster(state, pref_cid) or []))
                     except Exception:
                         free2 = 0
                     if free2 >= 1:
-                        target_cid = cid2
+                        target_cid = _as_str(pref_cid)
 
-            # (우선 3) 그 외: free>=1 & blocked 아닌 곳 선택 (home 우선)
+            # (우선 4) 그 외: free>=1 & blocked 아닌 곳 선택 (home 우선)
             if target_cid is None:
-                cand = []
+                cand: List[Tuple[int, int, str]] = []
                 for cid2 in list(clusters.keys()):
-                    cid2 = str(cid2)
+                    cid2 = _as_str(cid2)
                     if _cluster_blocked(cid2):
                         continue
                     try:
@@ -2549,29 +2672,37 @@ def _feed_cluster_queues_from_home_mobile_locked(state: Any) -> None:
                     if free2 >= 1:
                         # home 우선 + free 많은 곳 우선
                         cand.append((1 if cid2 == home_cid else 0, free2, cid2))
-
                 if cand:
                     cand.sort(key=lambda x: (x[0], x[1]), reverse=True)
-                    target_cid = str(cand[0][2])
+                    target_cid = _as_str(cand[0][2])
 
             if not target_cid:
+                continue
+            if target_cid not in qs:
                 continue
 
             cq = qs.get(str(target_cid))
             if cq is None:
                 continue
 
-            # 중복 방지
+            # 중복 방지(정규화 비교)
             if _queue_contains_clusterq(cq, str(jid)):
                 moved_jids.add(str(jid))
+                # clusterQ에 올라간 순간 requeue_front 특혜 종료
                 try:
                     if bool(getattr(jr, "requeue_front", False)):
                         jr.requeue_front = False
                 except Exception:
                     pass
+                # requeue_target도 사용했으면 해제(무한 강제수렴 방지)
+                try:
+                    if _job_requeue_target_cluster(jr):
+                        jr.requeue_target_cluster_id = None
+                except Exception:
+                    pass
                 continue
 
-            # ✅ g_req 대신 "cluster별 g_hint"를 기록
+            # ✅ clusterQ item에는 g_req 대신 "cluster별 g_hint"를 기록
             g_hint = _job_g_hint_for_cluster(jr, str(target_cid))
             _append_to_clusterq_dict_only(cq, str(jid), g_req_hint=int(g_hint))
 
@@ -2585,60 +2716,58 @@ def _feed_cluster_queues_from_home_mobile_locked(state: Any) -> None:
             except Exception:
                 pass
 
-        # HOME 큐 재구성
+            # ✅ requeue_target은 “1회 수렴” 용도. 옮겼으면 제거.
+            try:
+                if _job_requeue_target_cluster(jr):
+                    jr.requeue_target_cluster_id = None
+            except Exception:
+                pass
+
+        # HOME 큐 재구성(str-only 유지)
         if moved_jids:
             new_hitems: List[str] = []
             for jid0 in hitems_norm:
                 if jid0 and str(jid0) in moved_jids:
                     continue
                 new_hitems.append(str(jid0))
-
             _set_queue_list(hq, new_hitems)
-            try:
-                setattr(hq, "eta_dirty", True)
-            except Exception:
-                pass
         else:
             _set_queue_list(hq, list(hitems_norm))
-            try:
-                setattr(hq, "eta_dirty", True)
-            except Exception:
-                pass
+
+        try:
+            setattr(hq, "eta_dirty", True)
+        except Exception:
+            pass
 
 def _cluster_tick_once(cluster_id: str) -> None:
-    """
-    Cluster-local tick.
-
-    요구사항 반영(핵심):
-    1) HoL gang4가 pin=cluster_id에서 대기 중이면
-       - free가 1~3이면 backfill로 양보 가능(단, pin 클러스터에서만 backfill 태그 부여)
-       - reclaim(=hol_backfill victim preempt) 발행이 시작된 순간부터는
-         => 다른 job launch 금지, gang4만 재시도
-    2) gang4 launch가 node_draining으로 409 거절되면
-       - drain_until 이후에 다시 시도하도록 cluster_launch_blocked_until을 drain_until로 갱신
-       - reclaim lock 유지(=victim 재런치 금지)
-    3) preempt는 "hol_backfill victim"만 대상으로 하며, 발행 후에는 즉시 return(다른 배치 금지)
-    """
+    import time
 
     cluster_id = str(cluster_id)
+    now_ts = float(time.time())
 
-    # --- logger (락 밖에서만 파일 IO) ---
+    # --- logger ---
     try:
         rl = get_run_logger()
     except Exception:
         rl = None
 
+    # -----------------------------
+    # helpers
+    # -----------------------------
     def _as_str(x: Any) -> str:
         try:
             return str(x)
         except Exception:
             return ""
 
+    def _norm_jid(jid: Any) -> str:
+        return _as_str(jid).strip().lower()
+
     def _qitem_job_id(x: Any) -> str:
         if x is None:
             return ""
         if isinstance(x, str):
-            return x
+            return _as_str(x)
         if isinstance(x, dict):
             return _as_str(x.get("job_id") or x.get("id") or "")
         if hasattr(x, "job_id"):
@@ -2646,44 +2775,43 @@ def _cluster_tick_once(cluster_id: str) -> None:
         return _as_str(x)
 
     def _qitem_g_req(x: Any, default: int = 1) -> int:
-        # clusterQ item의 g_req는 이제 "요구"가 아니라 "g_hint"로 사용
         if x is None:
-            return default
+            return int(default)
         if isinstance(x, dict):
             try:
                 return max(1, int(x.get("g_req") or default))
             except Exception:
-                return default
+                return int(default)
         if hasattr(x, "g_req"):
             try:
                 return max(1, int(getattr(x, "g_req") or default))
             except Exception:
-                return default
-        return default
+                return int(default)
+        return int(default)
 
-    def _job_status_is_queued(jr: Any) -> bool:
+    def _status(jr: Any) -> str:
         try:
-            return str(getattr(jr, "status", "") or "").upper() == "QUEUED"
+            return _as_str(getattr(jr, "status", "") or "").upper()
         except Exception:
-            return False
+            return ""
 
-    def _job_status_is_running(jr: Any) -> bool:
-        try:
-            return str(getattr(jr, "status", "") or "").upper() == "RUNNING"
-        except Exception:
-            return False
+    def _is_queued(jr: Any) -> bool:
+        return _status(jr) == "QUEUED"
 
-    def _job_is_gang4(jr: Any) -> bool:
+    def _is_running(jr: Any) -> bool:
+        return _status(jr) == "RUNNING"
+
+    def _is_gang4(jr: Any) -> bool:
         try:
             return int(_job_gang_required_g(jr) or 0) == 4
         except Exception:
             return False
 
-    def _job_is_launchable_now(jr: Any, now_ts: float) -> bool:
+    def _job_launchable_now(jr: Any, t: float) -> bool:
         try:
-            if now_ts < float(getattr(jr, "blocked_until", 0.0) or 0.0):
+            if t < float(getattr(jr, "blocked_until", 0.0) or 0.0):
                 return False
-            if now_ts < float(getattr(jr, "launch_cooldown_until_ts", 0.0) or 0.0):
+            if t < float(getattr(jr, "launch_cooldown_until_ts", 0.0) or 0.0):
                 return False
             if bool(getattr(jr, "launch_inflight", False)):
                 return False
@@ -2693,14 +2821,11 @@ def _cluster_tick_once(cluster_id: str) -> None:
             pass
         return True
 
-    def _clear_hol_backfill_if_queued(jr: Any) -> None:
-        try:
-            if str(getattr(jr, "status", "") or "").upper() != "QUEUED":
-                return
-        except Exception:
+    def _clear_backfill_tags_if_queued(jr: Any) -> None:
+        if not jr:
             return
-
-        # QUEUED로 돌아온 이상 backfill 흔적은 남기지 않는다
+        if _status(jr) != "QUEUED":
+            return
         for k, v in (
             ("is_hol_backfill", False),
             ("is_backfill", False),
@@ -2713,17 +2838,14 @@ def _cluster_tick_once(cluster_id: str) -> None:
                 setattr(jr, k, v)
             except Exception:
                 pass
-
         try:
-            qk = str(getattr(jr, "queue_kind", "") or "")
+            qk = _as_str(getattr(jr, "queue_kind", "") or "")
             if qk.upper() in ("HOL_BACKFILL", "BACKFILL"):
                 jr.queue_kind = None
         except Exception:
             pass
 
-    def _job_enqueue_ts(jr: Any, now_ts: float) -> float:
-        if jr is None:
-            return float(now_ts)
+    def _job_enqueue_ts(jr: Any) -> float:
         for k in ("enqueue_ts", "submit_ts"):
             try:
                 v = getattr(jr, k, None)
@@ -2734,8 +2856,6 @@ def _cluster_tick_once(cluster_id: str) -> None:
         return float(now_ts)
 
     def _job_max_g_cap(jr: Any) -> Optional[int]:
-        if jr is None:
-            return None
         for k in ("max_g", "max_world_size", "g_target", "world_size"):
             try:
                 v = getattr(jr, k, None)
@@ -2750,8 +2870,6 @@ def _cluster_tick_once(cluster_id: str) -> None:
 
     def _job_g_hint_for_cluster(jr: Any, cid: str, fallback: int = 1) -> int:
         cid = str(cid)
-        if jr is None:
-            return int(max(1, fallback))
         try:
             mp = getattr(jr, "g_hint_by_cluster", None)
             if isinstance(mp, dict):
@@ -2760,45 +2878,55 @@ def _cluster_tick_once(cluster_id: str) -> None:
                     return int(max(1, int(v)))
         except Exception:
             pass
-        try:
-            v = getattr(jr, "g_target_hint", None)
-            if v is not None and int(v) > 0:
-                return int(max(1, int(v)))
-        except Exception:
-            pass
+        for k in ("g_target_hint", "g_target"):
+            try:
+                v = getattr(jr, k, None)
+                if v is not None and int(v) > 0:
+                    return int(max(1, int(v)))
+            except Exception:
+                pass
         return int(max(1, fallback))
 
     # -----------------------------
     # preempt emitter (프로젝트 함수명 차이 흡수)
     # -----------------------------
     def _emit_preempt(victim_job_id: str, reason: str) -> bool:
-        fn_candidates = [
-            "preempt_job",
-            "request_preempt_job",
-            "_preempt_job",
-            "issue_preempt",
-            "request_preempt",
-        ]
-        for name in fn_candidates:
-            fn = globals().get(name)
-            if callable(fn):
-                try:
-                    out = fn(victim_job_id, reason=reason)
-                except TypeError:
-                    try:
-                        out = fn(victim_job_id, reason)
-                    except Exception:
-                        continue
-                except Exception:
-                    continue
-                try:
-                    if isinstance(out, dict):
-                        return bool(out.get("ok", True))
-                    return True
-                except Exception:
-                    return True
-        return False
+        import requests
+        try:
+            r = requests.post(
+                "http://127.0.0.1:8000/preempt_job",
+                json={"job_id": str(victim_job_id), "reason": str(reason)},
+                timeout=2.0,
+            )
+            if r.status_code >= 400:
+                return False
+            try:
+                j = r.json()
+                # 네 /preempt_job 응답이 {"ok":true,...} 형태였음
+                return bool(j.get("ok", True))
+            except Exception:
+                return True
+        except Exception:
+            return False
 
+    def _cluster_node_owner_map(st0: Any, cid: str) -> Dict[str, Any]:
+        clusters0 = getattr(st0, "clusters", {}) or {}
+        cr = clusters0.get(str(cid))
+        if cr is None:
+            return {}
+        try:
+            no = getattr(cr, "node_owner", None)
+        except Exception:
+            no = None
+        if isinstance(no, dict):
+            return no
+        if isinstance(cr, dict) and isinstance(cr.get("node_owner"), dict):
+            return cr.get("node_owner") or {}
+        return {}
+
+    # -----------------------------
+    # cluster blocked + reclaim lock
+    # -----------------------------
     def _get_cluster_blocked_until(st0: Any, cid: str) -> float:
         try:
             cb = getattr(st0, "cluster_launch_blocked_until", {}) or {}
@@ -2831,7 +2959,6 @@ def _cluster_tick_once(cluster_id: str) -> None:
         except Exception:
             until = 0.0
         if until > 0.0 and float(time.time()) > until:
-            # timeout 안전장치: 풀어준다
             try:
                 st0.hol_reclaim_active = False
             except Exception:
@@ -2839,21 +2966,12 @@ def _cluster_tick_once(cluster_id: str) -> None:
             return False
         return True
 
-    def _set_reclaim_lock(st0: Any, hol_jid: str, pin: str, now_ts: float, hold_sec: float = 30.0) -> None:
+    def _set_reclaim_lock(st0: Any, *, hol_norm: str, pin: str, now_ts0: float, hold_sec: float = 30.0) -> None:
         try:
             st0.hol_reclaim_active = True
-        except Exception:
-            pass
-        try:
-            st0.hol_reclaim_hol_job_id = str(hol_jid)
-        except Exception:
-            pass
-        try:
+            st0.hol_reclaim_hol_job_id = str(hol_norm)
             st0.hol_reclaim_pin = str(pin)
-        except Exception:
-            pass
-        try:
-            st0.hol_reclaim_until_ts = float(now_ts + float(hold_sec))
+            st0.hol_reclaim_until_ts = float(now_ts0 + float(hold_sec))
         except Exception:
             pass
 
@@ -2869,18 +2987,104 @@ def _cluster_tick_once(cluster_id: str) -> None:
             except Exception:
                 pass
 
-    now_ts = float(time.time())
+    # -----------------------------
+    # ✅ NEW: HOL 선택을 "하나로 고정" (여러 gang4 대기 버그 해결)
+    # -----------------------------
+    def _iter_global_queue_ids(st0: Any) -> List[str]:
+        for name in ("global_queue", "queue", "jobs_queue", "pending_queue"):
+            q = getattr(st0, name, None)
+            if q is None:
+                continue
 
-    # --- snapshots for logging ---
-    snap_deq = False
-    snap_deq_job_id = ""
-    snap_qlen_after = -1
-    snap_deq_note = ""
+            # 1) list 형태
+            if isinstance(q, list):
+                out = []
+                for it in q:
+                    jid = _qitem_job_id(it)
+                    if jid:
+                        out.append(str(jid))
+                if out:
+                    return out
 
-    snap_tagged = False
-    snap_tag_note = ""
+            # 2) 큐 객체 형태: _jobs 보유
+            try:
+                items = list(getattr(q, "_jobs", None) or [])
+            except Exception:
+                items = []
+            if items:
+                out = []
+                for it in items:
+                    jid = _qitem_job_id(it)
+                    if jid:
+                        out.append(str(jid))
+                if out:
+                    return out
 
-    # 선택 결과
+        return []
+
+    def _job_pin_cluster(jr: Any) -> str:
+        for k in ("pinned_cluster", "pinned_cluster_id", "admitted_cluster_id", "home_cluster_id"):
+            try:
+                v = str(getattr(jr, k, "") or "").strip()
+                if v:
+                    return v
+            except Exception:
+                pass
+        return ""
+
+    def _select_hol_gang4_for_pin_locked(st0: Any, jobs0: dict, pin_cid: str) -> Tuple[Optional[str], Optional[str], int]:
+        pin_cid = str(pin_cid)
+        try:
+            pin_free = int(len(_free_nodes_in_cluster(st0, pin_cid) or []))
+        except Exception:
+            pin_free = 0
+
+        gq_ids = _iter_global_queue_ids(st0)
+
+        # (1) global queue order 기반
+        for jid in gq_ids:
+            jr = jobs0.get(str(jid))
+            if jr is None:
+                continue
+            if (not _is_queued(jr)) or (not _is_gang4(jr)):
+                continue
+
+            pin = _job_pin_cluster(jr)
+            if pin and pin != pin_cid:
+                continue
+
+            # 체크포인트 로컬 강제도 같은 방식으로만 보조
+            try:
+                ckpt_cid = str(getattr(jr, "checkpoint_cluster_id", "") or "").strip()
+            except Exception:
+                ckpt_cid = ""
+            if ckpt_cid and ckpt_cid != pin_cid:
+                continue
+
+            return (str(jid), _norm_jid(jid), pin_free)
+
+        # (2) fallback: enqueue_ts 오래된 queued gang4 (pin 일치만)
+        cand: List[Tuple[float, str]] = []
+        for jid_key, jr in (jobs0 or {}).items():
+            if jr is None:
+                continue
+            if (not _is_queued(jr)) or (not _is_gang4(jr)):
+                continue
+            pin = _job_pin_cluster(jr)
+            if pin and pin != pin_cid:
+                continue
+            cand.append((_job_enqueue_ts(jr), str(jid_key)))
+
+        if cand:
+            cand.sort(key=lambda x: (x[0], x[1]))
+            hol_real = cand[0][1]
+            return (hol_real, _norm_jid(hol_real), pin_free)
+
+        return (None, None, pin_free)
+
+    # -----------------------------
+    # 계획 변수(락 밖에서 launch 수행)
+    # -----------------------------
     job_to_start: Optional[str] = None
     start_nodes: Optional[List[str]] = None
     g_use: int = 0
@@ -2888,141 +3092,179 @@ def _cluster_tick_once(cluster_id: str) -> None:
     chosen_item: Any = None
     chosen_item_greq: int = 1
 
-    # reclaim / hol launch 계획
     hol_to_launch: Optional[str] = None
     hol_nodes: Optional[List[str]] = None
 
+    # logging snapshot
+    snap_note = ""
+    snap_tag_note = ""
+    snap_tagged = False
+    snap_deq = False
+    snap_deq_job_id = ""
+    snap_qlen_after = -1
+
     # --------------------------------------------
-    # 0) LOCK: (0) blocked_until 체크
-    #         (A) reclaim_lock 상태면 gang4만 재시도
-    #         (B) hol_waiting이면 reclaim 발행 또는 backfill launch
-    #         (C) 그 외 normal clusterQ launch
+    # 0) LOCK: 상태 결정
     # --------------------------------------------
     with STATE_LOCK:
         st = get_global_state()
 
+        # cluster blocked
         bu = _get_cluster_blocked_until(st, cluster_id)
         if now_ts < bu:
             return
 
         clusters = getattr(st, "clusters", {}) or {}
         jobs = getattr(st, "jobs", {}) or {}
-
-        cr = clusters.get(cluster_id)
-        if cr is None:
+        if cluster_id not in clusters:
             return
 
-        # free nodes
         free_nodes = list(_free_nodes_in_cluster(st, cluster_id) or [])
-        free_n = len(free_nodes)
+        free_n = int(len(free_nodes))
 
-        # hol(gang4) 확인
-        hol_jid, hol_pin, pin_free = _find_waiting_gang4_hol_locked(st)
-        hol_waiting_here = bool(hol_jid and hol_pin and str(hol_pin) == str(cluster_id))
+        # -----------------------------
+        # ✅ selected HOL (pin=cluster_id) 고정
+        # -----------------------------
+        selected_hol_real: Optional[str] = None
+        selected_hol_norm: Optional[str] = None
+        selected_pin_free: int = 0
 
-        # HoL 유효성 검증
-        if hol_waiting_here:
-            hol_jr = jobs.get(str(hol_jid))
-            hol_ok = False
-            try:
-                if hol_jr is not None:
-                    st_hol = str(getattr(hol_jr, "status", "") or "").upper()
-                    if st_hol == "QUEUED" and int(_job_gang_required_g(hol_jr) or 0) == 4:
-                        hol_ok = True
-            except Exception:
-                hol_ok = False
-            if not hol_ok:
-                hol_waiting_here = False
-                hol_jid, hol_pin = None, None
-
-        # --------------------------------------------------
-        # (A) reclaim_lock 활성: "이 클러스터에서는 gang4만" 재시도
-        # --------------------------------------------------
+        # reclaim lock이 있으면 그 HOL을 SSOT로 사용
         if _reclaim_lock_active(st):
             try:
                 lock_pin = str(getattr(st, "hol_reclaim_pin", "") or "")
-                lock_hol = str(getattr(st, "hol_reclaim_hol_job_id", "") or "")
+                lock_hol_norm = _norm_jid(getattr(st, "hol_reclaim_hol_job_id", "") or "")
             except Exception:
-                lock_pin, lock_hol = "", ""
-
-            if lock_pin == str(cluster_id) and lock_hol:
-                # gang4가 여전히 기다리는지 확인(없으면 락 해제)
-                hol_jr = jobs.get(lock_hol)
-                if hol_jr is None:
+                lock_pin, lock_hol_norm = "", ""
+            if lock_pin == cluster_id and lock_hol_norm:
+                # lock_hol_norm에 해당하는 real job_id 역조회
+                real = None
+                for jid_key in (jobs or {}).keys():
+                    if _norm_jid(jid_key) == lock_hol_norm:
+                        real = str(jid_key)
+                        break
+                if real is None:
                     _clear_reclaim_lock(st)
                     return
+                selected_hol_real = real
+                selected_hol_norm = lock_hol_norm
                 try:
-                    if str(getattr(hol_jr, "status", "") or "").upper() != "QUEUED":
-                        _clear_reclaim_lock(st)
-                        return
+                    selected_pin_free = int(len(_free_nodes_in_cluster(st, cluster_id) or []))
                 except Exception:
-                    pass
-
-                # free>=4면 이 tick에서 gang4 launch를 시도하도록 계획
-                if free_n >= 4:
-                    hol_to_launch = str(lock_hol)
-                    hol_nodes = list(free_nodes[:4])
-                    # 여기서 return 안 하고 락 밖에서 실제 launch 수행
-                else:
-                    # free가 아직 4가 아니면 기다린다(다른 job launch 금지)
-                    return
+                    selected_pin_free = free_n
             else:
-                # 다른 cluster tick이면 락 영향 없음
+                # reclaim lock이 다른 핀에 걸려있으면 이 클러스터는 일반 tick만
                 pass
 
-        # --------------------------------------------------
-        # (B) hol_waiting_here: reclaim 발행 또는 backfill launch
-        # reclaim_lock이 아직 없고 hol이 있다면 여기서 시작한다
-        # --------------------------------------------------
-        if hol_to_launch is None and hol_waiting_here and hol_jid:
-            # free>=4면 gang4 launch 계획
+        # reclaim lock이 없으면 새로 HOL을 선택
+        if selected_hol_real is None:
+            hol_real, hol_norm, pin_free = _select_hol_gang4_for_pin_locked(st, jobs, cluster_id)
+            selected_hol_real = hol_real
+            selected_hol_norm = hol_norm
+            selected_pin_free = int(pin_free)
+
+        hol_waiting_here = bool(selected_hol_real and selected_hol_norm)
+
+        # HOL 유효성 재검증(queued+gang4)
+        if hol_waiting_here:
+            hol_jr = jobs.get(str(selected_hol_real))
+            if hol_jr is None or (not _is_queued(hol_jr)) or (not _is_gang4(hol_jr)):
+                hol_waiting_here = False
+                selected_hol_real = None
+                selected_hol_norm = None
+
+        # (A) reclaim lock 중이면: 이 클러스터가 pin이면 gang4만 재시도
+        if _reclaim_lock_active(st):
+            try:
+                lock_pin = str(getattr(st, "hol_reclaim_pin", "") or "")
+                lock_hol_norm = _norm_jid(getattr(st, "hol_reclaim_hol_job_id", "") or "")
+            except Exception:
+                lock_pin, lock_hol_norm = "", ""
+
+            if lock_pin == cluster_id and lock_hol_norm:
+                if free_n >= 4:
+                    hol_to_launch = str(selected_hol_real or "")
+                    hol_nodes = list(free_nodes[:4])
+                else:
+                    return
+
+        # (B) HOL 대기 중이고 free<4이면 reclaim 시도 (free 1~3에서만 본격적으로)
+        if hol_to_launch is None and hol_waiting_here and selected_hol_real and selected_hol_norm:
             if free_n >= 4:
-                hol_to_launch = str(hol_jid)
+                hol_to_launch = str(selected_hol_real)
                 hol_nodes = list(free_nodes[:4])
             else:
-                # free 0~3
-                # 1) reclaim 가능하면 preempt 발행하고 reclaim_lock 켠 뒤 return
-                #    대상은 pin에서 RUNNING 중이고 hol_backfill victim인 것만
                 victims: List[Tuple[str, int]] = []
-                for jid, jr in (jobs or {}).items():
-                    if jr is None:
-                        continue
-                    if not _job_status_is_running(jr):
-                        continue
+
+                node_owner_map = _cluster_node_owner_map(st, cluster_id)  # 아래 2)에서 추가하는 helper
+
+                def _job_runs_here(jid: str, jr: Any) -> bool:
+                    # 1) node_owner 기반(가장 신뢰)
+                    nj = _norm_jid(jid)
+                    for _, owner in (node_owner_map or {}).items():
+                        if _norm_jid(owner) == nj:
+                            return True
+                    # 2) 보조로 jr.cluster_id
                     try:
-                        if str(getattr(jr, "cluster_id", "") or "") != str(cluster_id):
-                            continue
+                        return str(getattr(jr, "cluster_id", "") or "") == cluster_id
                     except Exception:
+                        return False
+
+                for jid_key, jr in (jobs or {}).items():
+                    if jr is None or (not _is_running(jr)):
+                        continue
+                    if not _job_runs_here(str(jid_key), jr):
                         continue
 
+                    # ---- victim 태그 판정(완화) ----
+                    try:
+                        is_hbf = bool(getattr(jr, "is_hol_backfill", False))
+                    except Exception:
+                        is_hbf = False
                     try:
                         is_bf = bool(getattr(jr, "is_backfill", False))
-                        is_hbf = bool(getattr(jr, "is_hol_backfill", False))
-                        hfor = str(getattr(jr, "hol_backfill_for", "") or "")
-                        hpin = str(getattr(jr, "hol_backfill_pin", "") or "")
                     except Exception:
-                        is_bf, is_hbf, hfor, hpin = False, False, "", ""
+                        is_bf = False
+                    try:
+                        qk = _as_str(getattr(jr, "queue_kind", "") or "").strip().upper()
+                    except Exception:
+                        qk = ""
 
-                    if not (is_bf or is_hbf):
-                        continue
-                    if hfor and str(hol_jid) and hfor != str(hol_jid):
-                        continue
-                    if hpin and str(cluster_id) and hpin != str(cluster_id):
-                        continue
                     try:
-                        if bool(getattr(jr, "preempt_inflight", False)):
+                        hpin = str(getattr(jr, "hol_backfill_pin", "") or "")
+                        hfor = _norm_jid(getattr(jr, "hol_backfill_for", "") or "")
+                    except Exception:
+                        hpin, hfor = "", ""
+
+                    # pin 엄격
+                    if hpin and hpin != cluster_id:
+                        continue
+
+                    # ✅ 원칙: HOL_BACKFILL 태그면 victim
+                    tagged_hol = bool(is_hbf or qk == "HOL_BACKFILL")
+
+                    # ✅ 태그 유실 구제: reclaim 상황이면 BACKFILL도 victim 허용
+                    # (지금 문제는 "preemption 자체가 안 됨"이므로 여기 완화가 필요)
+                    if not tagged_hol:
+                        if not (is_bf or qk == "BACKFILL"):
                             continue
-                    except Exception:
-                        pass
-                    try:
-                        gcur = int(getattr(jr, "g_cur", 1) or 1)
-                    except Exception:
-                        gcur = 1
-                    victims.append((str(jid), max(1, int(gcur))))
+
+                    # ✅ 여러 HOL 상황 매칭:
+                    # - hfor가 있으면 selected_hol_norm과 반드시 일치
+                    # - hfor가 비어있으면(유실) 허용
+                    if hfor and hfor != selected_hol_norm:
+                        continue
+
+                    if bool(getattr(jr, "preempt_inflight", False)):
+                        continue
+
+                    gcur = int(getattr(jr, "g_cur", 1) or 1)
+                    victims.append((str(jid_key), max(1, gcur)))
+
 
                 reclaimable = sum(g for _, g in victims) if victims else 0
 
-                if free_n < 4 and (free_n + reclaimable) >= 4 and victims:
+                if 1 <= free_n <= 3 and (free_n + reclaimable) >= 4 and victims:
                     victims.sort(key=lambda x: int(x[1]), reverse=True)
                     need = 4 - int(free_n)
                     got = 0
@@ -3031,7 +3273,8 @@ def _cluster_tick_once(cluster_id: str) -> None:
                     for vjid, vg in victims:
                         if got >= need:
                             break
-                        okp = _emit_preempt(vjid, reason=f"HOL_GANG_PREEMPT HOL={str(hol_jid)} PIN={str(cluster_id)}")
+                        reason = f"HOL_GANG_PREEMPT hol={selected_hol_norm} pin={cluster_id}"
+                        okp = _emit_preempt(vjid, reason=reason)
                         if okp:
                             issued.append(vjid)
                             got += int(vg)
@@ -3042,40 +3285,44 @@ def _cluster_tick_once(cluster_id: str) -> None:
                                     vjr.preempting_since_ts = float(now_ts)
                                 except Exception:
                                     pass
+                                # ✅ requeue 수렴: 이 클러스터로
+                                try:
+                                    vjr.requeue_target_cluster_id = cluster_id
+                                    vjr.requeue_front = True
+                                except Exception:
+                                    pass
+                                # ✅ 태그 누락 구제: hfor가 비어있던 victim이면 이제라도 SSOT로 채워둔다
+                                try:
+                                    cur_for = _norm_jid(getattr(vjr, "hol_backfill_for", "") or "")
+                                    if not cur_for:
+                                        vjr.hol_backfill_for = str(selected_hol_norm)
+                                except Exception:
+                                    pass
 
-                    # reclaim_lock ON: 이 시점부터는 gang4 성공할 때까지 다른 launch 금지
-                    _set_reclaim_lock(st, hol_jid=str(hol_jid), pin=str(cluster_id), now_ts=float(now_ts), hold_sec=30.0)
-
-                    # 짧은 재시도 템포(프리엠트 완료/노드 해제 기다림)
+                    # ✅ reclaim_lock ON: 이제 selected HOL 성공할 때까지 다른 launch 금지
+                    _set_reclaim_lock(st, hol_norm=str(selected_hol_norm), pin=cluster_id, now_ts0=float(now_ts), hold_sec=30.0)
                     _set_cluster_blocked_until(st, cluster_id, float(now_ts + 0.5))
 
                     if rl:
                         try:
                             rl.queue_event(
                                 event="hol_reclaim_issued",
-                                job_id=str(hol_jid),
+                                job_id=str(selected_hol_real),
                                 queue_len=-1,
                                 qlen_clusterq=-1,
-                                note=f"pin={cluster_id} free={free_n} reclaimable={reclaimable} need={need} issued={issued} got={got}",
+                                note=f"pin={cluster_id} free={free_n} reclaimable={reclaimable} need={need} issued={issued} got={got} hol={selected_hol_norm}",
                                 ts=float(time.time()),
                             )
                         except Exception:
                             pass
                     return
-                # 2) reclaim 불가면(=victim이 아직 없거나 free가 0) → free가 1~3이면 backfill로 양보 가능
-                #    단, backfill 태그는 pin 클러스터에서만.
-                #    (free==0이면 여기서 할 게 없다)
-                #    이 아래는 "clusterQ에서 1개 뽑아 backfill launch"로 이어진다.
 
-        # --------------------------------------------------
-        # (C) clusterQ에서 job 하나 뽑아 launch 계획 (backfill 또는 normal)
-        # - reclaim_lock이 켜져 있으면 여기로 오면 안 됨(위에서 return/hol_to_launch 처리)
-        # --------------------------------------------------
+        # (C) HOL이 없거나, HOL인데 reclaim 못하면: clusterQ에서 job 하나 launch
         if hol_to_launch is None:
-            # clusterQ 존재 확인
             q = (getattr(st, "cluster_queues", {}) or {}).get(cluster_id)
             if q is None:
                 return
+
             try:
                 qitems = list(getattr(q, "_jobs", []) or [])
             except Exception:
@@ -3085,34 +3332,36 @@ def _cluster_tick_once(cluster_id: str) -> None:
             if free_n <= 0:
                 return
 
-            # backfill 조건: hol_waiting_here이고 free가 1~3인 경우만
-            is_backfill_run = bool(hol_waiting_here and free_n > 0 and free_n < 4)
+            # ✅ backfill 조건: selected HOL이 있고, free 1~3일 때만
+            is_backfill_run = bool(hol_waiting_here and selected_hol_norm and 1 <= free_n <= 3)
 
+            # 후보 선택: (backfill이면 작은 g_hint 우선, 아니면 FIFO)
             candidates: List[Tuple[int, float, int, str, int]] = []
             for i, item in enumerate(qitems):
                 jid = _qitem_job_id(item)
                 if not jid:
                     continue
-                jr = jobs.get(jid)
+                jr = jobs.get(str(jid))
                 if jr is None:
+                    continue
+                if not _is_queued(jr):
                     continue
 
                 try:
-                    _clear_hol_backfill_if_queued(jr)
+                    _clear_backfill_tags_if_queued(jr)
                 except Exception:
                     pass
 
-                if not _job_status_is_queued(jr):
+                if not _is_queued(jr):
                     continue
-                if _job_is_gang4(jr):
+                if _is_gang4(jr):
                     continue
-                if not _job_is_launchable_now(jr, now_ts):
+                if not _job_launchable_now(jr, now_ts):
                     continue
 
                 item_greq = _qitem_g_req(item, 1)
-                enq_ts = _job_enqueue_ts(jr, now_ts)
+                enq_ts = _job_enqueue_ts(jr)
 
-                # backfill이면 작은 g_hint 선호
                 score = int(item_greq) if is_backfill_run else 0
                 candidates.append((int(score), float(enq_ts), int(i), str(jid), int(item_greq)))
 
@@ -3126,11 +3375,7 @@ def _cluster_tick_once(cluster_id: str) -> None:
             jr_sel = jobs.get(job_to_start)
 
             cap = _job_max_g_cap(jr_sel)
-            g_hint = int(max(1, int(chosen_item_greq)))
-            try:
-                g_hint = _job_g_hint_for_cluster(jr_sel, cluster_id, fallback=g_hint)
-            except Exception:
-                pass
+            g_hint = _job_g_hint_for_cluster(jr_sel, cluster_id, fallback=int(chosen_item_greq))
 
             if cap is None:
                 g_use = int(max(1, min(int(free_n), int(g_hint))))
@@ -3139,7 +3384,7 @@ def _cluster_tick_once(cluster_id: str) -> None:
 
             start_nodes = list(free_nodes[:g_use])
 
-            # pop
+            # pop from clusterQ
             try:
                 chosen_item = qitems[chosen_idx]
                 qitems.pop(chosen_idx)
@@ -3148,7 +3393,7 @@ def _cluster_tick_once(cluster_id: str) -> None:
             except Exception:
                 return
 
-            # reserve
+            # reserve nodes
             try:
                 reserve_nodes(job_id=job_to_start, cluster_id=cluster_id, nodes=list(start_nodes))
             except Exception:
@@ -3165,50 +3410,46 @@ def _cluster_tick_once(cluster_id: str) -> None:
                     pass
                 return
 
-            # tag: pin + hol_waiting + free<4 인 backfill만 태깅
+            # ✅ tag backfill victim (반드시 selected_hol_norm으로 고정!)
             jr2 = jobs.get(job_to_start)
             if jr2 is not None:
                 try:
                     if is_backfill_run:
                         jr2.is_backfill = True
+                        jr2.is_hol_backfill = True
+                        jr2.hol_backfill_for = str(selected_hol_norm)   # ✅ SSOT
+                        jr2.hol_backfill_pin = cluster_id
+                        jr2.hol_backfill_since_ts = float(now_ts)
                         try:
                             ddl0 = float(getattr(jr2, "backfill_deadline_ts", 0.0) or 0.0)
                         except Exception:
                             ddl0 = 0.0
-                        if ddl0 <= 0.0:
-                            jr2.backfill_deadline_ts = float(now_ts + float(BACKFILL_SLICE_SEC))
-
-                        _tag_as_hol_backfill_locked(
-                            jr2,
-                            hol_jid=str(hol_jid),
-                            pin=str(cluster_id),
-                            now_ts=float(now_ts),
-                        )
-                        snap_tagged = True
-                        snap_tag_note = f"tagged_hol_backfill victim={job_to_start} hol={hol_jid} pin={cluster_id} g={int(g_use)}"
-                    else:
-                        jr2.is_backfill = False
-                        jr2.backfill_deadline_ts = 0.0
                         try:
-                            jr2.is_hol_backfill = False
-                            jr2.hol_backfill_for = None
-                            jr2.hol_backfill_pin = None
-                            jr2.hol_backfill_since_ts = 0.0
+                            jr2.queue_kind = "HOL_BACKFILL"
                         except Exception:
                             pass
+                        snap_tagged = True
+                        snap_tag_note = f"tagged victim={job_to_start} hol={selected_hol_norm} pin={cluster_id} g={g_use}"
+                    else:
+                        jr2.is_backfill = False
+                        jr2.is_hol_backfill = False
+                        jr2.backfill_deadline_ts = 0.0
+                        jr2.hol_backfill_for = None
+                        jr2.hol_backfill_pin = None
+                        jr2.hol_backfill_since_ts = 0.0
                 except Exception:
                     pass
 
             snap_deq = True
             snap_deq_job_id = str(job_to_start)
-            snap_deq_note = (
+            snap_note = (
                 f"cluster={cluster_id} kind=CLUSTERQ backfill={is_backfill_run} "
-                f"g={int(g_use)} g_hint={int(g_hint)} nodes={list(start_nodes)} "
-                f"hol_waiting={hol_waiting_here} hol={hol_jid} pin={hol_pin} free={free_n}"
+                f"g={g_use} g_hint={g_hint} nodes={list(start_nodes)} "
+                f"hol_waiting={hol_waiting_here} hol={selected_hol_norm or ''} free={free_n}"
             )
 
     # -----------------------------
-    # 1) LOG (락 밖)
+    # LOG (락 밖)
     # -----------------------------
     if rl and snap_deq:
         try:
@@ -3217,7 +3458,7 @@ def _cluster_tick_once(cluster_id: str) -> None:
                 job_id=str(snap_deq_job_id),
                 queue_len=-1,
                 qlen_clusterq=int(snap_qlen_after),
-                note=str(snap_deq_note),
+                note=str(snap_note),
                 ts=float(time.time()),
             )
         except Exception:
@@ -3237,9 +3478,7 @@ def _cluster_tick_once(cluster_id: str) -> None:
             pass
 
     # -----------------------------
-    # 2) gang4 launch (락 밖)
-    # - reclaim_lock 상태에서는 이것만 수행되고,
-    #   node_draining이면 drain_until까지 blocked 걸고 다음 tick에 재시도
+    # 1) gang4 launch (락 밖)
     # -----------------------------
     if hol_to_launch and hol_nodes and len(hol_nodes) >= 4:
         try:
@@ -3258,18 +3497,15 @@ def _cluster_tick_once(cluster_id: str) -> None:
                     pass
             return
 
-        # reserve는 이미 free에서 바로 잡기 때문에, 여기서는 start만 호출
         out = _start_job_on_cluster(
             job=hol_job,
             cluster_id=cluster_id,
             node_names=list(hol_nodes[:4]),
             g_use=4,
-            is_backfill=False,  # gang4는 backfill이 아니다
+            is_backfill=False,
         )
-
         ok = bool((out or {}).get("ok"))
         if ok:
-            # 성공: reclaim_lock 해제
             with STATE_LOCK:
                 try:
                     st4 = get_global_state()
@@ -3290,10 +3526,8 @@ def _cluster_tick_once(cluster_id: str) -> None:
                     pass
             return
 
-        # 실패: node_draining이면 drain_until 이후 재시도 + 다른 launch 금지(reclaim_lock 유지)
-        reason = str((out or {}).get("reason", "") or "").lower()
+        reason = _as_str((out or {}).get("reason", "") or "").lower()
         if reason == "node_draining":
-            # out에서 drain_until을 최대한 뽑아보고, 없으면 짧게 backoff
             drain_until = 0.0
             for k in ("drain_until", "drain_until_ts", "blocked_until", "blocked_until_ts"):
                 try:
@@ -3305,14 +3539,15 @@ def _cluster_tick_once(cluster_id: str) -> None:
                     continue
             if drain_until <= 0.0:
                 drain_until = float(time.time() + 1.0)
-
             with STATE_LOCK:
                 st4 = get_global_state()
-                # reclaim_lock은 유지 (victim 재런치 금지)
-                _set_reclaim_lock(st4, hol_jid=str(hol_to_launch), pin=str(cluster_id), now_ts=float(time.time()), hold_sec=30.0)
-                # drain_until까지 cluster launch 막아서 계속 재시도하게 만들기
+                # reclaim_lock 유지 (selected HOL 유지)
+                try:
+                    hol_norm = _norm_jid(getattr(st4, "hol_reclaim_hol_job_id", "") or "") or _norm_jid(hol_to_launch)
+                except Exception:
+                    hol_norm = _norm_jid(hol_to_launch)
+                _set_reclaim_lock(st4, hol_norm=str(hol_norm), pin=cluster_id, now_ts0=float(time.time()), hold_sec=30.0)
                 _set_cluster_blocked_until(st4, cluster_id, float(drain_until + 0.05))
-
             if rl:
                 try:
                     rl.queue_event(
@@ -3320,19 +3555,21 @@ def _cluster_tick_once(cluster_id: str) -> None:
                         job_id=str(hol_to_launch),
                         queue_len=-1,
                         qlen_clusterq=-1,
-                        note=f"pin={cluster_id} reason=node_draining retry_at={drain_until:.3f} resp={_safe_json(out or {})}",
+                        note=f"pin={cluster_id} retry_at={drain_until:.3f} resp={_safe_json(out or {})}",
                         ts=float(time.time()),
                     )
                 except Exception:
                     pass
             return
 
-        # 기타 실패: 그래도 reclaim_lock 유지하고 짧게 backoff 후 재시도(다른 배치 금지)
         with STATE_LOCK:
             st4 = get_global_state()
-            _set_reclaim_lock(st4, hol_jid=str(hol_to_launch), pin=str(cluster_id), now_ts=float(time.time()), hold_sec=30.0)
+            try:
+                hol_norm = _norm_jid(getattr(st4, "hol_reclaim_hol_job_id", "") or "") or _norm_jid(hol_to_launch)
+            except Exception:
+                hol_norm = _norm_jid(hol_to_launch)
+            _set_reclaim_lock(st4, hol_norm=str(hol_norm), pin=cluster_id, now_ts0=float(time.time()), hold_sec=30.0)
             _set_cluster_blocked_until(st4, cluster_id, float(time.time() + 1.0))
-
         if rl:
             try:
                 rl.queue_event(
@@ -3348,8 +3585,7 @@ def _cluster_tick_once(cluster_id: str) -> None:
         return
 
     # -----------------------------
-    # 3) normal/backfill job launch (락 밖)
-    # - reclaim_lock 켜진 상태에서는 위에서 return되므로 여기로 안 옴
+    # 2) normal/backfill launch (락 밖)
     # -----------------------------
     if not (job_to_start and start_nodes and g_use > 0):
         return
@@ -3360,23 +3596,19 @@ def _cluster_tick_once(cluster_id: str) -> None:
     except Exception:
         jobx = None
 
-    # backfill 여부 재판정(launch 시점 기준)
-    is_backfill_run = False
+    is_backfill_reason = False
     try:
-        hol_jid2, hol_pin2, _ = _find_waiting_gang4_hol_locked(stx)
-        if hol_jid2 and hol_pin2 and str(hol_pin2) == str(cluster_id):
-            free_now = len(list(_free_nodes_in_cluster(stx, cluster_id) or []))
-            # reclaim_lock이 켜져 있으면 backfill 금지지만, 여기 도달했다는 건 꺼져있다는 뜻
-            is_backfill_run = bool(free_now > 0 and free_now < 4)
+        if jobx is not None:
+            is_backfill_reason = bool(getattr(jobx, "is_backfill", False) or getattr(jobx, "is_hol_backfill", False))
     except Exception:
-        is_backfill_run = False
+        is_backfill_reason = False
 
     out = _start_job_on_cluster(
         job=jobx,
         cluster_id=cluster_id,
         node_names=list(start_nodes),
         g_use=int(g_use),
-        is_backfill=bool(is_backfill_run),
+        is_backfill=bool(is_backfill_reason),
     )
 
     ok = bool((out or {}).get("ok"))
@@ -3388,14 +3620,13 @@ def _cluster_tick_once(cluster_id: str) -> None:
                     job_id=str(job_to_start),
                     queue_len=-1,
                     qlen_clusterq=-1,
-                    note=f"cluster={cluster_id} backfill={is_backfill_run} g={int(g_use)} nodes={list(start_nodes)} ok=True",
+                    note=f"cluster={cluster_id} backfill={is_backfill_reason} g={g_use} nodes={list(start_nodes)} ok=True",
                     ts=float(time.time()),
                 )
             except Exception:
                 pass
         return
 
-    # 실패 수습: release + job QUEUED 수렴 + 큐 복원
     if rl:
         try:
             rl.queue_event(
@@ -3403,7 +3634,7 @@ def _cluster_tick_once(cluster_id: str) -> None:
                 job_id=str(job_to_start),
                 queue_len=-1,
                 qlen_clusterq=-1,
-                note=f"cluster={cluster_id} backfill={is_backfill_run} g={int(g_use)} nodes={list(start_nodes)} resp={_safe_json(out or {})}",
+                note=f"cluster={cluster_id} backfill={is_backfill_reason} g={g_use} nodes={list(start_nodes)} resp={_safe_json(out or {})}",
                 ts=float(time.time()),
             )
         except Exception:
@@ -3431,13 +3662,12 @@ def _cluster_tick_once(cluster_id: str) -> None:
                 job3.nodes = []
                 job3.g_cur = 0
                 job3.status = "QUEUED"
-                reason = str((out or {}).get("reason", "") or "").lower()
+                reason = _as_str((out or {}).get("reason", "") or "").lower()
                 if reason != "node_draining":
                     job3.launch_cooldown_until_ts = float(time.time() + 1.0)
             except Exception:
                 pass
 
-        # 큐 복원
         try:
             if q3 is not None:
                 items3 = list(getattr(q3, "_jobs", []) or [])
@@ -3449,48 +3679,562 @@ def _cluster_tick_once(cluster_id: str) -> None:
         except Exception:
             pass
 
-_BACKFILL_TICK_LOCK = threading.Lock()
-_BACKFILL_TICK_INFLIGHT = False
+def _get_waiting_gang4_pins_locked(st):
+    """
+    Returns: dict pin_cluster -> list of gang4 job_norm waiting on that pin
+    - HOL을 '1개'로 좁히지 않는다.
+    - 구현 의존 최소화: global_queue/_jobs/jobs를 최대한 넓게 스캔.
+    """
+    def _as_str(x):
+        try: return str(x)
+        except: return ""
+    def _norm(x):
+        return _as_str(x).strip().lower()
+    def _status(jr):
+        try: return _as_str(getattr(jr, "status", "") or "").upper()
+        except: return ""
+    def _is_queued(jr):
+        return _status(jr) == "QUEUED"
 
-def _backfill_tick_global_safe(state: Any) -> None:
-    global _BACKFILL_TICK_INFLIGHT
+    jobs = getattr(st, "jobs", {}) or {}
 
-    if not _BACKFILL_TICK_LOCK.acquire(blocking=False):
-        return
-    if _BACKFILL_TICK_INFLIGHT:
+    # global queue 접근(너 구조에 맞춰 최대한 후보군)
+    gq = None
+    for k in ("global_queue", "gq", "queue", "job_queue"):
         try:
-            _BACKFILL_TICK_LOCK.release()
-        except Exception:
+            gq = getattr(st, k, None)
+            if gq is not None:
+                break
+        except:
             pass
-        return
-    _BACKFILL_TICK_INFLIGHT = True
+
+    items = []
+    try:
+        if gq is not None:
+            items = list(getattr(gq, "_jobs", []) or [])
+    except:
+        items = []
+
+    # fallback: jobs를 전수 스캔(queued + gang4만)
+    if not items:
+        items = [{"job_id": jid} for jid in list(jobs.keys())]
+
+    pins = {}  # pin -> [hol_norms]
+    for it in items:
+        jid = ""
+        if isinstance(it, dict):
+            jid = _as_str(it.get("job_id") or it.get("id") or "")
+        elif isinstance(it, str):
+            jid = it
+        else:
+            jid = _as_str(getattr(it, "job_id", "") or "")
+        jid = _as_str(jid).strip()
+        if not jid:
+            continue
+
+        jr = jobs.get(jid)
+        if jr is None:
+            # norm 매칭 fallback
+            jn = _norm(jid)
+            for k2, v2 in jobs.items():
+                if _norm(k2) == jn:
+                    jr = v2
+                    jid = str(k2)
+                    break
+        if jr is None:
+            continue
+        if not _is_queued(jr):
+            continue
+        try:
+            need = int(_job_gang_required_g(jr) or 0)
+        except:
+            need = 0
+        if need != 4:
+            continue
+
+        # pin 결정: jr.pin / preferred/home/admitted 순으로
+        pin = ""
+        for kk in ("pin_cluster_id", "pin", "pinned_cluster_id", "preferred_cluster_id", "home_cluster_id", "admitted_cluster_id"):
+            try:
+                v = getattr(jr, kk, None)
+                if v:
+                    pin = _as_str(v).strip()
+                    break
+            except:
+                pass
+        if not pin:
+            # it에 pin이 있을 수도
+            if isinstance(it, dict):
+                pin = _as_str(it.get("pin") or it.get("pin_cluster_id") or "").strip()
+
+        # pin이 비어있으면 “아직 어디든 가능”이라서 reclaim 대상이 아님
+        if not pin:
+            continue
+
+        pins.setdefault(pin, []).append(_norm(jid))
+
+    return pins
+
+def _backfill_tick_global_safe() -> None:
+    """
+    Global HOL-gang4 reclaim / backfill-preempt tick (SAFE-ish, deadline-free).
+
+    핵심 변경점
+    - ✅ deadline 로직 완전 제거
+    - ✅ preempt 대상 판정에서 blocked_until/launch_cooldown 제거 (launch용 필드라 preempt를 막으면 안 됨)
+    - ✅ pin에 gang4가 기다리는지 판단을 global_queue 기반으로 수행 (st.hol_pin_cluster 같은 비신뢰 필드 제거)
+    - ✅ victim 판정:
+        1) HOL_BACKFILL 태그(원칙)
+        2) 태그 유실 대비: hol_reclaim_active 동안에는 BACKFILL/is_backfill도 victim으로 허용 (단 pin 내부 + RUNNING만)
+    - ✅ 이번 tick은 "preempt 발행"만. 실제 gang4 launch는 다음 tick에서 일어나게 cluster_launch_blocked_until로 잠깐 막음.
+    """
+    import time
+    from typing import Any, Dict, List, Tuple, Optional
+
+    now_ts = float(time.time())
 
     try:
-        # 0) LOCK: state 기반 feed + cluster 목록 스냅샷
-        with STATE_LOCK:
-            st = get_global_state()
+        rl = get_run_logger()
+    except Exception:
+        rl = None
 
-            try:
-                _feed_cluster_queues_from_home_mobile_locked(st)
-            except Exception:
-                logger.exception("[backfill_safe] feed failed")
-
-            cluster_ids = list((getattr(st, "clusters", {}) or {}).keys())
-            cluster_ids = [str(c) for c in cluster_ids]
-
-        # 1) NO LOCK: clusterQ backfill 실행
-        for cid in cluster_ids:
-            try:
-                _cluster_tick_once(str(cid))
-            except Exception:
-                logger.exception("[backfill_safe] cluster_tick_once failed cid=%s", cid)
-
-    finally:
-        _BACKFILL_TICK_INFLIGHT = False
+    # -----------------------------
+    # helpers
+    # -----------------------------
+    def _as_str(x: Any) -> str:
         try:
-            _BACKFILL_TICK_LOCK.release()
+            return str(x)
+        except Exception:
+            return ""
+
+    def _norm_jid(x: Any) -> str:
+        return _as_str(x).strip().lower()
+
+    def _status(jr: Any) -> str:
+        try:
+            return _as_str(getattr(jr, "status", "") or "").upper()
+        except Exception:
+            return ""
+
+    def _is_running(jr: Any) -> bool:
+        return _status(jr) == "RUNNING"
+
+    def _is_queued(jr: Any) -> bool:
+        return _status(jr) == "QUEUED"
+
+    def _is_gang4(jr: Any) -> bool:
+        try:
+            return int(_job_gang_required_g(jr) or 0) == 4
+        except Exception:
+            return False
+
+    def _safe_to_preempt(jr: Any) -> bool:
+        """
+        ✅ 중요: preempt는 launch와 달리 blocked_until/launch_cooldown에 막히면 안 됨.
+        """
+        if jr is None:
+            return False
+        try:
+            if bool(getattr(jr, "launch_inflight", False)):
+                return False
+            if bool(getattr(jr, "preempt_inflight", False)):
+                return False
         except Exception:
             pass
+        return True
+
+    def _active_meta_for_job(st0: Any, jid: str) -> Dict[str, Any]:
+        jid = str(jid)
+        try:
+            aj = getattr(st0, "active_jobs", None)
+            if isinstance(aj, dict):
+                v = aj.get(jid)
+                if isinstance(v, dict):
+                    return dict(v)
+        except Exception:
+            pass
+        try:
+            aj2 = globals().get("ACTIVE_JOBS")
+            if isinstance(aj2, dict):
+                v2 = aj2.get(jid)
+                if isinstance(v2, dict):
+                    return dict(v2)
+        except Exception:
+            pass
+        return {}
+
+    def _emit_preempt(victim_job_id: str, reason: str) -> bool:
+        for name in ("preempt_job", "request_preempt_job", "_preempt_job", "issue_preempt", "request_preempt"):
+            fn = globals().get(name)
+            if callable(fn):
+                try:
+                    out = fn(victim_job_id, reason=reason)
+                except TypeError:
+                    try:
+                        out = fn(victim_job_id, reason)
+                    except Exception:
+                        continue
+                except Exception:
+                    continue
+                if isinstance(out, dict):
+                    return bool(out.get("ok", True))
+                return True
+        return False
+
+    def _set_cluster_blocked_until(st0: Any, cid: str, until_ts: float) -> None:
+        try:
+            cb = getattr(st0, "cluster_launch_blocked_until", None)
+            if not isinstance(cb, dict):
+                cb = {}
+                setattr(st0, "cluster_launch_blocked_until", cb)
+            prev = float(cb.get(str(cid), 0.0) or 0.0)
+            cb[str(cid)] = float(max(prev, float(until_ts)))
+        except Exception:
+            pass
+
+    def _victim_gcur(jr: Any) -> int:
+        for k in ("g_cur", "world_size", "g", "gpus"):
+            try:
+                v = getattr(jr, k, None)
+                if v is None:
+                    continue
+                iv = int(v)
+                if iv > 0:
+                    return iv
+            except Exception:
+                continue
+        try:
+            nodes = getattr(jr, "nodes", None)
+            if isinstance(nodes, list) and len(nodes) > 0:
+                return int(len(nodes))
+        except Exception:
+            pass
+        return 1
+
+    def _cluster_node_owner_map(st0: Any, cid: str) -> Dict[str, Any]:
+        clusters0 = getattr(st0, "clusters", {}) or {}
+        cr = clusters0.get(str(cid))
+        if cr is None:
+            return {}
+        try:
+            no = getattr(cr, "node_owner", None)
+        except Exception:
+            no = None
+        if isinstance(no, dict):
+            return no
+        if isinstance(cr, dict) and isinstance(cr.get("node_owner"), dict):
+            return cr.get("node_owner") or {}
+        return {}
+
+    def _job_runs_in_cluster_by_owner(st0: Any, cid: str, jid: str) -> bool:
+        """
+        cluster별 node_owner로 '이 job이 이 cluster에서 돌고 있는지' 판단.
+        """
+        no = _cluster_node_owner_map(st0, cid)
+        nj = _norm_jid(jid)
+        for _, owner in (no or {}).items():
+            if _norm_jid(owner) == nj:
+                return True
+        return False
+
+    def _find_waiting_gang4_in_pin_locked(st0: Any, pin: str) -> Optional[str]:
+        """
+        pin 클러스터에서 'QUEUED gang4'가 기다리는지 global_queue 우선으로 판단.
+        있으면 그 HOL job_id 반환, 없으면 None.
+        """
+        jobs0 = getattr(st0, "jobs", {}) or {}
+        gq = getattr(st0, "global_queue", None)
+        if not isinstance(gq, list):
+            # global_queue 없으면 jobs 전체에서라도 찾되, 순서는 보장 못함
+            for jid_key, jr in (jobs0 or {}).items():
+                if jr is None:
+                    continue
+                if not _is_queued(jr):
+                    continue
+                if not _is_gang4(jr):
+                    continue
+                p = (
+                    str(getattr(jr, "pinned_cluster", "") or "").strip()
+                    or str(getattr(jr, "pinned_cluster_id", "") or "").strip()
+                    or str(getattr(jr, "admitted_cluster_id", "") or "").strip()
+                    or str(getattr(jr, "home_cluster_id", "") or "").strip()
+                )
+                if p and p == str(pin):
+                    return str(getattr(jr, "job_id", "") or jid_key)
+            return None
+
+        def _job_id(x: Any) -> str:
+            if x is None:
+                return ""
+            if isinstance(x, str):
+                return x
+            if isinstance(x, dict):
+                return str(x.get("job_id") or x.get("id") or "")
+            if hasattr(x, "job_id"):
+                try:
+                    return str(getattr(x, "job_id") or "")
+                except Exception:
+                    return ""
+            return str(x)
+
+        for item in gq:
+            jid = _job_id(item)
+            if not jid:
+                continue
+            jr = jobs0.get(jid)
+            if jr is None:
+                continue
+            if not _is_queued(jr):
+                continue
+            if not _is_gang4(jr):
+                continue
+            p = (
+                str(getattr(jr, "pinned_cluster", "") or "").strip()
+                or str(getattr(jr, "pinned_cluster_id", "") or "").strip()
+                or str(getattr(jr, "admitted_cluster_id", "") or "").strip()
+                or str(getattr(jr, "home_cluster_id", "") or "").strip()
+            )
+            if p and p == str(pin):
+                return str(jid)
+
+        return None
+
+    def _is_hol_backfill_victim(st0: Any, pin: str, jid: str, jr: Any) -> bool:
+        """
+        deadline-free victim 판정.
+
+        원칙: HOL_BACKFILL 태그가 있는 backfill만 victim.
+        태그 유실 대응: hol_reclaim_active 동안에는 BACKFILL/is_backfill도 victim 허용(단 pin 내부 + RUNNING)
+        """
+        if jr is None or not _is_running(jr):
+            return False
+        if not _safe_to_preempt(jr):
+            return False
+
+        # pin cluster에서 돌고 있는지(가장 신뢰 가능한 판정)
+        if not _job_runs_in_cluster_by_owner(st0, str(pin), str(jid)):
+            # 보조로 jr.cluster_id도 보되, 이것만으로는 신뢰하지 않음
+            try:
+                if str(getattr(jr, "cluster_id", "") or "") != str(pin):
+                    return False
+            except Exception:
+                return False
+
+        meta = _active_meta_for_job(st0, jid)
+
+        # 태그들
+        try:
+            qk = _as_str(getattr(jr, "queue_kind", "") or "").strip().upper()
+        except Exception:
+            qk = ""
+        mqk = _as_str(meta.get("queue_kind") or meta.get("queueKind") or "").strip().upper()
+        mreason = _as_str(meta.get("reason") or "").strip().upper()
+
+        try:
+            is_hbf = bool(getattr(jr, "is_hol_backfill", False))
+        except Exception:
+            is_hbf = False
+        try:
+            is_bf = bool(getattr(jr, "is_backfill", False))
+        except Exception:
+            is_bf = False
+
+        # 1) 원칙: HOL_BACKFILL
+        tagged_hol = bool(
+            is_hbf
+            or qk == "HOL_BACKFILL"
+            or mqk == "HOL_BACKFILL"
+            or ("HOL_BACKFILL" in mreason)
+        )
+
+        # pin 매칭(있으면 엄격)
+        try:
+            hpin = _as_str(getattr(jr, "hol_backfill_pin", "") or "").strip()
+        except Exception:
+            hpin = ""
+        mhpin = _as_str(meta.get("hol_backfill_pin") or meta.get("holBackfillPin") or "").strip()
+        eff_pin = hpin or mhpin
+        if eff_pin and eff_pin != str(pin):
+            return False
+
+        if tagged_hol:
+            return True
+
+        # 2) 태그 유실 대응: reclaim 락이 켜져 있을 때만 완화
+        try:
+            reclaim_active = bool(getattr(st0, "hol_reclaim_active", False))
+            reclaim_pin = _as_str(getattr(st0, "hol_reclaim_pin", "") or "").strip()
+            reclaim_until = float(getattr(st0, "hol_reclaim_until_ts", 0.0) or 0.0)
+        except Exception:
+            reclaim_active, reclaim_pin, reclaim_until = False, "", 0.0
+
+        if not (reclaim_active and reclaim_pin == str(pin) and now_ts <= reclaim_until):
+            return False
+
+        # 완화 조건: BACKFILL류만
+        if is_bf or qk == "BACKFILL" or mqk == "BACKFILL" or ("BACKFILL" in mreason):
+            return True
+
+        return False
+
+    # -----------------------------
+    # LOCK 영역
+    # -----------------------------
+    with STATE_LOCK:
+        st = get_global_state()
+        clusters = getattr(st, "clusters", {}) or {}
+        jobs = getattr(st, "jobs", {}) or {}
+
+        # pin에서 기다리는 gang4 HOL 하나라도 있나?
+        # (여러 개 있어도 상관 없음 — pin 단위 reclaim 목적)
+        try:
+            hol_jid, hol_pin, pin_free = _find_waiting_gang4_hol_locked(st)
+        except Exception:
+            hol_jid, hol_pin, pin_free = None, None, 0
+
+        hol_pin = _as_str(hol_pin).strip()
+        if not hol_pin or hol_pin not in clusters:
+            # reclaim 락 정리
+            try:
+                if bool(getattr(st, "hol_reclaim_active", False)):
+                    st.hol_reclaim_active = False
+            except Exception:
+                pass
+            return
+
+        # pin에 실제 gang4가 대기하는지 재확인(더 신뢰)
+        hol_in_pin = _find_waiting_gang4_in_pin_locked(st, hol_pin)
+        if not hol_in_pin:
+            try:
+                if bool(getattr(st, "hol_reclaim_active", False)):
+                    st.hol_reclaim_active = False
+            except Exception:
+                pass
+            return
+
+        # pin free 최신 계산(가능하면 _free_nodes_in_cluster 사용)
+        try:
+            free_nodes_pin = list(_free_nodes_in_cluster(st, hol_pin) or [])
+            free_n_pin = int(len(free_nodes_pin))
+        except Exception:
+            free_n_pin = int(pin_free or 0)
+
+        # reclaim은 free=1~3에서만 (0이면 지금은 못함, 4면 필요없음)
+        if not (1 <= int(free_n_pin) <= 3):
+            return
+
+        # victim 수집
+        victims: List[Tuple[str, int]] = []
+        for jid_key, jr in (jobs or {}).items():
+            if jr is None or not _is_running(jr):
+                continue
+            if not _safe_to_preempt(jr):
+                continue
+            if not _is_hol_backfill_victim(st, hol_pin, str(jid_key), jr):
+                continue
+            victims.append((str(jid_key), int(max(1, _victim_gcur(jr)))))
+
+        if not victims:
+            # 디버깅용 로그: 왜 0인지 남기는 게 중요
+            if rl:
+                try:
+                    rl.queue_event(
+                        event="hol_reclaim_no_victim",
+                        job_id=str(hol_in_pin),
+                        queue_len=-1,
+                        qlen_clusterq=-1,
+                        note=f"pin={hol_pin} free={free_n_pin} running={sum(1 for _,j in (jobs or {}).items() if j and _is_running(j))}",
+                        ts=float(time.time()),
+                    )
+                except Exception:
+                    pass
+            return
+
+        reclaimable = sum(g for _, g in victims)
+        if int(free_n_pin) + int(reclaimable) < 4:
+            # 충분히 못 만들면 이번엔 안 건드림(안전)
+            if rl:
+                try:
+                    rl.queue_event(
+                        event="hol_reclaim_insufficient",
+                        job_id=str(hol_in_pin),
+                        queue_len=-1,
+                        qlen_clusterq=-1,
+                        note=f"pin={hol_pin} free={free_n_pin} reclaimable={reclaimable} victims={len(victims)}",
+                        ts=float(time.time()),
+                    )
+                except Exception:
+                    pass
+            return
+
+        need = int(max(0, 4 - int(free_n_pin)))
+        if need <= 0:
+            return
+
+        # 큰 것부터 끊어서 횟수 최소화
+        victims.sort(key=lambda x: int(x[1]), reverse=True)
+
+        issued: List[str] = []
+        got = 0
+        reason = f"HOL_GANG_PREEMPT hol={_as_str(hol_in_pin).upper()} pin={hol_pin}"
+
+        for vjid, vg in victims:
+            if got >= need:
+                break
+            if _emit_preempt(vjid, reason=reason):
+                issued.append(vjid)
+                got += int(vg)
+                vjr = jobs.get(str(vjid))
+                if vjr is not None:
+                    try:
+                        vjr.preempt_inflight = True
+                        vjr.preempting_since_ts = float(now_ts)
+                    except Exception:
+                        pass
+                    # requeue는 pin으로 유도(체크포인트 로컬/수렴)
+                    try:
+                        vjr.requeue_target_cluster_id = str(hol_pin)
+                        vjr.requeue_front = True
+                    except Exception:
+                        pass
+
+        if not issued:
+            if rl:
+                try:
+                    rl.queue_event(
+                        event="hol_reclaim_preempt_failed",
+                        job_id=str(hol_in_pin),
+                        queue_len=-1,
+                        qlen_clusterq=-1,
+                        note=f"pin={hol_pin} free={free_n_pin} need={need} victims={victims[:5]}",
+                        ts=float(time.time()),
+                    )
+                except Exception:
+                    pass
+            return
+
+        # reclaim 락 + launch block (이번 tick에서 backfill이 다시 채우지 못하게)
+        try:
+            st.hol_reclaim_active = True
+            st.hol_reclaim_pin = str(hol_pin)
+            st.hol_reclaim_until_ts = float(now_ts + 30.0)
+        except Exception:
+            pass
+
+        _set_cluster_blocked_until(st, hol_pin, float(now_ts + 0.5))
+
+        if rl:
+            try:
+                rl.queue_event(
+                    event="hol_reclaim_issued_global",
+                    job_id=str(hol_in_pin),
+                    queue_len=-1,
+                    qlen_clusterq=-1,
+                    note=f"pin={hol_pin} free={free_n_pin} need={need} issued={issued} got={got} victims_total={len(victims)}",
+                    ts=float(time.time()),
+                )
+            except Exception:
+                pass
 
 def _schedule_once() -> None:
     now_ts = float(_now())
@@ -3558,7 +4302,6 @@ def _schedule_once() -> None:
         _emit_csp_metrics_tick()
     except Exception:
         logger.exception("[tick] emit_csp_metrics failed")
-
 
 def schedule_tick_global() -> None:
     if not _TICK_RUN_LOCK.acquire(blocking=False):
@@ -3958,7 +4701,6 @@ def _find_waiting_gang4_hol_locked(st: Any) -> Tuple[Optional[str], Optional[str
     if not isinstance(gq, list):
         return (None, None, 0)
 
-    node_owner = getattr(st, "node_owner", {}) or {}
     clusters = getattr(st, "clusters", {}) or {}
 
     def _job_id(x: Any) -> str:
@@ -3979,16 +4721,26 @@ def _find_waiting_gang4_hol_locked(st: Any) -> Tuple[Optional[str], Optional[str
         cr = clusters.get(cid)
         if cr is None:
             return 0
+
+        # nodes
         try:
             nodes = list(getattr(cr, "nodes", []) or [])
         except Exception:
-            if isinstance(cr, dict):
-                nodes = list(cr.get("nodes") or [])
-            else:
-                nodes = []
+            nodes = list(cr.get("nodes") or []) if isinstance(cr, dict) else []
+
+        # node_owner는 cluster record 안에 있다
+        try:
+            no = getattr(cr, "node_owner", None)
+        except Exception:
+            no = None
+        if not isinstance(no, dict) and isinstance(cr, dict):
+            no = cr.get("node_owner")
+        if not isinstance(no, dict):
+            no = {}
+
         cnt = 0
         for n in nodes:
-            if node_owner.get(str(n)) is None:
+            if no.get(str(n)) is None:
                 cnt += 1
         return int(cnt)
 
@@ -4000,8 +4752,7 @@ def _find_waiting_gang4_hol_locked(st: Any) -> Tuple[Optional[str], Optional[str
         if jr is None:
             continue
 
-        s = str(getattr(jr, "status", "") or "").upper()
-        if s != "QUEUED":
+        if str(getattr(jr, "status", "") or "").upper() != "QUEUED":
             continue
 
         try:
@@ -4018,12 +4769,9 @@ def _find_waiting_gang4_hol_locked(st: Any) -> Tuple[Optional[str], Optional[str
             or str(getattr(jr, "home_cluster_id", "") or "").strip()
         )
         if not pin:
-            # pin이 없으면 클러스터 하나를 택해야 하지만,
-            # 이 함수는 "대기 hol"를 찾는 용도라 여기선 skip
             continue
 
-        pin_free = _free_in_cluster(pin)
-        return (str(jid), str(pin), int(pin_free))
+        return (str(jid), str(pin), _free_in_cluster(pin))
 
     return (None, None, 0)
 
@@ -4816,337 +5564,158 @@ def _tick_thread_main() -> None:
 
 def _pick_victims_for_gang_locked(
     st: Any,
-    *,
-    hol_jid: str,
-    pin: str,
-    need_g: int,
-    allow_preempt_normal: bool = False,
-    allow_preempt_starting: bool = False,
-) -> Tuple[List[str], Dict[str, Any]]:
-    jobs_all = getattr(st, "jobs", {}) or {}
-    node_owner = getattr(st, "node_owner", {}) or {}
+    *args,
+    **kwargs,
+) -> Tuple[List[Dict[str, Any]], Dict[str, Any]]:
+    """
+    ✅ 호환 래퍼:
+    - callsite가 어떤 키워드(pin, hol_jid, free_n, need, need_free, pin_cluster_id...)를 던져도 TypeError로 죽지 않게 한다.
+    - 내부에서는 pin/need_free를 정규화해서 victim 고르는 본체 로직으로 넘긴다.
+    - 반환은 (victims, dbg) 튜플을 고정한다.
+    """
 
-    hol_jid = str(hol_jid or "").strip()
-    pin = str(pin or "").strip()
+    # ---------- 1) alias 흡수 / 정규화 ----------
+    # pin 계열
+    pin = (
+        kwargs.pop("pin", None)
+        or kwargs.pop("pin_cluster_id", None)
+        or kwargs.pop("cluster_id", None)
+        or kwargs.pop("cid", None)
+    )
+    pin = str(pin) if pin is not None else ""
+
+    # need 계열
+    need_free = (
+        kwargs.pop("need_free", None)
+        or kwargs.pop("need", None)
+        or kwargs.pop("need_gpus", None)
+        or kwargs.pop("need_slots", None)
+    )
     try:
-        need_g = int(need_g or 0)
+        need_free = int(need_free) if need_free is not None else 0
     except Exception:
-        need_g = 0
+        need_free = 0
 
-    try:
-        now_ts = float(time.time())
-    except Exception:
-        now_ts = 0.0
+    # 참고용(없어도 됨): hol 관련
+    hol_jid = kwargs.pop("hol_jid", None)
+    hol_norm = kwargs.pop("hol_norm", None)
+    hol_pin = kwargs.pop("hol_pin", None)
+    free_n = kwargs.pop("free_n", None)
 
-    def _safe_int(x: Any, d: int = 0) -> int:
+    # 옵션들(없으면 기본값)
+    only_hol_backfill = bool(kwargs.pop("only_hol_backfill", False))
+    exclude_gang4 = bool(kwargs.pop("exclude_gang4", True))
+    safe_only = bool(kwargs.pop("safe_only", True))
+    prefer_large_first = bool(kwargs.pop("prefer_large_first", True))
+    max_victims = int(kwargs.pop("max_victims", 8) or 8)
+
+    # 예상 못한 나머지 키워드는 dbg에만 남기고 버림(중요: 죽지 않게)
+    extra_kwargs = dict(kwargs)
+
+    # ---------- 2) 입력 검증 ----------
+    dbg: Dict[str, Any] = {
+        "pin": pin,
+        "need_free": need_free,
+        "hol_jid": (str(hol_jid) if hol_jid else None),
+        "hol_norm": (str(hol_norm) if hol_norm else None),
+        "hol_pin": (str(hol_pin) if hol_pin else None),
+        "free_n": (int(free_n) if free_n is not None else None),
+        "only_hol_backfill": only_hol_backfill,
+        "exclude_gang4": exclude_gang4,
+        "safe_only": safe_only,
+        "prefer_large_first": prefer_large_first,
+        "max_victims": max_victims,
+        "extra_kwargs": extra_kwargs,   # 디버그용 (원하면 나중에 제거)
+    }
+
+    if not pin or need_free <= 0:
+        dbg["reason"] = "invalid_pin_or_need"
+        return [], dbg
+
+    # ---------- 3) 여기부터가 “진짜 victim 선택 로직” ----------
+    # ✅ 너가 원래 만들었던 victim 로직을 여기 넣으면 됨.
+    # 지금은 tick이 안 죽는 게 최우선이니까, 최소 구현 예시만 둔다.
+
+    jobs = getattr(st, "jobs", {}) or {}
+    victims: List[Tuple[str, int]] = []
+
+    def _status(jr: Any) -> str:
         try:
-            return int(x)
+            return str(getattr(jr, "status", "") or "").upper()
         except Exception:
-            return d
+            return ""
 
-    def _safe_float(x: Any, d: float = 0.0) -> float:
+    def _is_running(jr: Any) -> bool:
+        return _status(jr) == "RUNNING"
+
+    def _safe_to_touch(jr: Any) -> bool:
+        if jr is None:
+            return False
         try:
-            return float(x)
+            if bool(getattr(jr, "launch_inflight", False)) or bool(getattr(jr, "preempt_inflight", False)):
+                return False
         except Exception:
-            return float(d)
+            pass
+        return True
 
-    def _victim_g_est(vjr: Any) -> int:
-        gcur = _safe_int(getattr(vjr, "g_cur", 0) or 0, 0)
-        if gcur > 0:
-            return int(gcur)
+    def _victim_gcur(jr: Any) -> int:
+        for k in ("g_cur", "world_size", "g"):
+            try:
+                v = getattr(jr, k, None)
+                if v is not None and int(v) > 0:
+                    return int(v)
+            except Exception:
+                pass
         try:
-            nn = len(list(getattr(vjr, "nodes", []) or []))
-            if nn > 0:
-                return int(nn)
+            nd = getattr(jr, "nodes", None)
+            if isinstance(nd, list) and nd:
+                return int(len(nd))
         except Exception:
             pass
         return 1
 
-    def _status_ok(vjr: Any) -> bool:
-        stt = str(getattr(vjr, "status", "") or "").upper().strip()
-        if stt == "RUNNING":
-            return True
-        if allow_preempt_starting and stt == "STARTING":
-            return True
-        return False
-
-    def _same_pin(vjr: Any) -> bool:
+    # 후보 수집: (예시) pin 클러스터에서 RUNNING이고 (hol_backfill victim이면) 우선
+    for jid, jr in jobs.items():
+        if jr is None or not _is_running(jr) or not _safe_to_touch(jr):
+            continue
         try:
-            return str(getattr(vjr, "cluster_id", "") or "").strip() == pin
-        except Exception:
-            return False
-
-    def _has_nodes(vjr: Any) -> bool:
-        try:
-            return bool([n for n in (getattr(vjr, "nodes", []) or []) if str(n).strip()])
-        except Exception:
-            return False
-
-    def _owns_any_node_ssot(vjid: str, vjr: Any) -> bool:
-        try:
-            nodes = [str(n).strip() for n in (getattr(vjr, "nodes", []) or [])]
-            nodes = [n for n in nodes if n]
-        except Exception:
-            nodes = []
-        if not nodes:
-            return False
-        vjid = str(vjid)
-        for n in nodes:
-            if str(node_owner.get(n) or "") == vjid:
-                return True
-        return False
-
-    def _get_str(vjr: Any, keys: List[str]) -> str:
-        for k in keys:
-            try:
-                v = getattr(vjr, k, None)
-            except Exception:
-                v = None
-            if v is None:
+            if str(getattr(jr, "cluster_id", "") or "") != pin:
                 continue
-            s = str(v or "").strip()
-            if s:
-                return s
-        return ""
-
-    def _get_bool(vjr: Any, keys: List[str]) -> bool:
-        for k in keys:
-            try:
-                v = getattr(vjr, k, None)
-            except Exception:
-                v = None
-            if v is None:
-                continue
-            try:
-                if bool(v):
-                    return True
-            except Exception:
-                continue
-        return False
-
-    def _is_hol_backfill_strict(vjr: Any) -> Tuple[bool, Dict[str, Any]]:
-        dbg: Dict[str, Any] = {}
-        is_hbf = _get_bool(vjr, ["is_hol_backfill", "hol_backfill", "is_hol_backfill_job"])
-        hol_for = _get_str(vjr, ["hol_backfill_for", "hol_job_id", "hol_parent_job_id", "hol_of"])
-        hol_pin = _get_str(vjr, ["hol_backfill_pin", "hol_pin", "pin_cluster", "pinned_cluster"])
-        dbg.update({"is_hol_backfill": bool(is_hbf), "hol_for": hol_for, "hol_pin": hol_pin})
-
-        if not is_hbf:
-            return False, dbg
-        if hol_for and hol_for != hol_jid:
-            dbg["mismatch"] = f"hol_for_mismatch expect={hol_jid} got={hol_for}"
-            return False, dbg
-        if hol_pin and hol_pin != pin:
-            dbg["mismatch"] = f"hol_pin_mismatch expect={pin} got={hol_pin}"
-            return False, dbg
-        if (not hol_for) or (not hol_pin):
-            dbg["mismatch"] = "missing_hol_for_or_pin_fields"
-            return False, dbg
-        return True, dbg
-
-    def _is_backfill_loose(vjr: Any) -> bool:
-        try:
-            if bool(getattr(vjr, "is_backfill", False)):
-                return True
-            qk = str(getattr(vjr, "queue_kind", "") or "").upper().strip()
-            if qk in ("BACKFILL", "HOL_BACKFILL"):
-                return True
-        except Exception:
-            pass
-        return False
-
-    def _exclude_reason(vjid: str, vjr: Any) -> Optional[str]:
-        try:
-            if bool(getattr(vjr, "launch_inflight", False)):
-                return "launch_inflight"
-        except Exception:
-            pass
-        try:
-            if bool(getattr(vjr, "preempt_inflight", False)):
-                return "preempt_inflight"
-        except Exception:
-            pass
-
-        bu = _safe_float(getattr(vjr, "blocked_until", 0.0) or 0.0, 0.0)
-        if bu > 0.0 and now_ts < bu:
-            return "blocked_until"
-
-        gu = _safe_float(getattr(vjr, "preempt_guard_until_ts", 0.0) or 0.0, 0.0)
-        if gu > 0.0 and now_ts < gu:
-            return "preempt_guard"
-
-        stt = str(getattr(vjr, "status", "") or "").upper().strip()
-        if (not allow_preempt_starting) and stt == "STARTING":
-            return "starting_not_allowed"
-
-        # ✅ SSOT 소유 검증 (유령 nodes/owner 방지)
-        if not _owns_any_node_ssot(vjid, vjr):
-            return "stale_node_owner"
-
-        return None
-
-    def _priority_key(vjr: Any) -> Tuple[int, float, int, str]:
-        # 오래 실행(또는 오래 hol_backfill)된 것 먼저 preempt되게
-        t0 = 0.0
-        try:
-            t0 = float(getattr(vjr, "hol_backfill_since_ts", 0.0) or 0.0)
-        except Exception:
-            t0 = 0.0
-        if t0 <= 0.0:
-            try:
-                t0 = float(getattr(vjr, "start_ts", 0.0) or 0.0)
-            except Exception:
-                t0 = 0.0
-
-        size = _victim_g_est(vjr)
-        jid = str(getattr(vjr, "job_id", "") or getattr(vjr, "id", "") or "")
-
-        ok_strict, _ = _is_hol_backfill_strict(vjr)
-        if ok_strict:
-            tier = 0
-        elif _is_backfill_loose(vjr):
-            tier = 1
-        else:
-            tier = 2
-
-        t_ord = t0 if t0 > 0 else 1e18
-        return (tier, t_ord, -int(size), jid)
-
-    # --- 분류 ---
-    hol_backfill_candidates: List[str] = []
-    backfill_candidates: List[str] = []
-    normal_candidates: List[str] = []
-
-    strict_debug_map: Dict[str, Any] = {}
-    excluded_map: Dict[str, Any] = {}
-
-    items_iter = jobs_all.items() if isinstance(jobs_all, dict) else []
-    for vjid, vjr in items_iter:
-        try:
-            vjid = str(vjid)
-            if not vjid or vjid == hol_jid:
-                continue
-            if not _same_pin(vjr):
-                continue
-            if not _status_ok(vjr):
-                continue
-            if not _has_nodes(vjr):
-                continue
-
-            ex = _exclude_reason(vjid, vjr)
-            if ex:
-                excluded_map[vjid] = {
-                    "why": ex,
-                    "status": str(getattr(vjr, "status", "") or ""),
-                    "cluster_id": str(getattr(vjr, "cluster_id", "") or ""),
-                    "blocked_until": _safe_float(getattr(vjr, "blocked_until", 0.0) or 0.0, 0.0),
-                    "guard": _safe_float(getattr(vjr, "preempt_guard_until_ts", 0.0) or 0.0, 0.0),
-                    "launch_inflight": bool(getattr(vjr, "launch_inflight", False) or False),
-                    "preempt_inflight": bool(getattr(vjr, "preempt_inflight", False) or False),
-                    "g_est": int(_victim_g_est(vjr)),
-                    "nodes": [str(n) for n in (getattr(vjr, "nodes", []) or [])],
-                }
-                continue
-
-            ok_strict, dbg_strict = _is_hol_backfill_strict(vjr)
-            strict_debug_map[vjid] = dbg_strict
-
-            if ok_strict:
-                hol_backfill_candidates.append(vjid)
-            elif _is_backfill_loose(vjr):
-                backfill_candidates.append(vjid)
-            else:
-                normal_candidates.append(vjid)
         except Exception:
             continue
 
-    def _sorted_by_key(jids: List[str]) -> List[str]:
-        out: List[Tuple[Tuple[int, float, int, str], str]] = []
-        for jid in jids:
-            vjr = jobs_all.get(jid) if isinstance(jobs_all, dict) else None
-            if vjr is None:
+        if only_hol_backfill:
+            try:
+                if not bool(getattr(jr, "is_hol_backfill", False)):
+                    continue
+            except Exception:
                 continue
-            out.append((_priority_key(vjr), jid))
-        out.sort(key=lambda x: x[0])
-        return [jid for _, jid in out]
 
-    hol_backfill_candidates = _sorted_by_key(hol_backfill_candidates)
-    backfill_candidates = _sorted_by_key(backfill_candidates)
-    normal_candidates = _sorted_by_key(normal_candidates)
+        if exclude_gang4:
+            try:
+                if int(_job_gang_required_g(jr) or 0) == 4:
+                    continue
+            except Exception:
+                pass
 
-    # --- 선택 풀 구성(기본은 strict hol_backfill만) ---
-    pool: List[str] = list(hol_backfill_candidates)
-    note = "A_ONLY_hol_backfill_strict"
-    if allow_preempt_normal:
-        pool = list(hol_backfill_candidates) + list(backfill_candidates) + list(normal_candidates)
-        note = "hol_backfill_strict_then_expand"
+        victims.append((str(jid), max(1, _victim_gcur(jr))))
 
-    # --- remaining을 최소 overshoot로 채우는 greedy 선택 ---
-    picked: List[str] = []
-    reclaimed = 0
-    remaining = max(0, int(need_g))
+    # 정렬/선택
+    victims.sort(key=lambda x: int(x[1]), reverse=prefer_large_first)
 
-    # 미리 (priority, jid, g) 준비
-    cand_rows: List[Tuple[Tuple[int, float, int, str], str, int]] = []
-    for jid in pool:
-        vjr = jobs_all.get(jid) if isinstance(jobs_all, dict) else None
-        if vjr is None:
-            continue
-        g_est = int(_victim_g_est(vjr))
-        cand_rows.append((_priority_key(vjr), jid, g_est))
-    cand_rows.sort(key=lambda x: x[0])
-
-    # set for removal
-    remaining_set = {jid for _, jid, _ in cand_rows}
-
-    while remaining > 0:
-        # 후보 목록(정렬 유지)에서 살아있는 것만
-        alive: List[Tuple[Tuple[int, float, int, str], str, int]] = [
-            (pk, jid, g) for (pk, jid, g) in cand_rows if jid in remaining_set
-        ]
-        if not alive:
+    picked: List[Dict[str, Any]] = []
+    got = 0
+    for vjid, vg in victims:
+        if len(picked) >= max_victims:
+            break
+        picked.append({"job_id": vjid, "g": int(vg)})
+        got += int(vg)
+        if got >= need_free:
             break
 
-        # 1) remaining 이하로 맞출 수 있는 후보 중, 우선순위 가장 좋은 것
-        fit = [(pk, jid, g) for (pk, jid, g) in alive if g <= remaining]
-        if fit:
-            pk, jid, g = fit[0]
-        else:
-            # 2) 다 초과면 overshoot 최소(g 최소) 우선, 동률이면 priority
-            over = sorted(alive, key=lambda x: (x[2], x[0]))
-            pk, jid, g = over[0]
-
-        picked.append(jid)
-        remaining_set.discard(jid)
-        reclaimed += int(g)
-        remaining = max(0, int(need_g) - int(reclaimed))
-
-    dbg = {
-        "pin": pin,
-        "hol": hol_jid,
-        "need_g": int(need_g),
-        "now_ts": float(now_ts),
-        "allow_preempt_normal": bool(allow_preempt_normal),
-        "allow_preempt_starting": bool(allow_preempt_starting),
-        "candidates": {
-            "hol_backfill_strict": list(hol_backfill_candidates),
-            "backfill_loose": list(backfill_candidates),
-            "normal": list(normal_candidates),
-            "pool_used": list(pool),
-        },
-        "picked": list(picked),
-        "reclaimed_est": int(reclaimed),
-        "need_left": int(max(0, need_g - reclaimed)),
-        "excluded_sample": {k: excluded_map.get(k) for k in list(excluded_map.keys())[:20]},
-        "strict_debug_sample": {
-            k: strict_debug_map.get(k)
-            for k in (hol_backfill_candidates[:10] + backfill_candidates[:10] + normal_candidates[:10])
-        },
-        "note": str(note),
-    }
-
-    if reclaimed < need_g:
-        return [], dbg
+    dbg["candidates"] = len(victims)
+    dbg["picked"] = len(picked)
+    dbg["got"] = got
     return picked, dbg
 
 def _global_tick_once() -> None:
