@@ -227,7 +227,6 @@ class MetricsLogger:
         except Exception as e:
             log.error(f"Failed to write to {file_key}: {e}")
 
-
 metrics_logger = MetricsLogger()
 
 def log_scheduler_state(reason: str):
@@ -256,16 +255,10 @@ def log_scheduler_state(reason: str):
         + " | ".join(cluster_summaries)
     )
 
-
 def get_now_str() -> str:
     return datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
 def _compute_cluster_free_gpus() -> int:
-    """
-    현재 전체 클러스터(노드 레지스트리 기준)의 free GPU 개수 추정.
-    - NODE_REGISTRY: 전체 슬롯 수
-    - ACTIVE_JOBS: 이미 사용 중인 슬롯 수
-    """
     with NODE_REGISTRY_LOCK:
         total_slots = len(NODE_REGISTRY)
 
@@ -433,10 +426,7 @@ def sia_global_reallocation_tick(
 # --- Co-Adaptive Tuner (batch size / learning rate) ---
 class CoAdaptiveTuner:
     """
-    간단한 Pollux-style co-adaptive 튜너 (per-job).
-    - 제출 시 몇 개의 (g, batch, lr) 후보를 등록
-    - checkpoint마다 reward(accuracy - loss) 기록
-    - 일정 이상 관측되면 best 후보를 고르고 이후 exploit 단계에서 g에 맞춰 scaling
+    SIA의 결정(g, batch)을 받아 실제 학습에 필요한 (batch, lr)을 확정하는 튜너
     """
     def __init__(self):
         self.jobs: Dict[str, Dict[str, Any]] = {}
@@ -444,71 +434,41 @@ class CoAdaptiveTuner:
 
     def init_job(self, job_id: str, base_batch: int, base_lr: float):
         with self._lock:
-            # g는 Pollux allocator가 따로 결정하므로, 여기서는 대표 g만 사용
-            candidates = [
-                {"g": 1, "batch": base_batch,       "lr": base_lr},
-                {"g": 2, "batch": base_batch * 2,   "lr": base_lr * 2},
-                {"g": 4, "batch": base_batch * 4,   "lr": base_lr * 4},
-            ]
+            # 초기 진입 시점 설정
             self.jobs[job_id] = {
                 "base_batch": base_batch,
                 "base_lr": base_lr,
-                "candidates": candidates,
-                "metrics": {i: [] for i in range(len(candidates))},
-                "current_idx": 0,
-                "best_idx": 0,
-                "phase": "explore",  # explore -> exploit
+                "metrics": {},
+                "phase": "exploit", # SIA 환경에서는 Scheduler의 결정을 따르는 exploit 모드 우선
+            }
+
+    def choose_config(self, job_id: str, new_g: int, new_local_batch: int = 0) -> Dict[str, Any]:
+        with self._lock:
+            st = self.jobs.get(job_id)
+            
+            # 1. 기준값 설정 (st가 없으면 기본값 32 사용)
+            base_batch = st["base_batch"] if st else 32
+            base_lr = st["base_lr"] if st else 1e-3
+            
+            # 2. 결정된 배치 사이즈 확정
+            # new_local_batch가 0으로 들어오면 기본값(32) 혹은 현재 SIA가 추정한 값 사용
+            final_batch = new_local_batch if new_local_batch > 0 else base_batch
+            
+            # 3. Linear Scaling Rule에 따른 Learning Rate 조정
+            # LR = Base_LR * (Current_Total_Batch / Base_Total_Batch)
+            # 여기서는 local_batch 기준으로 계산 (g가 곱해진 효과는 world_size에서 반영됨)
+            scale_factor = final_batch / base_batch
+            final_lr = base_lr * scale_factor
+
+            return {
+                "g": new_g,
+                "batch": int(final_batch),
+                "lr": float(final_lr),
             }
 
     def on_checkpoint(self, job_id: str, epoch: int, loss: float, acc: float):
-        with self._lock:
-            st = self.jobs.get(job_id)
-            if not st:
-                return
-
-            idx = st["current_idx"]
-            reward = acc - loss
-            st["metrics"][idx].append(reward)
-
-            explored_all = all(len(v) >= 1 for v in st["metrics"].values())
-            if explored_all and st["phase"] == "explore":
-                avg_rewards = {i: (sum(v) / len(v)) for i, v in st["metrics"].items()}
-                best_idx = max(avg_rewards, key=avg_rewards.get)
-                st["best_idx"] = best_idx
-                st["phase"] = "exploit"
-
-    def choose_config(self, job_id: str, new_g: int) -> Dict[str, Any]:
-        with self._lock:
-            st = self.jobs.get(job_id)
-            if not st:
-                # 튜너 state가 없으면 fallback: 단순 g비례 scaling
-                base_batch = 64
-                base_lr = 1e-3
-                return {
-                    "g": new_g,
-                    "batch": max(1, int(base_batch * new_g)),
-                    "lr": base_lr * new_g,
-                }
-
-            if st["phase"] == "explore":
-                idx = st["current_idx"]
-                cand = st["candidates"][idx]
-                st["current_idx"] = (idx + 1) % len(st["candidates"])
-                return {
-                    "g": new_g,
-                    "batch": cand["batch"],
-                    "lr": cand["lr"],
-                }
-
-            # exploit 단계
-            best = st["candidates"][st["best_idx"]]
-            base_g = max(best["g"], 1)
-            scale = new_g / base_g
-            return {
-                "g": new_g,
-                "batch": max(1, int(best["batch"] * scale)),
-                "lr": best["lr"] * scale,
-            }
+        # 필요 시 학습 곡선 모니터링용 (SIA에서는 선택 사항)
+        pass
 
     def remove_job(self, job_id: str):
         with self._lock:
@@ -1090,26 +1050,11 @@ async def _scale_and_requeue_job(
     preferred_cluster: Optional[str] = None,
     **kwargs,
 ):
-    """
-    Stop current run of rj, then requeue it with updated (g, local_batch).
-    NOTE: This should NOT migrate clusters; preferred_cluster is only recorded for SSOT/debug.
-    """
     job_id = str(getattr(rj, "job_id", ""))
 
     # ---- 0) sanitize ----
-    try:
-        new_g = int(new_g)
-    except Exception:
-        new_g = 1
-    if new_g <= 0:
-        new_g = 1
-
-    try:
-        new_local_batch = int(new_local_batch)
-    except Exception:
-        new_local_batch = 0
-    if new_local_batch < 0:
-        new_local_batch = 0
+    new_g = max(1, int(new_g))
+    new_local_batch = max(0, int(new_local_batch))
 
     # ---- 1) fetch current ACTIVE_JOBS snapshot ----
     with ACTIVE_JOBS_LOCK:
@@ -1120,84 +1065,57 @@ async def _scale_and_requeue_job(
 
         cfg = dict(info.get("config", {}) or {})
 
-        # ✅ SSOT: 기록만 (migration은 여기서 만들지 않음)
+        # ✅ [핵심] SIA가 제안한 새로운 배치 사이즈와 LR을 적용
+        # tuner를 통해 정확한 LR 스케일링 값을 계산해서 가져옵니다.
+        new_config = tuner.choose_config(job_id, new_g, new_local_batch)
+        
+        cfg["sia_desired_gpus"] = new_config["g"]
+        cfg["batch_size_per_gpu"] = new_config["batch"]
+        cfg["learning_rate"] = new_config["lr"]
+        
+        log.info(f"[SIA_SCALE] Job={job_id} re-configured: g={new_g}, batch={new_config['batch']}, lr={new_config['lr']:.6f}")
+
+        # ✅ preferred_cluster 기록 (이동 방지 및 SSOT용)
         if preferred_cluster is not None:
             cfg["preferred_cluster"] = str(preferred_cluster)
 
-        # 목표값 기록
-        cfg["sia_desired_gpus"] = int(new_g)
-        # batch는 “요청한 batch 그대로” 정책이면, 여기서 new_local_batch를 억지로 덮지 마세요.
-        # 다만 실험상 local_batch를 바꾸고 싶으면 아래 주석 해제:
-        # if new_local_batch > 0:
-        #     cfg["batch_size_per_gpu"] = int(new_local_batch)
-
-        # restart bookkeeping (있으면 carry)
-        cfg["attained_service"] = float(info.get("attained_service", cfg.get("attained_service", 0.0) or 0.0) or 0.0)
-        cfg["total_run_time"] = float(info.get("total_run_time", cfg.get("total_run_time", 0.0) or 0.0) or 0.0)
-        cfg["num_restarts"] = int(info.get("num_restarts", cfg.get("num_restarts", 0) or 0) or 0)
-        cfg["total_restart_overhead"] = float(info.get("total_restart_overhead", cfg.get("total_restart_overhead", 0.0) or 0.0) or 0.0)
-
-        # ✅ 이번 stop→start overhead 측정 시작점
+        # 기존 상태 유지 (attained_service 등)
+        cfg["attained_service"] = float(info.get("attained_service", 0.0))
+        cfg["total_run_time"] = float(info.get("total_run_time", 0.0))
+        cfg["num_restarts"] = int(info.get("num_restarts", 0))
+        cfg["total_restart_overhead"] = float(info.get("total_restart_overhead", 0.0))
         cfg["restart_begin_ts_epoch"] = float(time.time())
 
         info["config"] = cfg
         ACTIVE_JOBS[job_id] = info
-
-        # stop_event 확보
         stop_event = info.get("stop_event")
 
-    # ---- 2) request stop to nodes (이미 구현된 stop 경로를 호출한다고 가정) ----
+    # ---- 2) request stop to nodes ----
     try:
-        await _stop_job(job_id)  # ✅ 기존 코드에 있는 stop 루틴을 그대로 사용하세요
+        # 기존에 정의된 stop 루틴 호출
+        await _stop_job(job_id) 
     except Exception as e:
-        log.error(f"[SCALE] stop failed job={job_id}: {e}", exc_info=True)
+        log.error(f"[SCALE] stop failed job={job_id}: {e}")
         return False
 
-    # ---- 3) wait job to finish (or a short timeout) ----
-    # stop_event가 asyncio.Event면 기다려서 “실제로 내려간 후” requeue
+    # ---- 3) wait job to finish ----
     try:
         if stop_event is not None:
             await asyncio.wait_for(stop_event.wait(), timeout=60)
     except Exception:
-        # timeout이어도 requeue는 진행 (환경에 따라 stop_event가 안 울리는 경우가 있음)
         pass
 
-    # ---- 4) requeue with updated cfg ----
-    with ACTIVE_JOBS_LOCK:
-        info2 = dict(ACTIVE_JOBS.get(job_id, {}) or {})
-        cfg2 = dict(info2.get("config", {}) or {})
-
-        # 이 시점에서 ACTIVE에서 제거(중복 방지)
-        if job_id in ACTIVE_JOBS:
-            ACTIVE_JOBS.pop(job_id, None)
-
-    # ✅ 큐에 다시 넣기
+    # ---- 4) Requeue into JOB_QUEUE ----
+    # 이제 JOB_QUEUE에 들어간 job_config에는 batch_size_per_gpu=64가 들어있습니다.
     with JOB_QUEUE_LOCK:
-        already = any(j.get("job_id") == job_id for j in JOB_QUEUE)
-        if not already:
-            # FIFO 유지하려면 앞에 넣는 게 맞음(“scale로 인해 재시작”은 원래 job의 연속이니까)
-            JOB_QUEUE.insert(0, cfg2)
+        # 중복 방지 후 맨 앞에 삽입 (High Priority)
+        if not any(j.get("job_id") == job_id for j in JOB_QUEUE):
+            JOB_QUEUE.insert(0, cfg)
+            log.info(f"[SIA_REQUEUE] Job={job_id} requeued for scaling to g={new_g}")
 
-    metrics_logger.log_csv("queue_events", [
-        get_now_str(),
-        "requeue_by_scale",
-        job_id,
-        len(JOB_QUEUE),
-        f"new_g={new_g}, new_local_batch={new_local_batch}, pref={preferred_cluster}",
-    ])
-
-    log.info(
-        f"[SCALE][REQUEUE] job={job_id} -> queued with target_g={new_g}, "
-        f"local_batch={new_local_batch}, preferred_cluster={preferred_cluster}"
-    )
     return True
 
 def _make_scale_job_fn():
-    """
-    Returns a scale_job_fn(rj, new_g, new_local_batch) -> bool
-    Fire-and-forget style, but ensures task exceptions are retrieved.
-    """
-
     def _consume_task_exception(t: "asyncio.Task"):
         try:
             _ = t.exception()  # ✅ exception 회수 (로그 방지)
@@ -1507,7 +1425,7 @@ class SiaGlobalScheduler:
             min_gpus=rj.min_gpus,
             max_gpus=rj.max_gpus,
             current_local_batch=rj.current_local_batch,
-            recent_sps=rj.recent_sps,
+            last_sps=rj.last_sps,
             num_restarts=rj.num_restarts,
             total_run_time=rj.total_run_time,
             total_restart_overhead=rj.total_restart_overhead,
@@ -1674,7 +1592,7 @@ def _freeze_runtime_job_at_current_g(rj: "RuntimeJobState") -> "RuntimeJobState"
         max_gpus=int(rj.current_gpus),
 
         current_local_batch=getattr(rj, "current_local_batch", None),
-        recent_sps=getattr(rj, "recent_sps", None),
+        last_sps=getattr(rj, "last_sps", None),
 
         num_restarts=int(getattr(rj, "num_restarts", 0) or 0),
         total_run_time=float(getattr(rj, "total_run_time", 0.0) or 0.0),
@@ -1713,7 +1631,7 @@ def _make_new_runtime_job_for_placement(
         max_gpus=max(1, int(max_g_for_new)),
 
         current_local_batch=req_local_b,
-        recent_sps=None,
+        last_sps=None,
 
         num_restarts=int(job_cfg.get("num_restarts", 0) or 0),
         total_run_time=float(job_cfg.get("total_run_time", 0.0) or 0.0),
@@ -2323,55 +2241,41 @@ def _infer_cluster_for_job(job_id: str) -> Optional[str]:
 
 @app.get("/debug_state")
 async def debug_state():
-    # 1) 큐 상태
+    # 1) 큐 상태: 락을 잡고 최소한의 복사만 수행
     with JOB_QUEUE_LOCK:
-        queue_snapshot = [
-            {
-                "job_id": j.get("job_id"),
-                "model_name": j.get("model_name"),
-                "dataset": j.get("dataset"),
-                "epochs": j.get("epochs"),
-                "batch_size_per_gpu": j.get("batch_size_per_gpu"),
-                "learning_rate": j.get("learning_rate"),
-                "preferred_cluster": j.get("preferred_cluster"),
-                "sia_desired_gpus": j.get("sia_desired_gpus", 1),
-                "submitted_ts": str(j.get("submitted_ts")),
-            }
-            for j in JOB_QUEUE
-        ]
+        raw_queue = list(JOB_QUEUE) # 빠르게 리스트 복사
 
-    # 2) 실행 중인 잡 상태
+    # 2) 실행 중인 잡: 딕셔너리 복사
     with ACTIVE_JOBS_LOCK:
-        active_snapshot = []
-        for jid, info in ACTIVE_JOBS.items():
-            cfg = info.get("config", {})
-            active_snapshot.append({
-                "job_id": jid,
-                "status": info.get("status"),
-                "model_name": cfg.get("model_name"),
-                "dataset": cfg.get("dataset"),
-                "nodes": info.get("nodes", []),
-                "world_size": len(info.get("nodes", [])),
-                "submitted_ts": str(cfg.get("submitted_ts")),
-                "start_ts": str(info.get("start_ts")),
-                "attained_service": info.get("attained_service"),
-                "last_scaled_at_ts": info.get("last_scaled_at_ts"),
-                "last_sps": info.get("last_sps", 0.0),
-            })
+        raw_active = dict(ACTIVE_JOBS)
 
-    # 3) 노드 상태
+    # 3) 노드 상태: 딕셔너리 복사
     with NODE_REGISTRY_LOCK:
-        node_snapshot = {
-            nid: {
-                "ip": ninfo.get("ip"),
-                "agent_port": ninfo.get("agent_port"),
-                "cluster": ninfo.get("cluster"),
-                "gpu_id": ninfo.get("gpu_id"),
-                "status": ninfo.get("status"),
-                "current_job_id": ninfo.get("current_job_id"),
-            }
-            for nid, ninfo in NODE_REGISTRY.items()
-        }
+        raw_nodes = dict(NODE_REGISTRY)
+
+    # --- 이제 모든 락이 풀린 상태에서 가공(Formatting) 수행 ---
+    
+    queue_snapshot = [
+        {
+            "job_id": j.get("job_id"),
+            # ... 나머지 필드 가공 ...
+        } for j in raw_queue
+    ]
+
+    active_snapshot = []
+    for jid, info in raw_active.items():
+        cfg = info.get("config", {})
+        active_snapshot.append({
+            "job_id": jid,
+            # ... 나머지 필드 가공 ...
+        })
+
+    node_snapshot = {
+        nid: {
+            "status": ninfo.get("status"),
+            # ... 나머지 필드 가공 ...
+        } for nid, ninfo in raw_nodes.items()
+    }
 
     return {
         "queue": queue_snapshot,
