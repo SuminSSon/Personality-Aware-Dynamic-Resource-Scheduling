@@ -1,0 +1,2 @@
+epoch,rank,train_time,eval_time,total_time,cpu_usage,gpu_usage,memory_usage,cpu_temp,gpu_temp,gpu_mem_percent,accuracy,top5_accuracy,f1_score,ckf_dim,shard_pct,batch_size,num_workers,lr,all_allocs,global_train_loss,global_eval_loss,local_train_loss,local_eval_loss
+2,1,72.46611952781677,5.188258647918701,77.77415919303894,21.3,670.182912,2587.906048,0.0,56.0,4.032325737860058,19.05,66.34,0.1582929491996765,,0.5,64,4,0.002,,1.8659340625,6.52255,1.6278028125,11.15494921875
