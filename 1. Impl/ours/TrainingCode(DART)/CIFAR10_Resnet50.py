@@ -197,15 +197,22 @@ def main():
 
     # [수정 제안] 224로 늘리지 않고 32x32 그대로 사용
     transform_train = transforms.Compose([
-        transforms.RandomCrop(32, padding=4), # 32x32 유지하며 패딩 후 크롭
+        transforms.RandomResizedCrop(224),
         transforms.RandomHorizontalFlip(),
         transforms.ToTensor(),
-        transforms.Normalize(mean=[0.4914, 0.4822, 0.4465], std=[0.2023, 0.1994, 0.2010]),
+        # CIFAR-10 값으로 변경
+        transforms.Normalize(mean=[0.4914, 0.4822, 0.4465],
+                            std =[0.2023, 0.1994, 0.2010]),
     ])
 
+    # [수정] 검증용 Transform (추가)
     transform_val = transforms.Compose([
-        transforms.ToTensor(), # 검증은 원본 그대로
-        transforms.Normalize(mean=[0.4914, 0.4822, 0.4465], std=[0.2023, 0.1994, 0.2010]),
+        transforms.Resize(256),
+        transforms.CenterCrop(224),
+        transforms.ToTensor(),
+        # CIFAR-10 값으로 변경
+        transforms.Normalize(mean=[0.4914, 0.4822, 0.4465],
+                            std =[0.2023, 0.1994, 0.2010]),
     ])
 
     # 모델도 32x32용 ResNet이나 더 가벼운 ResNet18 등을 사용하는 것이 IoT 환경에 적합할 수 있습니다.
