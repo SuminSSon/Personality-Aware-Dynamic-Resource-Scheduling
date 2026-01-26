@@ -197,33 +197,21 @@ def main():
 
     # Data preparation
     transform_train = transforms.Compose([
-        transforms.Resize((224, 224)),
-        
-        # [추가] 데이터 증강: 숫자가 뒤집히지 않는 선에서 살짝 회전 (-15도 ~ +15도)
-        transforms.RandomRotation(15),
-        
-        # [추가] 데이터 증강: 위치를 살짝 이동 (상하좌우 10%)
-        # transforms.RandomAffine(degrees=0, translate=(0.1, 0.1)), 
-        
-        # [주의] RandomHorizontalFlip은 숫자(6 vs 9 등)를 헷갈리게 하므로 사용 금지 (주석 유지)
-        # transforms.RandomHorizontalFlip(), 
-        
+        transforms.RandomResizedCrop(224),
+        transforms.RandomHorizontalFlip(),
         transforms.ToTensor(),
-        #transforms.Lambda(lambda x: x.repeat(3, 1, 1)), # 1채널 -> 3채널 복사
-        
-        # MNIST 표준 정규화 (유지)
         transforms.Normalize(mean=[0.5071, 0.4867, 0.4408],
-                            std=[0.2675, 0.2565, 0.2761]),
+                             std =[0.2675, 0.2565, 0.2761]),
     ])
 
+    # 검증용 Transform (추가)
     transform_val = transforms.Compose([
-        transforms.Resize((224, 224)),
-        transforms.ToTensor(),
-        #transforms.Lambda(lambda x: x.repeat(3, 1, 1)), 
+    transforms.Resize(256),
+    transforms.CenterCrop(224),
+    transforms.ToTensor(),
         transforms.Normalize(mean=[0.5071, 0.4867, 0.4408],
-                            std=[0.2675, 0.2565, 0.2761]),
+                            std =[0.2675, 0.2565, 0.2761]),
     ])
-
     # [BUG FIX] CIFAR-10 -> CIFAR-100 (num_classes=100 이므로)
     train_dataset = datasets.CIFAR100(root='/local_datasets', train=True, download=True, transform=transform_train)
     test_dataset  = datasets.CIFAR100(root='/local_datasets', train=False, download=True, transform=transform_val)
@@ -249,7 +237,7 @@ def main():
     monitor = MetricsMonitor(interval=5)
     monitor.start()
     allocator = ResourceAllocator(
-        min_batch_size=16, max_batch_size=64,
+        min_batch_size=32, max_batch_size=128,
         min_lr=1e-4, max_lr=0.1,
         gamma=0.1, target_accuracy=90.0,
         ckf_params={

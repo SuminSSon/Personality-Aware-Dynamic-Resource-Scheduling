@@ -197,7 +197,7 @@ def main():
         transforms.Lambda(lambda x: x.repeat(3, 1, 1)), # 1채널 -> 3채널 복사 (유지)
         # [수정] MNIST 표준 값 사용
         transforms.Normalize(mean=[0.1307, 0.1307, 0.1307], 
-                            std=[0.3081, 0.3081, 0.3081]),
+                             std=[0.3081, 0.3081, 0.3081]),
     ])
     transform_val = transforms.Compose([
         transforms.Resize((224, 224)),
@@ -205,7 +205,7 @@ def main():
         transforms.Lambda(lambda x: x.repeat(3, 1, 1)), # 1채널 -> 3채널 복사 (유지)
         # [수정] MNIST 표준 값 사용
         transforms.Normalize(mean=[0.1307, 0.1307, 0.1307], 
-                            std=[0.3081, 0.3081, 0.3081]),
+                             std=[0.3081, 0.3081, 0.3081]),
     ])
 
     # 분산 샘플러 적용

@@ -445,7 +445,7 @@ def main():
     monitor = MetricsMonitor(interval=5)
     monitor.start()
     allocator = ResourceAllocator(
-        min_batch_size=4, max_batch_size=64,
+        min_batch_size=8, max_batch_size=32,
         min_lr=1e-4, max_lr=1e-2,
         gamma=0.1, target_accuracy=90.0,
         ckf_params={
