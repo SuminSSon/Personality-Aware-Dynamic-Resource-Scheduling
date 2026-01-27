@@ -1,0 +1,51 @@
+submit_time,index,job_tag,job_type,model,dataset,world_size,batch_size_per_gpu,exact_g,job_id,cluster,queue_position,submit_elapsed_ms,status,error,user_request,inter_arrival_s
+2025-12-03 15:09:08,1,J4,vision,ResNet-18,CIFAR-100,4,128,False,job-cca051eb4c95,,1,12,ok,,Maximize GPU utilization for this run — I’m fine if it uses more energy temporarily.,316.873
+2025-12-03 15:12:25,2,J1,vision,ResNet-50,CIFAR-10,2,128,False,job-3d19505feb14,,1,65,ok,,Please minimize queue waiting time. Start as soon as a slot is available.,196.856
+2025-12-03 15:17:26,3,J5,nlp,DistilBERT,SST-2,2,64,False,job-47bbc132a703,,1,55,ok,,This job is for testing only — minimal cost and stable runtime are more important than raw speed.,301.381
+2025-12-03 15:21:15,4,J4,vision,ResNet-18,CIFAR-100,1,32,False,job-0d264c71b455,,1,101,ok,,Please keep the cost reasonable while still maintaining decent speed.,228.672
+2025-12-03 15:21:16,5,J3,vision,DenseNet-121,TinyImageNet,4,64,False,job-ed299a3bc0cd,,2,140,ok,,Maximize GPU utilization for this run — I’m fine if it uses more energy temporarily.,0.503
+2025-12-03 15:26:59,6,J1,vision,ResNet-50,CIFAR-10,4,32,False,job-ad02c3e9c1bf,,3,71,ok,,Focus on efficiency. Use GPUs effectively but avoid unnecessary power consumption.,343.133
+2025-12-03 15:30:36,7,J2,vision,EfficientNetV2-S,MNIST,2,64,False,job-718bff77f61f,,4,54,ok,,I need this training to finish as fast as possible. Prioritize performance and speed over everything else.,216.861
+2025-12-03 15:32:02,8,J2,vision,EfficientNetV2-S,MNIST,1,64,False,job-3274279874de,,5,74,ok,,This job is for testing only — minimal cost and stable runtime are more important than raw speed.,85.850
+2025-12-03 15:33:35,9,J3,vision,DenseNet-121,TinyImageNet,4,32,False,job-f90b4168ecd9,,6,207,ok,,Focus on efficiency. Use GPUs effectively but avoid unnecessary power consumption.,92.813
+2025-12-03 15:43:04,10,J5,nlp,DistilBERT,SST-2,2,16,False,job-92f41b814b64,,7,69,ok,,"Balance between speed and cost. I don’t need the fastest result, just good efficiency overall.",569.666
+2025-12-03 15:44:37,11,J5,nlp,DistilBERT,SST-2,1,16,False,job-2063793ee62c,,8,71,ok,,Please minimize queue waiting time. Start as soon as a slot is available.,92.856
+2025-12-03 15:45:32,12,J5,nlp,DistilBERT,SST-2,1,16,False,job-5c62ecc22b1d,,9,37,ok,,"Balance between speed and cost. I don’t need the fastest result, just good efficiency overall.",54.694
+2025-12-03 15:56:17,13,J2,vision,EfficientNetV2-S,MNIST,2,64,False,job-546609e6313b,,9,53,ok,,Please keep the cost reasonable while still maintaining decent speed.,645.107
+2025-12-03 16:02:51,14,J4,vision,ResNet-18,CIFAR-100,4,32,False,job-b1cac1e427cf,,10,85,ok,,Please minimize queue waiting time. Start as soon as a slot is available.,394.110
+2025-12-03 16:05:49,15,J3,vision,DenseNet-121,TinyImageNet,4,32,False,job-ab2147b274cb,,11,69,ok,,Prefer reliability and consistency. I’d rather not have the job preempted or rescheduled.,177.034
+2025-12-03 16:06:31,16,J2,vision,EfficientNetV2-S,MNIST,1,64,False,job-ef4dca67b787,,12,75,ok,,Maximize GPU utilization for this run — I’m fine if it uses more energy temporarily.,42.619
+2025-12-03 16:18:48,17,J6,speech,DeepSpeech2,ARCTIC,4,8,False,job-7f1735354784,,13,163,ok,,Prefer reliability and consistency. I’d rather not have the job preempted or rescheduled.,736.945
+2025-12-03 16:20:27,18,J3,vision,DenseNet-121,TinyImageNet,4,32,False,job-e487d1403ac6,,13,68,ok,,Prefer reliability and consistency. I’d rather not have the job preempted or rescheduled.,98.329
+2025-12-03 16:28:39,19,J2,vision,EfficientNetV2-S,MNIST,1,64,False,job-c86a1f18eec0,,14,47,ok,,Please minimize queue waiting time. Start as soon as a slot is available.,492.388
+2025-12-03 16:34:52,20,J4,vision,ResNet-18,CIFAR-100,1,64,False,job-fb70532da7ec,,15,34,ok,,"Try to share resources fairly with other users, but don’t delay my job too much.",373.041
+2025-12-03 16:56:30,21,J1,vision,ResNet-50,CIFAR-10,1,64,False,job-86c1605b8fbc,,16,39,ok,,This job is for testing only — minimal cost and stable runtime are more important than raw speed.,1297.387
+2025-12-03 16:57:19,22,J6,speech,DeepSpeech2,ARCTIC,1,8,False,job-555a3e74b31d,,17,58,ok,,This job is for testing only — minimal cost and stable runtime are more important than raw speed.,48.950
+2025-12-03 17:09:56,23,J5,nlp,DistilBERT,SST-2,1,32,False,job-936ff02dcb4f,,17,64,ok,,"Try to share resources fairly with other users, but don’t delay my job too much.",756.851
+2025-12-03 17:11:08,24,J6,speech,DeepSpeech2,ARCTIC,2,8,False,job-5cebe71d082d,,18,32,ok,,I need this training to finish as fast as possible. Prioritize performance and speed over everything else.,72.463
+2025-12-03 17:14:02,25,J5,nlp,DistilBERT,SST-2,2,32,False,job-8f9c296f2395,,19,48,ok,,This job is for testing only — minimal cost and stable runtime are more important than raw speed.,173.433
+2025-12-03 17:18:54,26,J5,nlp,DistilBERT,SST-2,2,16,False,job-aba7e88ff6ce,,20,61,ok,,Please minimize queue waiting time. Start as soon as a slot is available.,292.199
+2025-12-03 17:20:26,27,J6,speech,DeepSpeech2,ARCTIC,2,16,False,job-56409ad6e883,,21,59,ok,,"Try to share resources fairly with other users, but don’t delay my job too much.",91.979
+2025-12-03 17:30:23,28,J6,speech,DeepSpeech2,ARCTIC,2,32,False,job-2ce7b8b8a168,,22,72,ok,,This job is for testing only — minimal cost and stable runtime are more important than raw speed.,597.142
+2025-12-03 17:31:25,29,J5,nlp,DistilBERT,SST-2,1,64,False,job-861eaf6d7d64,,23,62,ok,,This job is for testing only — minimal cost and stable runtime are more important than raw speed.,62.057
+2025-12-03 17:36:23,30,J5,nlp,DistilBERT,SST-2,2,64,False,job-069071711300,,24,56,ok,,Please keep the cost reasonable while still maintaining decent speed.,297.645
+2025-12-03 17:59:33,31,J6,speech,DeepSpeech2,ARCTIC,1,32,False,job-8bb3b0c1a00a,,23,39,ok,,This job is for testing only — minimal cost and stable runtime are more important than raw speed.,1389.648
+2025-12-03 17:59:41,32,J4,vision,ResNet-18,CIFAR-100,1,128,False,job-1d949f334279,,24,17,ok,,Prefer reliability and consistency. I’d rather not have the job preempted or rescheduled.,8.336
+2025-12-03 18:07:51,33,J6,speech,DeepSpeech2,ARCTIC,4,16,False,job-7e8d4a716b67,,25,58,ok,,"Try to share resources fairly with other users, but don’t delay my job too much.",489.566
+2025-12-03 18:25:29,34,J5,nlp,DistilBERT,SST-2,2,16,False,job-c70b78a0005d,,26,25,ok,,Focus on efficiency. Use GPUs effectively but avoid unnecessary power consumption.,1058.588
+2025-12-03 18:34:33,35,J3,vision,DenseNet-121,TinyImageNet,4,16,False,job-a2b88de4143a,,27,41,ok,,Please minimize queue waiting time. Start as soon as a slot is available.,543.984
+2025-12-03 18:41:24,36,J5,nlp,DistilBERT,SST-2,1,32,False,job-d0ff333514df,,28,38,ok,,Please keep the cost reasonable while still maintaining decent speed.,410.991
+2025-12-03 18:46:27,37,J6,speech,DeepSpeech2,ARCTIC,1,16,False,job-1bdd95f4c810,,29,71,ok,,Please keep the cost reasonable while still maintaining decent speed.,302.479
+2025-12-03 18:47:12,38,J2,vision,EfficientNetV2-S,MNIST,2,64,False,job-fcf1d3998b30,,30,52,ok,,Focus on efficiency. Use GPUs effectively but avoid unnecessary power consumption.,44.716
+2025-12-03 18:48:05,39,J3,vision,DenseNet-121,TinyImageNet,4,16,False,job-1e3d31f0dd1c,,31,19,ok,,Please keep the cost reasonable while still maintaining decent speed.,53.775
+2025-12-03 18:48:38,40,J3,vision,DenseNet-121,TinyImageNet,4,64,False,job-9e84949b7241,,32,36,ok,,"This is a short experiment, so give it quick access to GPUs, even small ones.",32.330
+2025-12-03 18:56:50,41,J4,vision,ResNet-18,CIFAR-100,2,64,False,job-8841f6408641,,33,16,ok,,"This is a short experiment, so give it quick access to GPUs, even small ones.",491.974
+2025-12-03 18:56:59,42,J2,vision,EfficientNetV2-S,MNIST,1,64,False,job-802d1c2f7f78,,34,78,ok,,Focus on efficiency. Use GPUs effectively but avoid unnecessary power consumption.,9.203
+2025-12-03 19:01:36,43,J6,speech,DeepSpeech2,ARCTIC,4,32,False,job-798e774eadcb,,35,55,ok,,Maximize GPU utilization for this run — I’m fine if it uses more energy temporarily.,276.461
+2025-12-03 19:01:41,44,J5,nlp,DistilBERT,SST-2,2,64,False,job-abbd77c77b8f,,36,15,ok,,Focus on efficiency. Use GPUs effectively but avoid unnecessary power consumption.,4.945
+2025-12-03 19:01:47,45,J6,speech,DeepSpeech2,ARCTIC,1,32,False,job-18ae242f93e0,,37,22,ok,,Please keep the cost reasonable while still maintaining decent speed.,6.909
+2025-12-03 19:09:12,46,J5,nlp,DistilBERT,SST-2,2,32,False,job-2a44e9f9009a,,37,71,ok,,Please keep the cost reasonable while still maintaining decent speed.,444.569
+2025-12-03 19:25:13,47,J1,vision,ResNet-50,CIFAR-10,2,128,False,job-6066c72291cd,,35,47,ok,,I need this training to finish as fast as possible. Prioritize performance and speed over everything else.,961.151
+2025-12-03 19:27:04,48,J5,nlp,DistilBERT,SST-2,1,64,False,job-582fc2c94012,,36,85,ok,,I need this training to finish as fast as possible. Prioritize performance and speed over everything else.,111.089
+2025-12-03 19:33:36,49,J3,vision,DenseNet-121,TinyImageNet,4,64,False,job-cd67ae474946,,37,156,ok,,"Try to share resources fairly with other users, but don’t delay my job too much.",391.162
+2025-12-03 19:34:22,50,J5,nlp,DistilBERT,SST-2,1,32,False,job-b5bf02df3946,,38,55,ok,,"Balance between speed and cost. I don’t need the fastest result, just good efficiency overall.",45.926
