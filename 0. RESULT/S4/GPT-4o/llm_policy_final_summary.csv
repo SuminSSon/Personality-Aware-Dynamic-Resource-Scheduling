@@ -1,0 +1,2 @@
+Model,Direct_Correct_Mean,Direct_Correct_Std,Tol_Acc_0.1_Mean,Tol_Acc_0.1_Std,Tol_Acc_0.2_Mean,Tol_Acc_0.2_Std,Latency_Mean,Latency_Std
+gpt-4o,0.8500,0.0000,0.5750,0.0000,0.9542,0.0072,0.9528,0.0039

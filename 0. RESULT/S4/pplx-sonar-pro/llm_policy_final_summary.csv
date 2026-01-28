@@ -1,0 +1,2 @@
+Model,Direct_Correct_Mean,Direct_Correct_Std,Tol_Acc_0.1_Mean,Tol_Acc_0.1_Std,Tol_Acc_0.2_Mean,Tol_Acc_0.2_Std,Latency_Mean,Latency_Std
+pplx-sonar-pro,0.8042,0.0144,0.5958,0.0260,0.8708,0.0191,3.1806,0.0582
