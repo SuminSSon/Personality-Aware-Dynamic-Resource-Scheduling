@@ -1,0 +1,9 @@
+scheduler,cluster,jobs,rows,mean_jct_sec,mean_queued_sec,mean_training_time_sec,mean_acc,acc_n
+Lucid,clusterA,29,29,4958.74,2405.84,2552.86,68.5,25
+Lucid,clusterB,21,21,4733.91,2298.38,2435.52,60.05,15
+Ours,clusterA,27,27,2628.6,881.33,0.0,42.76,27
+Ours,clusterB,22,22,2827.94,801.87,0.0,44.01,22
+Pollux,clusterA,23,23,11499.79,8005.92,3493.91,63.79,19
+Pollux,clusterB,27,27,10422.59,8509.81,1912.63,67.28,21
+Sia,clusterA,19,19,6546.09,4191.65,2354.42,59.82,19
+Sia,clusterB,21,21,10680.61,7158.88,3521.81,67.75,21
