@@ -109,10 +109,10 @@ NODE_REGISTRY = {
     "node_c": {"ip": "163.180.117.216", "agent_port": 8003, "gpu_id": 2, "prefix": "/home/ubuntu216/SUN", "status": "idle", "current_job_id": None, "cluster": "clusterA"},
     "node_d": {"ip": "163.180.117.216", "agent_port": 8004, "gpu_id": 3, "prefix": "/home/ubuntu216/SUN", "status": "idle", "current_job_id": None, "cluster": "clusterA"},
 
-    "node_e": {"ip": "163.180.160.62", "agent_port": 8005, "prefix": "/nas2/data/dlwmznzl1/test/TrainingCode(DART)", "status": "idle", "current_job_id": None},
-    "node_f": {"ip": "163.180.160.62", "agent_port": 8006, "prefix": "/nas2/data/dlwmznzl1/test/TrainingCode(DART)", "status": "idle", "current_job_id": None},
-    "node_g": {"ip": "163.180.160.62", "agent_port": 8007, "prefix": "/data/breath12/CCGRID/test/TrainingCode(DART)", "status": "idle", "current_job_id": None},
-    "node_h": {"ip": "163.180.160.62", "agent_port": 8008, "prefix": "/data/breath12/CCGRID/test/TrainingCode(DART)", "status": "idle", "current_job_id": None},
+    "node_e": {"ip": "163.180.160.62", "agent_port": 8301, "prefix": "/nas2/data/dlwmznzl1/test/TrainingCode(DART)", "status": "idle", "current_job_id": None},
+    "node_f": {"ip": "163.180.160.62", "agent_port": 8302, "prefix": "/nas2/data/dlwmznzl1/test/TrainingCode(DART)", "status": "idle", "current_job_id": None},
+    "node_g": {"ip": "163.180.160.62", "agent_port": 8303, "prefix": "/data/breath12/CCGRID/test/TrainingCode(DART)", "status": "idle", "current_job_id": None},
+    "node_h": {"ip": "163.180.160.62", "agent_port": 8304, "prefix": "/data/breath12/CCGRID/test/TrainingCode(DART)", "status": "idle", "current_job_id": None},
 }
 
 ACTIVE_JOBS = {}
@@ -1674,6 +1674,10 @@ def preempt_job(req: PreemptJobRequest):
     with job_locks[job_id]:
         st0 = ACTIVE_JOBS.get(job_id) or {}
 
+        # ✅ HOL reclaim(HOL_GANG_PREEMPT)은 즉시 선점이 목적이므로 guard 우회
+        # (이거 없으면 reclaim이 20초 동안 막혀서 gang4가 영영 못 뜸)
+        is_hol_reclaim = ("HOL_GANG_PREEMPT" in str(reason))
+
         # (a) 스케줄러/런처가 넣어둔 guard 우선
         try:
             guard_until = float(st0.get("preempt_guard_until", 0.0) or 0.0)
@@ -1689,15 +1693,27 @@ def preempt_job(req: PreemptJobRequest):
         # 이미 preempting이면(같은 run_id 멱등은 뒤에서 처리) guard로 막지 않음
         cur_status = (st0.get("status") or "").lower().strip()
 
-        # guard_until이 설정돼 있으면 최우선 적용
-        if cur_status not in ("preempting",) and guard_until > 0.0 and now < guard_until:
+        # guard_until이 설정돼 있으면 최우선 적용 (단, HOL reclaim은 우회)
+        if (not is_hol_reclaim) and cur_status not in ("preempting",) and guard_until > 0.0 and now < guard_until:
             log.info(f"[{job_id}] Preempt suppressed by guard_until={guard_until:.3f} now={now:.3f} reason={reason}")
-            return {"ok": True, "status": "ok", "job_id": job_id, "note": "preempt_suppressed_guard_until", "guard_until": guard_until}
+            return {
+                "ok": True,
+                "status": "ok",
+                "job_id": job_id,
+                "note": "preempt_suppressed_guard_until",
+                "guard_until": guard_until,
+            }
 
-        # guard_until이 없더라도, launch 직후(DEFAULT_PREEMPT_GUARD_SEC)에는 preempt 억제
-        if cur_status not in ("preempting",) and launch_ts > 0.0 and (now - launch_ts) < float(DEFAULT_PREEMPT_GUARD_SEC):
+        # guard_until이 없더라도, launch 직후(DEFAULT_PREEMPT_GUARD_SEC)에는 preempt 억제 (단, HOL reclaim은 우회)
+        if (not is_hol_reclaim) and cur_status not in ("preempting",) and launch_ts > 0.0 and (now - launch_ts) < float(DEFAULT_PREEMPT_GUARD_SEC):
             log.info(f"[{job_id}] Preempt suppressed by launch_guard since={now-launch_ts:.3f}s reason={reason}")
-            return {"ok": True, "status": "ok", "job_id": job_id, "note": "preempt_suppressed_launch_guard", "launch_ts": launch_ts}
+            return {
+                "ok": True,
+                "status": "ok",
+                "job_id": job_id,
+                "note": "preempt_suppressed_launch_guard",
+                "launch_ts": launch_ts,
+            }
 
     # -----------------------------
     # ✅ 2) debounce (기존 2초) — guard 뒤로 이동 (중요)
@@ -1749,7 +1765,11 @@ def preempt_job(req: PreemptJobRequest):
             gu = float(job_info.get("preempt_guard_until", 0.0) or 0.0)
         except Exception:
             gu = 0.0
-        job_info["preempt_guard_until"] = max(gu, float(now + float(DRAIN_SECONDS)))
+        if "HOL_GANG_PREEMPT" in reason:
+            # HOL reclaim은 연쇄 선점이 필요할 수 있어 guard를 길게 늘리지 않음
+            job_info["preempt_guard_until"] = float(now + 0.5)
+        else:
+            job_info["preempt_guard_until"] = max(gu, float(now + float(DRAIN_SECONDS)))
 
         ACTIVE_JOBS[job_id] = job_info
 

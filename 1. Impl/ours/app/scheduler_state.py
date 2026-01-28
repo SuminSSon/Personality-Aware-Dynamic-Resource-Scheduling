@@ -758,6 +758,60 @@ def execute_preemption_and_requeue_locked(
         )
 
 def status_snapshot_compact() -> Dict[str, Any]:
+    def _job_victim_tag(jr: Any) -> Dict[str, Any]:
+        """
+        victim 표시 규칙:
+        - is_hol_backfill(또는 queue_kind==HOL_BACKFILL) 이어야 함
+        - hol_backfill_pin == (현재 배치 cluster_id) 이어야 함  (pin에서 돌고 있는지)
+        - 그리고 "찜하지 않은 cluster 배치"면 victim 표시 금지:
+            allowed = pinned_cluster or admitted_cluster_id or home_cluster_id
+            victim은 (cluster_id == allowed)일 때만 True
+        """
+        try:
+            qk = _as_str(_get_attr_or_key(jr, "queue_kind", "") or "").upper().strip()
+        except Exception:
+            qk = ""
+
+        try:
+            is_hbf = bool(_get_attr_or_key(jr, "is_hol_backfill", False)) or (qk == "HOL_BACKFILL")
+        except Exception:
+            is_hbf = False
+
+        hol_pin = _as_str(_get_attr_or_key(jr, "hol_backfill_pin", "") or "").strip()
+        hol_for = _as_str(_get_attr_or_key(jr, "hol_backfill_for", "") or "").strip()
+
+        cur_cid = _as_str(_get_attr_or_key(jr, "cluster_id", "") or "").strip()
+        pinned = _as_str(_get_attr_or_key(jr, "pinned_cluster", "") or "").strip()
+        admitted = _as_str(_get_attr_or_key(jr, "admitted_cluster_id", "") or "").strip()
+        home = _as_str(_get_attr_or_key(jr, "home_cluster_id", "") or "").strip()
+
+        allowed = pinned or admitted or home  # "찜/허용" 클러스터
+        on_pin = bool(hol_pin and cur_cid and hol_pin == cur_cid)
+        allowed_ok = bool(cur_cid and allowed and (cur_cid == allowed))
+
+        victim = bool(is_hbf and on_pin and allowed_ok)
+
+        # 표시용(디버깅)
+        return {
+            "is_backfill": bool(_get_attr_or_key(jr, "is_backfill", False)),
+            "is_hol_backfill": bool(is_hbf),
+            "hol_pin": hol_pin,
+            "hol_for": (hol_for or None),
+            "victim": bool(victim),
+            "victim_reason": (
+                "OK"
+                if victim
+                else (
+                    "not_hol_backfill"
+                    if not is_hbf
+                    else ("not_on_hol_pin" if not on_pin else "not_allowed_cluster")
+                )
+            ),
+            "allowed_cluster": (allowed or None),
+            "cur_cluster": (cur_cid or None),
+            "preempt_ok_only_by_hol": bool(_get_attr_or_key(jr, "preempt_ok_only_by_hol", False)),
+        }
+
     def _as_str(x: Any) -> str:
         try:
             return str(x)
@@ -810,17 +864,21 @@ def status_snapshot_compact() -> Dict[str, Any]:
                 ids.append(jid)
 
         top2 = []
-        for jid in ids[:2]:
+        for jid in ids[:5]:
             jr = jobs.get(str(jid))
             if jr is None:
                 top2.append({"job_id": str(jid)})
             else:
-                top2.append({
+                info = {
                     "job_id": str(jid),
                     "model": _as_str(_get_attr_or_key(jr, "model", "") or ""),
                     "dataset": _as_str(_get_attr_or_key(jr, "dataset", "") or ""),
                     "status": _as_str(_get_attr_or_key(jr, "status", "") or ""),
-                })
+                }
+                # ✅ victim 태그(단, 찜하지 않은 클러스터면 victim=False로 찍힘)
+                info.update(_job_victim_tag(jr))
+                top2.append(info)
+
         return {"len": int(len(ids)), "top2": top2}
 
     st = get_global_state()
@@ -841,17 +899,20 @@ def status_snapshot_compact() -> Dict[str, Any]:
                     gq_ids.append(jid)
 
         gq_top2 = []
-        for jid in gq_ids[:2]:
+        for jid in gq_ids[:5]:
             jr = jobs.get(str(jid))
             if jr is None:
                 gq_top2.append({"job_id": str(jid)})
             else:
-                gq_top2.append({
+                info = {
                     "job_id": str(jid),
                     "model": _as_str(_get_attr_or_key(jr, "model", "") or ""),
                     "dataset": _as_str(_get_attr_or_key(jr, "dataset", "") or ""),
                     "status": _as_str(_get_attr_or_key(jr, "status", "") or ""),
-                })
+                }
+                info.update(_job_victim_tag(jr))
+                gq_top2.append(info)
+
         out["queue"] = {"len": int(len(gq_ids)), "top2": gq_top2}
 
         # (2) queues_debug
@@ -2015,7 +2076,7 @@ def status_snapshot(recompute: bool = False) -> Dict[str, Any]:
                             return x
                         return getattr(x, "job_id", None) or getattr(x, "id", None)
 
-                    for x in items[:2]:
+                    for x in items[:5]:
                         qjid = _jid(x)
                         if not qjid:
                             continue
@@ -2063,61 +2124,244 @@ def set_job_elastic_need(job_id: str, need: bool, reasons: Optional[List[str]] =
                 jr["elastic_reasons"] = list(reasons or [])
 
 def reserve_nodes(*, job_id: str, cluster_id: str, nodes: List[str]) -> None:
-    jid = str(job_id)
-    cid = str(cluster_id)
-    nodes = [str(n) for n in (nodes or [])]
+    """
+    SSOT: state.node_owner 만이 "점유"에 대한 진실.
+    node_cluster는 'node -> cluster 소속' 정적(reference) 맵으로 사용(가능하면 덮어쓰기/삭제 금지).
+
+    보장:
+    - 같은 job이 과거에 잡고 있던 노드는 먼저 전부 해제(유령 점유 방지)
+      (단, node_cluster는 건드리지 않음)
+    - 타 job 점유 노드와 충돌하면 예외
+    - 예약 반영 후 affected cluster들만 카운터/플래그 갱신(가능하면 정확히)
+    - (호환) state.clusters[cid].node_owner 뷰가 있으면 SSOT에서 재구성하여 동기화
+    """
+    jid = str(job_id).strip()
+    cid = str(cluster_id).strip()
+    nodes = [str(n).strip() for n in (nodes or []) if n is not None and str(n).strip()]
+
+    if not jid:
+        raise RuntimeError("reserve_nodes: missing job_id")
+    if not cid:
+        raise RuntimeError("reserve_nodes: missing cluster_id")
+    if not nodes:
+        raise RuntimeError("reserve_nodes: empty nodes")
 
     with STATE_LOCK:
         state = get_global_state()
 
-        if not hasattr(state, "node_owner") or not isinstance(getattr(state, "node_owner", None), dict):
-            state.node_owner = {}
-        if not hasattr(state, "node_cluster") or not isinstance(getattr(state, "node_cluster", None), dict):
-            state.node_cluster = {}
+        # --- SSOT owner map ---
+        owners = getattr(state, "node_owner", None)
+        if not isinstance(owners, dict):
+            owners = {}
+            try:
+                state.node_owner = owners
+            except Exception:
+                pass
 
-        owner = state.node_owner
-        nclu = state.node_cluster
+        # --- node -> cluster reference map (do NOT treat as occupancy SSOT) ---
+        n2c = getattr(state, "node_cluster", None)
+        if not isinstance(n2c, dict):
+            n2c = {}
+            try:
+                state.node_cluster = n2c
+            except Exception:
+                pass
 
-        # ✅ NEW 0) 같은 job이 이미 다른 cluster 노드를 잡고 있으면 먼저 해제(유령 점유 방지)
-        owned_other: List[str] = []
-        for n0, o0 in list(owner.items()):
+        # --- clusters container (optional view) ---
+        clusters = getattr(state, "clusters", None)
+        if not isinstance(clusters, dict):
+            clusters = {}
+            try:
+                state.clusters = clusters
+            except Exception:
+                pass
+
+        # -------- helpers --------
+        def _get_cluster_nodes(cobj: Any) -> List[str]:
+            try:
+                ns = cobj.get("nodes") if isinstance(cobj, dict) else getattr(cobj, "nodes", None)
+            except Exception:
+                ns = None
+            if not ns:
+                return []
+            out = []
+            for x in ns:
+                if x is None:
+                    continue
+                s = str(x).strip()
+                if s:
+                    out.append(s)
+            return out
+
+        def _infer_cluster_of_node(node: str) -> Optional[str]:
+            # 1) reference map
+            try:
+                c0 = n2c.get(node)
+                if c0 is not None:
+                    cs = str(c0).strip()
+                    if cs:
+                        return cs
+            except Exception:
+                pass
+            # 2) fallback scan clusters
+            try:
+                for ccid, cobj in (clusters or {}).items():
+                    ccid_s = str(ccid).strip()
+                    if not ccid_s:
+                        continue
+                    cnodes = _get_cluster_nodes(cobj)
+                    if node in cnodes:
+                        # backfill reference map (best-effort)
+                        try:
+                            n2c[node] = ccid_s
+                        except Exception:
+                            pass
+                        return ccid_s
+            except Exception:
+                pass
+            return None
+
+        def _sync_cluster_view(ccid: str) -> None:
+            cobj = clusters.get(ccid) if isinstance(clusters, dict) else None
+            if cobj is None:
+                return
+            cnodes = _get_cluster_nodes(cobj)
+            if not cnodes:
+                # nodes 목록이 없으면 정확한 재구성이 어려우므로, 최소한 job 잔존만 제거는 reserve에서 다루지 않음
+                return
+            view = {}
+            for nn in cnodes:
+                oo = owners.get(nn)
+                if oo is not None:
+                    view[nn] = oo
+            try:
+                if isinstance(cobj, dict):
+                    cobj["node_owner"] = view
+                else:
+                    setattr(cobj, "node_owner", view)
+            except Exception:
+                pass
+
+        # ----------------------------
+        # 0) reclaim ALL previous nodes owned by this job (any cluster)
+        #    IMPORTANT: do NOT mutate n2c here (it's reference)
+        # ----------------------------
+        owned_prev: List[str] = []
+        affected: set = set()
+
+        for n0, o0 in list(owners.items()):
             if o0 is None or str(o0) != jid:
                 continue
-            c0 = nclu.get(n0)
-            c0s = str(c0) if c0 is not None else None
-            if c0s is not None and c0s != cid:
-                owned_other.append(str(n0))
+            n0s = str(n0).strip()
+            if not n0s:
+                continue
+            owned_prev.append(n0s)
+            c_prev = _infer_cluster_of_node(n0s)
+            if c_prev:
+                affected.add(str(c_prev))
 
-        if owned_other:
-            logger.warning(
-                "[SSOT_RESERVE_MULTI_CLUSTER] job_id=%s new_cid=%s releasing_other_nodes=%s",
-                jid, cid, owned_other
-            )
-            for n0 in owned_other:
-                owner.pop(n0, None)
-                nclu.pop(n0, None)
-            # 보수적으로 카운터 갱신
-            for c in list((getattr(state, "clusters", {}) or {}).keys()):
+        if owned_prev:
+            try:
+                logger.warning(
+                    "[SSOT_RESERVE_RECLAIM_PREV] job_id=%s new_cid=%s releasing_prev_nodes=%s",
+                    jid, cid, owned_prev
+                )
+            except Exception:
+                pass
+
+            for n0s in owned_prev:
+                owners.pop(n0s, None)
+
+        # ----------------------------
+        # 1) conflict check (block only other job owners)
+        # ----------------------------
+        for n in nodes:
+            cur = owners.get(n)
+            if cur is not None and str(cur) != jid:
                 try:
-                    _recompute_cluster_counters_locked(state, str(c))
-                    _set_free_changed_locked(state, str(c))
+                    logger.warning(
+                        "[SSOT_RESERVE_CONFLICT] node=%s cur_owner=%s new_owner=%s cid=%s",
+                        n, cur, jid, cid
+                    )
+                except Exception:
+                    pass
+                raise RuntimeError(f"reserve_conflict: node={n} owner={cur} new_owner={jid}")
+
+        # ----------------------------
+        # 2) apply reservation (SSOT owner)
+        # ----------------------------
+        for n in nodes:
+            owners[n] = jid
+            # reference map 보강(없을 때만)
+            if n not in n2c or not str(n2c.get(n) or "").strip():
+                try:
+                    n2c[n] = cid
                 except Exception:
                     pass
 
-        # 1) 충돌 체크(타 job 점유만 막음)
-        for n in nodes:
-            cur = owner.get(n)
-            if cur is not None and str(cur) != jid:
-                logger.warning("[SSOT_RESERVE_CONFLICT] node=%s cur_owner=%s new_owner=%s cid=%s", n, cur, jid, cid)
-                raise RuntimeError(f"reserve_conflict: node={n} owner={cur} new_owner={jid}")
+        affected.add(cid)
 
-        # 2) 예약 반영
-        for n in nodes:
-            owner[n] = jid
-            nclu[n] = cid
+        # nodes의 실제 소속을 정확히 반영(가능하면)
+        try:
+            for n in nodes:
+                c1 = _infer_cluster_of_node(n)
+                if c1:
+                    affected.add(str(c1))
+        except Exception:
+            pass
 
-        _recompute_cluster_counters_locked(state, cid)
-        logger.info("[SSOT_RESERVED] job_id=%s cluster_id=%s nodes=%s", jid, cid, nodes)
+        # ----------------------------
+        # 3) recompute counters/flags (affected only; fallback to all)
+        # ----------------------------
+        try:
+            if affected:
+                for c in sorted({str(x).strip() for x in affected if str(x).strip()}):
+                    try:
+                        _recompute_cluster_counters_locked(state, c)
+                    except Exception:
+                        pass
+                    try:
+                        _set_free_changed_locked(state, c)
+                    except Exception:
+                        pass
+            else:
+                for c in list((getattr(state, "clusters", {}) or {}).keys()):
+                    c_str = str(c).strip()
+                    if not c_str:
+                        continue
+                    try:
+                        _recompute_cluster_counters_locked(state, c_str)
+                    except Exception:
+                        pass
+                    try:
+                        _set_free_changed_locked(state, c_str)
+                    except Exception:
+                        pass
+        except Exception:
+            # 최후 안전망: 현재 cid만이라도 갱신
+            try:
+                _recompute_cluster_counters_locked(state, cid)
+            except Exception:
+                pass
+            try:
+                _set_free_changed_locked(state, cid)
+            except Exception:
+                pass
+
+        # ----------------------------
+        # 4) (optional) sync cluster view node_owner from SSOT (for affected clusters)
+        # ----------------------------
+        try:
+            if isinstance(clusters, dict) and clusters:
+                for c in sorted({str(x).strip() for x in affected if str(x).strip()}):
+                    _sync_cluster_view(c)
+        except Exception:
+            pass
+
+        try:
+            logger.info("[SSOT_RESERVED] job_id=%s cluster_id=%s nodes=%s", jid, cid, nodes)
+        except Exception:
+            pass
 
 def transfer_node_locked(
     state: Any,

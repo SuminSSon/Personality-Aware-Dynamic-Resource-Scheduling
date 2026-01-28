@@ -396,9 +396,33 @@ def _free_nodes_in_cluster(state: Any, cid: str) -> List[str]:
     now = float(time.time())
 
     # ---- node_owner (SSOT)
-    node_owner = getattr(state, "node_owner", None)
-    if not isinstance(node_owner, dict):
+    # 1) cluster별 node_owner가 있으면 그걸 우선
+    # 2) 없으면 state.node_owner fallback
+    node_owner = {}
+    try:
+        clusters0 = getattr(state, "clusters", None)
+        if isinstance(clusters0, dict):
+            cr0 = clusters0.get(cid)
+        else:
+            cr0 = None
+
+        if cr0 is not None:
+            if isinstance(cr0, dict):
+                no0 = cr0.get("node_owner")
+            else:
+                no0 = getattr(cr0, "node_owner", None)
+            if isinstance(no0, dict):
+                node_owner = dict(no0)  # shallow copy
+    except Exception:
         node_owner = {}
+
+    if not node_owner:
+        no = getattr(state, "node_owner", None)
+        if isinstance(no, dict):
+            node_owner = no
+        else:
+            node_owner = {}
+
 
     # ---- cluster nodes
     clusters = getattr(state, "clusters", None)
@@ -447,11 +471,14 @@ def _free_nodes_in_cluster(state: Any, cid: str) -> List[str]:
         # 1) owner 체크 (보수적으로: 키가 존재하면 점유)
         #    - 값이 None이면 "비점유"로 볼 수 있게 예외 처리
         try:
-            if nn in node_owner and node_owner.get(nn) is not None:
-                # 점유 중
-                continue
+            if nn in node_owner:
+                o = node_owner.get(nn)
+                # None / "" / "none" / "null" 은 비점유로 취급
+                if o is not None:
+                    s = str(o).strip().lower()
+                    if s not in ("", "none", "null"):
+                        continue  # 점유 중
         except Exception:
-            # 이상하면 보수적으로 제외
             continue
 
         # 2) drain 체크
@@ -483,30 +510,6 @@ def _free_nodes_in_cluster(state: Any, cid: str) -> List[str]:
 
     out.sort()
     return out
-
-def _cluster_has_waiting_gang_hol(state: Any, cluster_id: str) -> bool:
-    q = _get_global_queue(state)
-    if not q:
-        return False
-    jobs = _get_jobs(state)
-
-    hol = jobs.get(str(q[0]))
-    if hol is None or not _is_queued(hol):
-        return False
-    need = _job_g_req(hol)
-    if int(_job_gang_required_g(hol) or 0) != 4 and (not _is_gang(hol)):
-        return False
-
-    # ✅ NEW: HoL이 실제로 찜한 클러스터만 backfill 제한
-    hol_pin = (
-        str(getattr(hol, "hol_pinned_cluster_id", "") or "").strip()
-        or str(getattr(state, "hol_pin_cluster", "") or "").strip()
-    )
-    if hol_pin and str(cluster_id) != hol_pin:
-        return False
-
-    free = len(_free_nodes_in_cluster(state, cluster_id))
-    return free < int(need)
 
 def _job_gang_required_g(job_obj: Any) -> int:
     try:
@@ -1346,54 +1349,255 @@ def _set_free_changed_locked(state: Any, cluster_id: str) -> None:
     state.cluster_events[cid] = rec
 
 def release_nodes_for_job_locked(*, job_id: str, cluster_id: Optional[str] = None) -> List[str]:
-    jid = str(job_id)
-    cid = str(cluster_id) if cluster_id is not None else None
+    """
+    SSOT = state.node_owner + state.node_cluster 로 통일.
+
+    ✅ 보장:
+    - state.node_owner 에서 job_id가 점유한 노드를 확실히 pop
+    - cluster_id가 주어져도 node_cluster 누락 때문에 release가 0개 되는 케이스를 막음
+    - (호환) state.clusters[cid].node_owner 같은 "뷰"가 존재하면 SSOT로부터 동기화(갱신)함
+      -> 이제 앞으로는 SSOT(node_owner, node_cluster)만 믿으면 됨. (cluster 내부 dict는 파생뷰)
+    - 카운터/플래그 recompute는 영향을 받은 클러스터 기준으로 수행
+
+    🔥 중요 수정:
+    - node_cluster는 "노드 소속(정적)" 맵이므로 release 시 pop 금지 (유령락/비결정성 방지)
+    - owner 비교는 대소문자/공백 차이에도 강건하게 (jid/o 모두 normalize)
+    """
+    jid_raw = str(job_id).strip()
+    if not jid_raw:
+        return []
+
+    # normalize for robust owner matching (case/whitespace)
+    jid_norm = jid_raw.strip().lower()
+
+    cid = str(cluster_id).strip() if cluster_id is not None else None
+    if cid is not None:
+        cid = cid.strip()
 
     state = get_global_state()
 
+    # --- SSOT maps ---
     owner = getattr(state, "node_owner", None)
     nclu = getattr(state, "node_cluster", None)
 
     if not isinstance(owner, dict):
-        raise RuntimeError("state.node_owner is not a dict (cannot release nodes)")
+        # SSOT가 dict가 아니면 지금 상태 자체가 깨진 것
+        raise RuntimeError("state.node_owner is not a dict (SSOT broken)")
+
     if not isinstance(nclu, dict):
         nclu = {}
-        state.node_cluster = nclu
+        try:
+            state.node_cluster = nclu
+        except Exception:
+            pass
 
+    clusters = getattr(state, "clusters", None)
+    if not isinstance(clusters, dict):
+        clusters = {}
+        try:
+            state.clusters = clusters
+        except Exception:
+            pass
+
+    # --- helpers ---
+    def _get_cluster_nodes(c: Any) -> List[str]:
+        ns = None
+        if isinstance(c, dict):
+            ns = c.get("nodes", None)
+        else:
+            ns = getattr(c, "nodes", None)
+        if not ns:
+            return []
+        out: List[str] = []
+        for x in ns:
+            if x is None:
+                continue
+            s = str(x).strip()
+            if s:
+                out.append(s)
+        return out
+
+    def _get_cluster_owner_map(c: Any) -> Optional[Dict[str, Any]]:
+        m = None
+        if isinstance(c, dict):
+            m = c.get("node_owner", None)
+        else:
+            m = getattr(c, "node_owner", None)
+        return m if isinstance(m, dict) else None
+
+    def _set_cluster_owner_map(c: Any, m: Dict[str, Any]) -> None:
+        if isinstance(c, dict):
+            c["node_owner"] = m
+        else:
+            try:
+                setattr(c, "node_owner", m)
+            except Exception:
+                pass
+
+    def _ensure_node_cluster_mapping() -> None:
+        """
+        nclu가 비어 있거나 일부 노드가 누락되어 있을 때,
+        clusters[cid].nodes를 기준으로 n -> cid를 보강.
+        """
+        try:
+            for ccid, cobj in list(clusters.items()):
+                ccid_s = str(ccid).strip()
+                if not ccid_s:
+                    continue
+                for n in _get_cluster_nodes(cobj):
+                    if n not in nclu:
+                        nclu[n] = ccid_s
+        except Exception:
+            pass
+
+    def _sync_cluster_view_for(cids: Set[str]) -> None:
+        """
+        (호환) cluster 내부 node_owner가 존재하면 SSOT(node_owner,node_cluster)로부터 재구성.
+        """
+        for ccid in list(cids):
+            cobj = clusters.get(ccid)
+            if cobj is None:
+                continue
+
+            cnodes = _get_cluster_nodes(cobj)
+            if not cnodes:
+                # nodes 리스트가 없으면 정확한 재구성이 어려움 -> 최소한 job_id 잔존은 제거
+                cmap = _get_cluster_owner_map(cobj)
+                if isinstance(cmap, dict) and cmap:
+                    for n, o in list(cmap.items()):
+                        if o is None:
+                            continue
+                        if str(o).strip().lower() == jid_norm:
+                            cmap.pop(n, None)
+                    _set_cluster_owner_map(cobj, cmap)
+                continue
+
+            new_map: Dict[str, Any] = {}
+            for n in cnodes:
+                o = owner.get(n)
+                if o is None:
+                    continue
+                new_map[n] = o
+            _set_cluster_owner_map(cobj, new_map)
+
+    # --- build mapping so cluster_id filter won't silently skip because node_cluster lacks entries ---
+    _ensure_node_cluster_mapping()
+
+    # --- 1) find candidate nodes in SSOT.owner ---
     released_nodes: List[str] = []
     affected_clusters: Set[str] = set()
 
-    # 1) 대상 찾기
-    for n, o in list(owner.items()):
-        if str(o) != jid:
-            continue
-        n_cid = nclu.get(n)
-        n_cid_str = str(n_cid) if n_cid is not None else None
-        if cid is not None and n_cid_str != cid:
-            continue
-        released_nodes.append(n)
-        if n_cid_str is not None:
-            affected_clusters.add(n_cid_str)
+    # cache for cluster nodes when we need conservative allow
+    cluster_nodes_cache: Optional[Set[str]] = None
+    if cid is not None:
+        cobj0 = clusters.get(cid)
+        if cobj0 is not None:
+            try:
+                cluster_nodes_cache = set(_get_cluster_nodes(cobj0))
+            except Exception:
+                cluster_nodes_cache = None
 
-    # 2) 해제
+    for n, o in list(owner.items()):
+        if o is None:
+            continue
+        if str(o).strip().lower() != jid_norm:
+            continue
+
+        n_cid = nclu.get(n)
+        n_cid_s = str(n_cid).strip() if n_cid is not None else ""
+
+        if cid is not None:
+            # cluster_id가 주어졌는데 nclu가 비어 있으면, clusters[cid].nodes에 포함되면 release 허용
+            if n_cid_s:
+                if n_cid_s != cid:
+                    continue
+            else:
+                if cluster_nodes_cache is not None:
+                    if n not in cluster_nodes_cache:
+                        continue
+                # cluster 정보가 없거나 nodes가 비어있으면 유령락 방지를 위해 release 허용
+
+        released_nodes.append(n)
+        if n_cid_s:
+            affected_clusters.add(n_cid_s)
+        elif cid is not None:
+            affected_clusters.add(cid)
+
+    # --- 2) legacy: SSOT에 없는데 cluster view에만 남아있는 job_id 점유 제거 ---
+    legacy_released: List[Tuple[str, str]] = []  # (node, cluster)
+    if clusters:
+        scan_cids = [cid] if cid is not None else list(clusters.keys())
+        for ccid in scan_cids:
+            ccid_s = str(ccid).strip()
+            if not ccid_s:
+                continue
+            cobj = clusters.get(ccid)
+            if cobj is None:
+                continue
+            cmap = _get_cluster_owner_map(cobj)
+            if not isinstance(cmap, dict) or not cmap:
+                continue
+            for n, o in list(cmap.items()):
+                if o is None:
+                    continue
+                if str(o).strip().lower() != jid_norm:
+                    continue
+                if n in released_nodes:
+                    continue
+                legacy_released.append((str(n), ccid_s))
+                affected_clusters.add(ccid_s)
+
+    # --- 3) pop from SSOT.owner ONLY ---
     for n in released_nodes:
         owner.pop(n, None)
-        nclu.pop(n, None)
+        # 🔥 node_cluster는 정적 맵이므로 pop 금지
 
-    # 3) 카운터/플래그
-    if cid is not None:
-        _recompute_cluster_counters_locked(state, cid)
-        _set_free_changed_locked(state, cid)
+    # legacy: cluster 뷰에만 있었던 경우도 owner에서 혹시 남아있으면 pop 시도
+    if legacy_released:
+        for n, _ccid_s in legacy_released:
+            owner.pop(n, None)
+            # 🔥 node_cluster pop 금지
+
+    # --- 4) sync cluster view(s) from SSOT (write-through) ---
+    if affected_clusters:
+        _sync_cluster_view_for(affected_clusters)
     else:
-        if affected_clusters:
-            for c in affected_clusters:
-                _recompute_cluster_counters_locked(state, c)
-                _set_free_changed_locked(state, c)
-        else:
-            for c in list((getattr(state, "clusters", {}) or {}).keys()):
-                c_str = str(c)
+        # 보수적으로 전체 동기화
+        try:
+            _sync_cluster_view_for(set(str(x).strip() for x in clusters.keys() if str(x).strip()))
+        except Exception:
+            pass
+
+    # --- 5) counters/flags ---
+    if affected_clusters:
+        for c in sorted(list(affected_clusters)):
+            try:
+                _recompute_cluster_counters_locked(state, str(c))
+            except Exception:
+                pass
+            try:
+                _set_free_changed_locked(state, str(c))
+            except Exception:
+                pass
+    else:
+        for c in list(clusters.keys()):
+            c_str = str(c).strip()
+            if not c_str:
+                continue
+            try:
                 _recompute_cluster_counters_locked(state, c_str)
+            except Exception:
+                pass
+            try:
                 _set_free_changed_locked(state, c_str)
+            except Exception:
+                pass
+
+    # 최종 released 노드 목록 = SSOT에서 빠진 것 + legacy로 제거된 것
+    if legacy_released:
+        for n, _ in legacy_released:
+            if n not in released_nodes:
+                released_nodes.append(n)
 
     return released_nodes
 
