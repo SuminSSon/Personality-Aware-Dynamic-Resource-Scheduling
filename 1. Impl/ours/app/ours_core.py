@@ -3575,6 +3575,44 @@ def _cluster_tick_once(cluster_id: str) -> None:
             pass
         return True
 
+    def _iter_cluster_q_items(q: Any) -> List[Any]:
+        if q is None:
+            return []
+
+        # 1) list 자체
+        if isinstance(q, list):
+            return list(q)
+
+        # 2) 흔한 내부 필드들
+        for name in ("_jobs", "jobs", "items", "_items", "q", "_q", "deque", "_deque", "data", "_data"):
+            try:
+                v = getattr(q, name, None)
+            except Exception:
+                v = None
+            if isinstance(v, list) and v:
+                return list(v)
+            # deque 같은 경우
+            try:
+                if v is not None and hasattr(v, "__iter__"):
+                    vv = list(v)
+                    if vv:
+                        return vv
+            except Exception:
+                pass
+
+        # 3) 메서드 기반(있으면)
+        for m in ("to_list", "dump", "snapshot", "get_items", "get_jobs"):
+            try:
+                fn = getattr(q, m, None)
+                if callable(fn):
+                    vv = list(fn() or [])
+                    if vv:
+                        return vv
+            except Exception:
+                pass
+
+        return []
+
     def _clear_backfill_tags_if_queued(jr: Any) -> None:
         if not jr:
             return
@@ -3996,7 +4034,16 @@ def _cluster_tick_once(cluster_id: str) -> None:
                 return
 
             try:
-                qitems = list(getattr(q, "_jobs", []) or [])
+                qitems = _iter_cluster_q_items(q)
+                if rl:
+                    rl.queue_event(
+                        event="clusterq_snapshot",
+                        job_id="-",
+                        queue_len=-1,
+                        qlen_clusterq=len(qitems),
+                        note=f"cluster={cluster_id} free={free_n} qtype={type(q).__name__} first3={[ _qitem_job_id(x) for x in qitems[:3] ]}",
+                        ts=float(time.time()),
+                    )
             except Exception:
                 qitems = []
             if not qitems:
