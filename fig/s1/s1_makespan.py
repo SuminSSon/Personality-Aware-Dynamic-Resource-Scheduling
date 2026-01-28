@@ -20,11 +20,11 @@ FILES = {
     "Pollux": os.path.join(BASE_DIR, "pollux_job_metrics.csv"),
     "Sia":    os.path.join(BASE_DIR, "sia_job_metrics.csv"),
     "Lucid":  os.path.join(BASE_DIR, "lucid_job_metrics.csv"),
-    "Skuld":   os.path.join(BASE_DIR, "ours_job_metrics.csv"),
+    "Skuld(Ours)":   os.path.join(BASE_DIR, "ours_job_metrics.csv"),
 }
 
 # Order & style (keep readable in IEEE/ACM two-column)
-PLOT_ORDER = ["Pollux", "Sia", "Lucid", "Skuld"]
+PLOT_ORDER = ["Pollux", "Sia", "Lucid", "Skuld(Ours)"]
 
 def _to_numeric_ts(series: pd.Series) -> pd.Series:
     """
@@ -75,12 +75,6 @@ def load_metrics(path: str) -> pd.DataFrame:
     return df
 
 def build_cumulative_curve(df: pd.DataFrame) -> tuple[np.ndarray, np.ndarray]:
-    """
-    Per-scheduler normalization:
-      t0 = min submitted_ts within this scheduler run
-      elapsed_end = end_ts - t0
-    Build a step curve: (time_sorted, cumulative_count)
-    """
     t0 = float(df["submitted_ts"].min())
     elapsed_end = (df["end_ts"] - t0).astype(float).to_numpy()
 
@@ -93,10 +87,6 @@ def build_cumulative_curve(df: pd.DataFrame) -> tuple[np.ndarray, np.ndarray]:
     return x, y
 
 def nice_time_axis_seconds(max_sec: float) -> tuple[np.ndarray, list[str]]:
-    """
-    Create nicer tick labels for seconds axis:
-    - If long enough, show hours; otherwise minutes/seconds.
-    """
     if max_sec <= 0:
         return np.array([0.0]), ["0"]
 
@@ -159,14 +149,14 @@ def main():
         "Pollux": ("--", 1.8),
         "Sia":    ("--",  1.8),
         "Lucid":  ("--",  1.8),
-        "Skuld":   ("--",  1.8),
+        "Skuld(Ours)":   ("--",  1.8),
     }
 
     marker_styles = {
         "Pollux": "o",
         "Sia":    "s",
         "Lucid":  "^",
-        "Skuld":  "D",
+        "Skuld(Ours)":  "D",
     }
 
     for name in PLOT_ORDER:
@@ -204,12 +194,13 @@ def main():
 
     ax.grid(True, which="major", linestyle="--", linewidth=0.6, alpha=0.5)
     ax.legend(
+        loc="upper right",
+        bbox_to_anchor=(0.98, 0.50),
         ncol=1,
         frameon=True,
         fancybox=False,
         framealpha=0.85,
         edgecolor="black",
-        loc="upper left"
     )
 
 

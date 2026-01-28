@@ -14,11 +14,11 @@ FILES = {
     "Pollux": os.path.join(BASE_DIR, "pollux_job_metrics.csv"),
     "Sia":    os.path.join(BASE_DIR, "sia_job_metrics.csv"),
     "Lucid":  os.path.join(BASE_DIR, "lucid_job_metrics.csv"),
-    "Skuld":   os.path.join(BASE_DIR, "ours_job_metrics.csv"),
+    "Skuld(Ours)":   os.path.join(BASE_DIR, "ours_job_metrics.csv"),
 }
 
 # Order & style (keep readable in IEEE/ACM two-column)
-PLOT_ORDER = ["Pollux", "Sia", "Lucid", "Skuld"]
+PLOT_ORDER = ["Pollux", "Sia", "Lucid", "Skuld(Ours)"]
 
 def _to_numeric_ts(series: pd.Series) -> pd.Series:
     """
@@ -151,14 +151,14 @@ def main():
         "Pollux": ("--", 1.6),
         "Sia":    (":",  1.6),
         "Lucid":  ("-.", 1.6),
-        "Skuld":  ("-",  2.4),   # ✅ OURS 강조 (두께 + 실선)
+        "Skuld(Ours)":  ("-",  2.4),   # ✅ OURS 강조 (두께 + 실선)
     }
 
     marker_styles = {
         "Pollux": None,
         "Sia":    None,
         "Lucid":  None,
-        "Skuld":  None,          # ✅ 마커 제거: CDF는 곡선 비교가 핵심
+        "Skuld(Ours)":  None,          # ✅ 마커 제거: CDF는 곡선 비교가 핵심
     }
 
     for name in PLOT_ORDER:
@@ -190,7 +190,7 @@ def main():
     ax.grid(True, which="major", linestyle="--", linewidth=0.6, alpha=0.5)
     ax.legend(
         loc="upper right",
-        bbox_to_anchor=(0.98, 0.72),
+        bbox_to_anchor=(0.98, 0.63),
         frameon=True,
         fancybox=False,
         framealpha=0.9,
