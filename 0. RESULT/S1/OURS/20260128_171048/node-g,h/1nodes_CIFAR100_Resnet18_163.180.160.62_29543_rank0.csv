@@ -1,0 +1,2 @@
+epoch,rank,train_time,eval_time,total_time,cpu_usage,gpu_usage,memory_usage,cpu_temp,gpu_temp,gpu_mem_percent,accuracy,top5_accuracy,f1_score,ckf_dim,shard_pct,batch_size,num_workers,lr,all_allocs,global_train_loss,global_eval_loss,local_train_loss,local_eval_loss
+1,0,50.54130792617798,5.4041807651519775,56.146583557128906,5.5,933.216256,1935.09376,57.0,72.0,3.670379210442207,13.21,36.58,0.09966018795967102,[-0.00141217],1.0,66,4,0.00107679,"[{""shard_pct"": 1.0, ""batch_size"": 66, ""lr"": 0.00107679, ""num_workers"": 4}]",4.0878715625,3.7049796875,4.0878715625,3.7049796875
