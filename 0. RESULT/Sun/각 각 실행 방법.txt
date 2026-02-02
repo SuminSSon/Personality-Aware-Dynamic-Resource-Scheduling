@@ -1,0 +1,25 @@
+S1_Figure 3 & Figure 4
+
+- python viz_fig.py
+
+--------------------------------
+
+S2_Figure 5
+
+- python viz_fig.py
+
+--------------------------------
+
+S2_Figure 6
+
+- python viz_fig_hig.py
+
+--------------------------------
+
+S2_Figure 7
+
+- python viz_paper.py
+
+S2_Figure7의 viz_paper.py 실행하면 viz_paper 폴더가 생성됨. 이 안에 그래프 있음.
+
+--------------------------------
