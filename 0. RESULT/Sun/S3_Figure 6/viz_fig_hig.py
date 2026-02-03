@@ -6,7 +6,7 @@ import seaborn as sns
 
 # 1. 데이터 정의 (라벨을 논문 본문의 Policy Name과 통일)
 data = [
-    {"Cluster": "A", "GPUs": 1, "JCT": 5640, "Cost": 2.21, "Label": "Green-Computing"}, # 수정됨
+    {"Cluster": "A", "GPUs": 1, "JCT": 5640, "Cost": 2.21, "Label": "Energy-Conserving"}, # 수정됨
     {"Cluster": "A", "GPUs": 2, "JCT": 3423, "Cost": 2.68, "Label": ""},
     {"Cluster": "A", "GPUs": 4, "JCT": 2058, "Cost": 3.22, "Label": ""},
     {"Cluster": "B", "GPUs": 1, "JCT": 6382, "Cost": 1.77, "Label": "Cost-Efficient"},  # 수정됨
