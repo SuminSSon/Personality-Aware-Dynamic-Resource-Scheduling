@@ -224,7 +224,7 @@ for name, df in data_makespan.items():
 ax.set_xlabel("Wall-clock time (h)")
 ax.set_ylabel("Completed jobs")
 ax.set_title("Cumulative completed jobs over time")
-ax.legend()
+ax.legend(loc='lower right')
 ax.grid(True, which='both', linestyle='--', alpha=0.7)
 fig.tight_layout()
 fig.savefig("s1_makespan.png", dpi=300)
